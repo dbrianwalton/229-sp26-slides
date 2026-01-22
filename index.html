@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2026-01-22T01:06:52-05:00       *-->
+<!--*   A recent stable commit (2022-07-01):   *-->
+<!--* 6c761d3dba23af92cba35001c852aac04ae99a5f *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html xmlns:pi="http://pretextbook.org/2020/pretext/internal">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Math 229: Statistics Using R</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.css" integrity="sha512-cbQXwDFK7lj2Fqfkuxbo5iD1dSbLlJGXGpfTDqbggqjHJeyzx88I3rfwjS38WJag/ihH7lzuGlGHpDBymLirZQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.css" integrity="sha512-nXlJLUeqPMp1Q3+Bd8Qds8tXeRVQscMscwysJm821C++9w6WtsFbJjPenZ8cQVMXyqSAismveQJc0C1splFDCA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.2/reset.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.2/reveal.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.2/theme/solarized.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.2/reveal.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.2/plugin/math/math.js"></script><link href="_static/pretext/css/pretext-reveal.css" rel="stylesheet">
+<style></style>
+<link rel="stylesheet" type="text/css" href="external/css/custom.css">
+</head>
+<body><div class="reveal ptx-content">
+<div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\definiteintegral}[4]{\int_{#1}^{#2}\,#3\,d#4}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="slides">
+<section><section><h1>Math 229: Statistics Using R</h1>
+<h2>Course Slides</h2>
+<table>
+<tr><th align="center" style="border-bottom: 0px;">Dr. Brian Walton</th></tr>
+<tr><td align="center" style="border-bottom: 0px;">James Madison University</td></tr>
+<tr><td align="center"></td></tr>
+</table>
+<h4><div class="date">as of January 22, 2026</div></h4></section></section><section><section><h1>Introduction to R, RStudio, Quarto</h1></section><section><h3>Working with R</h3>
+<div align="left"><ul class="disc" id="Rstudio_introduction-2-2">
+<li><p>Scripting/Programming Language: R</p></li>
+<li><p>Data Analysis Application: RStudio</p></li>
+<li><p>Document Format: Quarto</p></li>
+</ul></div></section><section><h3>Computers and Data (1)</h3>
+<div align="left"><ul class="disc" id="Rstudio_introduction-3-2"><li><p>Atomic data<dl class="description-list">
+<div>
+<dt>integers</dt>
+<dd><p>whole numbers</p></dd>
+</div>
+<div>
+<dt>floating point numbers</dt>
+<dd><p>decimal and scientific notation</p></dd>
+</div>
+<div>
+<dt>boolean</dt>
+<dd><p>TRUE/FALSE</p></dd>
+</div>
+<div>
+<dt>character</dt>
+<dd><p>simple text</p></dd>
+</div>
+</dl></p></li></ul></div></section><section><h3>Computers and Data (2)</h3>
+<div align="left"><ul class="disc" id="Rstudio_introduction-4-2"><li><p>Complex data<dl class="description-list">
+<div>
+<dt>vector</dt>
+<dd><p>ordered collection of single data type</p></dd>
+</div>
+<div>
+<dt>list</dt>
+<dd><p>ordered collection of multiple data types</p></dd>
+</div>
+<div>
+<dt>data frame</dt>
+<dd><p>table of data where columns are vectors (same data type)</p></dd>
+</div>
+</dl></p></li></ul></div></section><section><h3>Programming Variables</h3>
+<div align="left"><ul class="disc" id="Rstudio_introduction-5-2">
+<li><p>Variable name: human reference to location in computer memory</p></li>
+<li>
+<p>Assignment:</p>
+<div class="code-box"><pre class="program"><code class="language-none">name &lt;- [expression result to store]
+[expression result to store] -&gt; name
+</code></pre></div>
+</li>
+<li><p>Later expressions can use the variable name and the currently stored memory value will be used</p></li>
+</ul></div></section><section><h3>RStudio (Day 2 Begins)</h3>
+<div align="left">
+<p>Integrated Development Environment (IDE)</p>
+<ul class="disc" id="Rstudio_introduction-6-3">
+<li><p>File editor<ul class="circle" id="Rstudio_introduction-6-3-1-1-1">
+<li><p>R scripts (with debugger)</p></li>
+<li><p>Quarto documents (merge formatted written documents with embedded computations)</p></li>
+</ul></p></li>
+<li><p>Live R session</p></li>
+<li><p>Data environment (inspect variable memory), package manager, plot viewer</p></li>
+<li><p>Help system</p></li>
+</ul>
+</div></section><section><h3>Markdown</h3>
+<div align="left">
+<p>Markdown is a plain text method to indicate how text should be formatted.</p>
+<ul class="disc" id="Rstudio_introduction-7-3">
+<li><p><code class="code-inline tex2jax_ignore">#</code> or <code class="code-inline tex2jax_ignore">##</code> or <code class="code-inline tex2jax_ignore">###</code> for headers (with levels)</p></li>
+<li><p><code class="code-inline tex2jax_ignore">_word_</code> or <code class="code-inline tex2jax_ignore">*word*</code> to underline</p></li>
+<li><p><code class="code-inline tex2jax_ignore">**word**</code> to bold</p></li>
+<li><p><code class="code-inline tex2jax_ignore">$formula$</code> for inline math and <code class="code-inline tex2jax_ignore">$$formula$$</code> for display math</p></li>
+<li><p><code class="code-inline tex2jax_ignore">`code`</code> for inline code</p></li>
+</ul>
+</div></section><section><h3>Task: Create Quarto File</h3>
+<div align="left"><ul class="disc" id="Rstudio_introduction-8-2">
+<li><p>Two sections with headers (level 1). One of the sections should have two subsections with headers (level 2).</p></li>
+<li><p>Include a paragraph that includes some words that are bolded and others that are underlined. Can you get some that do both?</p></li>
+<li><p>Add a mathematical formula on its own line (displaymath) that shows <span class="process-math">\(\displaystyle y=ax^2+bx+c\)</span></p></li>
+<li>
+<p>Include code</p>
+<div class="code-box"><pre class="program"><code class="language-none">x &lt;- 12
+a &lt;- 1
+b &lt;- -2
+c &lt;- 3
+y &lt;- a*x^2+b*x+c
+</code></pre></div>
+</li>
+</ul></div></section></section><section><section><h1>Chapter 1: Statistics Overview</h1></section><section><h3>Key Ideas</h3>
+<div align="left"><ul class="disc" id="ch1-intro-stats-2-2">
+<li><p>Data: information gathered with surveys and experiments</p></li>
+<li><p>Statistics: the art and science of learning from data</p></li>
+<li><p>Statistical investigative process:<ol class="decimal" id="ch1-intro-stats-2-2-3-1-1">
+<li><p>formulate a statistical question</p></li>
+<li><p>collect data</p></li>
+<li><p>analyze data</p></li>
+<li><p>interpret and communicate results</p></li>
+</ol></p></li>
+</ul></div></section><section><h3>Major Components of Statistics Methods</h3>
+<div align="left">
+<ol class="decimal" id="ch1-intro-stats-3-2">
+<li><p>Design: State goal/question and plan how to collect data</p></li>
+<li><p>Description: Summarize and analyze the data</p></li>
+<li><p>Inference: Make decisions and predictions to answer question</p></li>
+</ol>
+<p>Builds on a foundation of <em class="emphasis">probability</em>, which is a framework for quantifying how likely various possible outcomes are.</p>
+</div></section><section><h3>Populations vs Samples</h3>
+<div align="left">
+<dl class="description-list">
+<div>
+<dt>subject</dt>
+<dd><p>individual entity in a study</p></dd>
+</div>
+<div>
+<dt>population</dt>
+<dd><p>total set of subjects in which we are interested</p></dd>
+</div>
+<div>
+<dt>sample</dt>
+<dd><p>subset of population for whom we have data</p></dd>
+</div>
+</dl>
+<p>Learning goal: Be specific and precise about describing these three terms.</p>
+</div></section><section><h3>Example: An Exit Poll</h3>
+<div align="left">
+<p>The purpose was to predict the outcome of the 2010 gubernatorial election in California.</p>
+<p>An exit poll sampled 3,889 of the 9.5 million people who voted. Define the sample and the population for this exit poll.</p>
+</div></section><section><h3>Descriptive vs Inferential Statistics</h3>
+<div align="left"><dl class="description-list">
+<div>
+<dt>descriptive statistics</dt>
+<dd><p>Refers to methods for summarizing the collected data. Summaries consist of graphs and numbers such as averages and percentages.</p></dd>
+</div>
+<div>
+<dt>inferential statistics</dt>
+<dd><p>Refers to methods of making decisions or predictions about a population based on data obtained from a sample of that population.</p></dd>
+</div>
+</dl></div></section><section><h3>Descriptive Example</h3>
+<div align="left">
+<p>What makes this descriptive? The graph shows the result of a survey of 743 teenagers (ages 13-17) about their handling of screen time and distraction. (from textbook)</p>
+<div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="external/images/ex-1-1-cell-phone-focus-survey.png" class="contained" alt='bar chart showing percent of responses to question "Are you losing focus in class by checking your phone?" with responses of never, rarely, sometimes, or often'></div>
+</div></section><section><h3>Inferential Example</h3>
+<div align="left">
+<p>What makes this inferential?</p>
+<p>We’d like to investigate what people think about banning single-use plastic bags from grocery stores. We can study results from a January 2019 poll of 929 New York residents.</p>
+<p>In that poll, 48% of the sampled subjects said they would support a state law that bans stores from providing plastic bags.</p>
+<p>We can predict with high confidence (about 95% certainty) that the percentage of all New York voters supporting the ban of plastic bags falls within 4.1% of the survey’s value of 48%, that is, between 43.9% and 52.1%.</p>
+</div></section><section><h3>Parameter vs Statistic</h3>
+<div align="left"><dl class="description-list">
+<div>
+<dt>parameter</dt>
+<dd><p>a numerical summary for a population</p></dd>
+</div>
+<div>
+<dt>statistic</dt>
+<dd><p>a numerical summary of a sample taken from the population</p></dd>
+</div>
+</dl></div></section><section><h3>Themes to Watch</h3>
+<div align="left"><ul class="disc" id="ch1-intro-stats-10-2">
+<li><p>randomness and random sampling: essential for using samples to inform us about populations</p></li>
+<li><p>variability: how observations vary<ul class="circle" id="ch1-intro-stats-10-2-2-1-1">
+<li><p>within a sample: variability among individuals</p></li>
+<li><p>between samples: variability of statistical results computed from sample</p></li>
+</ul></p></li>
+<li><p>margin of error: how close we expect an estimate to fall to the true parameter value</p></li>
+<li><p>statistical significance: measure of the strength of evidence, typically measured by probability or likelihood</p></li>
+</ul></div></section></section>
+</div>
+</div></body>
+<script>
+Reveal.initialize({
+  controls: true,
+  controlsTutorial: true,
+  controlsLayout: 'bottom-right',
+  controlsBackArrows: 'faded',
+  navigationMode: 'default',
+  progress: false,
+  center: false,
+  hash: true,
+  transition: 'fade',
+  width: "100%",
+  height: "100%",
+  margin: "0.025",
+  math: {
+    mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
+    config: 'TeX-AMS_HTML-full',
+    // other options are passed into MathJax.Hub.Config()
+    tex2jax: {
+      inlineMath:  [['\\(','\\)']],
+      displayMath: [],
+    }
+  },
+  plugins: [ RevealMath ]
+});
+</script>
+</html>
