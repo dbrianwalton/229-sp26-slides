@@ -1,0 +1,211 @@
+<?xml version='1.0' encoding='utf-8'?>
+<section xml:id="Rstudio_introduction" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <title>Introduction to R, RStudio, Quarto</title>
+
+  <slide>
+    <title>Working with R</title>
+
+    <ul>
+      <li>
+        <p>
+          Scripting/Programming Language: R
+        </p>
+      </li>
+      <li>
+        <p>
+          Data Analysis Application: RStudio
+        </p>
+      </li>
+      <li>
+        <p>
+          Document Format: Quarto
+        </p>
+      </li>
+    </ul>
+  </slide>
+
+  <slide>
+    <title>Computers and Data (1)</title>
+
+    <ul>
+      <li>
+        <p>
+          Atomic data
+          <dl>
+            <li>
+              <title>integers</title>
+              <p>whole numbers</p>
+            </li>
+            <li>
+              <title>floating point numbers</title>
+              <p>decimal and scientific notation</p>
+            </li>
+            <li>
+              <title>boolean</title>
+              <p>TRUE/FALSE</p>
+            </li>
+            <li>
+              <title>character</title>
+              <p>simple text</p>
+            </li>
+          </dl>
+        </p>
+      </li>
+    </ul>
+  </slide>
+
+  <slide>
+    <title>Computers and Data (2)</title>
+
+    <ul>
+      <li>
+        <p>
+          Complex data
+          <dl>
+            <li>
+              <title>vector</title>
+              <p>ordered collection of single data type</p>
+            </li>
+            <li>
+              <title>list</title>
+              <p>ordered collection of multiple data types</p>
+            </li>
+            <li>
+              <title>data frame</title>
+              <p>table of data where columns are vectors (same data type)</p>
+            </li>
+          </dl>
+        </p>
+      </li>
+    </ul>
+  </slide>
+
+  <slide>
+    <title>Programming Variables</title>
+    
+    <ul>
+      <li>
+        <p>
+          Variable name: human reference to location in computer memory
+        </p>
+      </li>
+      <li>
+        <p>
+          Assignment:
+        </p>
+        <program language="R">
+          <input>
+        name &lt;- [expression result to store]
+        [expression result to store] -&gt; name
+          </input>
+        </program>
+      </li>
+      <li>
+        <p>
+          Later expressions can use the variable name and the currently stored memory value will be used
+        </p>
+      </li>
+    </ul>
+  </slide>
+  <slide>
+    <title>RStudio (Day 2 Begins)</title>
+    <p>Integrated Development Environment (IDE)</p>
+    <ul>
+      <li>
+        <p>
+          File editor
+          <ul>
+            <li>
+              <p>R scripts (with debugger)</p>
+            </li>
+            <li>
+              <p>Quarto documents (merge formatted written documents with embedded computations)</p>
+            </li>
+          </ul>
+        </p>
+      </li>
+      <li>
+        <p>
+          Live R session
+        </p>
+      </li>
+      <li>
+        <p>
+          Data environment (inspect variable memory), package manager, plot viewer
+        </p>
+      </li>
+      <li>
+        <p>
+          Help system
+        </p>
+      </li>
+    </ul>
+  </slide>
+  <slide>
+    <title>Markdown</title>
+    <p>
+      Markdown is a plain text method to indicate how text should be formatted.
+    </p>
+    <ul>
+      <li>
+        <p>
+          <c>#</c> or <c>##</c> or <c>###</c> for headers (with levels)
+        </p>
+      </li>
+      <li>
+        <p>
+          <c>_word_</c> or <c>*word*</c> to underline
+        </p>
+      </li>
+      <li>
+        <p>
+          <c>**word**</c> to bold
+        </p>
+      </li>
+      <li>
+        <p>
+          <c>$formula$</c> for inline math and <c>$$formula$$</c> for display math
+        </p>
+      </li>
+      <li>
+        <p>
+          <c>`code`</c> for inline code
+        </p>
+      </li>
+    </ul>
+  </slide>
+  <slide>
+    <title>Task: Create Quarto File</title>
+    
+    <ul>
+      <li>
+        <p>
+          Two sections with headers (level 1). One of the sections should have two subsections with headers (level 2).
+        </p>
+      </li>
+      <li>
+        <p>
+          Include a paragraph that includes some words that are bolded and others that are underlined. Can you get some that do both?
+        </p>
+      </li>
+      <li>
+        <p>
+          Add a mathematical formula on its own line (displaymath) that shows <m>\displaystyle y=ax^2+bx+c</m>
+        </p>
+      </li>
+      <li>
+        <p>
+          Include code
+        </p>
+        <program language="R">
+          x &lt;- 12
+          a &lt;- 1
+          b &lt;- -2
+          c &lt;- 3
+          y &lt;- a*x^2+b*x+c
+        </program>
+      </li>
+    </ul>
+  </slide>
+</section>

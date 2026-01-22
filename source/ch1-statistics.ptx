@@ -1,0 +1,172 @@
+<?xml version='1.0' encoding='utf-8'?>
+<section xml:id="ch1-intro-stats" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <title>Chapter 1: Statistics Overview</title>
+
+  <slide>
+    <title>Key Ideas</title>
+
+    <ul>
+      <li>
+        <p>
+          Data: information gathered with surveys and experiments
+        </p>
+      </li>
+      <li>
+        <p>
+          Statistics: the art and science of learning from data
+        </p>
+      </li>
+      <li>
+        <p>
+          Statistical investigative process:
+          <ol>
+            <li>
+                <p>formulate a statistical question</p>
+            </li>
+            <li>
+                <p>collect data</p>
+            </li>
+            <li>
+                <p>analyze data</p>
+            </li>
+            <li>
+                <p>interpret and communicate results</p>
+            </li>
+          </ol>
+        </p>
+      </li>
+    </ul>
+  </slide>
+  <slide>
+    <title>Major Components of Statistics Methods</title>
+    <ol>
+        <li><p>Design: State goal/question and plan how to collect data</p></li>
+        <li><p>Description: Summarize and analyze the data</p></li>
+        <li><p>Inference: Make decisions and predictions to answer question</p></li>
+    </ol>
+    <p>
+        Builds on a foundation of <em>probability</em>, which is a framework for quantifying how likely various possible outcomes are.
+    </p>
+  </slide>
+
+  <slide>
+    <title>Populations vs Samples</title>
+    <dl>
+        <li>
+            <title>subject</title>
+            <p>individual entity in a study</p>
+        </li>
+        <li>
+            <title>population</title>
+            <p>total set of subjects in which we are interested</p>
+        </li>
+        <li>
+            <title>sample</title>
+            <p>subset of population for whom we have data</p>
+        </li>
+    </dl>
+    <p>Learning goal: Be specific and precise about describing these three terms.</p>
+  </slide>
+
+  <slide>
+    <title>Example: An Exit Poll</title>
+    <p>
+        The purpose was to predict the outcome of the 2010 gubernatorial election in California.
+    </p>
+    <p>
+        An exit poll sampled 3,889 of the 9.5 million people who voted. Define the sample and the population for this exit poll.
+    </p>
+  </slide>
+
+  <slide>
+    <title>Descriptive vs Inferential Statistics</title>
+    
+    <dl>
+        <li>
+            <title>descriptive statistics</title>
+            <p>
+                Refers to methods for summarizing the collected data. Summaries consist of graphs and numbers such as averages and percentages.
+            </p>
+        </li>
+        <li>
+            <title>inferential statistics</title>
+            <p>
+                Refers to methods of making decisions or predictions about a population based on data obtained from a sample of that population.
+            </p>
+        </li>
+    </dl>
+  </slide>
+
+  <slide>
+    <title>Descriptive Example</title>
+    <p>
+        What makes this descriptive? The graph shows the result of a survey of 743 teenagers (ages 13-17) about their handling of screen time and distraction. (from textbook)
+    </p>
+    <image source="images/ex-1-1-cell-phone-focus-survey.png" width="70%">
+        <shortdescription>bar chart showing percent of responses to question "Are you losing focus in class by checking your phone?" with responses of never, rarely, sometimes, or often</shortdescription>
+    </image>
+  </slide>
+
+  
+  <slide>
+    <title>Inferential Example</title>
+    <p>
+        What makes this inferential?
+    </p>
+    <p>
+        We'd like to investigate what people think about banning single-use plastic bags from grocery stores. We can study results from a January 2019 poll of 929 New York residents.
+    </p>
+    <p>
+        In that poll, 48% of the sampled subjects said they would support a state law that bans stores from providing plastic bags.
+    </p>
+    <p>
+        We can predict with high confidence (about 95% certainty) that the percentage of all New York voters supporting the ban of plastic bags falls within 4.1% of the survey's value of 48%, that is, between 43.9% and 52.1%.
+    </p>
+  </slide>
+
+  <slide>
+    <title>Parameter vs Statistic</title>
+    
+    <dl>
+        <li>
+            <title>parameter</title>
+            <p>a numerical summary for a population</p>
+        </li>
+        <li>
+            <title>statistic</title>
+            <p>a numerical summary of a sample taken from the population</p>
+        </li>
+    </dl>
+  </slide>
+
+  <slide>
+    <title>Themes to Watch</title>
+    <ul>
+        <li>
+            <p>
+                randomness and random sampling: essential for using samples to inform us about populations
+            </p>
+        </li>
+        <li>
+            <p>
+                variability: how observations vary
+                <ul>
+                    <li><p>within a sample: variability among individuals</p></li>
+                    <li><p>between samples: variability of statistical results computed from sample</p></li>
+                </ul>
+            </p>
+        </li>
+        <li>
+            <p>
+                margin of error: how close we expect an estimate to fall to the true parameter value
+            </p>
+        </li>
+        <li>
+            <p>
+                statistical significance: measure of the strength of evidence, typically measured by probability or likelihood
+            </p>
+        </li>
+    </ul>
+  </slide>
+</section>
