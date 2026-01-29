@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='utf-8'?>
+<section xml:id="ch2-data-graphs-numerical-summaries" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <title>Chapter 2: Exploring Data with Graphs and Numerical Summaries</title>
+
+  <slide>
+    <title>Key Ideas</title>
+
+    <ul>
+      <li>
+        <p>
+          Types of Data: categorical vs quantitative (discrete and continuous) variables
+        </p>
+      </li>
+      <li>
+        <p>
+          Describing the distribution of data
+          <ul>
+            <li>
+                <p>relative frequency (categorical)</p>
+            </li>
+            <li>
+                <p>shape, center and variability (quantitative)</p>
+            </li>
+          </ul>
+        </p>
+      </li>
+      <li>
+        <p>
+          Choosing appropriate graphical representations of data
+          <ul>
+            <li>
+                <p>categorical: bar graph (preferred), pie chart</p>
+            </li>
+            <li>
+                <p>quantitative: dot plot, stem and leaf plot, histogram, box plot</p>
+            </li>
+          </ul>
+        </p>
+      </li>
+    </ul>
+  </slide>
+
+  <slide>
+    <title>Structure of Data Frames</title>
+
+    <p>
+      The fundamental structure of data is in a rectangular table.
+    </p>
+    <ul>
+      <li>
+        <p>
+          Row: refers to an individual <term>subject</term> or <term>experimental replicate</term>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Column: a single <term>variable</term> representing a specific measurement or characteristic.
+        </p>
+      </li>
+      <li>
+        <p>
+          Best Practice: a <term>header row</term> states what the variables represent
+        </p>
+      </li>
+    </ul>
+    <p>
+      We import a table to create a <term>data frame</term>
+    </p>
+  </slide>
+  <slide>
+    <title>Importing Data Using RStudio</title>
+    
+    <p>
+      Open a <term>project</term> to have a single folder containing your Quarto file and any data files you work with. The easiest format to use is a CSV file.
+    </p>
+    <ul>
+      <li>
+        <p>
+          <c>read.csv(filename)</c>: a basic import routine in R
+        </p>
+      </li>
+      <li>
+        <p>
+          <c>read_csv(filename)</c>: an improved import routine from <c>readr</c> library (tidyverse).
+        </p>
+      </li>
+      <li>
+        <p>
+          Both routines have optional <term>arguments</term> (other than filename) to customize how the data are read.
+        </p>
+      </li>
+    </ul>
+  </slide>
+
+  <slide>
+    <title>Download Sample Data</title>
+    
+    <p>
+      The textbook has a website that contains many useful data sets for learning: <url href="https://artofstat.com">ArtOfStat.com</url>
+      <ol>
+        <li>
+          <p>
+            Click on <em>Datasets</em>
+          </p>
+        </li>
+        <li>
+          <p>
+            Look for Chapter 2 data sets and find one named <q>FL Student Survey</q>. Download the CSV file and save it to your project directory.
+          </p>
+        </li>
+        <li>
+          <p>
+            Import the data frame using <c>read.csv("fl_student_survey.csv")</c> or with <c>read_csv</c> (after typing <c>library(readr)</c> to load the library)
+          </p>
+        </li>
+      </ol>
+    </p>
+  </slide>
+</section>

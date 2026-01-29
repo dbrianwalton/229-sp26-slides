@@ -39,6 +39,7 @@ along with PreTeXt.  If not, see <http://www.gnu.org/licenses/>.
             
         <xi:include href="./R-RStudio-introduction.ptx" />
         <xi:include href="./ch1-statistics.ptx" />
+        <xi:include href="./ch2-data-graphs-numerical-summaries.ptx" />
 
     </slideshow>
 </pretext>
