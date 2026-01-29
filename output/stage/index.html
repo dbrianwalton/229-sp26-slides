@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2026-01-22T01:06:52-05:00       *-->
+<!--*       on 2026-01-29T04:00:23Z       *-->
 <!--*   A recent stable commit (2022-07-01):   *-->
 <!--* 6c761d3dba23af92cba35001c852aac04ae99a5f *-->
 <!--*                                          *-->
@@ -39,7 +39,7 @@
 <tr><td align="center" style="border-bottom: 0px;">James Madison University</td></tr>
 <tr><td align="center"></td></tr>
 </table>
-<h4><div class="date">as of January 22, 2026</div></h4></section></section><section><section><h1>Introduction to R, RStudio, Quarto</h1></section><section><h3>Working with R</h3>
+<h4><div class="date">as of January 29, 2026</div></h4></section></section><section><section><h1>Introduction to R, RStudio, Quarto</h1></section><section><h3>Working with R</h3>
 <div align="left"><ul class="disc" id="Rstudio_introduction-2-2">
 <li><p>Scripting/Programming Language: R</p></li>
 <li><p>Data Analysis Application: RStudio</p></li>
@@ -161,7 +161,7 @@ y &lt;- a*x^2+b*x+c
 <div align="left">
 <p>The purpose was to predict the outcome of the 2010 gubernatorial election in California.</p>
 <p>An exit poll sampled 3,889 of the 9.5 million people who voted. Define the sample and the population for this exit poll.</p>
-</div></section><section><h3>Descriptive vs Inferential Statistics</h3>
+</div></section><section><h3>Descriptive vs Inferential Statistics (Begin Day 3)</h3>
 <div align="left"><dl class="description-list">
 <div>
 <dt>descriptive statistics</dt>
@@ -173,7 +173,7 @@ y &lt;- a*x^2+b*x+c
 </div>
 </dl></div></section><section><h3>Descriptive Example</h3>
 <div align="left">
-<p>What makes this descriptive? The graph shows the result of a survey of 743 teenagers (ages 13-17) about their handling of screen time and distraction. (from textbook)</p>
+<p>What makes this descriptive? The graph shows the result of a survey of 743 teenagers (ages 13-17) about their handling of screen time and distraction. (Fig 1.1 from textbook)</p>
 <div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="external/images/ex-1-1-cell-phone-focus-survey.png" class="contained" alt='bar chart showing percent of responses to question "Are you losing focus in class by checking your phone?" with responses of never, rarely, sometimes, or often'></div>
 </div></section><section><h3>Inferential Example</h3>
 <div align="left">
@@ -200,7 +200,40 @@ y &lt;- a*x^2+b*x+c
 </ul></p></li>
 <li><p>margin of error: how close we expect an estimate to fall to the true parameter value</p></li>
 <li><p>statistical significance: measure of the strength of evidence, typically measured by probability or likelihood</p></li>
-</ul></div></section></section>
+</ul></div></section></section><section><section><h1>Chapter 2: Exploring Data with Graphs and Numerical Summaries</h1></section><section><h3>Key Ideas</h3>
+<div align="left"><ul class="disc" id="ch2-data-graphs-numerical-summaries-2-2">
+<li><p>Types of Data: categorical vs quantitative (discrete and continuous) variables</p></li>
+<li><p>Describing the distribution of data<ul class="circle" id="ch2-data-graphs-numerical-summaries-2-2-2-1-1">
+<li><p>relative frequency (categorical)</p></li>
+<li><p>shape, center and variability (quantitative)</p></li>
+</ul></p></li>
+<li><p>Choosing appropriate graphical representations of data<ul class="circle" id="ch2-data-graphs-numerical-summaries-2-2-3-1-1">
+<li><p>categorical: bar graph (preferred), pie chart</p></li>
+<li><p>quantitative: dot plot, stem and leaf plot, histogram, box plot</p></li>
+</ul></p></li>
+</ul></div></section><section><h3>Structure of Data Frames</h3>
+<div align="left">
+<p>The fundamental structure of data is in a rectangular table.</p>
+<ul class="disc" id="ch2-data-graphs-numerical-summaries-3-3">
+<li><p>Row: refers to an individual <dfn class="terminology">subject</dfn> or <dfn class="terminology">experimental replicate</dfn>.</p></li>
+<li><p>Column: a single <dfn class="terminology">variable</dfn> representing a specific measurement or characteristic.</p></li>
+<li><p>Best Practice: a <dfn class="terminology">header row</dfn> states what the variables represent</p></li>
+</ul>
+<p>We import a table to create a <dfn class="terminology">data frame</dfn></p>
+</div></section><section><h3>Importing Data Using RStudio</h3>
+<div align="left">
+<p>Open a <dfn class="terminology">project</dfn> to have a single folder containing your Quarto file and any data files you work with. The easiest format to use is a CSV file.</p>
+<ul class="disc" id="ch2-data-graphs-numerical-summaries-4-3">
+<li><p><code class="code-inline tex2jax_ignore">read.csv(filename)</code>: a basic import routine in R</p></li>
+<li><p><code class="code-inline tex2jax_ignore">read_csv(filename)</code>: an improved import routine from <code class="code-inline tex2jax_ignore">readr</code> library (tidyverse).</p></li>
+<li><p>Both routines have optional <dfn class="terminology">arguments</dfn> (other than filename) to customize how the data are read.</p></li>
+</ul>
+</div></section><section><h3>Download Sample Data</h3>
+<div align="left"><p>The textbook has a website that contains many useful data sets for learning: <a class="external" href="https://artofstat.com" target="_blank">ArtOfStat.com</a><ol class="decimal" id="ch2-data-graphs-numerical-summaries-5-2-2">
+<li><p>Click on <em class="emphasis">Datasets</em></p></li>
+<li><p>Look for Chapter 2 data sets and find one named “FL Student Survey”. Download the CSV file and save it to your project directory.</p></li>
+<li><p>Import the data frame using <code class="code-inline tex2jax_ignore">read.csv("fl_student_survey.csv")</code> or with <code class="code-inline tex2jax_ignore">read_csv</code> (after typing <code class="code-inline tex2jax_ignore">library(readr)</code> to load the library)</p></li>
+</ol></p></div></section></section>
 </div>
 </div></body>
 <script>
