@@ -117,4 +117,376 @@
       </ol>
     </p>
   </slide>
+  <slide>
+    <title>Categorical Data</title>
+    
+    <p>
+      The distribution for categorical variables is characterized by the <term>frequency</term> (raw counts) and <term>relative frequency</term> (proportion or percentage) of occurrences of each of the different categories.
+    </p>
+    <p>
+      To calculate <term>relative frequency</term> or <term>proportion</term>, divide the count of a single category by the total number of observations.
+      <md>
+        \text{rel.freq.} = \frac{\text{# in category}}{\text{total # observations}}
+      </md>
+    </p>
+    <p>
+      To calculate a <term>percentage</term>, multiply the proportion by 100.
+    </p>
+  </slide>
+
+  <slide>
+    <title>Example: Shark Attacks (a)</title>
+    
+    <sidebyside >
+      <tabular>
+        <row header="yes">
+          <cell>State</cell>
+          <cell>Frequency</cell>
+        </row>
+        <row>
+          <cell>Florida</cell><cell>203</cell>
+        </row>
+        <row>
+          <cell>Hawaii</cell><cell>51</cell>
+        </row>
+        <row>
+          <cell>S Carolina</cell><cell>34</cell>
+        </row>
+        <row>
+          <cell>California</cell><cell>33</cell>
+        </row>
+        <row>
+          <cell>N Carolina</cell><cell>23</cell>
+        </row>
+        <row>
+          <cell>Texas</cell><cell>16</cell>
+        </row>
+        <row>
+          <cell>Other</cell><cell>27</cell>
+        </row>
+        <row>
+          <cell>Total</cell><cell>387</cell>
+        </row>
+      </tabular>
+      <stack>
+          <image source="images/ch-2-sharks-bar.png">
+            <shortdescription>bar graph of shark attacks using frequency</shortdescription>
+          </image>
+      </stack>
+    </sidebyside>
+  </slide>
+
+  <slide>
+    <title>Example: Shark Attacks (b)</title>
+    
+    <sidebyside >
+      <tabular>
+        <row header="yes">
+          <cell>State</cell>
+          <cell>Frequency</cell>
+          <cell>Proportion</cell>
+        </row>
+        <row>
+          <cell>Florida</cell><cell>203</cell><cell>0.525</cell>
+        </row>
+        <row>
+          <cell>Hawaii</cell><cell>51</cell><cell>0.132</cell>
+        </row>
+        <row>
+          <cell>S Carolina</cell><cell>34</cell><cell>0.088</cell>
+        </row>
+        <row>
+          <cell>California</cell><cell>33</cell><cell>0.085</cell>
+        </row>
+        <row>
+          <cell>N Carolina</cell><cell>23</cell><cell>0.059</cell>
+        </row>
+        <row>
+          <cell>Texas</cell><cell>16</cell><cell>0.041</cell>
+        </row>
+        <row>
+          <cell>Other</cell><cell>27</cell><cell>0.070</cell>
+        </row>
+        <row>
+          <cell>Total</cell><cell>387</cell><cell>1.000</cell>
+        </row>
+      </tabular>
+      <stack>
+          <image source="images/ch-2-sharks-bar-relative-frequency.png">
+            <shortdescription>bar graph of shark attacks using relative frequency or proportions</shortdescription>
+          </image>
+      </stack>
+    </sidebyside>
+  </slide>
+  
+  <slide>
+    <title>Example: Shark Attacks (c)</title>
+    
+    <sidebyside >
+      <tabular>
+        <row header="yes">
+          <cell>State</cell>
+          <cell>Frequency</cell>
+          <cell>Percentage</cell>
+        </row>
+        <row>
+          <cell>Florida</cell><cell>203</cell><cell>52.5%</cell>
+        </row>
+        <row>
+          <cell>Hawaii</cell><cell>51</cell><cell>13.2%</cell>
+        </row>
+        <row>
+          <cell>S Carolina</cell><cell>34</cell><cell>8.8%</cell>
+        </row>
+        <row>
+          <cell>California</cell><cell>33</cell><cell>8.5%</cell>
+        </row>
+        <row>
+          <cell>N Carolina</cell><cell>23</cell><cell>5.9%</cell>
+        </row>
+        <row>
+          <cell>Texas</cell><cell>16</cell><cell>4.1%</cell>
+        </row>
+        <row>
+          <cell>Other</cell><cell>27</cell><cell>7.0%</cell>
+        </row>
+        <row>
+          <cell>Total</cell><cell>387</cell><cell>100%</cell>
+        </row>
+      </tabular>
+      <stack>
+          <image source="images/ch-2-sharks-bar-percentage.png">
+            <shortdescription>bar graph of shark attacks using percentage</shortdescription>
+          </image>
+      </stack>
+    </sidebyside>
+  </slide>
+
+ <slide>
+    <title>Example: Shark Attacks (d)</title>
+    
+    <sidebyside >
+      <tabular>
+        <row header="yes">
+          <cell>State</cell>
+          <cell>Frequency</cell>
+          <cell>Percentage</cell>
+        </row>
+        <row>
+          <cell>Florida</cell><cell>203</cell><cell>52.5%</cell>
+        </row>
+        <row>
+          <cell>Hawaii</cell><cell>51</cell><cell>13.2%</cell>
+        </row>
+        <row>
+          <cell>S Carolina</cell><cell>34</cell><cell>8.8%</cell>
+        </row>
+        <row>
+          <cell>California</cell><cell>33</cell><cell>8.5%</cell>
+        </row>
+        <row>
+          <cell>N Carolina</cell><cell>23</cell><cell>5.9%</cell>
+        </row>
+        <row>
+          <cell>Texas</cell><cell>16</cell><cell>4.1%</cell>
+        </row>
+        <row>
+          <cell>Other</cell><cell>27</cell><cell>7.0%</cell>
+        </row>
+        <row>
+          <cell>Total</cell><cell>387</cell><cell>100%</cell>
+        </row>
+      </tabular>
+      <stack>
+          <image source="images/ch-2-sharks-pie-percentage.png">
+            <shortdescription>pie chart of shark attacks using percentage</shortdescription>
+          </image>
+      </stack>
+    </sidebyside>
+  </slide>
+
+  <slide>
+    <title>Quantitative Data</title>
+    
+    <p>
+      The distribution is characterized by the <term>shape</term> of the relative frequencies that data values appear in <term>intervals</term> (often called <term>bins</term>).
+      <ul>
+        <li>
+          <p>
+            Choose or calculate a <term>bin width</term> for how wide each interval will be.
+            <md>
+              \text{width} = \frac{\text{total width}}{\text{# of bins}} = \frac{\text{max bin value - min bin value}}{\text{# of bins}}
+            </md>
+          </p>
+        </li>
+        <li>
+          <p>Create a consecutive partition of intervals that cover the full data.</p>
+        </li>
+        <li>
+          <p>Decide how to count values appearing exactly on boundaries.</p>
+        </li>
+      </ul>
+    </p>
+    <p>
+      How would you count frequencies of the following data into 5 bins?
+    </p>
+    <p>
+      <line> 10, 12, 12, 15, 18, 20, 21, 21, 24, 28, 32, 32, 35, 36, </line>
+      <line> 40, 42, 45, 48, 48, 52, 56, 56, 58, 60, 64, 70, 72</line>
+    </p>
+  </slide>
+  <slide>
+    <title>Stem and Leaf Plot</title>
+    
+    <p>
+      Not really a graphical display, a <term>stem and leaf plot</term> is a textual method of exploring shape for a relatively small set of data.
+      <ul>
+        <li>
+          <p><term>stem</term>: leading digits of each value to a specified place value</p>
+        </li>
+        <li>
+          <p><term>leaf</term>: next place-value digit in the number</p>
+        </li>
+      </ul>
+      The number 1207 using a stem value of hundreds would have a stem of 12 and a leaf of 0; using a stem value of thousands, the stem would be 1 and the leaf would be 2.
+    </p>
+    <p>
+      Make a stem and leaf plot using two columns.
+      <ul>
+        <li>
+          <p>Column of sequential stems, including any skipped values</p>
+        </li>
+        <li>
+          <p>Column of leaves from the data, sorted in order</p>
+        </li>
+      </ul>
+    </p>
+  </slide>
+
+  <slide>
+    <title>Stem and Leaf Example</title>
+    
+    <p>
+      Using the earlier list of values:
+      <line> 10, 12, 12, 15, 18, 20, 21, 21, 24, 28, 32, 32, 35, 36, </line>
+      <line> 40, 42, 45, 48, 48, 52, 56, 56, 58, 60, 64, 70, 72</line>
+      Here is the corresponding stem and leaf plot using a stem defined by the tens position.
+    </p>
+    <pre>
+  1 | 02258
+  2 | 01148
+  3 | 2256
+  4 | 02588
+  5 | 2668
+  6 | 04
+  7 | 02
+    </pre>
+  </slide>
+  <slide>
+    <title>Dot Plot</title>
+    <p>
+      A <term>dot plot</term> is similar to a stem and leaf plot, but instead of using digits to create the plot, we just put solid dots next to each other along an axis. It is also most useful when there is a relatively small number of data points.
+      <ul>
+        <li>
+          <p>For <term>discrete</term> variables, we can often position the dots at exact value positions.</p>
+        </li>
+        <li>
+          <p>Otherwise, we use bins and position the dots at the center of each bin.</p>
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <line> Using the same data and a bin width of 5:</line>
+      <line> 10, 12, 12, 15, 18, 20, 21, 21, 24, 28, 32, 32, 35, 36, </line>
+      <line> 40, 42, 45, 48, 48, 52, 56, 56, 58, 60, 64, 70, 72</line>
+    </p>
+    <image source="images/ch-2-my-numbers-dotplot.png" width="50%">
+      <shortdescription>dot plot of the numbers previously given with bin width equal 5</shortdescription>
+    </image>
+  </slide>
+
+  <slide>
+    <title>Histogram</title>
+    
+    <p>
+      A <term>histogram</term> uses adjacent rectangles to show the distribution based on a partition of bins. The left and right edges of the rectangles illustrate the end-points of each bin. The height of the rectangle matches the frequency.
+    </p>
+    <p>
+      <line> Using the same data and bin widths of 5 and 10:</line>
+      <line> 10, 12, 12, 15, 18, 20, 21, 21, 24, 28, 32, 32, 35, 36, </line>
+      <line> 40, 42, 45, 48, 48, 52, 56, 56, 58, 60, 64, 70, 72</line>
+    </p>
+    <sidebyside widths="40% 40%">
+      <image source="images/ch-2-my-numbers-histogram.png">
+        <shortdescription>histogram of the numbers previously given with bin width equal 5</shortdescription>
+      </image>
+      <image source="images/ch-2-my-numbers-histogram-bin10.png">
+        <shortdescription>histogram of the numbers previously given with bin width equal 10</shortdescription>
+      </image>
+    </sidebyside>
+  </slide>
+  <slide>
+    <title>Describing Shape</title>
+    
+    <p>
+      <ul>
+        <li>
+          <p>Does the shape have a single predominant mound? Then the distribution is <term>unimodal</term></p>
+        </li>
+        <li>
+          <p>Does the shape have a two predominant mounds? Then the distribution is <term>bimodal</term></p>
+        </li>
+        <li>
+          <p>Does the shape look like it is reflected over the center? Then the distribution is <term>symmetric</term>. Otherwise it is <term>asymmetric</term>.</p>
+        </li>
+        <li>
+          <p>Does the shape look it is stretched out more on one side than the other? Then the distribution is <term>skewed</term>.</p>
+            <ul>
+              <li>
+                <p>If the shape stretches from the center (mean/median) further to the right, it is <term>skewed to the right</term>.</p>
+              </li>
+              <li>
+                <p>If the shape stretches from the center (mean/median) further to the left, it is <term>skewed to the left</term>.</p>
+              </li>
+            </ul>
+        </li>
+      </ul>
+    </p>
+  </slide>
+  <slide>
+    <title>Unimodal vs Bimodal</title>
+    
+    <sidebyside>
+      <image source="images/ch-2-unimodal-example.png">
+        <shortdescription>Example of an approximately symmetric, unimodal distribution with a single mound in the center</shortdescription>
+      </image>
+      <image source="images/ch-2-bimodal-example.png">
+        <shortdescription>Example of an approximately symmetric, bimodal distribution with a two mounds, one to the left and one to the right with a low density in the middle</shortdescription>
+      </image>
+    </sidebyside>
+  </slide>
+  <slide>
+    <title>Shape, Symmetry and Skewness</title>
+    
+    <sidebyside widths="20% 15% 20%">
+      <image source="images/ch-2-skew-left-example.png">
+        <shortdescription>Example of distribution that is skewed to the left.</shortdescription>        
+      </image>
+      <image source="images/ch-2-symmetric-example.png">
+        <shortdescription>Example of distribution that is symmetric.</shortdescription>        
+      </image>
+      <image source="images/ch-2-skew-right-example.png">
+        <shortdescription>Example of distribution that is skewed to the right.</shortdescription>        
+      </image>
+    </sidebyside>
+    <p>
+      Find the center of the distribution. On which side does the distribution (tails) stretch out further? That is the direction it is skewed.
+    </p>
+    <sidebyside widths="60%">  
+      <image source="images/ch-2-skewness-example.png">
+        <shortdescription>Example of how skewness appears. Life span has center at older ages with tail extended to left. Income distribution has center at low income with tail extended to right.</shortdescription>
+      </image>
+    </sidebyside>
+  </slide>
 </section>
