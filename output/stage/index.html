@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2026-01-29T04:00:23Z       *-->
+<!--*       on 2026-02-03T04:03:04Z       *-->
 <!--*   A recent stable commit (2022-07-01):   *-->
 <!--* 6c761d3dba23af92cba35001c852aac04ae99a5f *-->
 <!--*                                          *-->
@@ -39,7 +39,7 @@
 <tr><td align="center" style="border-bottom: 0px;">James Madison University</td></tr>
 <tr><td align="center"></td></tr>
 </table>
-<h4><div class="date">as of January 29, 2026</div></h4></section></section><section><section><h1>Introduction to R, RStudio, Quarto</h1></section><section><h3>Working with R</h3>
+<h4><div class="date">as of February 3, 2026</div></h4></section></section><section><section><h1>Introduction to R, RStudio, Quarto</h1></section><section><h3>Working with R</h3>
 <div align="left"><ul class="disc" id="Rstudio_introduction-2-2">
 <li><p>Scripting/Programming Language: R</p></li>
 <li><p>Data Analysis Application: RStudio</p></li>
@@ -233,7 +233,282 @@ y &lt;- a*x^2+b*x+c
 <li><p>Click on <em class="emphasis">Datasets</em></p></li>
 <li><p>Look for Chapter 2 data sets and find one named “FL Student Survey”. Download the CSV file and save it to your project directory.</p></li>
 <li><p>Import the data frame using <code class="code-inline tex2jax_ignore">read.csv("fl_student_survey.csv")</code> or with <code class="code-inline tex2jax_ignore">read_csv</code> (after typing <code class="code-inline tex2jax_ignore">library(readr)</code> to load the library)</p></li>
-</ol></p></div></section></section>
+</ol></p></div></section><section><h3>Categorical Data</h3>
+<div align="left">
+<p>The distribution for categorical variables is characterized by the <dfn class="terminology">frequency</dfn> (raw counts) and <dfn class="terminology">relative frequency</dfn> (proportion or percentage) of occurrences of each of the different categories.</p>
+<p>To calculate <dfn class="terminology">relative frequency</dfn> or <dfn class="terminology">proportion</dfn>, divide the count of a single category by the total number of observations.<div class="displaymath process-math" id="ch2-data-graphs-numerical-summaries-6-3-3">
+\begin{equation*}
+\text{rel.freq.} = \frac{\text{# in category}}{\text{total # observations}}
+\end{equation*}
+</div></p>
+<p>To calculate a <dfn class="terminology">percentage</dfn>, multiply the proportion by 100.</p>
+</div></section><section><h3>Example: Shark Attacks (a)</h3>
+<div align="left"><div style="display:table;margin-left:0%;margin-right:0%;" class="sidebyside">
+<div style="display:table-cell;width:50%;vertical-align:top;"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b0 r0 l0 t0 lines">State</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Frequency</th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Florida</td>
+<td class="l m b0 r0 l0 t0 lines">203</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Hawaii</td>
+<td class="l m b0 r0 l0 t0 lines">51</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">S Carolina</td>
+<td class="l m b0 r0 l0 t0 lines">34</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">California</td>
+<td class="l m b0 r0 l0 t0 lines">33</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">N Carolina</td>
+<td class="l m b0 r0 l0 t0 lines">23</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Texas</td>
+<td class="l m b0 r0 l0 t0 lines">16</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Other</td>
+<td class="l m b0 r0 l0 t0 lines">27</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Total</td>
+<td class="l m b0 r0 l0 t0 lines">387</td>
+</tr>
+</table></div>
+<div style="display:table-cell;width:50%;vertical-align:top;"><img src="external/images/ch-2-sharks-bar.png" class="contained" alt="bar graph of shark attacks using frequency"></div>
+</div></div></section><section><h3>Example: Shark Attacks (b)</h3>
+<div align="left"><div style="display:table;margin-left:0%;margin-right:0%;" class="sidebyside">
+<div style="display:table-cell;width:50%;vertical-align:top;"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b0 r0 l0 t0 lines">State</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Frequency</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Proportion</th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Florida</td>
+<td class="l m b0 r0 l0 t0 lines">203</td>
+<td class="l m b0 r0 l0 t0 lines">0.525</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Hawaii</td>
+<td class="l m b0 r0 l0 t0 lines">51</td>
+<td class="l m b0 r0 l0 t0 lines">0.132</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">S Carolina</td>
+<td class="l m b0 r0 l0 t0 lines">34</td>
+<td class="l m b0 r0 l0 t0 lines">0.088</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">California</td>
+<td class="l m b0 r0 l0 t0 lines">33</td>
+<td class="l m b0 r0 l0 t0 lines">0.085</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">N Carolina</td>
+<td class="l m b0 r0 l0 t0 lines">23</td>
+<td class="l m b0 r0 l0 t0 lines">0.059</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Texas</td>
+<td class="l m b0 r0 l0 t0 lines">16</td>
+<td class="l m b0 r0 l0 t0 lines">0.041</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Other</td>
+<td class="l m b0 r0 l0 t0 lines">27</td>
+<td class="l m b0 r0 l0 t0 lines">0.070</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Total</td>
+<td class="l m b0 r0 l0 t0 lines">387</td>
+<td class="l m b0 r0 l0 t0 lines">1.000</td>
+</tr>
+</table></div>
+<div style="display:table-cell;width:50%;vertical-align:top;"><img src="external/images/ch-2-sharks-bar-relative-frequency.png" class="contained" alt="bar graph of shark attacks using relative frequency or proportions"></div>
+</div></div></section><section><h3>Example: Shark Attacks (c)</h3>
+<div align="left"><div style="display:table;margin-left:0%;margin-right:0%;" class="sidebyside">
+<div style="display:table-cell;width:50%;vertical-align:top;"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b0 r0 l0 t0 lines">State</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Frequency</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Percentage</th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Florida</td>
+<td class="l m b0 r0 l0 t0 lines">203</td>
+<td class="l m b0 r0 l0 t0 lines">52.5%</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Hawaii</td>
+<td class="l m b0 r0 l0 t0 lines">51</td>
+<td class="l m b0 r0 l0 t0 lines">13.2%</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">S Carolina</td>
+<td class="l m b0 r0 l0 t0 lines">34</td>
+<td class="l m b0 r0 l0 t0 lines">8.8%</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">California</td>
+<td class="l m b0 r0 l0 t0 lines">33</td>
+<td class="l m b0 r0 l0 t0 lines">8.5%</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">N Carolina</td>
+<td class="l m b0 r0 l0 t0 lines">23</td>
+<td class="l m b0 r0 l0 t0 lines">5.9%</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Texas</td>
+<td class="l m b0 r0 l0 t0 lines">16</td>
+<td class="l m b0 r0 l0 t0 lines">4.1%</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Other</td>
+<td class="l m b0 r0 l0 t0 lines">27</td>
+<td class="l m b0 r0 l0 t0 lines">7.0%</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Total</td>
+<td class="l m b0 r0 l0 t0 lines">387</td>
+<td class="l m b0 r0 l0 t0 lines">100%</td>
+</tr>
+</table></div>
+<div style="display:table-cell;width:50%;vertical-align:top;"><img src="external/images/ch-2-sharks-bar-percentage.png" class="contained" alt="bar graph of shark attacks using percentage"></div>
+</div></div></section><section><h3>Example: Shark Attacks (d)</h3>
+<div align="left"><div style="display:table;margin-left:0%;margin-right:0%;" class="sidebyside">
+<div style="display:table-cell;width:50%;vertical-align:top;"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b0 r0 l0 t0 lines">State</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Frequency</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Percentage</th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Florida</td>
+<td class="l m b0 r0 l0 t0 lines">203</td>
+<td class="l m b0 r0 l0 t0 lines">52.5%</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Hawaii</td>
+<td class="l m b0 r0 l0 t0 lines">51</td>
+<td class="l m b0 r0 l0 t0 lines">13.2%</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">S Carolina</td>
+<td class="l m b0 r0 l0 t0 lines">34</td>
+<td class="l m b0 r0 l0 t0 lines">8.8%</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">California</td>
+<td class="l m b0 r0 l0 t0 lines">33</td>
+<td class="l m b0 r0 l0 t0 lines">8.5%</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">N Carolina</td>
+<td class="l m b0 r0 l0 t0 lines">23</td>
+<td class="l m b0 r0 l0 t0 lines">5.9%</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Texas</td>
+<td class="l m b0 r0 l0 t0 lines">16</td>
+<td class="l m b0 r0 l0 t0 lines">4.1%</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Other</td>
+<td class="l m b0 r0 l0 t0 lines">27</td>
+<td class="l m b0 r0 l0 t0 lines">7.0%</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Total</td>
+<td class="l m b0 r0 l0 t0 lines">387</td>
+<td class="l m b0 r0 l0 t0 lines">100%</td>
+</tr>
+</table></div>
+<div style="display:table-cell;width:50%;vertical-align:top;"><img src="external/images/ch-2-sharks-pie-percentage.png" class="contained" alt="pie chart of shark attacks using percentage"></div>
+</div></div></section><section><h3>Quantitative Data</h3>
+<div align="left">
+<p>The distribution is characterized by the <dfn class="terminology">shape</dfn> of the relative frequencies that data values appear in <dfn class="terminology">intervals</dfn> (often called <dfn class="terminology">bins</dfn>).<ul class="disc" id="ch2-data-graphs-numerical-summaries-11-2-4">
+<li><p>Choose or calculate a <dfn class="terminology">bin width</dfn> for how wide each interval will be.<div class="displaymath process-math" id="ch2-data-graphs-numerical-summaries-11-2-4-1-1-2">
+\begin{equation*}
+\text{width} = \frac{\text{total width}}{\text{# of bins}} = \frac{\text{max bin value - min bin value}}{\text{# of bins}}
+\end{equation*}
+</div></p></li>
+<li><p>Create a consecutive partition of intervals that cover the full data.</p></li>
+<li><p>Decide how to count values appearing exactly on boundaries.</p></li>
+</ul></p>
+<p>How would you count frequencies of the following data into 5 bins?</p>
+<p>10, 12, 12, 15, 18, 20, 21, 21, 24, 28, 32, 32, 35, 36,<br> 40, 42, 45, 48, 48, 52, 56, 56, 58, 60, 64, 70, 72</p>
+</div></section><section><h3>Stem and Leaf Plot</h3>
+<div align="left">
+<p>Not really a graphical display, a <dfn class="terminology">stem and leaf plot</dfn> is a textual method of exploring shape for a relatively small set of data.<ul class="disc" id="ch2-data-graphs-numerical-summaries-12-2-2">
+<li><p><dfn class="terminology">stem</dfn>: leading digits of each value to a specified place value</p></li>
+<li><p><dfn class="terminology">leaf</dfn>: next place-value digit in the number</p></li>
+</ul>The number 1207 using a stem value of hundreds would have a stem of 12 and a leaf of 0; using a stem value of thousands, the stem would be 1 and the leaf would be 2.</p>
+<p>Make a stem and leaf plot using two columns.<ul class="disc" id="ch2-data-graphs-numerical-summaries-12-3-1">
+<li><p>Column of sequential stems, including any skipped values</p></li>
+<li><p>Column of leaves from the data, sorted in order</p></li>
+</ul></p>
+</div></section><section><h3>Stem and Leaf Example</h3>
+<div align="left">
+<p>Using the earlier list of values: 10, 12, 12, 15, 18, 20, 21, 21, 24, 28, 32, 32, 35, 36,<br> 40, 42, 45, 48, 48, 52, 56, 56, 58, 60, 64, 70, 72 Here is the corresponding stem and leaf plot using a stem defined by the tens position.</p>
+<pre class="code-block tex2jax_ignore">1 | 02258
+2 | 01148
+3 | 2256
+4 | 02588
+5 | 2668
+6 | 04
+7 | 02
+</pre>
+</div></section><section><h3>Dot Plot</h3>
+<div align="left">
+<p>A <dfn class="terminology">dot plot</dfn> is similar to a stem and leaf plot, but instead of using digits to create the plot, we just put solid dots next to each other along an axis. It is also most useful when there is a relatively small number of data points.<ul class="disc" id="ch2-data-graphs-numerical-summaries-14-2-2">
+<li><p>For <dfn class="terminology">discrete</dfn> variables, we can often position the dots at exact value positions.</p></li>
+<li><p>Otherwise, we use bins and position the dots at the center of each bin.</p></li>
+</ul></p>
+<p>Using the same data and a bin width of 5:<br> 10, 12, 12, 15, 18, 20, 21, 21, 24, 28, 32, 32, 35, 36,<br> 40, 42, 45, 48, 48, 52, 56, 56, 58, 60, 64, 70, 72</p>
+<div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/images/ch-2-my-numbers-dotplot.png" class="contained" alt="dot plot of the numbers previously given with bin width equal 5"></div>
+</div></section><section><h3>Histogram</h3>
+<div align="left">
+<p>A <dfn class="terminology">histogram</dfn> uses adjacent rectangles to show the distribution based on a partition of bins. The left and right edges of the rectangles illustrate the end-points of each bin. The height of the rectangle matches the frequency.</p>
+<p>Using the same data and bin widths of 5 and 10:<br> 10, 12, 12, 15, 18, 20, 21, 21, 24, 28, 32, 32, 35, 36,<br> 40, 42, 45, 48, 48, 52, 56, 56, 58, 60, 64, 70, 72</p>
+<div style="display:table;margin-left:5%;margin-right:5%;" class="sidebyside">
+<div style="display:table-cell;width:44.4444444444444%;vertical-align:top;"><img src="external/images/ch-2-my-numbers-histogram.png" class="contained" alt="histogram of the numbers previously given with bin width equal 5"></div>
+<div style="display:table-cell;width:44.4444444444444%;vertical-align:top;"><img src="external/images/ch-2-my-numbers-histogram-bin10.png" class="contained" alt="histogram of the numbers previously given with bin width equal 10"></div>
+</div>
+</div></section><section><h3>Describing Shape</h3>
+<div align="left"><p><ul class="disc" id="ch2-data-graphs-numerical-summaries-16-2-1">
+<li><p>Does the shape have a single predominant mound? Then the distribution is <dfn class="terminology">unimodal</dfn></p></li>
+<li><p>Does the shape have a two predominant mounds? Then the distribution is <dfn class="terminology">bimodal</dfn></p></li>
+<li><p>Does the shape look like it is reflected over the center? Then the distribution is <dfn class="terminology">symmetric</dfn>. Otherwise it is <dfn class="terminology">asymmetric</dfn>.</p></li>
+<li>
+<p>Does the shape look it is stretched out more on one side than the other? Then the distribution is <dfn class="terminology">skewed</dfn>.</p>
+<ul class="circle" id="ch2-data-graphs-numerical-summaries-16-2-1-4-2">
+<li><p>If the shape stretches from the center (mean/median) further to the right, it is <dfn class="terminology">skewed to the right</dfn>.</p></li>
+<li><p>If the shape stretches from the center (mean/median) further to the left, it is <dfn class="terminology">skewed to the left</dfn>.</p></li>
+</ul>
+</li>
+</ul></p></div></section><section><h3>Unimodal vs Bimodal</h3>
+<div align="left"><div style="display:table;margin-left:0%;margin-right:0%;" class="sidebyside">
+<div style="display:table-cell;width:50%;vertical-align:top;"><img src="external/images/ch-2-unimodal-example.png" class="contained" alt="Example of an approximately symmetric, unimodal distribution with a single mound in the center"></div>
+<div style="display:table-cell;width:50%;vertical-align:top;"><img src="external/images/ch-2-bimodal-example.png" class="contained" alt="Example of an approximately symmetric, bimodal distribution with a two mounds, one to the left and one to the right with a low density in the middle"></div>
+</div></div></section><section><h3>Shape, Symmetry and Skewness</h3>
+<div align="left">
+<div style="display:table;margin-left:7.5%;margin-right:7.5%;" class="sidebyside">
+<div style="display:table-cell;width:23.5294117647059%;vertical-align:top;"><img src="external/images/ch-2-skew-left-example.png" class="contained" alt="Example of distribution that is skewed to the left."></div>
+<div style="display:table-cell;width:17.6470588235294%;vertical-align:top;"><img src="external/images/ch-2-symmetric-example.png" class="contained" alt="Example of distribution that is symmetric."></div>
+<div style="display:table-cell;width:23.5294117647059%;vertical-align:top;"><img src="external/images/ch-2-skew-right-example.png" class="contained" alt="Example of distribution that is skewed to the right."></div>
+</div>
+<p>Find the center of the distribution. On which side does the distribution (tails) stretch out further? That is the direction it is skewed.</p>
+<div style="display:table;margin-left:20%;margin-right:20%;" class="sidebyside"><div style="display:table-cell;width:100%;vertical-align:top;"><img src="external/images/ch-2-skewness-example.png" class="contained" alt="Example of how skewness appears. Life span has center at older ages with tail extended to left. Income distribution has center at low income with tail extended to right."></div></div>
+</div></section></section>
 </div>
 </div></body>
 <script>
