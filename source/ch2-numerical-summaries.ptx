@@ -1,0 +1,290 @@
+<?xml version='1.0' encoding='utf-8'?>
+<section xml:id="ch2-numerical-summaries" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <title>Sections 2.3-2.6: Exploring Data with Numerical Summaries</title>
+
+  <slide>
+    <title>Key Ideas (Begin Day 6)</title>
+
+    <ul>
+      <li>
+        <p>
+          Quantitative data is characterized by the distribution <term>center</term>, <term>variability</term>, and <term>skewness</term>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Measures of position (center): mean, median, mode. Learn how to identify and compute mean and median and how they are influenced by outliers and skewness.
+        </p>
+      </li>
+      <li>
+        <p>
+          Measures of variability: range, standard deviation, variance (squared deviation), interquartile range (IQR). Learn how to compute and interpret these measures.
+        </p>
+      </li>
+      <li>
+        <p>
+          Outliers: Two methods to identify potential outliers are (1) using standard deviation for bell-shaped distributions or (2) using IQR in general. 
+        </p>
+      </li>
+      <li>
+        <p>
+          Draw and interpret boxplots.
+        </p>
+      </li>
+      <li>
+        <p>
+          Compute and interpret <m>Z</m> scores, which standardizes measurements relative to the mean and standard deviation
+        </p>
+      </li>
+    </ul>
+  </slide>
+
+  <slide>
+    <title>Measuring the Center of Quantitative Data</title>
+
+    <ul>
+      <li>
+        <p>
+          Median: Middle of data values when sorted. 50% above and 50% below.
+          <ul>
+            <li>
+              <p>If an <em>odd</em> number of data points, use the middle value (same number before/after).</p>
+            </li>
+            <li>
+              <p>If an <em>even</em> number of data points, use the <em>midpoint</em> of the two middle values.</p>
+            </li>
+          </ul>
+        </p>
+      </li>
+      <li>
+        <p>
+          Mean: Average of all values, calculated as the sum of the observations and divided by the number of observations. <md>\overline{x} = \frac{\sum x}{n}</md>
+        </p>
+      </li>
+      <li>
+        <p>
+          Mode: Not really a measure of <term>center</term>, but the <term>mode</term> does measure the position of the value having the highest relative frequency.
+        </p>
+      </li>
+    </ul>
+    <p>
+      The R commands that take a vector <c>x</c> of values and return the center values are literally <c>median(x)</c> and <c>mean(x)</c>.
+    </p>
+  </slide>
+  <slide>
+    <title>Exploration of Median and Mean</title>
+    
+    <program language="r">
+      <input>
+        library(readr)
+        fl_student_survey &lt;- read_csv("[link to file]")
+
+        hs_gpa_median &lt;- median(fl_student_survey $ high_sch_GPA)
+        hs_gpa_mean &lt;- mean(fl_student_survey $ high_sch_GPA)
+      </input>
+    </program>
+
+    <p>
+      In a Quarto document, you can perform calculations in a **code** block and save to a variable name in memory. Then we can access the calculated value in our **text** by including <c>`r var_name`</c>.
+      (Actually, any single R expression can replace <q>var_name</q>.)
+    </p>
+  </slide>
+
+  <slide>
+    <title>Calculation by Hand</title>
+    
+    <p>
+      To find the <term>median</term>, we need to either sort the data or create a stem and leaf plot or dot plot to see them sorted. Count the total number of measurements. Count through the list to the half-way point.
+    </p>
+    <p>
+      To find the <term>mean</term>, add up the measurements. If a number appears multiple times, you need to add it each time (or multiply the value times the number of repeats). Once you have the sum, divide by the number of measurements.
+    </p>
+    <p>
+      <line>Example data: (Source: cereal.csv sodium values)</line>
+      <line>0, 340, 70, 140, 200, 180, 210, 150, 100, 130,</line>
+      <line>140, 180, 190, 160, 290, 50, 220, 180, 200, 210</line>
+    </p>
+  </slide>
+
+  <slide>
+    <title>Outliers</title>
+    
+    <p>
+      An <term>outlier</term> is an observation that falls well above or well below the overall bulk of the data.
+    </p>
+    <p>
+      Because the median depends only on <em>how many</em> measurements are above and below it, it does not depend on the actual <em>values</em> of the highest and lowest values. The median is therefore <term>resistant</term> to outliers. 
+    </p>
+    <p>
+      The mean, however, considers the <em>sum</em> of all values. It is analogous to a center of mass where each measurement is a unit mass on a number line at its value. An outlier therefore can pull the value of the mean <em>toward</em> the outlier. The mean is <term>not resistant</term> to outliers. 
+    </p>
+    <p>
+      When a distribution is <term>skewed</term>, the mean will be shifted in the direction of the skew. For example, a distribution that is skewed to the right will have the mean to the right of the median.
+    </p>
+    <image source="images/ch-2-mean-median-and-skewness.png" width="60%">
+      <shortdescription>Illustration of left-skewed, symmetric, and right-skewed data sets and the relative location of the mean and median.</shortdescription>
+    </image>
+  </slide>
+
+  <slide>
+    <title>The Mode</title>
+    
+    <p>
+      Not as important as the mean and median, the mode is a measure of position. It is not about the <term>center</term> of the data. Instead, it is about the <term>highest frequency</term> value. For a histogram, it would be the center of the bin that has the highest frequency.
+    </p>
+
+    <p>
+      It is more common to talk about the mode for <term>categorical</term> data as representing the category that has the highest frequency of observation.
+    </p>
+  </slide>
+
+  <slide>
+    <title>Variability in Quantitative Data</title>
+    
+    <p>
+      The mean and median give a representation for the <term>center</term> of the distribution for quantitative data. Measurements are spread <em>around</em> the center. We call the idea of spread <term>variability</term> and that observations have <term>deviations</term> from the center.
+    </p>
+    <p>
+      We need repeatable measures for how to quantify how much variability is in a data set.
+      <ul>
+        <li>
+          <p>
+            <term>range</term>: the total width of the interval including all observations.
+            <md>
+              \text{range} = \text{max value} - \text{min value}
+            </md>
+          </p>
+        </li>
+        <li>
+          <p>
+            <term>deviation</term>: a measure for each observation's displacement from the mean, <m>x - \overline{x}</m>
+          </p>
+          <p>
+            An observation with a <em>positive</em> deviation is <em>above</em> the mean.
+          </p>
+          <p>
+            An observation with a <em>negative</em> deviation is <em>below</em> the mean.
+          </p>
+          <p>
+            The sum of all deviations is always equal to 0.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </slide>
+
+  <slide>
+    <title>Variance and Standard Deviation</title>
+    
+    <p>
+      <ul>
+        <li>
+          <p>
+            <term>variance</term>: an average of the squared deviations of observations, dividing the sum of squared deviations by <m>n-1</m>.
+            <md>
+              s^2 = \frac{\sum (x-\overline x)^2}{n-1}
+            </md>
+          </p>
+        </li>
+        <li>
+          <p>
+            <term>standard deviation</term>: the square root of the variance, and represents a <em>typical scale</em> for the deviations of the data.
+            <md>
+              s = \sqrt{\frac{\sum (x-\overline x)^2}{n-1}}
+            </md>
+          </p>
+        </li>
+      </ul>
+    </p>
+    <p>
+      Calculate all of the deviations for the set of values <m>\{1, 2, 2, 4, 6\}</m>. Then find the variance and standard deviation.
+    </p>
+  </slide>
+
+  <slide>
+    <title>Interpretation of Standard Deviation</title>
+    
+    <p>
+      Consider two data sets <m>A = \{0,0,0,2,4,4,4\}</m> and <m>B = \{0,2,2,2,2,2,4\}</m> that have the same mean <m>\overline x_A = \overline x_B = 2</m>.
+    </p>
+    <p>
+      <m>A</m> is bimodal and symmetric with most of the data 2 units away from the mean. <m>B</m> is unimodal and symmetric with most of the data exactly equal to the mean.
+    </p>
+    <p>
+      Compare standard deviations:
+      <md>
+        <mrow> s_A \amp= \sqrt{\frac{4+4+4+0+4+4+4}{6}} \approx 2 </mrow>
+        <mrow> s_B \amp= \sqrt{\frac{4+0+0+0+0+0+4}{6}} \approx 1.155 </mrow>
+      </md>
+    </p>
+  </slide>
+
+  <slide>
+    <title>Properties of Standard Deviation</title>
+    
+    <p>
+      <ul>
+        <li>
+          <p>
+            The value of <m>s</m> represents a scale of variation. Larger values of <m>s</m> have greater variability.
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>s=0</m> would mean all values are the same.
+          </p>
+        </li>
+        <li>
+          <p>
+            The units of measurement of <m>s</m> are the same as for observations. The units of measurement of variance is the <em>square</em> of the units of observations.
+          </p>
+        </li>
+        <li>
+          <p>
+            Standard deviation and variance are <em>not</em> resistant to outliers. Strong skewness or a few outliers can greatly increase <m>s</m>.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </slide>
+
+  <slide>
+    <title>Empirical Rule of Bell-Shaped Distributions</title>
+    
+    <p>
+      Distributions that are unimodal and symmetric with tails that decay away are called often described as <term>bell-shaped</term>. The prototypical bell-shaped distribution is called the <term>normal distribution</term>. We often think of other bell-shaped distributions as being <em>approximated</em> by the normal distribution. (We will study this more later.)
+    </p>
+    <p>
+      The normal distribution has the following characteristics in relation to the standard deviation:
+      <ul>
+        <li>
+          <p>
+            68% of all observations are within 1 standard deviation of the mean, that is between <m>\overline x - s</m> and <m>\overline x + s</m>, denoted <m>\overline x \pm s</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            95% of all observations are within 2 standard deviation of the mean, that is between <m>\overline x \pm 2s</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            99.9% of all observations are within 3 standard deviation of the mean, that is between <m>\overline x \pm 3s</m>.
+          </p>
+        </li>
+      </ul>
+    </p>
+    <p>
+      Consequently, for bell-shaped distributions, any observations that are outside of <m>\overline x \pm 3s</m> would be outliers.
+    </p>
+  </slide>
+
+  <slide>
+    <title>Illustration of Empirical Rule</title>
+    
+    <image source="images/ch-2-bell-empirical-rule.png" width="70%">
+      <shortdescription>Illustration of empirical rule for bell-shaped distribution, showing a histogram that is bell-shaped and marking off regions that are 1s, 2s, and 3s away from the mean and labeling them as 68%, 95%, and nearly all data.</shortdescription>
+    </image>
+  </slide>
+</section>

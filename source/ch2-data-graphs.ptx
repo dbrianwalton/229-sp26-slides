@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<section xml:id="ch2-data-graphs-numerical-summaries" xmlns:xi="http://www.w3.org/2001/XInclude">
+<section xml:id="ch2-data-graphs" xmlns:xi="http://www.w3.org/2001/XInclude">
 
-  <title>Chapter 2: Exploring Data with Graphs and Numerical Summaries</title>
+  <title>Sections 2.1-2.2: Exploring Data with Graphs</title>
 
   <slide>
     <title>Key Ideas</title>
@@ -118,7 +118,7 @@
     </p>
   </slide>
   <slide>
-    <title>Categorical Data</title>
+    <title>Categorical Data (Begin Day 5)</title>
     
     <p>
       The distribution for categorical variables is characterized by the <term>frequency</term> (raw counts) and <term>relative frequency</term> (proportion or percentage) of occurrences of each of the different categories.
