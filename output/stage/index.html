@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2026-02-03T16:50:34Z       *-->
+<!--*       on 2026-02-05T03:33:33Z       *-->
 <!--*   A recent stable commit (2022-07-01):   *-->
 <!--* 6c761d3dba23af92cba35001c852aac04ae99a5f *-->
 <!--*                                          *-->
@@ -39,7 +39,7 @@
 <tr><td align="center" style="border-bottom: 0px;">James Madison University</td></tr>
 <tr><td align="center"></td></tr>
 </table>
-<h4><div class="date">as of February 3, 2026</div></h4></section></section><section><section><h1>Introduction to R, RStudio, Quarto</h1></section><section><h3>Working with R</h3>
+<h4><div class="date">as of February 5, 2026</div></h4></section></section><section><section><h1>Introduction to R, RStudio, Quarto</h1></section><section><h3>Working with R</h3>
 <div align="left"><ul class="disc" id="Rstudio_introduction-2-2">
 <li><p>Scripting/Programming Language: R</p></li>
 <li><p>Data Analysis Application: RStudio</p></li>
@@ -200,21 +200,21 @@ y &lt;- a*x^2+b*x+c
 </ul></p></li>
 <li><p>margin of error: how close we expect an estimate to fall to the true parameter value</p></li>
 <li><p>statistical significance: measure of the strength of evidence, typically measured by probability or likelihood</p></li>
-</ul></div></section></section><section><section><h1>Chapter 2: Exploring Data with Graphs and Numerical Summaries</h1></section><section><h3>Key Ideas</h3>
-<div align="left"><ul class="disc" id="ch2-data-graphs-numerical-summaries-2-2">
+</ul></div></section></section><section><section><h1>Sections 2.1-2.2: Exploring Data with Graphs</h1></section><section><h3>Key Ideas</h3>
+<div align="left"><ul class="disc" id="ch2-data-graphs-2-2">
 <li><p>Types of Data: categorical vs quantitative (discrete and continuous) variables</p></li>
-<li><p>Describing the distribution of data<ul class="circle" id="ch2-data-graphs-numerical-summaries-2-2-2-1-1">
+<li><p>Describing the distribution of data<ul class="circle" id="ch2-data-graphs-2-2-2-1-1">
 <li><p>relative frequency (categorical)</p></li>
 <li><p>shape, center and variability (quantitative)</p></li>
 </ul></p></li>
-<li><p>Choosing appropriate graphical representations of data<ul class="circle" id="ch2-data-graphs-numerical-summaries-2-2-3-1-1">
+<li><p>Choosing appropriate graphical representations of data<ul class="circle" id="ch2-data-graphs-2-2-3-1-1">
 <li><p>categorical: bar graph (preferred), pie chart</p></li>
 <li><p>quantitative: dot plot, stem and leaf plot, histogram, box plot</p></li>
 </ul></p></li>
 </ul></div></section><section><h3>Structure of Data Frames</h3>
 <div align="left">
 <p>The fundamental structure of data is in a rectangular table.</p>
-<ul class="disc" id="ch2-data-graphs-numerical-summaries-3-3">
+<ul class="disc" id="ch2-data-graphs-3-3">
 <li><p>Row: refers to an individual <dfn class="terminology">subject</dfn> or <dfn class="terminology">experimental replicate</dfn>.</p></li>
 <li><p>Column: a single <dfn class="terminology">variable</dfn> representing a specific measurement or characteristic.</p></li>
 <li><p>Best Practice: a <dfn class="terminology">header row</dfn> states what the variables represent</p></li>
@@ -223,20 +223,20 @@ y &lt;- a*x^2+b*x+c
 </div></section><section><h3>Importing Data Using RStudio</h3>
 <div align="left">
 <p>Open a <dfn class="terminology">project</dfn> to have a single folder containing your Quarto file and any data files you work with. The easiest format to use is a CSV file.</p>
-<ul class="disc" id="ch2-data-graphs-numerical-summaries-4-3">
+<ul class="disc" id="ch2-data-graphs-4-3">
 <li><p><code class="code-inline tex2jax_ignore">read.csv(filename)</code>: a basic import routine in R</p></li>
 <li><p><code class="code-inline tex2jax_ignore">read_csv(filename)</code>: an improved import routine from <code class="code-inline tex2jax_ignore">readr</code> library (tidyverse).</p></li>
 <li><p>Both routines have optional <dfn class="terminology">arguments</dfn> (other than filename) to customize how the data are read.</p></li>
 </ul>
 </div></section><section><h3>Download Sample Data</h3>
-<div align="left"><p>The textbook has a website that contains many useful data sets for learning: <a class="external" href="https://artofstat.com" target="_blank">ArtOfStat.com</a><ol class="decimal" id="ch2-data-graphs-numerical-summaries-5-2-2">
+<div align="left"><p>The textbook has a website that contains many useful data sets for learning: <a class="external" href="https://artofstat.com" target="_blank">ArtOfStat.com</a><ol class="decimal" id="ch2-data-graphs-5-2-2">
 <li><p>Click on <em class="emphasis">Datasets</em></p></li>
 <li><p>Look for Chapter 2 data sets and find one named “FL Student Survey”. Download the CSV file and save it to your project directory.</p></li>
 <li><p>Import the data frame using <code class="code-inline tex2jax_ignore">read.csv("fl_student_survey.csv")</code> or with <code class="code-inline tex2jax_ignore">read_csv</code> (after typing <code class="code-inline tex2jax_ignore">library(readr)</code> to load the library)</p></li>
 </ol></p></div></section><section><h3>Categorical Data (Begin Day 5)</h3>
 <div align="left">
 <p>The distribution for categorical variables is characterized by the <dfn class="terminology">frequency</dfn> (raw counts) and <dfn class="terminology">relative frequency</dfn> (proportion or percentage) of occurrences of each of the different categories.</p>
-<p>To calculate <dfn class="terminology">relative frequency</dfn> or <dfn class="terminology">proportion</dfn>, divide the count of a single category by the total number of observations.<div class="displaymath process-math" id="ch2-data-graphs-numerical-summaries-6-3-3">
+<p>To calculate <dfn class="terminology">relative frequency</dfn> or <dfn class="terminology">proportion</dfn>, divide the count of a single category by the total number of observations.<div class="displaymath process-math" id="ch2-data-graphs-6-3-3">
 \begin{equation*}
 \text{rel.freq.} = \frac{\text{# in category}}{\text{total # observations}}
 \end{equation*}
@@ -435,8 +435,8 @@ y &lt;- a*x^2+b*x+c
 <div style="display:table-cell;width:50%;vertical-align:top;"><img src="external/images/ch-2-sharks-pie-percentage.png" class="contained" alt="pie chart of shark attacks using percentage"></div>
 </div></div></section><section><h3>Quantitative Data</h3>
 <div align="left">
-<p>The distribution is characterized by the <dfn class="terminology">shape</dfn> of the relative frequencies that data values appear in <dfn class="terminology">intervals</dfn> (often called <dfn class="terminology">bins</dfn>).<ul class="disc" id="ch2-data-graphs-numerical-summaries-11-2-4">
-<li><p>Choose or calculate a <dfn class="terminology">bin width</dfn> for how wide each interval will be.<div class="displaymath process-math" id="ch2-data-graphs-numerical-summaries-11-2-4-1-1-2">
+<p>The distribution is characterized by the <dfn class="terminology">shape</dfn> of the relative frequencies that data values appear in <dfn class="terminology">intervals</dfn> (often called <dfn class="terminology">bins</dfn>).<ul class="disc" id="ch2-data-graphs-11-2-4">
+<li><p>Choose or calculate a <dfn class="terminology">bin width</dfn> for how wide each interval will be.<div class="displaymath process-math" id="ch2-data-graphs-11-2-4-1-1-2">
 \begin{equation*}
 \text{width} = \frac{\text{total width}}{\text{# of bins}} = \frac{\text{max bin value - min bin value}}{\text{# of bins}}
 \end{equation*}
@@ -448,11 +448,11 @@ y &lt;- a*x^2+b*x+c
 <p>10, 12, 12, 15, 18, 20, 21, 21, 24, 28, 32, 32, 35, 36,<br> 40, 42, 45, 48, 48, 52, 56, 56, 58, 60, 64, 70, 72</p>
 </div></section><section><h3>Stem and Leaf Plot</h3>
 <div align="left">
-<p>Not really a graphical display, a <dfn class="terminology">stem and leaf plot</dfn> is a textual method of exploring shape for a relatively small set of data.<ul class="disc" id="ch2-data-graphs-numerical-summaries-12-2-2">
+<p>Not really a graphical display, a <dfn class="terminology">stem and leaf plot</dfn> is a textual method of exploring shape for a relatively small set of data.<ul class="disc" id="ch2-data-graphs-12-2-2">
 <li><p><dfn class="terminology">stem</dfn>: leading digits of each value to a specified place value</p></li>
 <li><p><dfn class="terminology">leaf</dfn>: next place-value digit in the number</p></li>
 </ul>The number 1207 using a stem value of hundreds would have a stem of 12 and a leaf of 0; using a stem value of thousands, the stem would be 1 and the leaf would be 2.</p>
-<p>Make a stem and leaf plot using two columns.<ul class="disc" id="ch2-data-graphs-numerical-summaries-12-3-1">
+<p>Make a stem and leaf plot using two columns.<ul class="disc" id="ch2-data-graphs-12-3-1">
 <li><p>Column of sequential stems, including any skipped values</p></li>
 <li><p>Column of leaves from the data, sorted in order</p></li>
 </ul></p>
@@ -469,7 +469,7 @@ y &lt;- a*x^2+b*x+c
 </pre>
 </div></section><section><h3>Dot Plot</h3>
 <div align="left">
-<p>A <dfn class="terminology">dot plot</dfn> is similar to a stem and leaf plot, but instead of using digits to create the plot, we just put solid dots next to each other along an axis. It is also most useful when there is a relatively small number of data points.<ul class="disc" id="ch2-data-graphs-numerical-summaries-14-2-2">
+<p>A <dfn class="terminology">dot plot</dfn> is similar to a stem and leaf plot, but instead of using digits to create the plot, we just put solid dots next to each other along an axis. It is also most useful when there is a relatively small number of data points.<ul class="disc" id="ch2-data-graphs-14-2-2">
 <li><p>For <dfn class="terminology">discrete</dfn> variables, we can often position the dots at exact value positions.</p></li>
 <li><p>Otherwise, we use bins and position the dots at the center of each bin.</p></li>
 </ul></p>
@@ -484,13 +484,13 @@ y &lt;- a*x^2+b*x+c
 <div style="display:table-cell;width:44.4444444444444%;vertical-align:top;"><img src="external/images/ch-2-my-numbers-histogram-bin10.png" class="contained" alt="histogram of the numbers previously given with bin width equal 10"></div>
 </div>
 </div></section><section><h3>Describing Shape</h3>
-<div align="left"><p><ul class="disc" id="ch2-data-graphs-numerical-summaries-16-2-1">
+<div align="left"><p><ul class="disc" id="ch2-data-graphs-16-2-1">
 <li><p>Does the shape have a single predominant mound? Then the distribution is <dfn class="terminology">unimodal</dfn></p></li>
 <li><p>Does the shape have a two predominant mounds? Then the distribution is <dfn class="terminology">bimodal</dfn></p></li>
 <li><p>Does the shape look like it is reflected over the center? Then the distribution is <dfn class="terminology">symmetric</dfn>. Otherwise it is <dfn class="terminology">asymmetric</dfn>.</p></li>
 <li>
 <p>Does the shape look it is stretched out more on one side than the other? Then the distribution is <dfn class="terminology">skewed</dfn>.</p>
-<ul class="circle" id="ch2-data-graphs-numerical-summaries-16-2-1-4-2">
+<ul class="circle" id="ch2-data-graphs-16-2-1-4-2">
 <li><p>If the shape stretches from the center (mean/median) further to the right, it is <dfn class="terminology">skewed to the right</dfn>.</p></li>
 <li><p>If the shape stretches from the center (mean/median) further to the left, it is <dfn class="terminology">skewed to the left</dfn>.</p></li>
 </ul>
@@ -508,7 +508,112 @@ y &lt;- a*x^2+b*x+c
 </div>
 <p>Find the center of the distribution. On which side does the distribution (tails) stretch out further? That is the direction it is skewed.</p>
 <div style="display:table;margin-left:20%;margin-right:20%;" class="sidebyside"><div style="display:table-cell;width:100%;vertical-align:top;"><img src="external/images/ch-2-skewness-example.png" class="contained" alt="Example of how skewness appears. Life span has center at older ages with tail extended to left. Income distribution has center at low income with tail extended to right."></div></div>
-</div></section></section>
+</div></section></section><section><section><h1>Sections 2.3-2.6: Exploring Data with Numerical Summaries</h1></section><section><h3>Key Ideas (Begin Day 6)</h3>
+<div align="left"><ul class="disc" id="ch2-numerical-summaries-2-2">
+<li><p>Quantitative data is characterized by the distribution <dfn class="terminology">center</dfn>, <dfn class="terminology">variability</dfn>, and <dfn class="terminology">skewness</dfn>.</p></li>
+<li><p>Measures of position (center): mean, median, mode. Learn how to identify and compute mean and median and how they are influenced by outliers and skewness.</p></li>
+<li><p>Measures of variability: range, standard deviation, variance (squared deviation), interquartile range (IQR). Learn how to compute and interpret these measures.</p></li>
+<li><p>Outliers: Two methods to identify potential outliers are (1) using standard deviation for bell-shaped distributions or (2) using IQR in general.</p></li>
+<li><p>Draw and interpret boxplots.</p></li>
+<li><p>Compute and interpret <span class="process-math">\(Z\)</span> scores, which standardizes measurements relative to the mean and standard deviation</p></li>
+</ul></div></section><section><h3>Measuring the Center of Quantitative Data</h3>
+<div align="left">
+<ul class="disc" id="ch2-numerical-summaries-3-2">
+<li><p>Median: Middle of data values when sorted. 50% above and 50% below.<ul class="circle" id="ch2-numerical-summaries-3-2-1-1-1">
+<li><p>If an <em class="emphasis">odd</em> number of data points, use the middle value (same number before/after).</p></li>
+<li><p>If an <em class="emphasis">even</em> number of data points, use the <em class="emphasis">midpoint</em> of the two middle values.</p></li>
+</ul></p></li>
+<li><p>Mean: Average of all values, calculated as the sum of the observations and divided by the number of observations.<div class="displaymath process-math" id="ch2-numerical-summaries-3-2-2-1-1">
+\begin{equation*}
+\overline{x} = \frac{\sum x}{n}
+\end{equation*}
+</div></p></li>
+<li><p>Mode: Not really a measure of <dfn class="terminology">center</dfn>, but the <dfn class="terminology">mode</dfn> does measure the position of the value having the highest relative frequency.</p></li>
+</ul>
+<p>The R commands that take a vector <code class="code-inline tex2jax_ignore">x</code> of values and return the center values are literally <code class="code-inline tex2jax_ignore">median(x)</code> and <code class="code-inline tex2jax_ignore">mean(x)</code>.</p>
+</div></section><section><h3>Exploration of Median and Mean</h3>
+<div align="left">
+<div class="code-box"><pre class="program"><code class="language-r">library(readr)
+fl_student_survey &lt;- read_csv("[link to file]")
+
+hs_gpa_median &lt;- median(fl_student_survey $ high_sch_GPA)
+hs_gpa_mean &lt;- mean(fl_student_survey $ high_sch_GPA)
+</code></pre></div>
+<p>In a Quarto document, you can perform calculations in a **code** block and save to a variable name in memory. Then we can access the calculated value in our **text** by including <code class="code-inline tex2jax_ignore">`r var_name`</code>. (Actually, any single R expression can replace “var_name”.)</p>
+</div></section><section><h3>Calculation by Hand</h3>
+<div align="left">
+<p>To find the <dfn class="terminology">median</dfn>, we need to either sort the data or create a stem and leaf plot or dot plot to see them sorted. Count the total number of measurements. Count through the list to the half-way point.</p>
+<p>To find the <dfn class="terminology">mean</dfn>, add up the measurements. If a number appears multiple times, you need to add it each time (or multiply the value times the number of repeats). Once you have the sum, divide by the number of measurements.</p>
+<p>Example data: (Source: cereal.csv sodium values)<br> 0, 340, 70, 140, 200, 180, 210, 150, 100, 130,<br> 140, 180, 190, 160, 290, 50, 220, 180, 200, 210</p>
+</div></section><section><h3>Outliers</h3>
+<div align="left">
+<p>An <dfn class="terminology">outlier</dfn> is an observation that falls well above or well below the overall bulk of the data.</p>
+<p>Because the median depends only on <em class="emphasis">how many</em> measurements are above and below it, it does not depend on the actual <em class="emphasis">values</em> of the highest and lowest values. The median is therefore <dfn class="terminology">resistant</dfn> to outliers.</p>
+<p>The mean, however, considers the <em class="emphasis">sum</em> of all values. It is analogous to a center of mass where each measurement is a unit mass on a number line at its value. An outlier therefore can pull the value of the mean <em class="emphasis">toward</em> the outlier. The mean is <dfn class="terminology">not resistant</dfn> to outliers.</p>
+<p>When a distribution is <dfn class="terminology">skewed</dfn>, the mean will be shifted in the direction of the skew. For example, a distribution that is skewed to the right will have the mean to the right of the median.</p>
+<div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="external/images/ch-2-mean-median-and-skewness.png" class="contained" alt="Illustration of left-skewed, symmetric, and right-skewed data sets and the relative location of the mean and median."></div>
+</div></section><section><h3>The Mode</h3>
+<div align="left">
+<p>Not as important as the mean and median, the mode is a measure of position. It is not about the <dfn class="terminology">center</dfn> of the data. Instead, it is about the <dfn class="terminology">highest frequency</dfn> value. For a histogram, it would be the center of the bin that has the highest frequency.</p>
+<p>It is more common to talk about the mode for <dfn class="terminology">categorical</dfn> data as representing the category that has the highest frequency of observation.</p>
+</div></section><section><h3>Variability in Quantitative Data</h3>
+<div align="left">
+<p>The mean and median give a representation for the <dfn class="terminology">center</dfn> of the distribution for quantitative data. Measurements are spread <em class="emphasis">around</em> the center. We call the idea of spread <dfn class="terminology">variability</dfn> and that observations have <dfn class="terminology">deviations</dfn> from the center.</p>
+<p>We need repeatable measures for how to quantify how much variability is in a data set.<ul class="disc" id="ch2-numerical-summaries-8-3-1">
+<li><p><dfn class="terminology">range</dfn>: the total width of the interval including all observations.<div class="displaymath process-math" id="ch2-numerical-summaries-8-3-1-1-1-2">
+\begin{equation*}
+\text{range} = \text{max value} - \text{min value}
+\end{equation*}
+</div></p></li>
+<li>
+<p><dfn class="terminology">deviation</dfn>: a measure for each observation’s displacement from the mean, <span class="process-math">\(x - \overline{x}\)</span></p>
+<p>An observation with a <em class="emphasis">positive</em> deviation is <em class="emphasis">above</em> the mean.</p>
+<p>An observation with a <em class="emphasis">negative</em> deviation is <em class="emphasis">below</em> the mean.</p>
+<p>The sum of all deviations is always equal to 0.</p>
+</li>
+</ul></p>
+</div></section><section><h3>Variance and Standard Deviation</h3>
+<div align="left">
+<p><ul class="disc" id="ch2-numerical-summaries-9-2-1">
+<li><p><dfn class="terminology">variance</dfn>: an average of the squared deviations of observations, dividing the sum of squared deviations by <span class="process-math">\(n-1\text{.}\)</span><div class="displaymath process-math" id="ch2-numerical-summaries-9-2-1-1-1-3">
+\begin{equation*}
+s^2 = \frac{\sum (x-\overline x)^2}{n-1}
+\end{equation*}
+</div></p></li>
+<li><p><dfn class="terminology">standard deviation</dfn>: the square root of the variance, and represents a <em class="emphasis">typical scale</em> for the deviations of the data.<div class="displaymath process-math" id="ch2-numerical-summaries-9-2-1-2-1-3">
+\begin{equation*}
+s = \sqrt{\frac{\sum (x-\overline x)^2}{n-1}}
+\end{equation*}
+</div></p></li>
+</ul></p>
+<p>Calculate all of the deviations for the set of values <span class="process-math">\(\{1, 2, 2, 4, 6\}\text{.}\)</span> Then find the variance and standard deviation.</p>
+</div></section><section><h3>Interpretation of Standard Deviation</h3>
+<div align="left">
+<p>Consider two data sets <span class="process-math">\(A = \{0,0,0,2,4,4,4\}\)</span> and <span class="process-math">\(B = \{0,2,2,2,2,2,4\}\)</span> that have the same mean <span class="process-math">\(\overline x_A = \overline x_B = 2\text{.}\)</span></p>
+<p><span class="process-math">\(A\)</span> is bimodal and symmetric with most of the data 2 units away from the mean. <span class="process-math">\(B\)</span> is unimodal and symmetric with most of the data exactly equal to the mean.</p>
+<p>Compare standard deviations:<div class="displaymath process-math" id="ch2-numerical-summaries-10-4-1">
+\begin{align*}
+s_A \amp= \sqrt{\frac{4+4+4+0+4+4+4}{6}} \approx 2 \\
+s_B \amp= \sqrt{\frac{4+0+0+0+0+0+4}{6}} \approx 1.155 
+\end{align*}
+</div></p>
+</div></section><section><h3>Properties of Standard Deviation</h3>
+<div align="left"><p><ul class="disc" id="ch2-numerical-summaries-11-2-1">
+<li><p>The value of <span class="process-math">\(s\)</span> represents a scale of variation. Larger values of <span class="process-math">\(s\)</span> have greater variability.</p></li>
+<li><p><span class="process-math">\(s=0\)</span> would mean all values are the same.</p></li>
+<li><p>The units of measurement of <span class="process-math">\(s\)</span> are the same as for observations. The units of measurement of variance is the <em class="emphasis">square</em> of the units of observations.</p></li>
+<li><p>Standard deviation and variance are <em class="emphasis">not</em> resistant to outliers. Strong skewness or a few outliers can greatly increase <span class="process-math">\(s\text{.}\)</span></p></li>
+</ul></p></div></section><section><h3>Empirical Rule of Bell-Shaped Distributions</h3>
+<div align="left">
+<p>Distributions that are unimodal and symmetric with tails that decay away are called often described as <dfn class="terminology">bell-shaped</dfn>. The prototypical bell-shaped distribution is called the <dfn class="terminology">normal distribution</dfn>. We often think of other bell-shaped distributions as being <em class="emphasis">approximated</em> by the normal distribution. (We will study this more later.)</p>
+<p>The normal distribution has the following characteristics in relation to the standard deviation:<ul class="disc" id="ch2-numerical-summaries-12-3-1">
+<li><p>68% of all observations are within 1 standard deviation of the mean, that is between <span class="process-math">\(\overline x - s\)</span> and <span class="process-math">\(\overline x + s\text{,}\)</span> denoted <span class="process-math">\(\overline x \pm s\text{.}\)</span></p></li>
+<li><p>95% of all observations are within 2 standard deviation of the mean, that is between <span class="process-math">\(\overline x \pm 2s\text{.}\)</span></p></li>
+<li><p>99.9% of all observations are within 3 standard deviation of the mean, that is between <span class="process-math">\(\overline x \pm 3s\text{.}\)</span></p></li>
+</ul></p>
+<p>Consequently, for bell-shaped distributions, any observations that are outside of <span class="process-math">\(\overline x \pm 3s\)</span> would be outliers.</p>
+</div></section><section><h3>Illustration of Empirical Rule</h3>
+<div align="left"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="external/images/ch-2-bell-empirical-rule.png" class="contained" alt="Illustration of empirical rule for bell-shaped distribution, showing a histogram that is bell-shaped and marking off regions that are 1s, 2s, and 3s away from the mean and labeling them as 68%, 95%, and nearly all data."></div></div></section></section>
 </div>
 </div></body>
 <script>
