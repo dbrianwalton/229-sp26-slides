@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2026-02-05T03:33:33Z       *-->
+<!--*       on 2026-02-12T03:27:43Z       *-->
 <!--*   A recent stable commit (2022-07-01):   *-->
 <!--* 6c761d3dba23af92cba35001c852aac04ae99a5f *-->
 <!--*                                          *-->
@@ -39,7 +39,7 @@
 <tr><td align="center" style="border-bottom: 0px;">James Madison University</td></tr>
 <tr><td align="center"></td></tr>
 </table>
-<h4><div class="date">as of February 5, 2026</div></h4></section></section><section><section><h1>Introduction to R, RStudio, Quarto</h1></section><section><h3>Working with R</h3>
+<h4><div class="date">as of February 12, 2026</div></h4></section></section><section><section><h1>Introduction to R, RStudio, Quarto</h1></section><section><h3>Working with R</h3>
 <div align="left"><ul class="disc" id="Rstudio_introduction-2-2">
 <li><p>Scripting/Programming Language: R</p></li>
 <li><p>Data Analysis Application: RStudio</p></li>
@@ -516,7 +516,7 @@ y &lt;- a*x^2+b*x+c
 <li><p>Outliers: Two methods to identify potential outliers are (1) using standard deviation for bell-shaped distributions or (2) using IQR in general.</p></li>
 <li><p>Draw and interpret boxplots.</p></li>
 <li><p>Compute and interpret <span class="process-math">\(Z\)</span> scores, which standardizes measurements relative to the mean and standard deviation</p></li>
-</ul></div></section><section><h3>Measuring the Center of Quantitative Data</h3>
+</ul></div></section><section><h3>Measuring the Center of Quantitative Data (2.3)</h3>
 <div align="left">
 <ul class="disc" id="ch2-numerical-summaries-3-2">
 <li><p>Median: Middle of data values when sorted. 50% above and 50% below.<ul class="circle" id="ch2-numerical-summaries-3-2-1-1-1">
@@ -556,7 +556,7 @@ hs_gpa_mean &lt;- mean(fl_student_survey $ high_sch_GPA)
 <div align="left">
 <p>Not as important as the mean and median, the mode is a measure of position. It is not about the <dfn class="terminology">center</dfn> of the data. Instead, it is about the <dfn class="terminology">highest frequency</dfn> value. For a histogram, it would be the center of the bin that has the highest frequency.</p>
 <p>It is more common to talk about the mode for <dfn class="terminology">categorical</dfn> data as representing the category that has the highest frequency of observation.</p>
-</div></section><section><h3>Variability in Quantitative Data</h3>
+</div></section><section><h3>Variability in Quantitative Data (2.4)</h3>
 <div align="left">
 <p>The mean and median give a representation for the <dfn class="terminology">center</dfn> of the distribution for quantitative data. Measurements are spread <em class="emphasis">around</em> the center. We call the idea of spread <dfn class="terminology">variability</dfn> and that observations have <dfn class="terminology">deviations</dfn> from the center.</p>
 <p>We need repeatable measures for how to quantify how much variability is in a data set.<ul class="disc" id="ch2-numerical-summaries-8-3-1">
@@ -572,7 +572,7 @@ hs_gpa_mean &lt;- mean(fl_student_survey $ high_sch_GPA)
 <p>The sum of all deviations is always equal to 0.</p>
 </li>
 </ul></p>
-</div></section><section><h3>Variance and Standard Deviation</h3>
+</div></section><section><h3>Variance and Standard Deviation (Begin Day 7)</h3>
 <div align="left">
 <p><ul class="disc" id="ch2-numerical-summaries-9-2-1">
 <li><p><dfn class="terminology">variance</dfn>: an average of the squared deviations of observations, dividing the sum of squared deviations by <span class="process-math">\(n-1\text{.}\)</span><div class="displaymath process-math" id="ch2-numerical-summaries-9-2-1-1-1-3">
@@ -613,7 +613,91 @@ s_B \amp= \sqrt{\frac{4+0+0+0+0+0+4}{6}} \approx 1.155
 </ul></p>
 <p>Consequently, for bell-shaped distributions, any observations that are outside of <span class="process-math">\(\overline x \pm 3s\)</span> would be outliers.</p>
 </div></section><section><h3>Illustration of Empirical Rule</h3>
-<div align="left"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="external/images/ch-2-bell-empirical-rule.png" class="contained" alt="Illustration of empirical rule for bell-shaped distribution, showing a histogram that is bell-shaped and marking off regions that are 1s, 2s, and 3s away from the mean and labeling them as 68%, 95%, and nearly all data."></div></div></section></section>
+<div align="left"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="external/images/ch-2-bell-empirical-rule.png" class="contained" alt="Illustration of empirical rule for bell-shaped distribution, showing a histogram that is bell-shaped and marking off regions that are 1s, 2s, and 3s away from the mean and labeling them as 68%, 95%, and nearly all data."></div></div></section><section><h3>Z scores (2.5)</h3>
+<div align="left">
+<p>We can <dfn class="terminology">transform</dfn> the deviations to compute <dfn class="terminology">Z scores</dfn>, which measures <em class="emphasis">how many standard deviations</em> are in each deviation using division.<div class="displaymath process-math" id="ch2-numerical-summaries-14-2-4">
+\begin{equation*}
+z = \frac{\text{observation}-\text{mean}}{\text{standard deviation}}
+\end{equation*}
+</div>Z scores with magnitude greater than 3 correspond to outliers when the distribution is bell shaped.</p>
+<p>The distribution of Z scores looks the same as the distribution of the original data <em class="emphasis">except</em> that:<ul class="disc" id="ch2-numerical-summaries-14-3-2">
+<li><p>The center of Z scores always has mean 0</p></li>
+<li><p>The standard deviation of Z scores always is 1</p></li>
+</ul>We say the the Z scores <dfn class="terminology">standardize</dfn> the data.</p>
+</div></section><section><h3>Percentiles</h3>
+<div align="left">
+<p>While the variance and standard deviation are computed by how far data are from the mean, <dfn class="terminology">percentiles</dfn> (or <dfn class="terminology">quantiles</dfn>) represent <dfn class="terminology">positions</dfn> in the distribution that have some percentage (or proportion) of the data <em class="emphasis">less than</em> that position.</p>
+<div style="display:table;margin-left:2.5%;margin-right:2.5%;" class="sidebyside">
+<div style="display:table-cell;width:63.1578947368421%;vertical-align:top;"><ul class="disc" id="ch2-numerical-summaries-15-3-1">
+<li><p>The 25th percentile is a value that has 25% of the data before it. It also happens to be the median of the data <em class="emphasis">before</em> the actual median (which is the 50th percentile).</p></li>
+<li><p>The 75th percentile is a value that has 75% of the data before it. It is the median of the data <em class="emphasis">after</em> the actual median.</p></li>
+<li><p>The 0.1 quantile is a value that has 10% of the data before it. The 0.25 quantile is the same as the 25th percentile.</p></li>
+</ul></div>
+<div style="display:table-cell;width:31.5789473684211%;vertical-align:top;"><img src="external/images/ch-2-percentile.png" class="contained" alt="Illustration of percentile showing a graph of a distribution marked with a vertical line at the percentile location so that p percent of the distribution is to the left."></div>
+</div>
+</div></section><section><h3>Quartiles</h3>
+<div align="left">
+<p>The <dfn class="terminology">quartiles</dfn> split the data into four equal numbers of data points.<ul class="disc" id="ch2-numerical-summaries-16-2-2">
+<li><p><span class="process-math">\(Q1\)</span> is the <dfn class="terminology">first quartile</dfn> and is the same as the 25th percentile.</p></li>
+<li><p><span class="process-math">\(Q2\)</span> is the <dfn class="terminology">second quartile</dfn> and is the same as the 50th percentile, which is also the <dfn class="terminology">median</dfn>.</p></li>
+<li><p><span class="process-math">\(Q3\)</span> is the <dfn class="terminology">third quartile</dfn> and is the same as the 75th percentile.</p></li>
+</ul></p>
+<div class="image-box" style="width: 30%; margin-left: 35%; margin-right: 35%;"><img src="external/images/ch-2-quartiles.png" class="contained" alt="Illustration of the quartiles Q1, Q2, and Q3 as the positions in the distribution that separate the data into four equal parts."></div>
+</div></section><section><h3>Finding Quartiles</h3>
+<div align="left">
+<p>To find the quartiles:<ul class="disc" id="ch2-numerical-summaries-17-2-1">
+<li><p>Sort the data or organize them in a stem and leaf plot.</p></li>
+<li><p>Find the <dfn class="terminology">median</dfn> (Q2).</p></li>
+<li><p>Find the median of the data less than Q2 to find Q1.</p></li>
+<li><p>Find the median of the data greater than Q2 to find Q3.</p></li>
+<li><p>R command: <code class="code-inline tex2jax_ignore">quantile(x)</code> or <code class="code-inline tex2jax_ignore">quantile(x,p)</code>.</p></li>
+</ul></p>
+<p>Note: There are many different rules possible for how to deal with a number of points that does not have equally split.</p>
+<p>Find the three quartiles for the sodium data (cereal.csv).<br> Example data: (Source: cereal.csv sodium values)<br> 0, 340, 70, 140, 200, 180, 210, 150, 100, 130,<br> 140, 180, 190, 160, 290, 50, 220, 180, 200, 210</p>
+</div></section><section><h3>Interquartile Range (IQR)</h3>
+<div align="left">
+<p>After defining the percentiles and quartiles, we can define a new measure of variability called the <dfn class="terminology">interquartile range</dfn> (IQR).<div class="displaymath process-math" id="ch2-numerical-summaries-18-2-2">
+\begin{equation*}
+IQR = Q3 - Q1
+\end{equation*}
+</div>The <dfn class="terminology">range</dfn> gives the width of the full data set. The <dfn class="terminology">IQR</dfn> gives the width of the middle 50% of the data set.</p>
+<p>For distributions that are <em class="emphasis">not</em> bell-shaped, the IQR can be used to find thresholds for identifying potential outliers.<ul class="disc" id="ch2-numerical-summaries-18-3-2">
+<li><p>Values less than <span class="process-math">\(Q1 - 1.5IQR\)</span> are potential outliers.</p></li>
+<li><p>Values greater than <span class="process-math">\(Q3 + 1.5IQR\)</span> are potential outliers.</p></li>
+</ul></p>
+</div></section><section><h3>Box Plots</h3>
+<div align="left"><p>A <dfn class="terminology">box plot</dfn> (or box and whisker plot) is a graphical representation of the five-number summary for a dataset, (Min, Q1, Q2=Med, Q3, Max). The following description makes a horizontal box plot.<ul class="disc" id="ch2-numerical-summaries-19-2-2">
+<li><p>Draw a rectangular bar from Q1 on the left to Q3 on the right. This is the box.</p></li>
+<li><p>Draw a vertical line inside the box at the median Q2.</p></li>
+<li><p>Draw a horizontal whisker from the middle of the left side (Q1) to the <em class="emphasis">smallest</em> value that is <em class="emphasis">not</em> an outlier (using the 1.5 IQR rule).</p></li>
+<li><p>Draw a horizontal whisker from the middle of the right side (Q3) to the <em class="emphasis">largest</em> value that is <em class="emphasis">not</em> an outlier (using the 1.5 IQR rule).</p></li>
+<li><p>Indicate each outlier (above or below) as individual marks.</p></li>
+</ul>The R command for a simple box plot is <code class="code-inline tex2jax_ignore">boxplot(x)</code>. If using <code class="code-inline tex2jax_ignore">ggplot()</code>, then the geometry layer for a box plot is <code class="code-inline tex2jax_ignore">geom_boxplot()</code>.</p></div></section><section><h3>Box Plot for Sodium</h3>
+<div align="left">
+<p>Example data sorted: (Source: cereal.csv sodium values)<br> 0, 50, 70, 100, 130, 140, 140, 150, 160, 180,<br> 180, 180, 190, 200, 200, 210, 210, 220, 290, 340</p>
+<div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/images/ch-2-box-plot-sodium.png" class="contained" alt="Box plot for the sodium data from cereal data set"></div>
+</div></section><section><h3>Comparison Using Box Plots</h3>
+<div align="left">
+<p>I watched the Men’s Super G Alpine Skiing event and wondered how the times compared to older Olympics and chose the 2002 SLC Winter Games. I extracted the run times for the competitors in each race to create this data set: <a class="external" href="external/data/super-g-times.csv" target="_blank">Men’s Super G Times Data</a>.</p>
+<ul class="disc" id="ch2-numerical-summaries-21-3">
+<li><p><code class="code-inline tex2jax_ignore">Olympics</code> contains the year of the Olympics, <code class="code-inline tex2jax_ignore">Time</code> contains the time of the race in <code class="code-inline tex2jax_ignore">HH:MM:SS.SSS</code> format.</p></li>
+<li><p>Must import with extra information about the columns or R drops the fractions of seconds on the times. Use <code class="code-inline tex2jax_ignore">read_csv</code> with extra option <code class="code-inline tex2jax_ignore">col_types = "ficcc"</code> (columns are: factor, integer, character, character, character).</p></li>
+<li><p>Then convert the <code class="code-inline tex2jax_ignore">Time</code> column to a time with more precision than the default.</p></li>
+</ul>
+</div></section><section><h3>Sample Code for Olympic Box Plot</h3>
+<div align="left"><div class="code-box"><pre class="program"><code class="language-none"># Load Libraries: readr, dplyr, lubridate, ggplot2
+library(tidyverse)
+
+# Read file forcing character type for Time
+superg &lt;- read_csv("link", col_types="ficcc") %&gt;%
+  # And then mutate the column by reading HMS and then converting to seconds
+  mutate(Time = period_to_seconds(hms(Time)))
+
+# Make the plot
+ggplot(data = superg, mapping = aes(x=Time, y=Olympics)) +
+  geom_boxplot(fill="lightblue") +
+  labs(title = "Skier Times for Men's Super G Race")
+</code></pre></div></div></section></section>
 </div>
 </div></body>
 <script>

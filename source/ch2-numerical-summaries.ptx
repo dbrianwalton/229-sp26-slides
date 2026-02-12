@@ -41,7 +41,7 @@
   </slide>
 
   <slide>
-    <title>Measuring the Center of Quantitative Data</title>
+    <title>Measuring the Center of Quantitative Data (2.3)</title>
 
     <ul>
       <li>
@@ -140,7 +140,7 @@
   </slide>
 
   <slide>
-    <title>Variability in Quantitative Data</title>
+    <title>Variability in Quantitative Data (2.4)</title>
     
     <p>
       The mean and median give a representation for the <term>center</term> of the distribution for quantitative data. Measurements are spread <em>around</em> the center. We call the idea of spread <term>variability</term> and that observations have <term>deviations</term> from the center.
@@ -175,7 +175,7 @@
   </slide>
 
   <slide>
-    <title>Variance and Standard Deviation</title>
+    <title>Variance and Standard Deviation (Begin Day 7)</title>
     
     <p>
       <ul>
@@ -286,5 +286,213 @@
     <image source="images/ch-2-bell-empirical-rule.png" width="70%">
       <shortdescription>Illustration of empirical rule for bell-shaped distribution, showing a histogram that is bell-shaped and marking off regions that are 1s, 2s, and 3s away from the mean and labeling them as 68%, 95%, and nearly all data.</shortdescription>
     </image>
+  </slide>
+
+  <slide>
+    <title>Z scores (2.5)</title>
+    
+    <p>
+      We can <term>transform</term> the deviations to compute <term>Z scores</term>, which measures <em>how many standard deviations</em> are in each deviation using division.
+      <md>
+        z = \frac{\text{observation}-\text{mean}}{\text{standard deviation}}
+      </md>
+      Z scores with magnitude greater than 3 correspond to outliers when the distribution is bell shaped.
+    </p>
+    <p>
+      The distribution of Z scores looks the same as the distribution of the original data <em>except</em> that:
+      <ul>
+        <li><p>The center of Z scores always has mean 0</p></li>
+        <li><p>The standard deviation of Z scores always is 1</p></li>
+      </ul>
+      We say the the Z scores <term>standardize</term> the data.
+    </p>
+  </slide>
+
+  <slide>
+    <title>Percentiles</title>
+    
+    <p>
+      While the variance and standard deviation are computed by how far data are from the mean, <term>percentiles</term> (or <term>quantiles</term>) represent <term>positions</term> in the distribution that have some percentage (or proportion) of the data <em>less than</em> that position.
+    </p>
+    <sidebyside widths="60% 30%">
+      <ul>
+        <li>
+          <p>The 25th percentile is a value that has 25% of the data before it. It also happens to be the median of the data <em>before</em> the actual median (which is the 50th percentile).</p>
+        </li>
+        <li>
+          <p>The 75th percentile is a value that has 75% of the data before it. It is the median of the data <em>after</em> the actual median.</p>
+        </li>
+        <li>
+          <p>The 0.1 quantile is a value that has 10% of the data before it. The 0.25 quantile is the same as the 25th percentile.</p>
+        </li>
+      </ul>
+      <image source="images/ch-2-percentile.png">
+        <shortdescription>Illustration of percentile showing a graph of a distribution marked with a vertical line at the percentile location so that p percent of the distribution is to the left.</shortdescription>
+      </image>
+    </sidebyside>
+  </slide>
+
+  <slide>
+    <title>Quartiles</title>
+    
+    <p>
+      The <term>quartiles</term> split the data into four equal numbers of data points.
+      <ul>
+        <li>
+          <p><m>Q1</m> is the <term>first quartile</term> and is the same as the 25th percentile.</p>
+        </li>
+        <li>
+          <p><m>Q2</m> is the <term>second quartile</term> and is the same as the 50th percentile, which is also the <term>median</term>.</p>
+        </li>
+        <li>
+          <p><m>Q3</m> is the <term>third quartile</term> and is the same as the 75th percentile.</p>
+        </li>
+      </ul>
+    </p>
+    <image source="images/ch-2-quartiles.png" width="30%">
+      <shortdescription>Illustration of the quartiles Q1, Q2, and Q3 as the positions in the distribution that separate the data into four equal parts.</shortdescription>
+    </image>
+  </slide>
+
+  <slide>
+    <title>Finding Quartiles</title>
+    
+    <p>
+      To find the quartiles:
+      <ul>
+        <li>
+          <p>Sort the data or organize them in a stem and leaf plot.</p>
+        </li>
+        <li>
+          <p>Find the <term>median</term> (Q2).</p>
+        </li>
+        <li>
+          <p>Find the median of the data less than Q2 to find Q1.</p>
+        </li>
+        <li>
+          <p>Find the median of the data greater than Q2 to find Q3.</p>
+        </li>
+        <li>
+          <p>
+            R command: <c>quantile(x)</c> or <c>quantile(x,p)</c>.
+          </p>
+        </li>
+      </ul>
+    </p>
+    <p>
+      Note: There are many different rules possible for how to deal with a number of points that does not have equally split.
+    </p>
+    <p>
+      <line>Find the three quartiles for the sodium data (cereal.csv).</line>
+      <line>Example data: (Source: cereal.csv sodium values)</line>
+      <line>0, 340, 70, 140, 200, 180, 210, 150, 100, 130,</line>
+      <line>140, 180, 190, 160, 290, 50, 220, 180, 200, 210</line>
+    </p>
+  </slide>
+
+  <slide>
+    <title>Interquartile Range (IQR)</title>
+    
+    <p>
+      After defining the percentiles and quartiles, we can define a new measure of variability called the <term>interquartile range</term> (IQR).
+      <md>IQR = Q3 - Q1</md>
+      The <term>range</term> gives the width of the full data set. The <term>IQR</term> gives the width of the middle 50% of the data set.
+    </p>
+    <p>
+      For distributions that are <em>not</em> bell-shaped, the IQR can be used to find thresholds for identifying potential outliers.
+      <ul>
+        <li>
+          <p>Values less than <m>Q1 - 1.5IQR</m> are potential outliers.</p>
+        </li>
+        <li>
+          <p>Values greater than <m>Q3 + 1.5IQR</m> are potential outliers.</p>
+        </li>
+      </ul>
+    </p>
+  </slide>
+
+  <slide>
+    <title>Box Plots</title>
+    
+    <p>
+      A <term>box plot</term> (or box and whisker plot) is a graphical representation of the five-number summary for a dataset, (Min, Q1, Q2=Med, Q3, Max). The following description makes a horizontal box plot.
+      <ul>
+        <li>
+          <p>Draw a rectangular bar from Q1 on the left to Q3 on the right. This is the box.</p>
+        </li>
+        <li>
+          <p>Draw a vertical line inside the box at the median Q2.</p>
+        </li>
+        <li>
+          <p>Draw a horizontal whisker from the middle of the left side (Q1) to the <em>smallest</em> value that is <em>not</em> an outlier (using the 1.5 IQR rule).</p>
+        </li>
+        <li>
+          <p>Draw a horizontal whisker from the middle of the right side (Q3) to the <em>largest</em> value that is <em>not</em> an outlier (using the 1.5 IQR rule).</p>
+        </li>
+        <li>
+          <p>Indicate each outlier (above or below) as individual marks.</p>
+        </li>
+      </ul>
+      The R command for a simple box plot is <c>boxplot(x)</c>. If using <c>ggplot()</c>, then the geometry layer for a box plot is <c>geom_boxplot()</c>.
+    </p>
+  </slide>
+  <slide>
+    <title>Box Plot for Sodium</title>
+    
+    <p>
+      <line>Example data sorted: (Source: cereal.csv sodium values)</line>
+      <line>0, 50, 70, 100, 130, 140, 140, 150, 160, 180, </line>
+      <line>180, 180, 190, 200, 200, 210, 210, 220, 290, 340</line>
+    </p>
+
+    <image source="images/ch-2-box-plot-sodium.png" width="50%">
+      <shortdescription>Box plot for the sodium data from cereal data set</shortdescription>      
+    </image>
+  </slide>
+
+  <slide>
+    <title>Comparison Using Box Plots</title>
+    
+    <p>
+      I watched the Men's Super G Alpine Skiing event and wondered how the times compared to older Olympics and chose the 2002 SLC Winter Games. I extracted the run times for the competitors in each race to create this data set: <url href="external/data/super-g-times.csv">Men's Super G Times Data</url>.
+    </p>
+    <ul>
+      <li>
+        <p>
+          <c>Olympics</c> contains the year of the Olympics, <c>Time</c> contains the time of the race in <c>HH:MM:SS.SSS</c> format.
+        </p>
+      </li>
+      <li>
+        <p>
+          Must import with extra information about the columns or R drops the fractions of seconds on the times. Use <c>read_csv</c> with extra option <c>col_types = "ficcc"</c> (columns are: factor, integer, character, character, character).
+        </p>
+      </li>
+      <li>
+        <p>
+          Then convert the <c>Time</c> column to a time with more precision than the default.
+        </p>
+      </li>
+    </ul>
+  </slide>
+
+  <slide>
+    <title>Sample Code for Olympic Box Plot</title>
+    
+    <program language="R">
+      <input>
+        # Load Libraries: readr, dplyr, lubridate, ggplot2
+        library(tidyverse)
+
+        # Read file forcing character type for Time
+        superg &lt;- read_csv("link", col_types="ficcc") %&gt;%
+          # And then mutate the column by interpreting HMS and then converting to seconds
+          mutate(Time = period_to_seconds(hms(Time)))
+        
+        # Make the plot
+        ggplot(data = superg, mapping = aes(x=Time, y=Olympics)) +
+          geom_boxplot(fill="lightblue") +
+          labs(title = "Skier Times for Men's Super G Race")
+      </input>
+    </program>
   </slide>
 </section>
