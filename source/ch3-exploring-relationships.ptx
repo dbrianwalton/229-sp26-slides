@@ -1,0 +1,265 @@
+<?xml version='1.0' encoding='utf-8'?>
+<section xml:id="ch3-explore-relationships" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <title>Chapter 3: Exploring Relationships between Variables</title>
+
+  <slide>
+    <title>Key Ideas</title>
+
+    <ul>
+      <li>
+        <p>
+          Associations between Explanatory vs Response Variables
+        </p>
+      </li>
+      <li>
+        <p>
+          Categorical Variables: Looking for Different Conditional Distributions, Use of Contingency Tables
+        </p>
+      </li>
+      <li>
+        <p>
+          Measuring difference in proportions using percentage points, percent change, and ratios
+        </p>
+      </li>
+      <li>
+        <p>
+        Quantitative Variables: Comparing summaries of data, comparing distributions, scatter plot and trends
+        </p>
+      </li>
+      <li>
+        <p>
+        Linear association, correlation, and regression lines
+        </p>
+      </li>
+    </ul>
+  </slide>
+
+  <slide>
+    <title>Associations</title>
+    
+    <p>
+        Chapter 3 Introduction: The main purpose of data analysis with two variables is to investigate whether there is an association and to describe that association.
+    </p>
+    <p>
+        An <term>association</term> exists between two variables if particular values for one variable are more likely to occur with certain values of the other variable.
+    </p>
+    <p>
+        The <term>response variable</term> is the variable whose outcome is being compared. (The algebra idea here would be the <term>dependent variable</term>.)
+    </p>
+    <p>
+        The <term>explanatory variable</term> is the variable for which we want to see if its value affects the distribution of the response. If there is a cause/effect relation, the cause is usually the explanatory variable.
+        <ul>
+            <li>
+                <p>
+                    For a <term>categorical</term> explanatory variable, we consider how the distribution might change for the different categories (factors).
+                </p>
+            </li>
+            <li>
+                <p>
+                    For a <term>quantitative</term> explanatory variable, we consider how the distribution changes with different values.
+                </p>
+            </li>
+        </ul>
+    </p>
+  </slide>
+  <slide>
+    <title>Identify the Explanatory and Response Variables</title>
+    
+    <ul>
+        <li>
+            <p>
+                Consider the association between carbon dioxide levels and the amount of gasoline use for automobiles.
+            </p>
+        </li>
+        <li>
+            <p>
+                Consider college students' GPA values and the number of hours a week spent studying.
+            </p>
+        </li>
+        <li>
+            <p>
+                Consider food type (organic or conventional) and the presence of pesticides on the food (present or not).
+            </p>
+        </li>
+    </ul>
+  </slide>
+
+  <slide>
+    <title>Section 3.1: Association Between Two Categorical Variables</title>
+    
+    <p>
+        You will need to be able to:
+        <ul>
+            <li>
+                <p>Read and interpret contingency tables</p>
+            </li>
+            <li>
+                <p>Calculate and interpret proportions and conditional proportions</p>
+            </li>
+            <li>
+                <p>Create and interpret side-by-side bar charts and stacked bar charts and what we would expect if there is or is not an association</p>
+            </li>
+            <li>
+                <p>Calculate and interpret the meaning of percentage point difference, percent change, and ratios of proportions to describe associations.</p>
+            </li>
+        </ul>
+    </p>
+  </slide>
+
+  <slide>
+    <title>Contingency Tables</title>
+    
+    <p>
+        A <term>contingency table</term> displays two categorical variables and associated counts for each pair <m>(x,y)</m> possible.
+        <ul>
+            <li>
+                <p>Rows: list the categories of one variable (usually explanatory).</p>
+            </li>
+            <li>
+                <p>Columns: list the categories of second variable (usually response).</p>
+            </li>
+            <li>
+                <p>Entries: count or <term>frequency</term> for the combination of variables.</p>
+            </li>
+            <li>
+                <p>May also have extended table showing row and column sums. These are called the <term>margins</term>.</p>
+            </li>
+        </ul>
+    </p>
+    <tabular>
+        <row header="yes">
+            <cell>Food Type</cell>
+            <cell>Pesticide Present</cell>
+            <cell>Pesticide Not Present</cell>
+            <cell>Total</cell>
+        </row>
+        <row>
+            <cell>Organic</cell>
+            <cell>29</cell>
+            <cell>98</cell>
+            <cell>127</cell>
+        </row>
+        <row>
+            <cell>Conventional</cell>
+            <cell>19,485</cell>
+            <cell>7,086</cell>
+            <cell>26,571</cell>
+        </row>
+        <row>
+            <cell>Total</cell>
+            <cell>19,514</cell>
+            <cell>7,184</cell>
+            <cell>26,698</cell>
+        </row>
+    </tabular>
+  </slide>
+
+  <slide>
+    <title>Proportions vs Conditional Proportions</title>
+    
+    <tabular>
+        <row header="yes">
+            <cell>Food Type</cell>
+            <cell>Pesticide Present</cell>
+            <cell>Pesticide Not Present</cell>
+            <cell>Total</cell>
+        </row>
+        <row>
+            <cell>Organic</cell>
+            <cell>29</cell>
+            <cell>98</cell>
+            <cell>127</cell>
+        </row>
+        <row>
+            <cell>Conventional</cell>
+            <cell>19,485</cell>
+            <cell>7,086</cell>
+            <cell>26,571</cell>
+        </row>
+        <row>
+            <cell>Total</cell>
+            <cell>19,514</cell>
+            <cell>7,184</cell>
+            <cell>26,698</cell>
+        </row>
+    </tabular>
+
+    <ul>
+        <li>
+            <p>
+                A simple <term>proportion</term> for a combination of values is the ratio of a single cell to the <em>overall total</em>. 
+                <md> P(\text{conventional and pesticide present}) = \frac{7086}{26698} \approx 0.2654 </md>
+            </p>
+        </li>
+        <li>
+            <p>
+                A <term>conditional proportion</term> is the ratio a single cell to a <em>row total</em> or <em>column total</em>, depending on which variable is considered given.
+                <md> 
+                    <mrow>P(\text{pesticide not present given conventional}) = \frac{7086}{26571} \approx 0.2667 </mrow>
+                    <mrow> P(\text{conventional given pesticide not present}) = \frac{7086}{7184} \approx 0.9864 </mrow>
+                </md>
+            </p>
+        </li>
+    </ul>
+  </slide>
+  <slide>
+    <title>Table of Conditional Proportions</title>
+    
+    <p>
+        Treating the row variables as the explanatory variables (conditioned on rows), the conditional proportions can be used to fill a new table. To be complete, we should show the total frequency or sample size for the row to be able to recreate the original table. 
+    </p>
+    <tabular>
+        <row header="yes">
+            <cell>Food Type</cell>
+            <cell>Pesticide Present</cell>
+            <cell>Pesticide Not Present</cell>
+            <cell></cell>
+        </row>
+        <row>
+            <cell>Organic</cell>
+            <cell>0.23</cell>
+            <cell>0.77</cell>
+            <cell><m>n=127</m></cell>
+        </row>
+        <row>
+            <cell>Conventional</cell>
+            <cell>0.73</cell>
+            <cell>0.27</cell>
+            <cell><m>n=26,571</m></cell>
+        </row>
+    </tabular>
+    <p>
+        Notice that the sum of each row equals 1.
+    </p>
+    <p>
+        You should be able to recreate the original counts by multiplying a conditional probability times the sample size <m>n</m> for the appropriate row.
+    </p>
+    <p>
+        The variables <term>have an association</term> if the conditional proportions are <em>different</em> for the different rows. There is <term>no association</term> if the conditional proportions are the <em>same</em>.
+    </p>
+  </slide>
+
+  <slide>
+    <title>Visualize with Bar Charts</title>
+    
+    <p>
+        Side by side bar charts or stacked bar charts are often used to visualize the conditional proportions.
+    </p>
+    <program language="R">
+    <input>
+        food_data &lt;- data.frame(
+            food.type = c("organic", "conventional"),
+            pesticide.yes = c(29, 19485),
+            pesticide.no = c(98, 7086)
+        ) %&gt;% 
+          pivot_longer(
+            cols = starts_with("pesticide."),
+            names_to = "pesticide",
+            names_prefix = "pesticide\\.",
+            values_to = "count"
+          )
+    </input>
+    </program>
+  </slide>
+</section>
