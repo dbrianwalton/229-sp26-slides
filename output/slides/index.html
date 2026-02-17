@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2026-02-17T06:51:47Z       *-->
+<!--*       on 2026-02-17T07:01:47Z       *-->
 <!--*   A recent stable commit (2022-07-01):   *-->
 <!--* 6c761d3dba23af92cba35001c852aac04ae99a5f *-->
 <!--*                                          *-->
@@ -871,12 +871,12 @@ P(\text{conventional given pesticide not present}) = \frac{7086}{7184} \approx 0
     pesticide.yes = c(29, 19485),
     pesticide.no = c(98, 7086)
 ) %&gt;% 
-pivot_longer(
+  pivot_longer(
     cols = starts_with("pesticide."),
     names_to = "pesticide",
     names_prefix = "pesticide\\.",
     values_to = "count"
-)
+  )
 </code></pre></div>
 </div></section></section>
 </div>
