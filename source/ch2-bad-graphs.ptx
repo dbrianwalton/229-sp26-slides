@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='utf-8'?>
+<section xml:id="ch2-bad-graphs" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <title>Sections 2.7: Recognizing and Avoiding Misuses of Graphical Summaries</title>
+
+  <slide>
+    <title>Key Ideas</title>
+
+    <ul>
+      <li>
+        <p>
+          Expectations for good graphs: axes, labels, and showing <m>y=0</m>
+        </p>
+      </li>
+      <li>
+        <p>
+          Using easily recognized representations: bars, lines or points
+        </p>
+      </li>
+      <li>
+        <p>
+          Failures to use effective strategies are often difficult to interpret or intentionally deceiving
+        </p>
+      </li>
+    </ul>
+  </slide>
+
+  <slide>
+    <title>Guidelines for Effective Graphs</title>
+    
+    <ul>
+      <li>
+        <p>Label both axes and provide proper headings.</p>
+      </li>
+      <li>
+        <p>To compare relative size, it is important to show <m>y=0</m>.</p>
+      </li>
+      <li>
+        <p>Irregular shapes, especially those using different <em>area</em> are difficult to read. Stick with bars, lines, and points. (This includes pie charts.)</p>
+      </li>
+      <li>
+        <p>If two different groups have drastically different values, don't try to put them on a single graph. Consider different graphs, or plot relative sizes such as using percentages or ratios.</p>
+      </li>
+    </ul>
+  </slide>
+
+  <slide>
+    <title>Gallery of Poor Graphs, Ex 1</title>
+    
+    <p>
+      What do you notice about this figure? (Figure 2.19 from Textbook)
+    </p>
+
+    <image source="images/ch-2-student-recruitment-fig-2.19.png" width="80%">
+      <shortdescription>Graph showing recruitment of STEM majors, shown using scaled pictures of people, one representing all students per year, the other person scaled relative to the number of STEM students. The scale of the people figures is difficult to interpret. Caption in image: "Enrollment since 2004 has risen by more than 4000 students. At the same time, the number of STEM majors has dipped just about every year."</shortdescription>
+    </image>
+  </slide>
+
+  <slide>
+    <title>Gallery of Poor Graphs, Ex 2</title>
+    <p>
+      Here is a better graph of the same data. What else could be done? (Figure 2.20 from Textbook)
+    </p>
+
+    <image source="images/ch-2-student-recruitment-fig-2.20.png" width="60%">
+      <shortdescription>Graph showing recruitment of STEM majors, shown using scatter plots of both data sets on the same graph.</shortdescription>
+    </image>    
+  </slide>
+
+  <slide>
+    <title>Gallery of Poor Graphs, Ex 3</title>
+    
+    <p>
+      Here are three graphs from a Medium blog post about bad graphs. What do you notice?
+    </p>
+    <p>
+      Source: https://medium.com/@Ana_kin/graphs-gone-wrong-misleading-data-visualizations-d4805d1c4700
+    </p>
+    <sidebyside widths="25% 30% 30%">
+      <image source="images/ch-2-average-ticket-prices.png">
+        <shortdescription>Chart for average ticket prices for three sports: hockey, baseball, and basketball, trying to show the prices by changing the size of images of the hockey puck, a baseball, and a basketball.</shortdescription>
+      </image>
+      <image source="images/ch-2-halloween-candy.png">
+        <shortdescription>Chart for how much candy two individuals collected for Halloween, where the amounts are shown using pictures of candy corns of different sizes.</shortdescription>
+      </image>
+      <image source="images/ch-2-food-sold-in-day.png">
+        <shortdescription>Chart for how much food is sold in a day for pizza, fries, and ice cream cones. There is no axis and different numbers and sizes of the different pictures.</shortdescription>
+      </image>
+    </sidebyside>
+  </slide>
+
+    <slide>
+    <title>Gallery of Poor Graphs, Ex 4</title>
+    
+    <p>
+      Here is an example from another author showing the number of books circulated at three different libraries. What do you notice?
+    </p>
+    <p>
+      Source: https://www.lrs.org/2020/06/10/visualizing-data-manipulating-the-y-axis/
+    </p>
+    <image source="images/ch-2-library-circulation.png" width="60%">
+      <shortdescription>Chart for average ticket prices for three sports: hockey, baseball, and basketball, trying to show the prices by changing the size of images of the hockey puck, a baseball, and a basketball.</shortdescription>
+    </image>
+  </slide>
+
+  <slide>
+    <title>Gallery of Poor Graphs, Ex 5</title>
+
+    <p>
+      A third blogger gave another example showing brand awareness for three brands as a pie chart. What do you notice here?
+    </p>
+    
+    <p>
+      Source: https://aspectmr.com/misleading-graphs/
+    </p>
+    <image source="images/ch-2-brand-awareness.png" width="40%">
+      <shortdescription>Chart for average ticket prices for three sports: hockey, baseball, and basketball, trying to show the prices by changing the size of images of the hockey puck, a baseball, and a basketball.</shortdescription>
+    </image>
+  </slide>
+</section>
