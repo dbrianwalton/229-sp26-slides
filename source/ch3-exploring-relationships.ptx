@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <section xml:id="ch3-explore-relationships" xmlns:xi="http://www.w3.org/2001/XInclude">
 
-  <title>Chapter 3: Exploring Relationships between Variables</title>
+  <title>Sections 3.1 and 3.2: Exploring Relationships between Variables</title>
 
   <slide>
     <title>Key Ideas</title>
@@ -241,11 +241,319 @@
   </slide>
 
   <slide>
-    <title>Visualize with Bar Charts</title>
+    <title>Visualize with Bar Charts (Begin Day 9)</title>
     
     <p>
-        Side by side bar charts or stacked bar charts are often used to visualize the conditional proportions.
+        Side by side bar charts or stacked bar charts are often used to visualize the conditional proportions. See Figs 3.2 and 3.3 from the textbook:
     </p>
+    <sidebyside widths="40% 40%">
+        <image source="images/ch-3-food-type-with-association.png">
+            <shortdescription>Bar chart using actual data showing different proportions for presence of pesticides in organic vs conventional foods</shortdescription>
+        </image>
+        <image source="images/ch-3-food-type-without-association.png">
+            <shortdescription>Bar chart that is hypothetical showing the same proportions for presence of pesticides organic vs conventional foods</shortdescription>
+        </image>
+    </sidebyside>
+    <p>
+        If there is <em>no association</em>, we would expect the proportions to be the same. If there <em>is</em> an association, we would see a different distribution for the two categories.
+    </p>
+  </slide>
+
+  <slide>
+    <title>Comparison by Percentage Points</title>
+    
+    <p>
+        A <em>difference</em> in proportions or percentages is reported as <term>percentage points</term>. Subtract one percentage from the other.
+    </p>
+    <p>
+        <em>Comparison Example</em>: Of students who entered JMU in 2018, 79.7% graduated within 6 years. Of students who entered Virginia Tech in 2018, 86% graduated within 6 years.
+    </p>
+    <p>
+        Because 86%-79.7% = 6.3%, we say Virginia Tech has a graduation rate that is 6.3 <term>percentage points</term> higher than JMU.
+    </p>
+  </slide>
+
+  <slide>
+    <title>Comparison by Percent Change</title>
+    
+    <p>
+        A <term>percent change</term> is defined by a formula of the change divided by the reference value:
+        <md>
+            \text{Percent Change (%)} = \frac{\text{new value} - \text{base value}}{\text{base value}} \times 100\%
+        </md>
+    </p>
+    <p>
+        <em>Comparison Example</em>: Of students who entered JMU in 2018, 79.7% graduated within 6 years. Of students who entered Virginia Tech in 2018, 86% graduated within 6 years.
+    </p>
+    <p>
+        Virginia Tech has a graduation rate that is 7.9% <em>higher than</em> JMU (base value):
+        <md>
+            \text{Percent Change (%)} = \frac{0.86 - 0.797}{0.797} \times 100\% \approx 7.9\%
+        </md>
+    </p>
+    <p>
+        JMU has a graduation rate that is 7.3% <em>lower than</em> Virginia Tech (base value):
+        <md>
+            \text{Percent Change (%)} = \frac{0.797 - 0.86}{0.86} \times 100\% \approx -7.3\%
+        </md>
+    </p>
+  </slide>
+
+  <slide>
+    <title>Comparison by Ratio of Proportions/Percents</title>
+    
+    <p>
+        A <term>ratio</term> is calculated by simple division of the new value divided by the reference value:
+        <md>
+            \text{Ratio} = \frac{\text{new value}}{\text{base value}}
+        </md>
+    </p>
+    <p>
+        <em>Comparison Example</em>: Of students who entered JMU in 2018, 79.7% graduated within 6 years. Of students who entered Virginia Tech in 2018, 86% graduated within 6 years.
+    </p>
+    <p>
+        Virginia Tech has a graduation rate 1.079 times the JMU rate (base value):
+        <md>
+            \text{Percent Change (%)} = \frac{0.86}{0.797} \approx 1.079
+        </md>
+    </p>
+    <p>
+        It is common to report <term>percent change</term> when the ratio is between 0.5 and 2, but to report the ratio directly outside of that range.
+    </p>
+  </slide>
+
+  <slide>
+    <title>Section 3.2: Association Between Two Quantitative Variables</title>
+    
+    <p>
+        We analyze how the response (dependent) variable <em>tends</em> to change as the value of the explanatory (independent) variable changes. If there is no tendency to change, there is no association.
+    </p>
+    <p>
+        We usually try to describe the way the variables change with each other through a <term>formula</term>, in which case we say there is a <term>relationship</term> between the variables. (This is more precise than just an association.)
+    </p>
+    <p>
+        Because data has variability, we will be describing an average or expected relationship. Unusual observations (like outliers) may significantly affect results.
+    </p>
+  </slide>
+
+  <slide>
+    <title>Distributions of Two Quantitative Variables</title>
+    
+    <p>
+        The textbook dataset on "Internet Use" includes internet and Facebook penetration (use) in 32 countries.
+        Looking at their distributions separately is informative, but it does not say anything about their association. (Textbook Figure 3.5)
+    </p>
+    <tabular>
+        <row>
+            <cell>Variable</cell>
+            <cell>N</cell>
+            <cell>Mean</cell>
+            <cell>StDev</cell>
+            <cell>Min</cell>
+            <cell>Q1</cell>
+            <cell>Median</cell>
+            <cell>Q3</cell>
+            <cell>Max</cell>
+            <cell>IQR</cell>
+        </row>
+        <row>
+            <cell>Internet Use</cell>
+            <cell>32</cell>
+            <cell>59.2</cell>
+            <cell>22.4</cell>
+            <cell>12.6</cell>
+            <cell>43.6</cell>
+            <cell>56.9</cell>
+            <cell>81.3</cell>
+            <cell>94.0</cell>
+            <cell>37.7</cell>
+        </row>
+        <row>
+            <cell>Facebook Use</cell>
+            <cell>32</cell>
+            <cell>33.9</cell>
+            <cell>16.0</cell>
+            <cell>0.0</cell>
+            <cell>24.4</cell>
+            <cell>34.5</cell>
+            <cell>47.1</cell>
+            <cell>56.4</cell>
+            <cell>22.7</cell>
+        </row>
+    </tabular>
+    <image source="images/ch-3-internet-facebook-histograms.png" width="80%">
+        <shortdescription>Side-by-side histograms for internet usage and Facebook usage, showing a larger range for internet usage than Facebook.</shortdescription>
+    </image>
+  </slide>
+
+  <slide>
+    <title>Explore the Data</title>
+    
+    <p>
+        Here is the link to the data file: <url href="https://img1.wsimg.com/blobby/go/bbca5dba-4947-4587-b40a-db346c01b1b3/downloads/InternetUse.csv?ver=1769923413367">Internet Usage (CSV)</url>
+    </p>
+    <p>
+        Which nations, if any, might be outliers in terms of internet use? in terms of Facebook use?
+    </p>
+  </slide>
+
+  <slide>
+    <title>The Scatterplot: Looking for a Trend</title>
+    
+    <p>
+        A <term>scatterplot</term> is a graph that will reveal the <term>relationship</term> between two quantitative variables.
+    </p>
+    <p>
+        In the potential association, each <term>observation</term> consists of a value for each variable.
+        <ul>
+            <li>
+                <p>Horizontal axis: <term>explanatory variable</term> as <m>x</m> variable</p>
+            </li>
+            <li>
+                <p>Vertical axis: <term>response variable</term> as <m>y</m> variable</p>
+            </li>
+            <li>
+                <p>For each observation, make an <m>(x,y)</m> point and plot it.</p>
+            </li>
+        </ul>
+        A sample size of <m>n</m> observations will result in <m>n</m> points in the scatterplot.
+    </p>
+  </slide>
+
+  <slide>
+    <title>Scatterplot for Internet Usage</title>
+
+    <p>
+        Textbook Figure 3.6 shows the scatterplot for Facebook Use vs Internet Use. Japan's values are annotated with an arrow to highlight the point as being significantly below the general trend that is visible.
+    </p>
+    
+    <image source="images/ch-3-internet-facebook-scatterplot.png" width="50%">
+        <shortdescription>A scatterplot with internet use on x axis and facebook use on y axis showing a general rising trend but with significant scatter</shortdescription>
+    </image>
+  </slide>
+
+  <slide>
+    <title>How to Examine a Scatterplot</title>
+    
+    <p>
+        The goal for a scatterplot was to examine the relationship between two variables. We need some terminology for describing our relationship.
+        <ul>
+            <li>
+                <p>
+                    <term>Trend</term>: Describing the general shape of the relationship, such as <em>trend is linear</em>, <em>trend is curved or nonlinear</em>, <em>trend shows clusters</em>, or <em>shows no pattern</em>.
+                </p>
+            </li>
+            <li>
+                <p>
+                    <term>Direction</term>: positive, negative, or no direction
+                </p>
+            </li>
+            <li>
+                <p>
+                    <term>Strength</term>: Describes how closely the points fit the trend. A <term>strong relationship</term> has points close to the trend; a <term>weak relationship</term> shows points spread far away from the trend
+                </p>
+            </li>
+        </ul>
+    </p>
+    <p>
+        The word <term>correlation</term> is specifically associated with the strength of a linear relationship. Do not use it for nonlinear relationships or categorical associations.
+    </p>
+  </slide>
+
+  <slide>
+    <title>Trend</title>
+    
+    <p>
+        Textbook Figure 3.7 illustrates different patterns for trends and direction.
+        <ul>
+            <li>
+                <p>
+                    <term>positive relation</term>: the trend for the response variable goes <em>up</em> as the explanatory variable goes up.
+                </p>
+            </li>
+            <li>
+                <p>
+                    <term>negative relation</term>: the trend for the response variable goes <em>down</em> as the explanatory variable goes up.
+                </p>
+            </li>
+        </ul>
+    </p>
+    <image source="images/ch-3-classifying-trends.png" width="50%">
+        <shortdescription>Examples of scatterplots the reveal trends that are linear and nonlinear as well as positive and negative directions. An example of a nonlinear trend that is neither positive nor negative and an example without a trend are also included.</shortdescription>
+    </image>
+  </slide>
+  <slide>
+    <title>Strength of Relationship</title>
+
+    <p>
+        The <term>strength</term> of the relationship characterizes how closely the response variable matches the trend compared to the overall variability of the explanatory variable. It is observed by how tightly the data points match the trend.
+    </p>
+    <p>
+        For a <term>linear trend</term>, the <term>(linear) correlation coefficient</term> provides a quantitative measure of strength.
+        <md>
+            r = \frac{1}{n-1} \sum \left(\frac{x-\overline x}{s_x}\right) \cdot \left(\frac{y-\overline y}{s_y}\right)
+        </md>
+        
+    </p>
+    <ul>
+        <li>
+            <p>The sign of <m>r</m> matches the direction of the relationship (positive/negative).</p>
+        </li>
+        <li>
+            <p>The amplitude (absolute value) of <m>r</m> measures the strength of the association:</p>
+            <ul>
+                <li>
+                    <p><m>r \approx 0</m> means very weak or no association</p>
+                </li>
+                <li>
+                    <p><m>|r| \approx 1</m> is a very strong association.</p>
+                </li>
+                <li>
+                    <p><m>|r| = 1</m> means a perfect relation (no variability)</p>
+                </li>
+            </ul>
+        </li>
+    </ul>
+  </slide>
+
+  <slide>
+    <title>Illustrating Correlation Coefficient</title>
+    
+    <p>
+        Textbook Figure 3.9 illustrates different correlation coefficients to get a sense of different strengths of associations.
+    </p>
+    <image source="images/ch-3-correlation-coefficients.png" width="50%">
+        <shortdescription>Examples of different correlation coefficients: r = 1 (perfect increasing line), r = -1 (perfect decreasing line), r = 0 (no association), r = 0.8 (moderately strong increasing), r=0.4 (weak increasing) and r=-0.7 (moderate decreasing)</shortdescription>
+    </image>
+  </slide>
+
+  <slide>
+    <title>Properties of the Correlation Coefficient</title>
+    
+    <ul>
+        <li>
+            <p>Value of <m>r</m> always falls between -1 and 1</p>
+        </li>
+        <li>
+            <p>The sign of <m>r</m> reveals direction.</p>
+        </li>
+        <li>
+            <p>Correlation has <em>no units</em> and does <em>not</em> depend on which units were used to measure the variables.</p>
+        </li>
+        <li>
+            <p>The value of <m>r</m> does not depend on which variable is explanatory and which is response.</p>
+        </li>
+        <li>
+            <p>Correlation is <em>not resistant</em> to outliers, and outliers can greatly influence <m>r</m>.</p>
+        </li>
+        <li>
+            <p>As defined, <m>r</m> <em>only</em> measures the strength of a linear relationship.</p>
+        </li>
+    </ul>
+  </slide>
+</section>
+
+<!-- 
     <program language="R">
     <input>
         food_data &lt;- data.frame(
@@ -261,5 +569,4 @@
           )
     </input>
     </program>
-  </slide>
-</section>
+-->
