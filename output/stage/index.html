@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2026-02-17T07:01:47Z       *-->
+<!--*       on 2026-02-19T05:15:35Z       *-->
 <!--*   A recent stable commit (2022-07-01):   *-->
 <!--* 6c761d3dba23af92cba35001c852aac04ae99a5f *-->
 <!--*                                          *-->
@@ -39,7 +39,7 @@
 <tr><td align="center" style="border-bottom: 0px;">James Madison University</td></tr>
 <tr><td align="center"></td></tr>
 </table>
-<h4><div class="date">as of February 17, 2026</div></h4></section></section><section><section><h1>Introduction to R, RStudio, Quarto</h1></section><section><h3>Working with R</h3>
+<h4><div class="date">as of February 19, 2026</div></h4></section></section><section><section><h1>Introduction to R, RStudio, Quarto</h1></section><section><h3>Working with R</h3>
 <div align="left"><ul class="disc" id="Rstudio_introduction-2-2">
 <li><p>Scripting/Programming Language: R</p></li>
 <li><p>Data Analysis Application: RStudio</p></li>
@@ -735,7 +735,7 @@ ggplot(data = superg, mapping = aes(x=Time, y=Olympics)) +
 <p>A third blogger gave another example showing brand awareness for three brands as a pie chart. What do you notice here?</p>
 <p>Source: https://aspectmr.com/misleading-graphs/</p>
 <div class="image-box" style="width: 40%; margin-left: 30%; margin-right: 30%;"><img src="external/images/ch-2-brand-awareness.png" class="contained" alt="Chart for average ticket prices for three sports: hockey, baseball, and basketball, trying to show the prices by changing the size of images of the hockey puck, a baseball, and a basketball."></div>
-</div></section></section><section><section><h1>Chapter 3: Exploring Relationships between Variables</h1></section><section><h3>Key Ideas</h3>
+</div></section></section><section><section><h1>Sections 3.1 and 3.2: Exploring Relationships between Variables</h1></section><section><h3>Key Ideas</h3>
 <div align="left"><ul class="disc" id="ch3-explore-relationships-2-2">
 <li><p>Associations between Explanatory vs Response Variables</p></li>
 <li><p>Categorical Variables: Looking for Different Conditional Distributions, Use of Contingency Tables</p></li>
@@ -863,22 +863,161 @@ P(\text{conventional given pesticide not present}) = \frac{7086}{7184} \approx 0
 <p>Notice that the sum of each row equals 1.</p>
 <p>You should be able to recreate the original counts by multiplying a conditional probability times the sample size <span class="process-math">\(n\)</span> for the appropriate row.</p>
 <p>The variables <dfn class="terminology">have an association</dfn> if the conditional proportions are <em class="emphasis">different</em> for the different rows. There is <dfn class="terminology">no association</dfn> if the conditional proportions are the <em class="emphasis">same</em>.</p>
-</div></section><section><h3>Visualize with Bar Charts</h3>
+</div></section><section><h3>Visualize with Bar Charts (Begin Day 9)</h3>
 <div align="left">
-<p>Side by side bar charts or stacked bar charts are often used to visualize the conditional proportions.</p>
-<div class="code-box"><pre class="program"><code class="language-none">food_data &lt;- data.frame(
-    food.type = c("organic", "conventional"),
-    pesticide.yes = c(29, 19485),
-    pesticide.no = c(98, 7086)
-) %&gt;% 
-  pivot_longer(
-    cols = starts_with("pesticide."),
-    names_to = "pesticide",
-    names_prefix = "pesticide\\.",
-    values_to = "count"
-  )
-</code></pre></div>
-</div></section></section>
+<p>Side by side bar charts or stacked bar charts are often used to visualize the conditional proportions. See Figs 3.2 and 3.3 from the textbook:</p>
+<div style="display:table;margin-left:5%;margin-right:5%;" class="sidebyside">
+<div style="display:table-cell;width:44.4444444444444%;vertical-align:top;"><img src="external/images/ch-3-food-type-with-association.png" class="contained" alt="Bar chart using actual data showing different proportions for presence of pesticides in organic vs conventional foods"></div>
+<div style="display:table-cell;width:44.4444444444444%;vertical-align:top;"><img src="external/images/ch-3-food-type-without-association.png" class="contained" alt="Bar chart that is hypothetical showing the same proportions for presence of pesticides organic vs conventional foods"></div>
+</div>
+<p>If there is <em class="emphasis">no association</em>, we would expect the proportions to be the same. If there <em class="emphasis">is</em> an association, we would see a different distribution for the two categories.</p>
+</div></section><section><h3>Comparison by Percentage Points</h3>
+<div align="left">
+<p>A <em class="emphasis">difference</em> in proportions or percentages is reported as <dfn class="terminology">percentage points</dfn>. Subtract one percentage from the other.</p>
+<p><em class="emphasis">Comparison Example</em>: Of students who entered JMU in 2018, 79.7% graduated within 6 years. Of students who entered Virginia Tech in 2018, 86% graduated within 6 years.</p>
+<p>Because 86%-79.7% = 6.3%, we say Virginia Tech has a graduation rate that is 6.3 <dfn class="terminology">percentage points</dfn> higher than JMU.</p>
+</div></section><section><h3>Comparison by Percent Change</h3>
+<div align="left">
+<p>A <dfn class="terminology">percent change</dfn> is defined by a formula of the change divided by the reference value:<div class="displaymath process-math" id="ch3-explore-relationships-11-2-2">
+\begin{equation*}
+\text{Percent Change (%)} = \frac{\text{new value} - \text{base value}}{\text{base value}} \times 100\%
+\end{equation*}
+</div></p>
+<p><em class="emphasis">Comparison Example</em>: Of students who entered JMU in 2018, 79.7% graduated within 6 years. Of students who entered Virginia Tech in 2018, 86% graduated within 6 years.</p>
+<p>Virginia Tech has a graduation rate that is 7.9% <em class="emphasis">higher than</em> JMU (base value):<div class="displaymath process-math" id="ch3-explore-relationships-11-4-2">
+\begin{equation*}
+\text{Percent Change (%)} = \frac{0.86 - 0.797}{0.797} \times 100\% \approx 7.9\%
+\end{equation*}
+</div></p>
+<p>JMU has a graduation rate that is 7.3% <em class="emphasis">lower than</em> Virginia Tech (base value):<div class="displaymath process-math" id="ch3-explore-relationships-11-5-2">
+\begin{equation*}
+\text{Percent Change (%)} = \frac{0.797 - 0.86}{0.86} \times 100\% \approx -7.3\%
+\end{equation*}
+</div></p>
+</div></section><section><h3>Comparison by Ratio of Proportions/Percents</h3>
+<div align="left">
+<p>A <dfn class="terminology">ratio</dfn> is calculated by simple division of the new value divided by the reference value:<div class="displaymath process-math" id="ch3-explore-relationships-12-2-2">
+\begin{equation*}
+\text{Ratio} = \frac{\text{new value}}{\text{base value}}
+\end{equation*}
+</div></p>
+<p><em class="emphasis">Comparison Example</em>: Of students who entered JMU in 2018, 79.7% graduated within 6 years. Of students who entered Virginia Tech in 2018, 86% graduated within 6 years.</p>
+<p>Virginia Tech has a graduation rate 1.079 times the JMU rate (base value):<div class="displaymath process-math" id="ch3-explore-relationships-12-4-1">
+\begin{equation*}
+\text{Percent Change (%)} = \frac{0.86}{0.797} \approx 1.079
+\end{equation*}
+</div></p>
+<p>It is common to report <dfn class="terminology">percent change</dfn> when the ratio is between 0.5 and 2, but to report the ratio directly outside of that range.</p>
+</div></section><section><h3>Section 3.2: Association Between Two Quantitative Variables</h3>
+<div align="left">
+<p>We analyze how the response (dependent) variable <em class="emphasis">tends</em> to change as the value of the explanatory (independent) variable changes. If there is no tendency to change, there is no association.</p>
+<p>We usually try to describe the way the variables change with each other through a <dfn class="terminology">formula</dfn>, in which case we say there is a <dfn class="terminology">relationship</dfn> between the variables. (This is more precise than just an association.)</p>
+<p>Because data has variability, we will be describing an average or expected relationship. Unusual observations (like outliers) may significantly affect results.</p>
+</div></section><section><h3>Distributions of Two Quantitative Variables</h3>
+<div align="left">
+<p>The textbook dataset on "Internet Use" includes internet and Facebook penetration (use) in 32 countries. Looking at their distributions separately is informative, but it does not say anything about their association. (Textbook Figure 3.5)</p>
+<div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Variable</td>
+<td class="l m b0 r0 l0 t0 lines">N</td>
+<td class="l m b0 r0 l0 t0 lines">Mean</td>
+<td class="l m b0 r0 l0 t0 lines">StDev</td>
+<td class="l m b0 r0 l0 t0 lines">Min</td>
+<td class="l m b0 r0 l0 t0 lines">Q1</td>
+<td class="l m b0 r0 l0 t0 lines">Median</td>
+<td class="l m b0 r0 l0 t0 lines">Q3</td>
+<td class="l m b0 r0 l0 t0 lines">Max</td>
+<td class="l m b0 r0 l0 t0 lines">IQR</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Internet Use</td>
+<td class="l m b0 r0 l0 t0 lines">32</td>
+<td class="l m b0 r0 l0 t0 lines">59.2</td>
+<td class="l m b0 r0 l0 t0 lines">22.4</td>
+<td class="l m b0 r0 l0 t0 lines">12.6</td>
+<td class="l m b0 r0 l0 t0 lines">43.6</td>
+<td class="l m b0 r0 l0 t0 lines">56.9</td>
+<td class="l m b0 r0 l0 t0 lines">81.3</td>
+<td class="l m b0 r0 l0 t0 lines">94.0</td>
+<td class="l m b0 r0 l0 t0 lines">37.7</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Facebook Use</td>
+<td class="l m b0 r0 l0 t0 lines">32</td>
+<td class="l m b0 r0 l0 t0 lines">33.9</td>
+<td class="l m b0 r0 l0 t0 lines">16.0</td>
+<td class="l m b0 r0 l0 t0 lines">0.0</td>
+<td class="l m b0 r0 l0 t0 lines">24.4</td>
+<td class="l m b0 r0 l0 t0 lines">34.5</td>
+<td class="l m b0 r0 l0 t0 lines">47.1</td>
+<td class="l m b0 r0 l0 t0 lines">56.4</td>
+<td class="l m b0 r0 l0 t0 lines">22.7</td>
+</tr>
+</table></div>
+<div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="external/images/ch-3-internet-facebook-histograms.png" class="contained" alt="Side-by-side histograms for internet usage and Facebook usage, showing a larger range for internet usage than Facebook."></div>
+</div></section><section><h3>Explore the Data</h3>
+<div align="left">
+<p>Here is the link to the data file: <a class="external" href="https://img1.wsimg.com/blobby/go/bbca5dba-4947-4587-b40a-db346c01b1b3/downloads/InternetUse.csv?ver=1769923413367" target="_blank">Internet Usage (CSV)</a></p>
+<p>Which nations, if any, might be outliers in terms of internet use? in terms of Facebook use?</p>
+</div></section><section><h3>The Scatterplot: Looking for a Trend</h3>
+<div align="left">
+<p>A <dfn class="terminology">scatterplot</dfn> is a graph that will reveal the <dfn class="terminology">relationship</dfn> between two quantitative variables.</p>
+<p>In the potential association, each <dfn class="terminology">observation</dfn> consists of a value for each variable.<ul class="disc" id="ch3-explore-relationships-16-3-2">
+<li><p>Horizontal axis: <dfn class="terminology">explanatory variable</dfn> as <span class="process-math">\(x\)</span> variable</p></li>
+<li><p>Vertical axis: <dfn class="terminology">response variable</dfn> as <span class="process-math">\(y\)</span> variable</p></li>
+<li><p>For each observation, make an <span class="process-math">\((x,y)\)</span> point and plot it.</p></li>
+</ul>A sample size of <span class="process-math">\(n\)</span> observations will result in <span class="process-math">\(n\)</span> points in the scatterplot.</p>
+</div></section><section><h3>Scatterplot for Internet Usage</h3>
+<div align="left">
+<p>Textbook Figure 3.6 shows the scatterplot for Facebook Use vs Internet Use. Japan’s values are annotated with an arrow to highlight the point as being significantly below the general trend that is visible.</p>
+<div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/images/ch-3-internet-facebook-scatterplot.png" class="contained" alt="A scatterplot with internet use on x axis and facebook use on y axis showing a general rising trend but with significant scatter"></div>
+</div></section><section><h3>How to Examine a Scatterplot</h3>
+<div align="left">
+<p>The goal for a scatterplot was to examine the relationship between two variables. We need some terminology for describing our relationship.<ul class="disc" id="ch3-explore-relationships-18-2-1">
+<li><p><dfn class="terminology">Trend</dfn>: Describing the general shape of the relationship, such as <em class="emphasis">trend is linear</em>, <em class="emphasis">trend is curved or nonlinear</em>, <em class="emphasis">trend shows clusters</em>, or <em class="emphasis">shows no pattern</em>.</p></li>
+<li><p><dfn class="terminology">Direction</dfn>: positive, negative, or no direction</p></li>
+<li><p><dfn class="terminology">Strength</dfn>: Describes how closely the points fit the trend. A <dfn class="terminology">strong relationship</dfn> has points close to the trend; a <dfn class="terminology">weak relationship</dfn> shows points spread far away from the trend</p></li>
+</ul></p>
+<p>The word <dfn class="terminology">correlation</dfn> is specifically associated with the strength of a linear relationship. Do not use it for nonlinear relationships or categorical associations.</p>
+</div></section><section><h3>Trend</h3>
+<div align="left">
+<p>Textbook Figure 3.7 illustrates different patterns for trends and direction.<ul class="disc" id="ch3-explore-relationships-19-2-1">
+<li><p><dfn class="terminology">positive relation</dfn>: the trend for the response variable goes <em class="emphasis">up</em> as the explanatory variable goes up.</p></li>
+<li><p><dfn class="terminology">negative relation</dfn>: the trend for the response variable goes <em class="emphasis">down</em> as the explanatory variable goes up.</p></li>
+</ul></p>
+<div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/images/ch-3-classifying-trends.png" class="contained" alt="Examples of scatterplots the reveal trends that are linear and nonlinear as well as positive and negative directions. An example of a nonlinear trend that is neither positive nor negative and an example without a trend are also included."></div>
+</div></section><section><h3>Strength of Relationship</h3>
+<div align="left">
+<p>The <dfn class="terminology">strength</dfn> of the relationship characterizes how closely the response variable matches the trend compared to the overall variability of the explanatory variable. It is observed by how tightly the data points match the trend.</p>
+<p>For a <dfn class="terminology">linear trend</dfn>, the <dfn class="terminology">(linear) correlation coefficient</dfn> provides a quantitative measure of strength.<div class="displaymath process-math" id="ch3-explore-relationships-20-3-3">
+\begin{equation*}
+r = \frac{1}{n-1} \sum \left(\frac{x-\overline x}{s_x}\right) \cdot \left(\frac{y-\overline y}{s_y}\right)
+\end{equation*}
+</div></p>
+<ul class="disc" id="ch3-explore-relationships-20-4">
+<li><p>The sign of <span class="process-math">\(r\)</span> matches the direction of the relationship (positive/negative).</p></li>
+<li>
+<p>The amplitude (absolute value) of <span class="process-math">\(r\)</span> measures the strength of the association:</p>
+<ul class="circle" id="ch3-explore-relationships-20-4-2-2">
+<li><p><span class="process-math">\(r \approx 0\)</span> means very weak or no association</p></li>
+<li><p><span class="process-math">\(|r| \approx 1\)</span> is a very strong association.</p></li>
+<li><p><span class="process-math">\(|r| = 1\)</span> means a perfect relation (no variability)</p></li>
+</ul>
+</li>
+</ul>
+</div></section><section><h3>Illustrating Correlation Coefficient</h3>
+<div align="left">
+<p>Textbook Figure 3.9 illustrates different correlation coefficients to get a sense of different strengths of associations.</p>
+<div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/images/ch-3-correlation-coefficients.png" class="contained" alt="Examples of different correlation coefficients: r = 1 (perfect increasing line), r = -1 (perfect decreasing line), r = 0 (no association), r = 0.8 (moderately strong increasing), r=0.4 (weak increasing) and r=-0.7 (moderate decreasing)"></div>
+</div></section><section><h3>Properties of the Correlation Coefficient</h3>
+<div align="left"><ul class="disc" id="ch3-explore-relationships-22-2">
+<li><p>Value of <span class="process-math">\(r\)</span> always falls between -1 and 1</p></li>
+<li><p>The sign of <span class="process-math">\(r\)</span> reveals direction.</p></li>
+<li><p>Correlation has <em class="emphasis">no units</em> and does <em class="emphasis">not</em> depend on which units were used to measure the variables.</p></li>
+<li><p>The value of <span class="process-math">\(r\)</span> does not depend on which variable is explanatory and which is response.</p></li>
+<li><p>Correlation is <em class="emphasis">not resistant</em> to outliers, and outliers can greatly influence <span class="process-math">\(r\text{.}\)</span></p></li>
+<li><p>As defined, <span class="process-math">\(r\)</span> <em class="emphasis">only</em> measures the strength of a linear relationship.</p></li>
+</ul></div></section></section>
 </div>
 </div></body>
 <script>
