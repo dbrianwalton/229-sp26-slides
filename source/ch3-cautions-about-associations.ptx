@@ -1,0 +1,197 @@
+<?xml version='1.0' encoding='utf-8'?>
+<section xml:id="ch3-cautions-about-associations" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <title>Sections 3.4: Cautions in Analyzing Associations</title>
+
+  <slide>
+    <title>Key Ideas</title>
+
+    <ul>
+      <li>
+        <p>
+          Extrapolation is dangerous!
+        </p>
+      </li>
+      <li>
+        <p>
+          Be cautious of influential outliers
+        </p>
+      </li>
+      <li>
+        <p>
+          Correlation (or Association) does Not imply Causation
+        </p>
+      </li>
+      <li>
+        <p>
+          Lurking variables and confounding variables affect associations and can lead to apparent paradox situations.
+        </p>
+      </li>
+    </ul>
+  </slide>
+
+  <slide>
+    <title>Extrapolation is Dangerous</title>
+    
+    <p>
+      Reminder: <term>extrapolation</term> is when we use the regression line to make predictions for <m>x</m>-values outside the observed range of values.
+      <ul>
+        <li>
+          <p>
+            Riskier the farther we move from the range
+          </p>
+        </li>
+        <li>
+          <p>
+            No guarantee the relationship will continue to be linear
+          </p>
+        </li>
+      </ul>
+    </p>
+  </slide>
+
+  <slide>
+    <title>Influential Outliers</title>
+    
+    <sidebyside widths="60% 30%">
+      <p>
+        A <term>regression outlier</term> is an observation that lies far away from the trend relative to other data points.
+        You should always plot the data to see if there might be outliers or other unusual observations.
+      </p>
+      <image source="images/ch-3-regression-outlier.png" width="30%">
+        <shortdescription>Scatter plot showing most points following the linear trend with one point set apart from the rest</shortdescription>
+      </image>
+    </sidebyside>
+
+    <p>
+      An outlier is an <term>influential outlier</term> if:
+      <ul>
+        <li>
+          <p>its <m>x</m>-value is relatively high or low compared to the remainder of the data (far from center horizontally)</p>
+        </li>
+        <li>
+          <p>its <m>y</m>-value is relatively far from the trend compared to the remainder of the data</p>
+        </li>
+      </ul>
+    </p>
+  </slide>
+
+  <slide>
+    <title>Effect of Influential Outliers</title>
+    
+    <p>
+      The effect of influential outliers is to pull the regression line toward that data point and away from the rest of the data points.
+      It tends to make the slope steeper than it would be without that observation.
+    </p>
+    <p>
+      Textbook Figure 3.19: Which outlier is influential?
+    </p>
+    <image source="images/ch-3-influential-outlier.png" width="50%">
+      <shortdescription>Scatter plot with most values showing little vertical variation but one in the middle and one far to the right much higher than the rest</shortdescription>
+    </image>
+  </slide>
+
+  <slide>
+    <title>Correlation Does Not Imply Causation</title>
+
+    <p>
+      In a regression analysis, suppose that as <m>x</m> goes up, <m>y</m> also tends to go up (or down). Can we conclude that there is a causal connection, with changes in <m>x</m> <em>causing</em> changes in <m>y</m>?
+    </p>
+    <p>
+      NO!
+      <ul>
+        <li>
+          <p>A strong correlation between <m>x</m> and <m>y</m> means that there is a strong linear association that exists between the two variables.
+</p>
+        </li>
+        <li>
+          <p>A strong correlation between <m>x</m> and <m>y</m> does not mean that <m>x</m> causes <m>y</m> to change.</p>
+        </li>
+      </ul>
+    </p>
+    <p>
+      Examples of suspicious associations:
+      <ul>
+        <li>
+          <p>High correlation between monthly ice cream sales and monthly drownings</p>
+        </li>
+        <li>
+          <p>High correlation between shoe size and reading level</p>
+        </li>
+      </ul>
+    </p>
+  </slide>
+
+  <slide>
+    <title>Lurking Variables</title>
+    
+    <p>
+      A <term>lurking variable</term> is a variable, usually unobserved, that influences the association between the variables of primary interest.
+    </p>
+    <p>
+      Lurking variables often capture a hidden link that explains the correlation:
+      <ul>
+        <li>
+          <p>Ice cream sales and monthly drownings more likely in hot weather</p>
+        </li>
+        <li>
+          <p>Shoe size and reading level both increase with age</p>
+        </li>
+      </ul>
+      That is, the lurking variable may itself be the hidden causal link.
+    </p>
+  </slide>
+
+  <slide>
+    <title>Lurking Variables and Confounding</title>
+    
+    <p>
+      In practice, there are multiple causes for outcomes, often related to one another. It can be difficult to study the effect of individual variables.
+    </p>
+
+    <p>
+      When two explanatory variables are both associated with a response variable but are also associated with each other, there is said to be <term>confounding</term>.
+    </p>
+    <p>
+      <term>Lurking variables</term> are not measured in a study. They have the <em>potential</em> to be <term>confounding</term> if they were measured.
+    </p>
+  </slide>
+
+  <slide>
+    <title>Time is Common Confounding Variable</title>
+    
+    <sidebyside widths="40% 40%">
+      <image source="images/ch-3-name-popularity-robberies.png">
+        <shortdescription>Popularity of the name Bianca and rate of robberies in Texas follow a similar trend</shortdescription>
+      </image>
+      <image source="images/ch-3-margarine-divorce.png">
+        <shortdescription>Per capita consumption of margarine and divorce rate in Maine follow a similar trend</shortdescription>
+      </image>
+    </sidebyside>
+  </slide>
+
+  <slide>
+    <title>Association Does Not Imply Causation</title>
+    
+    <p>
+      The principle extends to <em>all</em> associations, not just linear regression.
+    </p>
+    <p>
+      <url href="https://xkcd.com/552/"/>
+    </p>
+    <image source="images/ch-3-xkcd-association-causation.png" width="50%">
+      <shortdescription>XKCD comic. Panel 1: I used to think correlation implied causation. Panel 2: Then I took a statistics class. Now I don't. Panel 3: Sound like class helped? Well, maybe.</shortdescription>
+    </image>
+  </slide>
+
+  <slide>
+    <title>Simpson's Paradox</title>
+    
+    <p>
+      A <term>paradox</term> refers to an apparent contradiction.
+    </p>
+    <p>
+      Simpson's paradox occurs when the direction of an association between two variables changes after we include a third variable (often categorical) and analyze the data at separate levels of that third variable.
+    </p>
+  </slide>
+</section>

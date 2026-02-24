@@ -45,6 +45,8 @@ along with PreTeXt.  If not, see <http://www.gnu.org/licenses/>.
         <xi:include href="./ch2-bad-graphs.ptx" />
 
         <xi:include href="./ch3-exploring-relationships.ptx" />
+        <xi:include href="./ch3-regression.ptx" />
+        <xi:include href="./ch3-cautions-about-associations.ptx" />
         
     </slideshow>
 </pretext>

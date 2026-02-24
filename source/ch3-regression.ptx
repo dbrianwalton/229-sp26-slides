@@ -1,0 +1,238 @@
+<?xml version='1.0' encoding='utf-8'?>
+<section xml:id="ch3-regression" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <title>Sections 3.3: Linear Regression and Prediction</title>
+
+  <slide>
+    <title>Key Ideas (Begin Day 10)</title>
+
+    <ul>
+      <li>
+        <p>
+          Goal of regression: find the <em>best</em> relation (formula) to describe the trend.
+        </p>
+        <p>
+          The <em>best</em> relation is interpreted as minimizing the sum of squared residuals.
+        </p>
+      </li>
+      <li>
+        <p>
+          For a <term>linear regression</term>, we are generating a trend line using <m>\hat{y} = a + b x</m>,
+          where <m>a</m> and <m>b</m> are the regression coefficients. You will learn how to interpret the two coefficients.
+        </p>
+      </li>
+      <li>
+        <p>
+          The values of <m>a</m> and <m>b</m> can be calculated from the data. You will learn the formulas and how to use summary statistics to compute them.
+        </p>
+      </li>
+      <li>
+        <p>
+          You will learn the connection between the correlation coefficient, the slope parameter <m>b</m>, and the value of <m>r^2</m>, interpreted as proportion of variation explained by the trend line.
+        </p>
+      </li>
+    </ul>
+  </slide>
+
+  <slide>
+    <title>Regression Line</title>
+    
+    <p>
+        Declare variables:
+        <ul>
+          <li>
+            <p><m>x</m> refers to the <term>explanatory variable</term></p>
+          </li>
+          <li>
+            <p><m>y</m> refers to the <term>response variable</term> (actual data)</p>
+          </li>
+        </ul>
+        Introduce the <term>predicted value</term> <m>\hat{y}</m> that is calculated from <m>x</m>
+    </p>
+    <p>
+        The <term>regression line</term> is the graph of an equation <m>\hat{y} = a + b x</m>.
+        <ul>
+          <li>
+            <p><m>a</m> = <m>y</m>-intercept, or predicted value when <m>x=0</m></p>
+          </li>
+          <li>
+            <p><m>b</m> = slope, or value <m>\hat{y}</m> changes per unit change in <m>x</m></p>
+          </li>
+        </ul>
+    </p>
+  </slide>
+  <slide>
+    <title>Using the Regression Line</title>
+    
+    <p>
+      The regression model allows us to take any value of <m>x</m>, evaluate the formula, and the resulting value is <m>\hat y</m>, the <term>predicted value</term> for <m>y</m> associated with <m>x</m>.
+      <ul>
+        <li>
+          <p>Actual values <m>y</m> have variation away from <m>\hat y</m></p>
+        </li>
+        <li>
+          <p>Predictions are more reliable in the middle of regions with data.</p>
+        </li>
+        <li>
+          <p><term>Extrapolation</term> is when we use a model outside of the regions with data. The further away from the data, the less reliable the prediction.</p>
+        </li>
+      </ul>
+    </p>
+  </slide>
+
+  <slide>
+    <title>Example: Height Based on Human Remains</title>
+    
+    <p>
+      Description of the model:
+      <ul>
+        <li>
+          <p><m>x</m> = length of a femur (thigh bone) in centimeters.</p>
+        </li>
+        <li>
+          <p><m>y</m> = height of subject in centimeters.</p>
+        </li>
+        <li>
+          <p>
+            <m>\hat y = 61.4 + 2.4 x</m>
+          </p>
+        </li>
+      </ul>
+    </p>
+    <p>
+      Interpretation:
+      <ul>
+        <li>
+          <p>Use the regression equation to predict the height of a person whose femur length was 50 cm.</p>
+        </li>
+        <li>
+          <p>Identify and interpret the y-intercept.</p>
+        </li>
+        <li>
+          <p>Identify and interpret the slope.</p>
+        </li>
+      </ul>
+    </p>
+  </slide>
+
+  <slide>
+    <title>Slope and Direction</title>
+    
+    <p>
+      The <em>sign</em> of the slope is the same as the <em>direction</em> of the linear relationship:
+      <ul>
+        <li>
+          <p><m>b &gt; 0</m> means there is a <em>positive</em> relationship</p>
+        </li>
+        <li>
+          <p><m>b &lt; 0</m> means there is a <em>negative</em> relationship</p>
+        </li>
+        <li>
+          <p><m>b = 0</m> means there is a <em>no</em> association</p>
+        </li>
+      </ul>
+    </p>
+    <p>
+      Question: Would you expect a positive or negative slope when <m>y</m>=annual income and <m>x</m>=number of years of education?
+    </p>
+  </slide>
+
+  <slide>
+    <title>Residuals</title>
+    
+    <p>
+      For each <em>actual</em> data point <m>(x,y)</m>, we can calculate the predicted value <m>\hat y</m>.
+      Each point has a corresponding <term>residual</term>:
+      <md>
+        \text{residual} = y - \hat{y}
+      </md>
+      The residual measures the <em>vertical</em> distance from the point and the regression line.
+      <sidebyside widths="40% 50%">
+        <figure xml:id="">
+          <caption>Wikimedia Commons: Residuals for Linear Regression Fit</caption>
+          <image source="images/ch-3-WC_Residuals_for_Linear_Regression_Fit.png">
+            <shortdescription>Illustration of a regression line with residuals</shortdescription>
+          </image>
+        </figure>
+        <p>
+          <ul>
+            <li>
+              <p>
+                A <em>large</em> residual means the data point is far away from the trend line.
+              </p>
+            </li>
+            <li>
+              <p>
+                A <em>small</em> residual means the data point is close to the trend line so that the predicted value is a good approximation.
+              </p>
+            </li>
+          </ul>
+        </p>
+      </sidebyside>
+    </p>
+  </slide>
+
+  <slide>
+    <title>Principle of Least Squares</title>
+    
+    <p>
+      For any line <m>\tilde{y} = A + B x</m>, we can compute the residual sum of squares,
+      <md>
+        \sum (\text{residual})^2 = \sum (y - \tilde y)^2.
+      </md>
+      The <term>regression line</term> is the line that creates the <term>minimum</term> residual sum of squares.
+    </p>
+    <p>
+      <ul>
+        <li>
+          <p>Always will be some positive and some negative residuals</p>
+        </li>
+        <li>
+          <p>Sum of residuals will always be zero (0)</p>
+        </li>
+        <li>
+          <p>Regression line always passes through <m>(\overline x, \overline y)</m></p>
+        </li>
+      </ul>
+    </p>
+  </slide>
+
+  <slide>
+    <title>Formula for Coefficients</title>
+    
+    <p>
+      Need to know: <m>\overline x</m> (x mean) and <m>s_x</m> (x standard deviation), <m>\overline y</m> (y mean) and <m>s_y</m> (y standard deviation), and <m>r</m> (correlation coefficient).
+      <md>
+        <mrow> b \amp = r \cdot \left( \frac{s_y}{s_x} \right) </mrow>
+        <mrow> a \amp = \overline y - b \overline x </mrow>
+      </md>
+    </p>
+    <p>
+      In R, if we have data frame <c>df</c> with a vector of values for <m>x</m> in <c>x_var</c> and a vector of values for <m>y</m> in <c>y_var</c>, we can find the model: <c>lm(y_var ~ x_var, data=df)</c>.
+    </p>
+  </slide>
+  <slide>
+    <title>The <m>r</m>-Squared Correlation</title>
+  
+    <p>
+      Remarkably, we also have a relation between <m>r^2</m> and the deviation sum of squares:
+      <md>
+        r^2 = \frac{\sum (y - \hat y)^2}{\sum (y- \overline y)^2}
+      </md>
+      which is the proportion of the sum of squared errors that is explained by the regression line.
+      <ul>
+        <li>
+          <p>
+            <m>r^2 = 1</m> means 100% of the variation from the mean is explained by the regression line.
+          </p>
+          <p>
+            <m>r^2 = 0.7</m> means 70% of the variation from the mean is explained by the regression line.
+          </p>
+          <p>
+            <m>r^2 = 0</m> means 0% of the variation from the mean is explained by the regression line (no relation).
+          </p>
+        </li>
+      </ul>
+    </p>
+  </slide>
+</section>
