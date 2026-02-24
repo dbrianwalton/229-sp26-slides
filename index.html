@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2026-02-19T05:15:35Z       *-->
+<!--*       on 2026-02-24T05:04:28Z       *-->
 <!--*   A recent stable commit (2022-07-01):   *-->
 <!--* 6c761d3dba23af92cba35001c852aac04ae99a5f *-->
 <!--*                                          *-->
@@ -39,7 +39,7 @@
 <tr><td align="center" style="border-bottom: 0px;">James Madison University</td></tr>
 <tr><td align="center"></td></tr>
 </table>
-<h4><div class="date">as of February 19, 2026</div></h4></section></section><section><section><h1>Introduction to R, RStudio, Quarto</h1></section><section><h3>Working with R</h3>
+<h4><div class="date">as of February 24, 2026</div></h4></section></section><section><section><h1>Introduction to R, RStudio, Quarto</h1></section><section><h3>Working with R</h3>
 <div align="left"><ul class="disc" id="Rstudio_introduction-2-2">
 <li><p>Scripting/Programming Language: R</p></li>
 <li><p>Data Analysis Application: RStudio</p></li>
@@ -1017,7 +1017,153 @@ r = \frac{1}{n-1} \sum \left(\frac{x-\overline x}{s_x}\right) \cdot \left(\frac{
 <li><p>The value of <span class="process-math">\(r\)</span> does not depend on which variable is explanatory and which is response.</p></li>
 <li><p>Correlation is <em class="emphasis">not resistant</em> to outliers, and outliers can greatly influence <span class="process-math">\(r\text{.}\)</span></p></li>
 <li><p>As defined, <span class="process-math">\(r\)</span> <em class="emphasis">only</em> measures the strength of a linear relationship.</p></li>
-</ul></div></section></section>
+</ul></div></section></section><section><section><h1>Sections 3.3: Linear Regression and Prediction</h1></section><section><h3>Key Ideas (Begin Day 10)</h3>
+<div align="left"><ul class="disc" id="ch3-regression-2-2">
+<li>
+<p>Goal of regression: find the <em class="emphasis">best</em> relation (formula) to describe the trend.</p>
+<p>The <em class="emphasis">best</em> relation is interpreted as minimizing the sum of squared residuals.</p>
+</li>
+<li><p>For a <dfn class="terminology">linear regression</dfn>, we are generating a trend line using <span class="process-math">\(\hat{y} = a + b x\text{,}\)</span> where <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> are the regression coefficients. You will learn how to interpret the two coefficients.</p></li>
+<li><p>The values of <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> can be calculated from the data. You will learn the formulas and how to use summary statistics to compute them.</p></li>
+<li><p>You will learn the connection between the correlation coefficient, the slope parameter <span class="process-math">\(b\text{,}\)</span> and the value of <span class="process-math">\(r^2\text{,}\)</span> interpreted as proportion of variation explained by the trend line.</p></li>
+</ul></div></section><section><h3>Regression Line</h3>
+<div align="left">
+<p>Declare variables:<ul class="disc" id="ch3-regression-3-2-1">
+<li><p><span class="process-math">\(x\)</span> refers to the <dfn class="terminology">explanatory variable</dfn></p></li>
+<li><p><span class="process-math">\(y\)</span> refers to the <dfn class="terminology">response variable</dfn> (actual data)</p></li>
+</ul>Introduce the <dfn class="terminology">predicted value</dfn> <span class="process-math">\(\hat{y}\)</span> that is calculated from <span class="process-math">\(x\)</span></p>
+<p>The <dfn class="terminology">regression line</dfn> is the graph of an equation <span class="process-math">\(\hat{y} = a + b x\text{.}\)</span><ul class="disc" id="ch3-regression-3-3-3">
+<li><p><span class="process-math">\(a\)</span> = <span class="process-math">\(y\)</span>-intercept, or predicted value when <span class="process-math">\(x=0\)</span></p></li>
+<li><p><span class="process-math">\(b\)</span> = slope, or value <span class="process-math">\(\hat{y}\)</span> changes per unit change in <span class="process-math">\(x\)</span></p></li>
+</ul></p>
+</div></section><section><h3>Using the Regression Line</h3>
+<div align="left"><p>The regression model allows us to take any value of <span class="process-math">\(x\text{,}\)</span> evaluate the formula, and the resulting value is <span class="process-math">\(\hat y\text{,}\)</span> the <dfn class="terminology">predicted value</dfn> for <span class="process-math">\(y\)</span> associated with <span class="process-math">\(x\text{.}\)</span><ul class="disc" id="ch3-regression-4-2-6">
+<li><p>Actual values <span class="process-math">\(y\)</span> have variation away from <span class="process-math">\(\hat y\)</span></p></li>
+<li><p>Predictions are more reliable in the middle of regions with data.</p></li>
+<li><p><dfn class="terminology">Extrapolation</dfn> is when we use a model outside of the regions with data. The further away from the data, the less reliable the prediction.</p></li>
+</ul></p></div></section><section><h3>Example: Height Based on Human Remains</h3>
+<div align="left">
+<p>Description of the model:<ul class="disc" id="ch3-regression-5-2-1">
+<li><p><span class="process-math">\(x\)</span> = length of a femur (thigh bone) in centimeters.</p></li>
+<li><p><span class="process-math">\(y\)</span> = height of subject in centimeters.</p></li>
+<li><p><span class="process-math">\(\displaystyle \hat y = 61.4 + 2.4 x\)</span></p></li>
+</ul></p>
+<p>Interpretation:<ul class="disc" id="ch3-regression-5-3-1">
+<li><p>Use the regression equation to predict the height of a person whose femur length was 50 cm.</p></li>
+<li><p>Identify and interpret the y-intercept.</p></li>
+<li><p>Identify and interpret the slope.</p></li>
+</ul></p>
+</div></section><section><h3>Slope and Direction</h3>
+<div align="left">
+<p>The <em class="emphasis">sign</em> of the slope is the same as the <em class="emphasis">direction</em> of the linear relationship:<ul class="disc" id="ch3-regression-6-2-3">
+<li><p><span class="process-math">\(b &gt; 0\)</span> means there is a <em class="emphasis">positive</em> relationship</p></li>
+<li><p><span class="process-math">\(b &lt; 0\)</span> means there is a <em class="emphasis">negative</em> relationship</p></li>
+<li><p><span class="process-math">\(b = 0\)</span> means there is a <em class="emphasis">no</em> association</p></li>
+</ul></p>
+<p>Question: Would you expect a positive or negative slope when <span class="process-math">\(y\)</span>=annual income and <span class="process-math">\(x\)</span>=number of years of education?</p>
+</div></section><section><h3>Residuals</h3>
+<div align="left"><p>For each <em class="emphasis">actual</em> data point <span class="process-math">\((x,y)\text{,}\)</span> we can calculate the predicted value <span class="process-math">\(\hat y\text{.}\)</span> Each point has a corresponding <dfn class="terminology">residual</dfn>:<div class="displaymath process-math" id="ch3-regression-7-2-5">
+\begin{equation*}
+\text{residual} = y - \hat{y}
+\end{equation*}
+</div>The residual measures the <em class="emphasis">vertical</em> distance from the point and the regression line. <div style="display:table;margin-left:2.5%;margin-right:2.5%;" class="sidebyside">
+<div style="display:table-cell;width:42.1052631578947%;vertical-align:top;"><figure class="figure figure-like" id=""><img src="external/images/ch-3-WC_Residuals_for_Linear_Regression_Fit.png" class="contained" alt="Illustration of a regression line with residuals"><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Wikimedia Commons: Residuals for Linear Regression Fit</figcaption></figure></div>
+<div style="display:table-cell;width:52.6315789473684%;vertical-align:top;"><p><ul class="disc" id="ch3-regression-7-2-7-2-1">
+<li><p>A <em class="emphasis">large</em> residual means the data point is far away from the trend line.</p></li>
+<li><p>A <em class="emphasis">small</em> residual means the data point is close to the trend line so that the predicted value is a good approximation.</p></li>
+</ul></p></div>
+</div></p></div></section><section><h3>Principle of Least Squares</h3>
+<div align="left">
+<p>For any line <span class="process-math">\(\tilde{y} = A + B x\text{,}\)</span> we can compute the residual sum of squares,<div class="displaymath process-math" id="ch3-regression-8-2-2">
+\begin{equation*}
+\sum (\text{residual})^2 = \sum (y - \tilde y)^2.
+\end{equation*}
+</div>The <dfn class="terminology">regression line</dfn> is the line that creates the <dfn class="terminology">minimum</dfn> residual sum of squares.</p>
+<p><ul class="disc" id="ch3-regression-8-3-1">
+<li><p>Always will be some positive and some negative residuals</p></li>
+<li><p>Sum of residuals will always be zero (0)</p></li>
+<li><p>Regression line always passes through <span class="process-math">\((\overline x, \overline y)\)</span></p></li>
+</ul></p>
+</div></section><section><h3>Formula for Coefficients</h3>
+<div align="left">
+<p>Need to know: <span class="process-math">\(\overline x\)</span> (x mean) and <span class="process-math">\(s_x\)</span> (x standard deviation), <span class="process-math">\(\overline y\)</span> (y mean) and <span class="process-math">\(s_y\)</span> (y standard deviation), and <span class="process-math">\(r\)</span> (correlation coefficient).<div class="displaymath process-math" id="ch3-regression-9-2-6">
+\begin{align*}
+b \amp = r \cdot \left( \frac{s_y}{s_x} \right) \\
+a \amp = \overline y - b \overline x 
+\end{align*}
+</div></p>
+<p>In R, if we have data frame <code class="code-inline tex2jax_ignore">df</code> with a vector of values for <span class="process-math">\(x\)</span> in <code class="code-inline tex2jax_ignore">x_var</code> and a vector of values for <span class="process-math">\(y\)</span> in <code class="code-inline tex2jax_ignore">y_var</code>, we can find the model: <code class="code-inline tex2jax_ignore">lm(y_var ~ x_var, data=df)</code>.</p>
+</div></section><section><h3>The <span class="process-math">\(r\)</span>-Squared Correlation</h3>
+<div align="left"><p>Remarkably, we also have a relation between <span class="process-math">\(r^2\)</span> and the deviation sum of squares:<div class="displaymath process-math" id="ch3-regression-10-2-2">
+\begin{equation*}
+r^2 = \frac{\sum (y - \hat y)^2}{\sum (y- \overline y)^2}
+\end{equation*}
+</div>which is the proportion of the sum of squared errors that is explained by the regression line.<ul class="disc" id="ch3-regression-10-2-3"><li>
+<p><span class="process-math">\(r^2 = 1\)</span> means 100% of the variation from the mean is explained by the regression line.</p>
+<p><span class="process-math">\(r^2 = 0.7\)</span> means 70% of the variation from the mean is explained by the regression line.</p>
+<p><span class="process-math">\(r^2 = 0\)</span> means 0% of the variation from the mean is explained by the regression line (no relation).</p>
+</li></ul></p></div></section></section><section><section><h1>Sections 3.4: Cautions in Analyzing Associations</h1></section><section><h3>Key Ideas</h3>
+<div align="left"><ul class="disc" id="ch3-cautions-about-associations-2-2">
+<li><p>Extrapolation is dangerous!</p></li>
+<li><p>Be cautious of influential outliers</p></li>
+<li><p>Correlation (or Association) does Not imply Causation</p></li>
+<li><p>Lurking variables and confounding variables affect associations and can lead to apparent paradox situations.</p></li>
+</ul></div></section><section><h3>Extrapolation is Dangerous</h3>
+<div align="left"><p>Reminder: <dfn class="terminology">extrapolation</dfn> is when we use the regression line to make predictions for <span class="process-math">\(x\)</span>-values outside the observed range of values.<ul class="disc" id="ch3-cautions-about-associations-3-2-3">
+<li><p>Riskier the farther we move from the range</p></li>
+<li><p>No guarantee the relationship will continue to be linear</p></li>
+</ul></p></div></section><section><h3>Influential Outliers</h3>
+<div align="left">
+<div style="display:table;margin-left:2.5%;margin-right:2.5%;" class="sidebyside">
+<div style="display:table-cell;width:63.1578947368421%;vertical-align:top;"><p>A <dfn class="terminology">regression outlier</dfn> is an observation that lies far away from the trend relative to other data points. You should always plot the data to see if there might be outliers or other unusual observations.</p></div>
+<div style="display:table-cell;width:31.5789473684211%;vertical-align:top;"><img src="external/images/ch-3-regression-outlier.png" class="contained" alt="Scatter plot showing most points following the linear trend with one point set apart from the rest"></div>
+</div>
+<p>An outlier is an <dfn class="terminology">influential outlier</dfn> if:<ul class="disc" id="ch3-cautions-about-associations-4-3-2">
+<li><p>its <span class="process-math">\(x\)</span>-value is relatively high or low compared to the remainder of the data (far from center horizontally)</p></li>
+<li><p>its <span class="process-math">\(y\)</span>-value is relatively far from the trend compared to the remainder of the data</p></li>
+</ul></p>
+</div></section><section><h3>Effect of Influential Outliers</h3>
+<div align="left">
+<p>The effect of influential outliers is to pull the regression line toward that data point and away from the rest of the data points. It tends to make the slope steeper than it would be without that observation.</p>
+<p>Textbook Figure 3.19: Which outlier is influential?</p>
+<div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/images/ch-3-influential-outlier.png" class="contained" alt="Scatter plot with most values showing little vertical variation but one in the middle and one far to the right much higher than the rest"></div>
+</div></section><section><h3>Correlation Does Not Imply Causation</h3>
+<div align="left">
+<p>In a regression analysis, suppose that as <span class="process-math">\(x\)</span> goes up, <span class="process-math">\(y\)</span> also tends to go up (or down). Can we conclude that there is a causal connection, with changes in <span class="process-math">\(x\)</span> <em class="emphasis">causing</em> changes in <span class="process-math">\(y\text{?}\)</span></p>
+<p>NO!<ul class="disc" id="ch3-cautions-about-associations-6-3-1">
+<li><p>A strong correlation between <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> means that there is a strong linear association that exists between the two variables.</p></li>
+<li><p>A strong correlation between <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> does not mean that <span class="process-math">\(x\)</span> causes <span class="process-math">\(y\)</span> to change.</p></li>
+</ul></p>
+<p>Examples of suspicious associations:<ul class="disc" id="ch3-cautions-about-associations-6-4-1">
+<li><p>High correlation between monthly ice cream sales and monthly drownings</p></li>
+<li><p>High correlation between shoe size and reading level</p></li>
+</ul></p>
+</div></section><section><h3>Lurking Variables</h3>
+<div align="left">
+<p>A <dfn class="terminology">lurking variable</dfn> is a variable, usually unobserved, that influences the association between the variables of primary interest.</p>
+<p>Lurking variables often capture a hidden link that explains the correlation:<ul class="disc" id="ch3-cautions-about-associations-7-3-1">
+<li><p>Ice cream sales and monthly drownings more likely in hot weather</p></li>
+<li><p>Shoe size and reading level both increase with age</p></li>
+</ul>That is, the lurking variable may itself be the hidden causal link.</p>
+</div></section><section><h3>Lurking Variables and Confounding</h3>
+<div align="left">
+<p>In practice, there are multiple causes for outcomes, often related to one another. It can be difficult to study the effect of individual variables.</p>
+<p>When two explanatory variables are both associated with a response variable but are also associated with each other, there is said to be <dfn class="terminology">confounding</dfn>.</p>
+<p><dfn class="terminology">Lurking variables</dfn> are not measured in a study. They have the <em class="emphasis">potential</em> to be <dfn class="terminology">confounding</dfn> if they were measured.</p>
+</div></section><section><h3>Time is Common Confounding Variable</h3>
+<div align="left"><div style="display:table;margin-left:5%;margin-right:5%;" class="sidebyside">
+<div style="display:table-cell;width:44.4444444444444%;vertical-align:top;"><img src="external/images/ch-3-name-popularity-robberies.png" class="contained" alt="Popularity of the name Bianca and rate of robberies in Texas follow a similar trend"></div>
+<div style="display:table-cell;width:44.4444444444444%;vertical-align:top;"><img src="external/images/ch-3-margarine-divorce.png" class="contained" alt="Per capita consumption of margarine and divorce rate in Maine follow a similar trend"></div>
+</div></div></section><section><h3>Association Does Not Imply Causation</h3>
+<div align="left">
+<p>The principle extends to <em class="emphasis">all</em> associations, not just linear regression.</p>
+<p><a class="external" href="https://xkcd.com/552/" target="_blank"><code class="code-inline tex2jax_ignore">https://xkcd.com/552/</code></a></p>
+<div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/images/ch-3-xkcd-association-causation.png" class="contained" alt="XKCD comic. Panel 1: I used to think correlation implied causation. Panel 2: Then I took a statistics class. Now I don’t. Panel 3: Sound like class helped? Well, maybe."></div>
+</div></section><section><h3>Simpson’s Paradox</h3>
+<div align="left">
+<p>A <dfn class="terminology">paradox</dfn> refers to an apparent contradiction.</p>
+<p>Simpson’s paradox occurs when the direction of an association between two variables changes after we include a third variable (often categorical) and analyze the data at separate levels of that third variable.</p>
+</div></section></section>
 </div>
 </div></body>
 <script>
