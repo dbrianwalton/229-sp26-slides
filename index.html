@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2026-02-24T05:04:28Z       *-->
+<!--*       on 2026-03-01T05:33:10Z       *-->
 <!--*   A recent stable commit (2022-07-01):   *-->
 <!--* 6c761d3dba23af92cba35001c852aac04ae99a5f *-->
 <!--*                                          *-->
@@ -39,7 +39,7 @@
 <tr><td align="center" style="border-bottom: 0px;">James Madison University</td></tr>
 <tr><td align="center"></td></tr>
 </table>
-<h4><div class="date">as of February 24, 2026</div></h4></section></section><section><section><h1>Introduction to R, RStudio, Quarto</h1></section><section><h3>Working with R</h3>
+<h4><div class="date">as of March 1, 2026</div></h4></section></section><section><section><h1>Introduction to R, RStudio, Quarto</h1></section><section><h3>Working with R</h3>
 <div align="left"><ul class="disc" id="Rstudio_introduction-2-2">
 <li><p>Scripting/Programming Language: R</p></li>
 <li><p>Data Analysis Application: RStudio</p></li>
@@ -1163,6 +1163,230 @@ r^2 = \frac{\sum (y - \hat y)^2}{\sum (y- \overline y)^2}
 <div align="left">
 <p>A <dfn class="terminology">paradox</dfn> refers to an apparent contradiction.</p>
 <p>Simpson’s paradox occurs when the direction of an association between two variables changes after we include a third variable (often categorical) and analyze the data at separate levels of that third variable.</p>
+<p>Baseball example: Compare the 1995 and 1996 batting averages for Derek Jeter and David Justice. If we combine the years, the order reverses.</p>
+<div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Batter</td>
+<td class="l m b0 r0 l0 t0 lines">’95 Hits</td>
+<td class="l m b0 r0 l0 t0 lines">’95 At Bats</td>
+<td class="l m b0 r0 l0 t0 lines">’95 Batting Ave</td>
+<td class="l m b0 r0 l0 t0 lines">’96 Hits</td>
+<td class="l m b0 r0 l0 t0 lines">’96 At Bats</td>
+<td class="l m b0 r0 l0 t0 lines">’96 Batting Ave</td>
+<td class="l m b0 r0 l0 t0 lines">Combined Batting Ave</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Derek Jeter</td>
+<td class="l m b0 r0 l0 t0 lines">12</td>
+<td class="l m b0 r0 l0 t0 lines">48</td>
+<td class="l m b0 r0 l0 t0 lines">0.250</td>
+<td class="l m b0 r0 l0 t0 lines">183</td>
+<td class="l m b0 r0 l0 t0 lines">582</td>
+<td class="l m b0 r0 l0 t0 lines">0.314</td>
+<td class="l m b0 r0 l0 t0 lines">0.310</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">David Justice</td>
+<td class="l m b0 r0 l0 t0 lines">104</td>
+<td class="l m b0 r0 l0 t0 lines">411</td>
+<td class="l m b0 r0 l0 t0 lines">0.253</td>
+<td class="l m b0 r0 l0 t0 lines">45</td>
+<td class="l m b0 r0 l0 t0 lines">140</td>
+<td class="l m b0 r0 l0 t0 lines">0.321</td>
+<td class="l m b0 r0 l0 t0 lines">0.270</td>
+</tr>
+</table></div>
+</div></section><section><h3>Smoking and Health</h3>
+<div align="left">
+<p>A longitudinal study about smoking followed 1,314 women, 582 of whom smoked and 732 of whom did not. The study recorded how many of these individuals were still alive 20 years later.</p>
+<div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b0 r0 l0 t0 lines">Smoker</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Dead</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Alive</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Total</th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Yes</td>
+<td class="l m b0 r0 l0 t0 lines">139</td>
+<td class="l m b0 r0 l0 t0 lines">443</td>
+<td class="l m b0 r0 l0 t0 lines">582</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">No</td>
+<td class="l m b0 r0 l0 t0 lines">230</td>
+<td class="l m b0 r0 l0 t0 lines">502</td>
+<td class="l m b0 r0 l0 t0 lines">732</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Total</td>
+<td class="l m b0 r0 l0 t0 lines">369</td>
+<td class="l m b0 r0 l0 t0 lines">945</td>
+<td class="l m b0 r0 l0 t0 lines">1,314</td>
+</tr>
+</table></div>
+<p>Is there an association between the variables? Does survival favor smokers or non-smokers?</p>
+</div></section><section><h3>Smoking and Health: Conditional Proportions</h3>
+<div align="left">
+<p>To compare categories, we need to look at the conditional proportions given the smoking status.</p>
+<div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b0 r0 l0 t0 lines">Smoker</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Dead</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Alive</th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Yes</td>
+<td class="l m b0 r0 l0 t0 lines">23.88%</td>
+<td class="l m b0 r0 l0 t0 lines">76.12%</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">No</td>
+<td class="l m b0 r0 l0 t0 lines">31.42%</td>
+<td class="l m b0 r0 l0 t0 lines">68.58%</td>
+</tr>
+</table></div>
+<p>What conclusion can we draw?</p>
+</div></section><section><h3>Smoking and Health: Lurking Variables</h3>
+<div align="left">
+<p>Age is a lurking variable in our analysis. The summary grouped all ages together, but death is more likely for the older population. Different age groups also had different proportions that smoked.</p>
+<div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Smoker</td>
+<td class="l m b0 r0 l0 t0 lines">Age-Group</td>
+<td class="l m b0 r0 l0 t0 lines">Dead</td>
+<td class="l m b0 r0 l0 t0 lines">Alive</td>
+<td class="l m b0 r0 l0 t0 lines">Survivor | Smoking + Age Group</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Yes</td>
+<td class="l m b0 r0 l0 t0 lines">18-34</td>
+<td class="l m b0 r0 l0 t0 lines">5</td>
+<td class="l m b0 r0 l0 t0 lines">174</td>
+<td class="l m b0 r0 l0 t0 lines">97.21%</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">No</td>
+<td class="l m b0 r0 l0 t0 lines">18-34</td>
+<td class="l m b0 r0 l0 t0 lines">6</td>
+<td class="l m b0 r0 l0 t0 lines">213</td>
+<td class="l m b0 r0 l0 t0 lines">97.26%</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Yes</td>
+<td class="l m b0 r0 l0 t0 lines">35-54</td>
+<td class="l m b0 r0 l0 t0 lines">41</td>
+<td class="l m b0 r0 l0 t0 lines">198</td>
+<td class="l m b0 r0 l0 t0 lines">82.85%</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">No</td>
+<td class="l m b0 r0 l0 t0 lines">35-54</td>
+<td class="l m b0 r0 l0 t0 lines">19</td>
+<td class="l m b0 r0 l0 t0 lines">180</td>
+<td class="l m b0 r0 l0 t0 lines">90.45%</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Yes</td>
+<td class="l m b0 r0 l0 t0 lines">55-64</td>
+<td class="l m b0 r0 l0 t0 lines">51</td>
+<td class="l m b0 r0 l0 t0 lines">64</td>
+<td class="l m b0 r0 l0 t0 lines">55.65%</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">No</td>
+<td class="l m b0 r0 l0 t0 lines">55-64</td>
+<td class="l m b0 r0 l0 t0 lines">40</td>
+<td class="l m b0 r0 l0 t0 lines">81</td>
+<td class="l m b0 r0 l0 t0 lines">66.94%</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Yes</td>
+<td class="l m b0 r0 l0 t0 lines">65+</td>
+<td class="l m b0 r0 l0 t0 lines">42</td>
+<td class="l m b0 r0 l0 t0 lines">7</td>
+<td class="l m b0 r0 l0 t0 lines">14.29%</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">No</td>
+<td class="l m b0 r0 l0 t0 lines">65+</td>
+<td class="l m b0 r0 l0 t0 lines">165</td>
+<td class="l m b0 r0 l0 t0 lines">28</td>
+<td class="l m b0 r0 l0 t0 lines">14.51%</td>
+</tr>
+</table></div>
+</div></section></section><section><section><h1>Section 4.1: Experimental and Observational Studies</h1></section><section><h3>Key Ideas</h3>
+<div align="left">
+<p>Chapter 4 is about how data are collected and how that influences what types of conclusions we can create.</p>
+<ul class="disc" id="ch4-experiments-vs-observations-2-3">
+<li><p>Two broad classes of studies: <dfn class="terminology">experimental studies</dfn> and <dfn class="terminology">observational studies</dfn></p></li>
+<li><p>Be able to identify whether a study was experimental or observational.</p></li>
+<li><p>Discuss advantages and challenges of each type of study.</p></li>
+</ul>
+</div></section><section><h3>Experimental Studies</h3>
+<div align="left">
+<p>In an <dfn class="terminology">experimental study</dfn>, a researcher <em class="emphasis">assigns</em> subjects to experimental conditions and then observes the response variables.</p>
+<p>The assigned experimental conditions are called <dfn class="terminology">treatments</dfn>.</p>
+</div></section><section><h3>Observational Studies</h3>
+<div align="left">
+<p>In an <dfn class="terminology">observational study</dfn>, a researcher <em class="emphasis">observes</em> the values of both the explanatory variables and the response variable for all study subjects.</p>
+<p>Nothing is <em class="emphasis">done</em> to the subjects. They are just observed.</p>
+</div></section><section><h3>Identify the Study Type: Drug Testing and Student Drug Use</h3>
+<div align="left">
+<p>A headline read: “Student Drug Testing Not Effective in Reducing Drug Use” in a news release from the University of Michigan.</p>
+<p>Facts about the study:<ul class="disc" id="ch4-experiments-vs-observations-5-3-1">
+<li><p>76,000 students nationwide</p></li>
+<li><p>497 high schools, 225 middle schools</p></li>
+<li><p>Some included schools tested for drugs, others did not</p></li>
+<li><p>Each student filled out a questionnaire about his/her drug use</p></li>
+</ul></p>
+</div></section><section><h3>Data Summary: Drug Testing and Student Drug Use</h3>
+<div align="left">
+<div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b0 r0 l0 t0 lines">Drug Tests?</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Drug Use Yes</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Drug Use No</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Total</th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Yes</td>
+<td class="l m b0 r0 l0 t0 lines">2,092</td>
+<td class="l m b0 r0 l0 t0 lines">3,561</td>
+<td class="l m b0 r0 l0 t0 lines">5,653</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">No</td>
+<td class="l m b0 r0 l0 t0 lines">6,452</td>
+<td class="l m b0 r0 l0 t0 lines">10,985</td>
+<td class="l m b0 r0 l0 t0 lines">17,437</td>
+</tr>
+</table></div>
+<p><ul class="disc" id="ch4-experiments-vs-observations-6-3-1">
+<li><p>Was this an observational study or an experiment?</p></li>
+<li><p>What is the question?</p></li>
+<li><p>What is the explanatory variable? What is the response variable?</p></li>
+</ul></p>
+</div></section><section><h3>Comparison of Advantages/Challenges</h3>
+<div align="left">
+<p>Lurking variables<ul class="disc" id="ch4-experiments-vs-observations-7-2-1">
+<li><p>Observational study: The researcher is at the mercy of how they are distributed among the subjects.</p></li>
+<li><p>Experiment: Randomization during treatment assignment can reduce potential for impact.</p></li>
+</ul></p>
+<p>Cause and effect<ul class="disc" id="ch4-experiments-vs-observations-7-3-1">
+<li><p>Observational study: Might find an association, but association does not imply causation.</p></li>
+<li><p>Experiment: Directly manipulating treatments allows research to study effect of explanatory variable.</p></li>
+</ul></p>
+<p>Practicalities<ul class="disc" id="ch4-experiments-vs-observations-7-4-1">
+<li><p>Not ethical to expose some subjects to something that we suspect might be harmful (assign treatment), but observations of existing exposure is reasonable.</p></li>
+<li><p>Subjects can be unreliable to follow a treatment protocol, especially over long time periods. Observing behavior does not require strict control.</p></li>
+<li><p>Experiment may take too long, but observation can look at older records.</p></li>
+</ul></p>
+</div></section><section><h3>Cautions about Anecdotes</h3>
+<div align="left">
+<p>Informal observations are called <dfn class="terminology">anecdotes</dfn>.</p>
+<p>There is no way to determine if anecdotes are <dfn class="terminology">representative</dfn> of what happens for an entire population. “The plural of anecdote is not data”</p>
+<p>Do not draw conclusions from anecdotal evidence. Reputable studies adopt <dfn class="terminology">methodologies</dfn> to ensure that their data <em class="emphasis">is</em> representative.</p>
 </div></section></section>
 </div>
 </div></body>
