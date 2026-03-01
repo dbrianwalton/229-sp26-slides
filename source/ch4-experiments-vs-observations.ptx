@@ -1,0 +1,162 @@
+<?xml version='1.0' encoding='utf-8'?>
+<section xml:id="ch4-experiments-vs-observations" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <title>Section 4.1: Experimental and Observational Studies</title>
+
+  <slide>
+    <title>Key Ideas</title>
+
+    <p>
+      Chapter 4 is about how data are collected and how that influences what types of conclusions we can create.
+    </p>
+    <ul>
+      <li>
+        <p>
+          Two broad classes of studies: <term>experimental studies</term> and <term>observational studies</term>
+        </p>
+      </li>
+      <li>
+        <p>
+          Be able to identify whether a study was experimental or observational.
+        </p>
+      </li>
+      <li>
+        <p>
+          Discuss advantages and challenges of each type of study.
+        </p>
+      </li>
+    </ul>
+  </slide>
+
+  <slide>
+    <title>Experimental Studies</title>
+    
+    <p>
+      In an <term>experimental study</term>, a researcher <em>assigns</em> subjects to experimental conditions and then observes the response variables.
+    </p>
+    <p>
+      The assigned experimental conditions are called <term>treatments</term>.
+    </p>
+  </slide>
+
+  <slide>
+    <title>Observational Studies</title>
+    
+    <p>
+      In an <term>observational study</term>, a researcher <em>observes</em> the values of both the explanatory variables and the response variable for all study subjects.
+    </p>
+    <p>
+      Nothing is <em>done</em> to the subjects. They are just observed.
+    </p>
+  </slide>
+
+  <slide>
+    <title>Identify the Study Type: Drug Testing and Student Drug Use</title>
+    
+    <p>
+      A headline read: “Student Drug Testing Not Effective in Reducing Drug Use” in a news release from the University of Michigan.
+    </p>
+    <p>
+      Facts about the study:
+      <ul>
+        <li>
+          <p>76,000 students nationwide</p>
+        </li>
+        <li>
+          <p>497 high schools, 225 middle schools</p>
+        </li>
+        <li>
+          <p>Some included schools tested for drugs, others did not</p>
+        </li>
+        <li>
+          <p>Each student filled out a questionnaire about his/her drug use</p>
+        </li>
+      </ul>
+    </p>
+  </slide>
+
+  <slide>
+    <title>Data Summary: Drug Testing and Student Drug Use</title>
+    
+    <tabular>
+      <row header="yes">
+        <cell>Drug Tests?</cell><cell>Drug Use Yes</cell><cell>Drug Use No</cell><cell>Total</cell>
+      </row>
+      <row>
+        <cell>Yes</cell><cell>2,092</cell><cell>3,561</cell><cell>5,653</cell>
+      </row>
+      <row>
+        <cell>No</cell><cell>6,452</cell><cell>10,985</cell><cell>17,437</cell>
+      </row>
+    </tabular>
+    <p>
+      <ul>
+        <li>
+          <p>Was this an observational study or an experiment?</p>
+        </li>
+        <li>
+          <p>What is the question?</p>
+        </li>
+        <li>
+          <p>What is the explanatory variable? What is the response variable?</p>
+        </li>
+      </ul>
+    </p>
+  </slide>
+
+  <slide>
+    <title>Comparison of Advantages/Challenges</title>
+    
+    <p>
+      Lurking variables
+      <ul>
+        <li>
+          <p>Observational study: The researcher is at the mercy of how they are distributed among the subjects.</p>
+        </li>
+        <li>
+          <p>Experiment: Randomization during treatment assignment can reduce potential for impact.</p>
+        </li>
+      </ul>
+    </p>
+    <p>
+      Cause and effect
+      <ul>
+        <li>
+          <p>Observational study: Might find an association, but association does not imply causation.</p>
+        </li>
+        <li>
+          <p>Experiment: Directly manipulating treatments allows research to study effect of explanatory variable.</p>
+        </li>
+      </ul>
+    </p>
+    <p>
+      Practicalities
+      <ul>
+        <li>
+          <p>Not ethical to expose some subjects to something that we suspect might be harmful (assign treatment), but observations of existing exposure is reasonable.</p>
+        </li>
+        <li>
+          <p>Subjects can be unreliable to follow a treatment protocol, especially over long time periods. Observing behavior does not require strict control.</p>
+        </li>
+        <li>
+          <p>Experiment may take too long, but observation can look at older records.</p>
+        </li>
+      </ul>
+    </p>
+  </slide>
+
+  <slide>
+    <title>Cautions about Anecdotes</title>
+    
+    <p>
+      Informal observations are called <term>anecdotes</term>.
+    </p>
+    <p>
+      There is no way to determine if anecdotes are <term>representative</term> of what happens for an entire population.
+      <q>The plural of anecdote is not data</q>
+    </p>
+    <p>
+      Do not draw conclusions from anecdotal evidence. Reputable studies adopt <term>methodologies</term> to ensure that their data <em>is</em> representative.
+    </p>
+  </slide>
+</section>

@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<section xml:id="ch4-sampling-methods" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <title>Section 4.2: Good and Poor Ways to Sample</title>
+
+  <slide>
+    <title>Key Ideas</title>
+
+    <p>
+      A <term>sample survey</term> selects a <term>sample</term> of people from a population and collects data from them (observational study).
+      Contrast this with a <term>census</term> which aims to collect data from every member of a population.
+    </p>
+    <p>
+      We will learn about how sampling should occur to get good results
+    </p>
+    <ul>
+      <li>
+        <p>
+          Understand sampling frame and sampling design
+        </p>
+      </li>
+      <li>
+        <p>
+          Understand a simple random sample and how to perform it in practice
+        </p>
+      </li>
+      <li>
+        <p>
+          Sources of bias in surveys and the different types of bias.
+        </p>
+      </li>
+      <li>
+        <p>
+          Cautions about sampling strategies
+        </p>
+      </li>
+    </ul>
+  </slide>
+
+  
+</section>

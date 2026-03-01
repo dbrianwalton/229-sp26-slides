@@ -48,5 +48,6 @@ along with PreTeXt.  If not, see <http://www.gnu.org/licenses/>.
         <xi:include href="./ch3-regression.ptx" />
         <xi:include href="./ch3-cautions-about-associations.ptx" />
         
+        <xi:include href="./ch4-experiments-vs-observations.ptx" />
     </slideshow>
 </pretext>

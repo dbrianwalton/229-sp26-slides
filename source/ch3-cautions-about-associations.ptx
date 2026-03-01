@@ -193,5 +193,111 @@
     <p>
       Simpson's paradox occurs when the direction of an association between two variables changes after we include a third variable (often categorical) and analyze the data at separate levels of that third variable.
     </p>
+    <p>
+      Baseball example: Compare the 1995 and 1996 batting averages for Derek Jeter and David Justice. If we combine the years, the order reverses.
+    </p>
+    <tabular>
+      <row>
+        <cell>Batter</cell><cell>'95 Hits</cell><cell>'95 At Bats</cell><cell>'95 Batting Ave</cell>
+        <cell>'96 Hits</cell><cell>'96 At Bats</cell><cell>'96 Batting Ave</cell>
+        <cell>Combined Batting Ave</cell>
+      </row>
+      <row>
+        <cell>Derek Jeter</cell><cell>12</cell><cell>48</cell><cell>0.250</cell>
+        <cell>183</cell><cell>582</cell><cell>0.314</cell>
+        <cell>0.310</cell>
+      </row>
+      <row>
+        <cell>David Justice</cell><cell>104</cell><cell>411</cell><cell>0.253</cell>
+        <cell>45</cell><cell>140</cell><cell>0.321</cell>
+        <cell>0.270</cell>
+      </row>
+    </tabular>
+  </slide>
+
+  <slide>
+    <title>Smoking and Health</title>
+    
+    <p>
+      A longitudinal study about smoking followed 1,314 women, 582 of whom smoked and 732 of whom did not.
+      The study recorded how many of these individuals were still alive 20 years later.
+    </p>
+    <tabular>
+      <row header="yes">
+        <cell>Smoker</cell><cell>Dead</cell><cell>Alive</cell><cell>Total</cell>
+      </row>
+      <row>
+        <cell>Yes</cell><cell>139</cell><cell>443</cell><cell>582</cell>
+      </row>
+      <row>
+        <cell>No</cell><cell>230</cell><cell>502</cell><cell>732</cell>
+      </row>
+      <row>
+        <cell>Total</cell><cell>369</cell><cell>945</cell><cell>1,314</cell>
+      </row>
+    </tabular>
+    <p>
+      Is there an association between the variables? Does survival favor smokers or non-smokers?
+    </p>
+  </slide>
+
+  <slide>
+    <title>Smoking and Health: Conditional Proportions</title>
+    
+    <p>
+      To compare categories, we need to look at the conditional proportions given the smoking status.
+    </p>
+        <tabular>
+      <row header="yes">
+        <cell>Smoker</cell><cell>Dead</cell><cell>Alive</cell>
+      </row>
+      <row>
+        <cell>Yes</cell><cell>23.88%</cell><cell>76.12%</cell>
+      </row>
+      <row>
+        <cell>No</cell><cell>31.42%</cell><cell>68.58%</cell>
+      </row>
+    </tabular>
+    <p>
+      What conclusion can we draw?
+    </p>
+  </slide>
+
+  <slide>
+    <title>Smoking and Health: Lurking Variables</title>
+    
+    <p>
+      Age is a lurking variable in our analysis. The summary grouped all ages together, but death is more likely for the older population.
+      Different age groups also had different proportions that smoked.
+    </p>
+    <tabular>
+      <row>
+        <cell>Smoker</cell><cell>Age-Group</cell><cell>Dead</cell><cell>Alive</cell><cell>Survivor | Smoking + Age Group</cell>
+      </row>
+      <row>
+        <cell>Yes</cell><cell>18-34</cell><cell>5</cell><cell>174</cell><cell>97.21%</cell>
+      </row>
+      <row>
+        <cell>No</cell><cell>18-34</cell><cell>6</cell><cell>213</cell><cell>97.26%</cell>
+      </row>
+      <row>
+        <cell>Yes</cell><cell>35-54</cell><cell>41</cell><cell>198</cell><cell>82.85%</cell>
+      </row>
+      <row>
+        <cell>No</cell><cell>35-54</cell><cell>19</cell><cell>180</cell><cell>90.45%</cell>
+      </row>
+      <row>
+        <cell>Yes</cell><cell>55-64</cell><cell>51</cell><cell>64</cell><cell>55.65%</cell>
+      </row>
+      <row>
+        <cell>No</cell><cell>55-64</cell><cell>40</cell><cell>81</cell><cell>66.94%</cell>
+      </row>
+      <row>
+        <cell>Yes</cell><cell>65+</cell><cell>42</cell><cell>7</cell><cell>14.29%</cell>
+      </row>
+      <row>
+        <cell>No</cell><cell>65+</cell><cell>165</cell><cell>28</cell><cell>14.51%</cell>
+      </row>
+    </tabular>
   </slide>
 </section>
