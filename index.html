@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2026-03-01T05:33:10Z       *-->
+<!--*       on 2026-03-03T04:28:56Z       *-->
 <!--*   A recent stable commit (2022-07-01):   *-->
 <!--* 6c761d3dba23af92cba35001c852aac04ae99a5f *-->
 <!--*                                          *-->
@@ -39,7 +39,7 @@
 <tr><td align="center" style="border-bottom: 0px;">James Madison University</td></tr>
 <tr><td align="center"></td></tr>
 </table>
-<h4><div class="date">as of March 1, 2026</div></h4></section></section><section><section><h1>Introduction to R, RStudio, Quarto</h1></section><section><h3>Working with R</h3>
+<h4><div class="date">as of March 3, 2026</div></h4></section></section><section><section><h1>Introduction to R, RStudio, Quarto</h1></section><section><h3>Working with R</h3>
 <div align="left"><ul class="disc" id="Rstudio_introduction-2-2">
 <li><p>Scripting/Programming Language: R</p></li>
 <li><p>Data Analysis Application: RStudio</p></li>
@@ -1102,7 +1102,7 @@ r^2 = \frac{\sum (y - \hat y)^2}{\sum (y- \overline y)^2}
 <p><span class="process-math">\(r^2 = 1\)</span> means 100% of the variation from the mean is explained by the regression line.</p>
 <p><span class="process-math">\(r^2 = 0.7\)</span> means 70% of the variation from the mean is explained by the regression line.</p>
 <p><span class="process-math">\(r^2 = 0\)</span> means 0% of the variation from the mean is explained by the regression line (no relation).</p>
-</li></ul></p></div></section></section><section><section><h1>Sections 3.4: Cautions in Analyzing Associations</h1></section><section><h3>Key Ideas</h3>
+</li></ul></p></div></section></section><section><section><h1>Sections 3.4: Cautions in Analyzing Associations</h1></section><section><h3>Key Ideas (Begin Day 12)</h3>
 <div align="left"><ul class="disc" id="ch3-cautions-about-associations-2-2">
 <li><p>Extrapolation is dangerous!</p></li>
 <li><p>Be cautious of influential outliers</p></li>
@@ -1387,7 +1387,89 @@ r^2 = \frac{\sum (y - \hat y)^2}{\sum (y- \overline y)^2}
 <p>Informal observations are called <dfn class="terminology">anecdotes</dfn>.</p>
 <p>There is no way to determine if anecdotes are <dfn class="terminology">representative</dfn> of what happens for an entire population. “The plural of anecdote is not data”</p>
 <p>Do not draw conclusions from anecdotal evidence. Reputable studies adopt <dfn class="terminology">methodologies</dfn> to ensure that their data <em class="emphasis">is</em> representative.</p>
-</div></section></section>
+</div></section></section><section><section><h1>Section 4.2: Good and Poor Ways to Sample</h1></section><section><h3>Key Ideas</h3>
+<div align="left">
+<p>A <dfn class="terminology">sample survey</dfn> selects a <dfn class="terminology">sample</dfn> of people from a population and collects data from them (observational study). Contrast this with a <dfn class="terminology">census</dfn> which aims to collect data from every member of a population.</p>
+<p>We will learn about how sampling should occur to get good results</p>
+<ul class="disc" id="ch4-sampling-methods-2-4">
+<li><p>Understand sampling frame and sampling design</p></li>
+<li><p>Understand a simple random sample and how to perform it in practice</p></li>
+<li><p>Sources of bias in surveys and the different types of bias.</p></li>
+<li><p>Cautions about sampling strategies</p></li>
+</ul>
+</div></section><section><h3>Purpose of Randomness</h3>
+<div align="left">
+<p>When we want to draw conclusions from the results of a survey (<dfn class="terminology">inference</dfn>), we need to know that the sample is <dfn class="terminology">representative</dfn> of the population.</p>
+<p>Proportions observed in the sample should be <em class="emphasis">close to</em> proportions of reality. If we <em class="emphasis">randomly</em> select subjects from the population, then with a large enough sample, the distributions from our sample will <em class="emphasis">resemble</em> the distributions from the population.</p>
+<p>A mismatch between the distributions of our sample and that of the population is called <dfn class="terminology">bias</dfn> and results in estimates and conclusions that are invalid.</p>
+</div></section><section><h3>Sampling Design</h3>
+<div align="left">
+<p>The <dfn class="terminology">sampling frame</dfn> is the list of all subjects that can be selected.<ul class="disc" id="ch4-sampling-methods-4-2-2">
+<li><p>Ideal: every individual in the population is listed</p></li>
+<li><p>Practice: can be difficult to identify every individual</p></li>
+</ul></p>
+<p>The <dfn class="terminology">sampling design</dfn> is the strategy used to select subjects for the sample. The <dfn class="terminology">sample size</dfn> is the number of subjects in the sample and is often denoted by the symbol <span class="process-math">\(n\text{.}\)</span></p>
+</div></section><section><h3>Simple Random Sampling</h3>
+<div align="left">
+<p>A <dfn class="terminology">simple random sample</dfn> of size <span class="process-math">\(n\)</span> is one in which <em class="emphasis">every potential sample</em> of size <span class="process-math">\(n\)</span> has the same probability of being selected. It is often simply called a <dfn class="terminology">random sample</dfn>.</p>
+<p>Strategy:<ul class="disc" id="ch4-sampling-methods-5-3-1">
+<li><p>Number all subjects in the sampling frame (1, 2, 3, etc.).</p></li>
+<li><p>Generate a set of numbers randomly. In R, use <code class="code-inline tex2jax_ignore">sample(N,n)</code>, where <span class="process-math">\(N\)</span> is the size of the sampling frame and <span class="process-math">\(n\)</span> is the size of the sample.</p></li>
+<li><p>Sample the subjects that correspond to the numbers.</p></li>
+</ul></p>
+</div></section><section><h3>Collecting Survey Data</h3>
+<div align="left">
+<p>For surveys of people, it is especially difficult to get a good sampling frame because a list of all adults in a population rarely exists (and is often changing). So we pick an alternative:<ul class="disc" id="ch4-sampling-methods-6-2-1">
+<li><p>Use addresses (place of residence), such as US Census</p></li>
+<li><p>Use telephone numbers</p></li>
+<li><p>Other methods?</p></li>
+</ul></p>
+<p>Once we identify individuals, how do we get answers?<ul class="disc" id="ch4-sampling-methods-6-3-1">
+<li><p>Interview in person</p></li>
+<li><p>Interview by telephone</p></li>
+<li><p>Self-administered questionnaire</p></li>
+</ul></p>
+</div></section><section><h3>Sources of Bias</h3>
+<div align="left">
+<p>When results from the sample are not representative of the population, they are said to exhibit <dfn class="terminology">bias</dfn>. When the source of the bias is because of how the sample was chosen, it is <dfn class="terminology">sampling bias</dfn>.</p>
+<ul class="disc" id="ch4-sampling-methods-7-3">
+<li><p><dfn class="terminology">Undercoverage bias</dfn>: having a sampling frame that lacks representation from some parts of the population.</p></li>
+<li><p><dfn class="terminology">Nonresponse bias</dfn>: some subjects cannot be reached or refuse to participate or fail to answer some questions.</p></li>
+<li><p><dfn class="terminology">Response bias</dfn>: some subjects give an incorrect response (perhaps lying) or the way the questions are asked is confusing or misleading.</p></li>
+</ul>
+</div></section><section><h3>Famous Election Polling Errors</h3>
+<div align="left">
+<ul class="disc" id="ch4-sampling-methods-8-2">
+<li><p>1936 Roosevelt vs Landon; Literary Digest predicted Landon would win in a landslide</p></li>
+<li><p>1948 Truman vs Dewey; Early use of telephone surveys, premature end of polling</p></li>
+</ul>
+<p>Photos of Alfred Landon and Thomas Dewey courtesy Wikipedia</p>
+<div style="display:table;margin-left:8.75%;margin-right:8.75%;" class="sidebyside">
+<div style="display:table-cell;width:30.3030303030303%;vertical-align:top;"><img src="external/images/ch-4-alfred-landon.png" class="contained" alt="Photograph of Alfred Landon"></div>
+<div style="display:table-cell;width:48.4848484848485%;vertical-align:top;"><img src="external/images/ch-4-thomas-dewey.png" class="contained" alt="Photograph of Thomas Dewey"></div>
+</div>
+</div></section><section><h3>Poor Ways to Sample</h3>
+<div align="left">
+<ul class="disc" id="ch4-sampling-methods-9-2">
+<li><p><dfn class="terminology">Convenience Sample</dfn>: a type of survey sample that is chosen because it is easy to obtain at low cost.<ul class="circle" id="ch4-sampling-methods-9-2-1-1-2">
+<li><p>Unlikely to be representative</p></li>
+<li><p>Often results in severe biases</p></li>
+<li><p>Results apply <em class="emphasis">only</em> to the observed subjects</p></li>
+</ul></p></li>
+<li><p><dfn class="terminology">Volunteer Sample</dfn>: example of convenience sample where subjects volunteer<ul class="circle" id="ch4-sampling-methods-9-2-2-1-2">
+<li><p>Volunteers do not tend to be representative of the entire population</p></li>
+<li><p>Internet surveys are often volunteer samples. Even with large sample sizes, the sample is not representative.</p></li>
+</ul></p></li>
+</ul>
+<p><em class="emphasis">A Large Sample Size Does Not Guarantee an Unbiased Sample</em></p>
+</div></section><section><h3>Key Parts of a Sample Survey</h3>
+<div align="left"><ul class="disc" id="ch4-sampling-methods-10-2">
+<li><p>Identify the <dfn class="terminology">population</dfn> of all subjects of interest.</p></li>
+<li><p>Define a <dfn class="terminology">sampling frame</dfn> which attempts to list all subjects.</p></li>
+<li><p>Use a <dfn class="terminology">random sampling design</dfn> to select <span class="process-math">\(n\)</span> subjects.</p></li>
+<li><p>Be cautious about <dfn class="terminology">sampling bias</dfn>, <dfn class="terminology">response bias</dfn>, and <dfn class="terminology">non-response bias</dfn>.</p></li>
+<li><p>We can make inferences about the population when random sampling is used.</p></li>
+</ul></div></section></section>
 </div>
 </div></body>
 <script>
