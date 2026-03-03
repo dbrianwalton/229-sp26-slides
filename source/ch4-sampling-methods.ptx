@@ -37,5 +37,204 @@
     </ul>
   </slide>
 
+  <slide>
+    <title>Purpose of Randomness</title>
+    
+    <p>
+      When we want to draw conclusions from the results of a survey (<term>inference</term>),
+      we need to know that the sample is <term>representative</term> of the population.
+    </p>
+    <p>
+      Proportions observed in the sample should be <em>close to</em> proportions of reality.
+      If we <em>randomly</em> select subjects from the population, then with a large enough sample,
+      the distributions from our sample will <em>resemble</em> the distributions from the population.
+    </p>
+    <p>
+      A mismatch between the distributions of our sample and that of the population is called <term>bias</term>
+      and results in estimates and conclusions that are invalid.
+    </p>
+  </slide>
+
+  <slide>
+    <title>Sampling Design</title>
+    
+    <p>
+      The <term>sampling frame</term> is the list of all subjects that can be selected.
+      <ul>
+        <li>
+          <p>
+            Ideal: every individual in the population is listed
+          </p>
+        </li>
+        <li>
+          <p>
+            Practice: can be difficult to identify every individual
+          </p>
+        </li>
+      </ul>
+    </p>
+    <p>
+      The <term>sampling design</term> is the strategy used to select subjects for the sample.
+      The <term>sample size</term> is the number of subjects in the sample and is often denoted by the symbol <m>n</m>.
+    </p>
+  </slide>
+
+  <slide>
+    <title>Simple Random Sampling</title>
+    
+    <p>
+      A <term>simple random sample</term> of size <m>n</m> is one in which <em>every potential sample</em> of size <m>n</m> has the same probability of being selected. It is often simply called a <term>random sample</term>.
+    </p>
+    <p>
+      Strategy:
+      <ul>
+        <li>
+          <p>Number all subjects in the sampling frame (1, 2, 3, etc.).</p>
+        </li>
+        <li>
+          <p>Generate a set of numbers randomly. In R, use <c>sample(N,n)</c>, where <m>N</m> is the size of the sampling frame and <m>n</m> is the size of the sample.</p>
+        </li>
+        <li>
+          <p>Sample the subjects that correspond to the numbers.</p>
+        </li>
+      </ul>
+    </p>
+  </slide>
   
+  <slide>
+    <title>Collecting Survey Data</title>
+    
+    <p>
+      For surveys of people, it is especially difficult to get a good sampling frame because a list of all adults in a population rarely exists (and is often changing). So we pick an alternative:
+      <ul>
+        <li>
+          <p>Use addresses (place of residence), such as US Census</p>
+        </li>
+        <li>
+          <p>Use telephone numbers</p>
+        </li>
+        <li>
+          <p>Other methods?</p>
+        </li>
+      </ul>
+    </p>
+    <p>
+      Once we identify individuals, how do we get answers?
+      <ul>
+        <li>
+          <p>Interview in person</p>
+        </li>
+        <li>
+          <p>Interview by telephone</p>
+        </li>
+        <li>
+          <p>Self-administered questionnaire</p>
+        </li>
+      </ul>
+    </p>
+  </slide>
+
+  <slide>
+    <title>Sources of Bias</title>
+    
+    <p>
+      When results from the sample are not representative of the population, they are said to exhibit <term>bias</term>.
+      When the source of the bias is because of how the sample was chosen, it is <term>sampling bias</term>.
+    </p>
+    <ul>
+      <li>
+        <p><term>Undercoverage bias</term>: having a sampling frame that lacks representation from some parts of the population.</p>
+      </li>
+      <li>
+        <p><term>Nonresponse bias</term>: some subjects cannot be reached or refuse to participate or fail to answer some questions.</p>
+      </li>
+      <li>
+        <p><term>Response bias</term>: some subjects give an incorrect response (perhaps lying) or the way the questions are asked is confusing or misleading.</p>
+      </li>
+    </ul>
+  </slide>
+
+  <slide>
+    <title>Famous Election Polling Errors</title>
+    
+    <ul>
+      <li>
+        <p>
+          1936 Roosevelt vs Landon; Literary Digest predicted Landon would win in a landslide
+        </p>
+      </li>
+      <li>
+        <p>
+          1948 Truman vs Dewey; Early use of telephone surveys, premature end of polling
+        </p>
+      </li>
+    </ul>
+    <p>Photos of Alfred Landon and Thomas Dewey courtesy Wikipedia</p>
+    <sidebyside widths="25% 40%">
+      <image source="images/ch-4-alfred-landon.png">
+        <shortdescription>Photograph of Alfred Landon</shortdescription>
+      </image>
+      <image source="images/ch-4-thomas-dewey.png">
+        <shortdescription>Photograph of Thomas Dewey</shortdescription>
+      </image>
+    </sidebyside>
+  </slide>
+  <slide>
+    <title>Poor Ways to Sample</title>
+    <ul>
+      <li>
+        <p>
+          <term>Convenience Sample</term>: a type of survey sample that is chosen because it is easy to obtain at low cost.
+          <ul>
+            <li>
+              <p>Unlikely to be representative</p>
+            </li>
+            <li>
+              <p>Often results in severe biases</p>
+            </li>
+            <li>
+              <p>Results apply <em>only</em> to the observed subjects</p>
+            </li>
+          </ul>
+        </p>
+      </li>
+      <li>
+        <p>
+          <term>Volunteer Sample</term>: example of convenience sample where subjects volunteer
+          <ul>
+            <li>
+              <p>Volunteers do not tend to be representative of the entire population</p>
+            </li>
+            <li>
+              <p>Internet surveys are often volunteer samples. Even with large sample sizes, the sample is not representative.</p>
+            </li>
+          </ul>
+        </p>
+      </li>
+    </ul>
+    <p>
+      <em>A Large Sample Size Does Not Guarantee an Unbiased Sample</em>
+    </p>
+  </slide>
+  <slide>
+    <title>Key Parts of a Sample Survey</title>
+    
+    <ul>
+      <li>
+        <p>Identify the <term>population</term> of all subjects of interest.</p>
+      </li>
+      <li>
+        <p>Define a <term>sampling frame</term> which attempts to list all subjects.</p>
+      </li>
+      <li>
+        <p>Use a <term>random sampling design</term> to select <m>n</m> subjects.</p>
+      </li>
+      <li>
+        <p>Be cautious about <term>sampling bias</term>, <term>response bias</term>, and <term>non-response bias</term>.</p>
+      </li>
+      <li>
+        <p>We can make inferences about the population when random sampling is used.</p>
+      </li>
+    </ul>
+  </slide>
 </section>
