@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='utf-8'?>
+<section xml:id="ch4-experiment-design" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <title>Section 4.3: Good and Poor Ways to Experiment</title>
+
+  <slide>
+    <title>Key Ideas</title>
+
+    <p>
+      An <term>experiment</term> assigns a <term>treatment</term> to each <term>experimental unit</term> (subject)
+    </p>
+    <p>
+      We will learn about key elements of experimental design
+    </p>
+    <ul>
+      <li>
+        <p>
+          Control group and treatment groups
+        </p>
+      </li>
+      <li>
+        <p>
+          Role of randomization and generalization
+        </p>
+      </li>
+      <li>
+        <p>
+          Placebo effect and blinding studies
+        </p>
+      </li>
+    </ul>
+  </slide>
+
+  <slide>
+    <title>Treatments</title>
+    
+    <p>
+      To avoid just collecting <term>anecdotes</term>, the researcher needs to assign different treatments to different groups in order to make comparisons.
+      <ul>
+        <li>
+          <p>Treatment: An experimental condition that is assigned to experimental units.</p>
+        </li>
+        <li>
+          <p>Control: A treatment that is neutral or is expected to result in no change.</p>
+          <p>
+            We need to separate the response to <em>receiving</em> a treatment from the result <em>of</em> the treatment.
+            The subjects should still be given <em>something</em>, just without active ingredients, called a <term>placebo</term>.
+          </p>
+        </li>
+      </ul>
+    </p>
+    <p>
+      Individuals can respond favorably from the perception of getting a treatment = <term>placebo effect</term>.
+    </p>
+    <p>
+      Ethical considerations might require the control group receives an existing baseline treatment instead of no treatment
+      because we minimize added risk to human subjects for participation in experiments.
+    </p>
+  </slide>
+
+  <slide>
+    <title>Randomization in Experiments</title>
+    
+    <p>
+    </p>
+  </slide>
+</section>

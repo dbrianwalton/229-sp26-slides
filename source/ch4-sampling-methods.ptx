@@ -237,4 +237,135 @@
       </li>
     </ul>
   </slide>
+
+  <slide>
+    <title>Other Sampling Strategies (Section 4.4)</title>
+    
+    <p>
+      Using simple random sampling requires that the sample size is big enough that all parts of the population are adequately sampled.
+      This can result in some parts of the population being oversampled compared to others.
+      We can create alternative sampling designs that can be more efficient and less expensive.
+      <ul>
+        <li>
+          <p>
+            <term>Cluster random sampling</term>: Identify <term>clusters</term> of subjects instead of actual subjects.
+            Select a random sample of clusters and survey all subjects in chosen clusters.
+          </p>
+        </li>
+        <li>
+          <p>
+            <term>Stratified random sampling</term>: Divide the population into separate groups based on some attribute, which are called <term>strata</term>
+            Select a simple random sample of subjects from each stratum.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </slide>
+
+  <slide>
+    <title>Cluster Random Sampling</title>
+    
+    <p>
+      Identify <term>clusters</term> of subjects instead of actual subjects.
+      Select a random sample of clusters and survey all subjects in chosen clusters.
+      (See textbook Figure 4.2)
+    </p>
+    <image source="images/ch-4-cluster-sampling.png" width="40%">
+      <shortdescription>Illustration of cluster sampling. The entire population is grouped into a set of clusters. All subjects in some clusters are sampled.</shortdescription>
+    </image>
+    <p>
+      Examples of clusters:
+      <ul>
+        <li>
+          <p>
+            Geography: counties, census tracts
+          </p>
+        </li>
+        <li>
+          <p>
+            Buildings: nursing homes, hospitals, apartments
+          </p>
+        </li>
+      </ul>
+    </p>
+  </slide>
+  <slide>
+    <title>Cluster Random Sampling: Advantages and Disadvantages</title>
+    
+    <p>
+      Advantages:
+      <ul>
+        <li>
+          <p>Preferable if a reliable sampling frame is not available.</p>
+        </li>
+        <li>
+          <p>Preferable if cost of selecting a simple random sample is excessive.</p>
+        </li>
+      </ul>
+    </p>
+    <p>
+      Disadvantages:
+      <ul>
+        <li>
+          <p>Usually requires a larger sample size compared to a comparable precision from a simple random sample.</p>
+        </li>
+        <li>
+          <p>Selecting a small number of clusters might not be representative of the population (<term>homogeneous</term> = lacks diversity)</p>
+        </li>
+      </ul>
+    </p>
+  </slide>
+
+ <slide>
+    <title>Stratified Random Sampling</title>
+    
+    <p>
+      Divide the population into separate groups based on some attribute, which are called <term>strata</term>
+      Select a simple random sample of subjects from each stratum.
+      (See textbook Figure 4.2)
+    </p>
+    <image source="images/ch-4-stratified-sampling.png" width="40%">
+      <shortdescription>Illustration of stratified sampling. The entire population is subdivided into a set of strata. A random sample is selected from each stratum.</shortdescription>
+    </image>
+    <p>
+      Examples of strata:
+      <ul>
+        <li>
+          <p>
+            Student status: freshmen, sophomores, juniors, seniors
+          </p>
+        </li>
+        <li>
+          <p>
+            Employment status: unemployed, part time, full time hourly, full time contract
+          </p>
+        </li>
+        <li>
+          <p>
+            Income levels: below poverty, lower class, middle class, upper class
+          </p>
+        </li>
+      </ul>
+    </p>
+  </slide>
+  <slide>
+    <title>Stratified Random Sampling: Advantages and Disadvantages</title>
+    
+    <p>
+      Advantages:
+      <ul>
+        <li>
+          <p>Can include in your sample enough subjects in each group you want to evaluate.</p>
+        </li>
+      </ul>
+    </p>
+    <p>
+      Disadvantages:
+      <ul>
+        <li>
+          <p>Must have a sampling frame and know the stratum into which each subject belongs</p>
+        </li>
+      </ul>
+    </p>
+  </slide>
 </section>
