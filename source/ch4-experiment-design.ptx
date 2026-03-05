@@ -42,15 +42,38 @@
         </li>
         <li>
           <p>Control: A treatment that is neutral or is expected to result in no change.</p>
+        </li>
+        <li>
           <p>
-            We need to separate the response to <em>receiving</em> a treatment from the result <em>of</em> the treatment.
-            The subjects should still be given <em>something</em>, just without active ingredients, called a <term>placebo</term>.
+            Goal: Investigate an association by exploring how the treatment affects the response. Provides stronger evidence for causation.
+          </p>
+        </li>
+        <li>
+          <p>
+            The <term>explanatory variable</term> corresponds to the values the treatment changes and defines the groups to be compared. The <term>response variable</term> corresponds to the measured outcome or result of the experiment.
           </p>
         </li>
       </ul>
     </p>
+  </slide>
+
+  <slide>
+    <title>Placebos</title>
+
     <p>
-      Individuals can respond favorably from the perception of getting a treatment = <term>placebo effect</term>.
+      We need to separate the response to <em>receiving</em> a treatment from the result <em>of</em> the treatment.
+      The subjects should still be given <em>something</em>, just without active ingredients, called a <term>placebo</term>.
+      <ul>
+        <li>
+          <p>ingestion of sugar pills</p>
+        </li>
+        <li>
+          <p>injection of saline solution</p>
+        </li>
+        <li>
+          <p>fake surgical procedures</p>
+        </li>
+      </ul>
     </p>
     <p>
       Ethical considerations might require the control group receives an existing baseline treatment instead of no treatment
@@ -62,6 +85,123 @@
     <title>Randomization in Experiments</title>
     
     <p>
+      Lurking variables also exist in experiments.
+      We want to compare results of different treatments, but don't want the influence of lurking variables to introduce bias.
+      Assignment of treatments is <term>randomized</term>.
+      <ul>
+        <li>
+          <p>
+            Balance groups on variables that you <em>know</em> affect the response.
+          </p>
+        </li>
+        <li>
+          <p>Balance groups on lurking variable that may be unknown</p>
+        </li>
+        <li>
+          <p>Prevent assignment bias where one treatment might be given to favorable group.</p>
+        </li>
+      </ul>
+    </p>
+    <p>
+      Textbook example: An analysis of published medical studies about treatments for heart attacks indicated that the new therapy provided improved treatment 58% of the time in studies without randomization and control groups but only 9% of the time in studies having randomization and control groups. 
+    </p>
+  </slide>
+
+  <slide>
+    <title>Blinding Studies</title>
+    
+    <p>
+      The <term>placebo effect</term> is where people who take a placebo respond better than those who receive nothing, perhaps for psychological reasons. To control for the placebo effect, we don't want participants to know which treatment they are receiving. This is called a <term>blinded study</term>.
+    </p>
+    <p>
+      We also do not want researchers to treat different groups differently as that can also bias the results. When the researchers who interact with subjects also do not know which treatment is being administered, it is a <term>double blinded study</term>. Triple blinding occurs when data analysts are also blinded to the assigned treatment.
+    </p>
+  </slide>
+
+  <slide>
+    <title>Experiment Example: Quit Smoking</title>
+    
+    <p>
+      Studies have reported that regardless of what smokers do to quit, most relapse within a year. Some scientists have suggested that smokers are less likely to relapse if they take an antidepressant regularly after they quit.
+    </p>
+    <p>
+      Suppose you have 400 volunteers who would like to quit smoking?
+      How can you design an experiment to study whether antidepressants help smokers to quit?
+    </p>
+  </slide>
+
+  <slide>
+    <title>Generalizing Results</title>
+    
+    <p>
+      Recall that the goal of experimentation is to analyze the association between the treatment and the response for the population, not just the sample. However, care should be taken to generalize the results of a study only to the population that is represented by the study.
+    </p>
+    <p>
+      Textbook Exercise 4.34 (Vitamin B): A New York Times article (March 13, 2006) described two studies in which subjects who had recently had a heart attack were randomly assigned to one of four treatments: placebo and three different doses of vitamin B. In each study, after years of study, the differences among the proportions having a heart attack were reported. Identify the (a) response variable, (b) explanatory variable, (c) experimental units, (d) the treatments in this study, and (e) the population for whom results might generalize.
+    </p>
+  </slide>
+
+  <slide>
+    <title>Multifactor Experiments</title>
+    
+    <p>
+      A <term>multifactor experiment</term> uses a single experiment to analyze the effects of two or more explanatory variables on the response variable.
+      Categorical explanatory variables in an experiment are called <term>factors</term>.
+      Multifactor experiments can be more informative because the response might vary for different factor combinations through <term>interactions</term>.
+    </p>
+    <image source="images/ch-4-multifactor-stop-smoking.png" width="50%">
+      <shortdescription>Multifactor representation of an experiment for the interactions of using a nicotine patch (yes or no) and taking the antidepressant Bupropion (yes or no) showing four possible multifactor combinations.</shortdescription>
+    </image>
+  </slide>
+
+  <slide>
+    <title>Multifactor Smoking Example</title>
+    
+    <p>
+      Antidepressants and nicotine patches both might help individuals stop smoking.
+      <ul>
+        <li>
+          <p>
+            Why use both factors at once?
+          </p>
+        </li>
+        <li>
+          <p>
+            Why not do one experiment about bupropion and a separate experiment about the nicotine patch?
+          </p>
+        </li>
+      </ul>
+    </p>
+  </slide>
+
+  <slide>
+    <title>Matched Pairs Design</title>
+    
+    <p>
+      In a matched pairs design experiment, each subject undergoes both treatments sequentially.
+      They start with one treatment and then cross over to the other treatment.
+      <ul>
+        <li>
+          <p>Can remove certain forms of bias</p>
+        </li>
+        <li>
+          <p>Each pair of observations involve the same lurking variables</p>
+        </li>
+        <li>
+          <p>The focus is on the <em>change</em> of the response variable.</p>
+        </li>
+      </ul>
+    </p>
+  </slide>
+
+  <slide>
+    <title>Blocking Design</title>
+    
+    <p>
+      A <term>block</term> is a set of experimental units (aka subjects) that are <em>matched</em> with respect to one or more characteristics.
+    </p>
+    <p>
+      A <term>randomized block design</term> is when we separate experimental units into blocks and then randomly assign treatments separately within each block.
     </p>
   </slide>
 </section>
