@@ -51,5 +51,7 @@ along with PreTeXt.  If not, see <http://www.gnu.org/licenses/>.
         <xi:include href="./ch4-experiments-vs-observations.ptx" />
         <xi:include href="./ch4-sampling-methods.ptx" />
         <xi:include href="./ch4-experiment-design.ptx" />
+
+        <xi:include href="./ch5-probability.ptx" />
     </slideshow>
 </pretext>

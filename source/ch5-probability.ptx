@@ -1,0 +1,447 @@
+<?xml version='1.0' encoding='utf-8'?>
+<section xml:id="ch5-probability" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <title>Chapter 5: Overview of Probability Ideas</title>
+
+  <slide>
+    <title>Key Ideas</title>
+
+    <p>
+      <term>Probability</term> gives a framework for describing randomness.
+    </p>
+    <p>
+      We will learn about key elements of probability
+    </p>
+    <ul>
+      <li>
+        <p>
+          Vocabulary: sample space, event, set notation
+        </p>
+      </li>
+      <li>
+        <p>
+          Basic properties and rules of probability (union, intersection, complement)
+        </p>
+      </li>
+      <li>
+        <p>
+          Conditional probability, sequential events, and independence
+        </p>
+      </li>
+      <li>
+        <p>
+          Bayes Theorem: reversing the sequential thinking
+        </p>
+      </li>
+    </ul>
+  </slide>
+
+  <slide>
+    <title>Simple Randomness</title>
+    
+    <p>
+      <term>Probability</term> is the mathematical framework for studying random events.
+    </p>
+    <p>
+      Our <em>intuition</em> begins by thinking about simple random events: counting <em>equally likely</em> possibilities.
+      <md>
+        \text{Probability of Outcome} = \frac{\text{Number of Ways to Reach Outcome}}{\text{Total Number of Ways for Anything}}
+      </md>
+      We previously explored this with <term>contingency tables</term>.
+    </p>
+    <p>
+      The following contingency table categorizes taxpayers (in thousands) according to their income level and whether their taxes were audited.
+    </p>
+    <tabular>
+      <row header="yes">
+        <cell>Income Level</cell><cell>Audited=Yes</cell><cell>Audited=No</cell><cell>Total</cell>
+      </row>
+      <row>
+        <cell>Under $200,000</cell><cell>839</cell><cell>141,686</cell><cell>142,525</cell>
+      </row>
+      <row>
+        <cell>$200,000-$1,000,000</cell><cell>72</cell><cell>6,803</cell><cell>6,875</cell>
+      </row>
+      <row>
+        <cell>More than $1,000,000</cell><cell>23</cell><cell>496</cell><cell>519</cell>
+      </row>
+      <row>
+        <cell>Total</cell><cell>934</cell><cell>148,986</cell><cell>149,919</cell>
+      </row>
+    </tabular>
+  </slide>
+
+  <slide>
+    <title>Need to Generalize</title>
+    
+    <p>
+      Not every possibility for every random event of interest is equally likely. We need to create a method to generalize the ideas.
+      <ul>
+        <li>
+          <p>
+            <term>Sample Space</term>: The set of all possible <term>elementary outcomes</term>, usually <m>S</m> or <m>\Omega</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            <term>Event</term>: A <term>subset</term> of the sample space for which we can find probabilities.
+          </p>
+        </li>
+        <li>
+          <p>
+            <term>Set Notation</term>: When we can <em>list</em> possible outcomes, a set is written with curly braces { } and the outcomes separated by commas. Alternatively, we can state a rule inside the curly braces for what it means to belong.
+          </p>
+        </li>
+        <li>
+          <p>
+            <term>Probability of Event</term>: For each event, which is a subset <m>A</m>, we will define the probability <m>P(A)</m> as a number from 0 to 1.
+          </p>
+        </li>
+      </ul>
+      There will be some consistency rules for <m>P(A)</m> that we will discuss later.
+    </p>
+  </slide>
+  <slide>
+    <title>Tax Return Example, Revisited</title>
+    
+        <tabular>
+      <row header="yes">
+        <cell>Income Level</cell><cell>Audited=Yes</cell><cell>Audited=No</cell><cell>Total</cell>
+      </row>
+      <row>
+        <cell>Under $200,000</cell><cell>839</cell><cell>141,686</cell><cell>142,525</cell>
+      </row>
+      <row>
+        <cell>$200,000-$1,000,000</cell><cell>72</cell><cell>6,803</cell><cell>6,875</cell>
+      </row>
+      <row>
+        <cell>More than $1,000,000</cell><cell>23</cell><cell>496</cell><cell>519</cell>
+      </row>
+      <row>
+        <cell>Total</cell><cell>934</cell><cell>148,986</cell><cell>149,919</cell>
+      </row>
+    </tabular>
+
+    <p>
+      Define the sample space, several events of interest, and state the probabilities of those events using <m>P(A)</m>.
+    </p>
+  </slide>
+
+  <slide>
+    <title>Probability Rules</title>
+    
+    <p>
+      First, we have basic rules of probability.
+      <ul>
+        <li>
+          <p>An event can be empty, <m>A = \emptyset = \{ \}</m>: <m>P(\emptyset) = 0</m></p>
+        </li>
+        <li>
+          <p>An event can be everything, <m>A = S</m>: <m>P(S) = 1</m></p>
+        </li>
+        <li>
+          <p>For every event <m>E</m>: <m>0 \le P(E) \le 1</m></p>
+        </li>
+      </ul>
+    </p>
+    <p>
+      Second, we need rules for combining events. Let <m>A</m> and <m>B</m> be two events (i.e., subsets).
+      <ul>
+        <li>
+          <p>
+            The <term>complement</term> of an event <m>A</m>, written <m>A^c</m> or <m>A'</m>, is every outcome that is <em>not in</em> the event. This is the sample space with outcomes in <m>A</m> <em>removed</em>.
+          <sidebyside widths="50% 15% 15% 10%">
+            <p>
+            <md>
+              P(A^c) = 1 - P(A)
+            </md>
+            </p>
+            <image source="images/ch-5-event-A.png" width="20%">
+              <shortdescription>Venn diagram showing event A as a shaded circle</shortdescription>
+            </image>
+            <image source="images/ch-5-event-A-complement.png" width="20%">
+              <shortdescription>Venn diagram showing the complement of A as everything except the circle A shaded</shortdescription>
+            </image>
+            <p>
+              
+            </p>
+          </sidebyside>
+          </p>
+        </li>
+      </ul>
+    </p>
+  </slide>
+  <slide>
+    <title>Union and Intersection</title>
+    
+    <p>
+      <ul>
+        <li>
+          <p>
+            The <term>union</term> of <m>A</m> and <m>B</m>, written <m>A \cup B</m>, is every outcome that is in <em>at least one of</em> the sets. This is the <em>sum</em> of the outcomes, counting any duplicates only once.
+          </p>
+        </li>
+        <li>
+          <p>
+            The <term>intersection</term> of <m>A</m> and <m>B</m>, written <m>A \cap B</m>, is every outcome that is in <em>both of</em> the sets. This is the set of <em>overlapping outcomes</em>.
+          </p>
+        </li>
+      </ul>
+    </p>
+    <sidebyside widths="25% 25% 25% 25%">
+          <image source="images/ch-5-event-A.png" width="20%">
+            <shortdescription>Venn diagram showing A as a shaded circle</shortdescription>
+          </image>
+          <image source="images/ch-5-event-B.png" width="20%">
+            <shortdescription>Venn diagram showing B as a shaded circle</shortdescription>
+          </image>
+          <image source="images/ch-5-event-A-union-B.png" width="20%">
+            <shortdescription>Venn diagram showing the union of A and B, shading anything inside A or B</shortdescription>
+          </image>
+          <image source="images/ch-5-event-A-intersect-B.png" width="20%">
+            <shortdescription>Venn diagram showing the intersection of A and B, shading anything both A and B</shortdescription>
+          </image>
+    </sidebyside>
+  </slide>
+  <slide>
+    <title>Probability of Unions (A or B)</title>
+    
+    <p>
+      <ul>
+        <li>
+          <p>
+            Two events <m>A</m> and <m>B</m> are said to be <term>disjoint</term> if <m>A \cap B = \emptyset</m> (empty overlap).
+            For any two <em>disjoint</em> sets, we have
+            <md>
+              P(A \cup B) = P(A) + P(B)
+            </md>
+            More generally, if the sets are not disjoint, we can't double count outcomes, so
+            <md>
+              P(A \cup B) = P(A) + P(B) - P(A \cap B)
+            </md>
+          </p>
+        </li>
+      </ul>
+    </p>
+  </slide>
+
+  <slide>
+    <title>Tax Return Example, Revisited for Union</title>
+    
+        <tabular>
+      <row header="yes">
+        <cell>Income Level</cell><cell>Audited=Yes</cell><cell>Audited=No</cell><cell>Total</cell>
+      </row>
+      <row>
+        <cell>Under $200,000</cell><cell>839</cell><cell>141,686</cell><cell>142,525</cell>
+      </row>
+      <row>
+        <cell>$200,000-$1,000,000</cell><cell>72</cell><cell>6,803</cell><cell>6,875</cell>
+      </row>
+      <row>
+        <cell>More than $1,000,000</cell><cell>23</cell><cell>496</cell><cell>519</cell>
+      </row>
+      <row>
+        <cell>Total</cell><cell>934</cell><cell>148,986</cell><cell>149,919</cell>
+      </row>
+    </tabular>
+
+    <p>
+      Find the probability that:
+      <ol>
+        <li>
+          <p>
+           a tax return reflects an individual in the lowest or the highest bracket. 
+          </p>
+        </li>
+        <li>
+          <p>
+           a tax return reflects an individual in the lowest in come bracket or that the individual's return is audited. 
+          </p>
+        </li>
+      </ol>
+      Clearly define two events and identify which rule for the probability for unions should be used.
+    </p>
+  </slide>
+
+  <slide>
+    <title>Conditional Probability</title>
+    
+    <p>
+      <term>Conditional probability</term> occurs when we are calculating a probability restricted to a <term>given</term> event. We treat that <em>given event</em> as if it were the new sample space and only consider outcomes that would be in that event. This requires using intersection.
+    </p>
+    <p>
+      Let <m>A</m> and <m>B</m> be two events. We define the conditional probability of <m>A</m> <em>given</em> <m>B</m> as the probability of outcomes in A when we know we are restricted to B:
+      <md>
+        P(A | B) = \frac{P(A \cap B)}{P(B)}
+      </md>
+    </p>
+  </slide>
+
+  <slide>
+    <title>Tax Return Example, Revisited for Conditional Probability</title>
+    
+        <tabular>
+      <row header="yes">
+        <cell>Income Level</cell><cell>Audited=Yes</cell><cell>Audited=No</cell><cell>Total</cell>
+      </row>
+      <row>
+        <cell>Under $200,000</cell><cell>839</cell><cell>141,686</cell><cell>142,525</cell>
+      </row>
+      <row>
+        <cell>$200,000-$1,000,000</cell><cell>72</cell><cell>6,803</cell><cell>6,875</cell>
+      </row>
+      <row>
+        <cell>More than $1,000,000</cell><cell>23</cell><cell>496</cell><cell>519</cell>
+      </row>
+      <row>
+        <cell>Total</cell><cell>934</cell><cell>148,986</cell><cell>149,919</cell>
+      </row>
+    </tabular>
+
+    <p>
+      Find the conditional probability that:
+      <ol>
+        <li>
+          <p>
+           a tax return is audited given that the tax payer is in the lowest bracket.
+          </p>
+        </li>
+        <li>
+          <p>
+           a tax return is in the lowest bracket given that the tax return is audited.
+          </p>
+        </li>
+      </ol>
+      Clearly define two events used in the calculation.
+    </p>
+  </slide>
+
+  <slide>
+    <title>Probability of Intersection Using Conditional Sequences</title>
+    
+    <p>
+      The definition of conditional probability can be rewritten as a product:
+      <md>P(A \cap B) = P(B) \cdot P(A | B)</md>
+      We think of this as: To be in <m>A</m> <em>and</em> <m>B</m>, you first must be in <m>B</m> (using regular probability <m>P(B)</m>), and then once you know you are in <m>B</m>, you need to choose an outcome that is in <m>A</m> (using conditional probability <m>P(A | B)</m>).
+    </p>
+    <p>
+      It could have also been defined symmetrically:
+      <md>P(A \cap B) = P(A) \cdot P(B | A)</md>
+    </p>
+  </slide>
+
+<slide>
+    <title>Tax Return Example, Sequential Thinking</title>
+    
+    <sidebyside widths="80% 20%">
+      <tabular>
+        <row header="yes">
+          <cell>Income Level</cell><cell>Audited=Yes</cell><cell>Audited=No</cell><cell>Total</cell>
+        </row>
+        <row>
+          <cell>Under $200,000</cell><cell>839</cell><cell>141,686</cell><cell>142,525</cell>
+        </row>
+        <row>
+          <cell>$200,000-$1,000,000</cell><cell>72</cell><cell>6,803</cell><cell>6,875</cell>
+        </row>
+        <row>
+          <cell>More than $1,000,000</cell><cell>23</cell><cell>496</cell><cell>519</cell>
+        </row>
+        <row>
+          <cell>Total</cell><cell>934</cell><cell>148,986</cell><cell>149,919</cell>
+        </row>
+      </tabular>   
+      <image source="images/ch-5-tax-returns-sequential.png">
+        <shortdescription>Branching tree diagram representing tax return outcomes, with three initial branches corresponding to the three bracket ranges, and then each branches two more times for the possibility of an audit.</shortdescription>
+      </image>   
+    </sidebyside>
+
+    <p>
+      Use sequential reasoning to find the conditional probability that:
+      <ol>
+        <li>
+          <p>
+           a tax return is audited given that the tax payer is in the highest bracket.
+          </p>
+        </li>
+        <li>
+          <p>
+           a tax return is in the highest bracket given that the tax return is audited.
+          </p>
+        </li>
+      </ol>
+      Clearly define two events used in the calculation.
+    </p>
+  </slide>
+
+  <slide>
+    <title>Diagnostic Testing</title>
+    
+    <p>
+      Tests to determine the presence of an illness, a drug, or other condition are called <term>diagnostic tests</term>. The success rates for the test are defined using conditional probabilities which are given specific names.
+      <ul>
+        <li>
+          <p>
+            <term>Sensitivity</term> is the conditional probability to successfully detect the condition given that is is actually present.
+          </p>
+        </li>
+        <li>
+          <p>
+            <term>Specificity</term> is the conditional probability that the test successfully responds negatively given the condition is actually absent.
+          </p>
+        </li>
+      </ul>
+      There are also errors: the condition could be present but the diagnostic test fails to detect it (false negative), or the condition could be absent but the diagnostic test report it is present (false positive).
+    </p>
+  </slide>
+
+  <slide>
+    <title>COVID Test Accuracy</title>
+    
+    <p>
+      COVID rapid antigen tests have an average sensitivity of 69.3% and an average specificity of 99.3%.
+      Suppose COVID is actively spreading so that 5% of the population is currently infected.
+      <ul>
+        <li>
+          <p>
+            Fill out the contingency table for conditional probabilities based on sensitivity and specificity.
+          </p>
+        </li>
+        <li>
+          <p>
+            Fill out the contingency table for probabilities of each joint state.
+          </p>
+        </li>
+      </ul>
+      If my rapid antigen test reports POSITIVE for infection, what is the actual probability that I am infected?
+    </p>
+  </slide>
+
+  <slide>
+    <title>Independence</title>
+    
+    <p>
+      Two events <m>A</m> and <m>B</m> are <term>independent</term> if 
+      <md>P(A \cap B) = P(A) \cdot P(B)</md>
+      This means that <m>P(A | B) = P(A)</m> and <m>P(B|A) = P(B)</m>.
+    </p>
+    <p>
+      Independence means that the events are <em>not associated</em>. Knowing if an outcome is in one event does not give you any information on whether it is more or less likely that the outcome is in the other event.
+    </p>
+    <p>
+      Do <em>not</em> assume that two events are independent unless you have clear reasons for believing this. You should by default use sequential reasoning and conditional probabilities.
+    </p>
+  </slide>
+
+  <slide>
+    <title>Random Guessing on Quiz</title>
+    
+    <p>
+      Consider a 3 question multiple choice quiz. Each question has 5 possible answers. Suppose you randomly guess on each question, so that your guessing the correct answer on any given question is <em>independent</em> of the other questions.
+    </p>
+    <p>
+      Find the probability that I pass the test (at least 2 out of 3 correct).
+    </p>
+  </slide>
+</section>
