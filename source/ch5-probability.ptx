@@ -265,7 +265,7 @@
   </slide>
 
   <slide>
-    <title>Conditional Probability</title>
+    <title>Conditional Probability (Begin Day 15)</title>
     
     <p>
       <term>Conditional probability</term> occurs when we are calculating a probability restricted to a <term>given</term> event. We treat that <em>given event</em> as if it were the new sample space and only consider outcomes that would be in that event. This requires using intersection.
