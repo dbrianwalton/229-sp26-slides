@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2026-03-10T04:50:04Z       *-->
+<!--*       on 2026-03-12T05:38:05Z       *-->
 <!--*   A recent stable commit (2022-07-01):   *-->
 <!--* 6c761d3dba23af92cba35001c852aac04ae99a5f *-->
 <!--*                                          *-->
@@ -39,7 +39,7 @@
 <tr><td align="center" style="border-bottom: 0px;">James Madison University</td></tr>
 <tr><td align="center"></td></tr>
 </table>
-<h4><div class="date">as of March 10, 2026</div></h4></section></section><section><section><h1>Introduction to R, RStudio, Quarto</h1></section><section><h3>Working with R</h3>
+<h4><div class="date">as of March 12, 2026</div></h4></section></section><section><section><h1>Introduction to R, RStudio, Quarto</h1></section><section><h3>Working with R</h3>
 <div align="left"><ul class="disc" id="Rstudio_introduction-2-2">
 <li><p>Scripting/Programming Language: R</p></li>
 <li><p>Data Analysis Application: RStudio</p></li>
@@ -1733,7 +1733,7 @@ P(A \cup B) = P(A) + P(B) - P(A \cap B)
 <li><p>a tax return reflects an individual in the lowest or the highest bracket.</p></li>
 <li><p>a tax return reflects an individual in the lowest in come bracket or that the individual’s return is audited.</p></li>
 </ol>Clearly define two events and identify which rule for the probability for unions should be used.</p>
-</div></section><section><h3>Conditional Probability</h3>
+</div></section><section><h3>Conditional Probability (Begin Day 15)</h3>
 <div align="left">
 <p><dfn class="terminology">Conditional probability</dfn> occurs when we are calculating a probability restricted to a <dfn class="terminology">given</dfn> event. We treat that <em class="emphasis">given event</em> as if it were the new sample space and only consider outcomes that would be in that event. This requires using intersection.</p>
 <p>Let <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> be two events. We define the conditional probability of <span class="process-math">\(A\)</span> <em class="emphasis">given</em> <span class="process-math">\(B\)</span> as the probability of outcomes in A when we know we are restricted to B:<div class="displaymath process-math" id="ch5-probability-10-3-6">
@@ -1853,6 +1853,125 @@ P(A \cap B) = P(A) \cdot P(B)
 <div align="left">
 <p>Consider a 3 question multiple choice quiz. Each question has 5 possible answers. Suppose you randomly guess on each question, so that your guessing the correct answer on any given question is <em class="emphasis">independent</em> of the other questions.</p>
 <p>Find the probability that I pass the test (at least 2 out of 3 correct).</p>
+</div></section></section><section><section><h1>Chapter 6: Overview of Random  Variables</h1></section><section><h3>Key Ideas</h3>
+<div align="left">
+<p><dfn class="terminology">Random variables</dfn> are the mathematical formulation for describing variables that are subject to random variability at the <dfn class="terminology">population</dfn> level.</p>
+<p>We will learn about following key ideas:</p>
+<ul class="disc" id="ch6-random-variables-2-4">
+<li><p>Vocabulary: random variable, distribution, continuous vs discrete</p></li>
+<li><p>Calculating expected values (mean, variance, standard deviation)</p></li>
+<li><p>Key properties of <dfn class="terminology">binomial</dfn> random variables</p></li>
+</ul>
+</div></section><section><h3>Random Variables</h3>
+<div align="left">
+<p>A random variable is a way to <em class="emphasis">assign a numeric value</em> to each outcome in the sample space, so that randomly selecting an outcome corresponds to a number.</p>
+<p>Example: Flip a coin 3 times and record flips (Heads or Tails)<ul class="disc" id="ch6-random-variables-3-3-1">
+<li><p>Sample space: collection of all possible (<span class="process-math">\(2 \cdot 2 \cdot 2 = 8\)</span>) sequence of flips <span class="process-math">\(\{ HHH, HHT, HTH, HTT, THH, THT, TTH, TTT \}\)</span></p></li>
+<li><p>Random variable: How can we assign a number to each outcome?<ul class="circle" id="ch6-random-variables-3-3-1-2-1-1">
+<li><p>Number of heads</p></li>
+<li><p>Maximum number of consecutive sequence of heads</p></li>
+<li><p>Number of heads minus number of tails</p></li>
+</ul></p></li>
+</ul></p>
+</div></section><section><h3>Distribution of Discrete Random Variables</h3>
+<div align="left">
+<p>A <dfn class="terminology">random variable</dfn> for which we can list all of the possible values is called <dfn class="terminology">discrete</dfn>. If the random variable can take any value from an interval, it is called <dfn class="terminology">continuous</dfn>.</p>
+<p>The <dfn class="terminology">distribution</dfn> of a <dfn class="terminology">discrete random variable</dfn> is the function defining probabilities associated with each of the possible values for the variable. We usually use <span class="process-math">\(p(x)\)</span> where <span class="process-math">\(p\)</span> is the distribution function (called the <dfn class="terminology">probability mass function</dfn>) and <span class="process-math">\(x\)</span> represents a possible value.</p>
+<p>Example: For each random variable defined on the three coin flips sample space, describe the distribution of the random variables.<ol class="decimal" id="ch6-random-variables-4-4-1">
+<li><p><span class="process-math">\(X\)</span> = number of heads</p></li>
+<li><p><span class="process-math">\(Y\)</span> = maximum number of consecutive heads</p></li>
+<li><p><span class="process-math">\(Z\)</span> = number of heads minus number of tails</p></li>
+</ol></p>
+</div></section><section><h3>Expected Value (Mean)</h3>
+<div align="left">
+<p>Given a random variable <span class="process-math">\(X\text{,}\)</span> we can define the <dfn class="terminology">expected value</dfn> of <span class="process-math">\(X\)</span> as the theoretical mean (population parameter), usually written <span class="process-math">\(\mu_X\)</span> or just <span class="process-math">\(\mu\)</span> (if there is only one variable). We can also use the <dfn class="terminology">expectation operator</dfn> that <em class="emphasis">calculates</em> the expected value, written <span class="process-math">\(E[X]\text{.}\)</span></p>
+<p>The expected value is calculated by adding over all possible variable values the value of <span class="process-math">\(X\)</span> times the probability it has that value.<div class="displaymath process-math" id="ch6-random-variables-5-3-2">
+\begin{equation*}
+\mu_X = E[X] = \sum_{x} x \cdot p_X(x)
+\end{equation*}
+</div></p>
+<p>Example: For the 3 coin flips, calculate <span class="process-math">\(\mu\)</span> for the number of heads.</p>
+<p>Example: For a roll of a single 6-sided die, calculate <span class="process-math">\(\mu\)</span> for the number of pips (dots) on the top face.</p>
+</div></section><section><h3>Expected Variance (or just Variance)</h3>
+<div align="left"><p>Recall that for a sample, we can compute the <em class="emphasis">sample</em> variance as an average squared deviation. For a random variable representing a theoretical population, we can compute the variance (parameter), usually written <span class="process-math">\(\sigma^2\)</span> or <span class="process-math">\(\sigma_X^2\)</span> using expectation.<div class="displaymath process-math" id="ch6-random-variables-6-2-4">
+\begin{equation*}
+\sigma^2 = E[(X-\mu_X)^2] = \sum_x (x-\mu_X)^2 \cdot p_X(x)
+\end{equation*}
+</div>It can also be shown that we can first compute what is called the <dfn class="terminology">second moment</dfn>:<div class="displaymath process-math" id="ch6-random-variables-6-2-6">
+\begin{equation*}
+E[X^2] = \sum_x x^2 \cdot p_X(x)
+\end{equation*}
+</div>and then<div class="displaymath process-math" id="ch6-random-variables-6-2-7">
+\begin{equation*}
+\sigma_X^2 = E[X^2] - \mu_X^2
+\end{equation*}
+</div>The square root of the variance is called the <dfn class="terminology">standard deviation</dfn> <span class="process-math">\(\sigma\)</span> (as a population parameter).</p></div></section><section><h3>Calculating Variance and Standard Deviation</h3>
+<div align="left">
+<p>Example: For the 3 coin flips, we found <span class="process-math">\(\mu = 1.5\)</span> for the number of heads. Find the variance <span class="process-math">\(\sigma^2\)</span> and standard deviation <span class="process-math">\(\sigma\text{.}\)</span></p>
+<p>Example: For a roll of a single 6-sided die, we found <span class="process-math">\(\mu = 3.5\text{.}\)</span> Find the variance <span class="process-math">\(\sigma^2\)</span> and standard deviation <span class="process-math">\(\sigma\text{.}\)</span></p>
+</div></section><section><h3>Mega Millions Jackpot</h3>
+<div align="left">
+<p>On October 2, 2025, the Virginia MegaMillions lottery had a jackpot value worth $520 million. Each ticket costs $5. The lottery website identified the possible prizes along with their probabilities for winning.</p>
+<p>Find the expected value of the net winnings (value of prize won minus cost of ticket).</p>
+<div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Prize</td>
+<td class="l m b0 r0 l0 t0 lines">Value</td>
+<td class="l m b0 r0 l0 t0 lines">Probability</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">5 of 5 + MegaBall</td>
+<td class="l m b0 r0 l0 t0 lines">$520,000,000</td>
+<td class="l m b0 r0 l0 t0 lines">1/290,472,336</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">5 of 5</td>
+<td class="l m b0 r0 l0 t0 lines">$1,000,000</td>
+<td class="l m b0 r0 l0 t0 lines">1/12,629,232</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">4 of 5 + MegaBall</td>
+<td class="l m b0 r0 l0 t0 lines">$10,000</td>
+<td class="l m b0 r0 l0 t0 lines">1/893,761</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">4 of 5</td>
+<td class="l m b0 r0 l0 t0 lines">$500</td>
+<td class="l m b0 r0 l0 t0 lines">1/38,859</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">3 of 5 + MegaBall</td>
+<td class="l m b0 r0 l0 t0 lines">$200</td>
+<td class="l m b0 r0 l0 t0 lines">1/13,965</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">3 of 5</td>
+<td class="l m b0 r0 l0 t0 lines">$10</td>
+<td class="l m b0 r0 l0 t0 lines">1/607</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">2 of 5 + MegaBall</td>
+<td class="l m b0 r0 l0 t0 lines">$10</td>
+<td class="l m b0 r0 l0 t0 lines">1/665</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">1 of 5 + MegaBall</td>
+<td class="l m b0 r0 l0 t0 lines">$7</td>
+<td class="l m b0 r0 l0 t0 lines">1/86</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">MegaBall</td>
+<td class="l m b0 r0 l0 t0 lines">$5</td>
+<td class="l m b0 r0 l0 t0 lines">1/35</td>
+</tr>
+</table></div>
+</div></section><section><h3>Continuous Random Variables</h3>
+<div align="left">
+<p>A random variable is called <dfn class="terminology">continuous</dfn> when its possible values form an interval.<ul class="disc" id="ch6-random-variables-9-2-2">
+<li><p>Examples: time, age, and size measures such as height and weight.</p></li>
+<li><p>Continuous variables are usually measured in a discrete manner because of rounding.</p></li>
+</ul></p>
+<p>The <dfn class="terminology">distribution</dfn> of a continuous random variable can not assign probability to individual values. (Paradox: The only way that might make sense is that any specific value has probability 0.) Instead, we define probabilities for <dfn class="terminology">intervals</dfn> in which the value can belong instead of individual values.</p>
 </div></section></section>
 </div>
 </div></body>
