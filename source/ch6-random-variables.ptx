@@ -1,0 +1,197 @@
+<?xml version='1.0' encoding='utf-8'?>
+<section xml:id="ch6-random-variables" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <title>Chapter 6: Overview of Random  Variables</title>
+
+  <slide>
+    <title>Key Ideas</title>
+
+    <p>
+      <term>Random variables</term> are the mathematical formulation for describing variables that are subject to random variability at the <term>population</term> level.
+    </p>
+    <p>
+      We will learn about following key ideas:
+    </p>
+    <ul>
+      <li>
+        <p>
+          Vocabulary: random variable, distribution, continuous vs discrete
+        </p>
+      </li>
+      <li>
+        <p>
+          Calculating expected values (mean, variance, standard deviation)
+        </p>
+      </li>
+      <li>
+        <p>
+          Key properties of <term>binomial</term> random variables
+        </p>
+      </li>
+    </ul>
+  </slide>
+
+  <slide>
+    <title>Random Variables</title>
+    
+    <p>
+      A random variable is a way to <em>assign a numeric value</em> to each outcome in the sample space, so that randomly selecting an outcome corresponds to a number.
+    </p>
+    <p>
+      Example: Flip a coin 3 times and record flips (Heads or Tails)
+      <ul>
+        <li>
+          <p>
+            Sample space: collection of all possible (<m>2 \cdot 2 \cdot 2 = 8</m>) sequence of flips <m>\{ HHH, HHT, HTH, HTT, THH, THT, TTH, TTT \}</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Random variable: How can we assign a number to each outcome?
+            <ul>
+              <li><p>Number of heads</p></li>
+              <li><p>Maximum number of consecutive sequence of heads</p></li>
+              <li><p>Number of heads minus number of tails</p></li>
+            </ul>
+          </p>
+        </li>
+      </ul>
+    </p>
+  </slide>
+
+  <slide>
+    <title>Distribution of Discrete Random Variables</title>
+    
+    <p>
+      A <term>random variable</term> for which we can list all of the possible values is called <term>discrete</term>.
+      If the random variable can take any value from an interval, it is called <term>continuous</term>.
+    </p>
+    <p>
+      The <term>distribution</term> of a <term>discrete random variable</term> is the function defining probabilities associated with each of the possible values for the variable. We usually use <m>p(x)</m> where <m>p</m> is the distribution function (called the <term>probability mass function</term>) and <m>x</m> represents a possible value.
+    </p>
+    <p>
+      Example: For each random variable defined on the three coin flips sample space, describe the distribution of the random variables.
+      <ol>
+        <li><p><m>X</m> = number of heads</p></li>
+        <li><p><m>Y</m> = maximum number of consecutive heads</p></li>
+        <li><p><m>Z</m> = number of heads minus number of tails</p></li>
+      </ol>
+    </p>
+  </slide>
+
+  <slide>
+    <title>Expected Value (Mean)</title>
+    
+    <p>
+      Given a random variable <m>X</m>, we can define the <term>expected value</term> of <m>X</m> as the theoretical mean (population parameter), usually written <m>\mu_X</m> or just <m>\mu</m> (if there is only one variable). We can also use the <term>expectation operator</term> that <em>calculates</em> the expected value, written <m>E[X]</m>.
+    </p>
+    <p>
+      The expected value is calculated by adding over all possible variable values the value of <m>X</m> times the probability it has that value.
+      <md>
+        \mu_X = E[X] = \sum_{x} x \cdot p_X(x)
+      </md>
+    </p>
+    <p>
+      Example: For the 3 coin flips, calculate <m>\mu</m> for the number of heads.
+    </p>
+    <p>
+      Example: For a roll of a single 6-sided die, calculate <m>\mu</m> for the number of pips (dots) on the top face.
+    </p>
+  </slide>
+
+  <slide>
+    <title>Expected Variance (or just Variance)</title>
+    
+    <p>
+      Recall that for a sample, we can compute the <em>sample</em> variance as an average squared deviation.
+      For a random variable representing a theoretical population, we can compute the variance (parameter), usually written <m>\sigma^2</m> or <m>\sigma_X^2</m> using expectation.
+      <md>
+        \sigma^2 = E[(X-\mu_X)^2] = \sum_x (x-\mu_X)^2 \cdot p_X(x)
+      </md>
+      It can also be shown that we can first compute what is called the <term>second moment</term>:
+      <md>
+        E[X^2] = \sum_x x^2 \cdot p_X(x)
+      </md>
+      and then
+      <md>
+        \sigma_X^2 = E[X^2] - \mu_X^2
+      </md>
+      The square root of the variance is called the <term>standard deviation</term> <m>\sigma</m> (as a population parameter).
+    </p>
+  </slide>
+
+  <slide>
+    <title>Calculating Variance and Standard Deviation</title>
+    
+    <p>
+      Example: For the 3 coin flips, we found <m>\mu = 1.5</m> for the number of heads. Find the variance <m>\sigma^2</m> and standard deviation <m>\sigma</m>.
+
+    </p>
+    <p>
+      Example: For a roll of a single 6-sided die, we found <m>\mu = 3.5</m>. Find the variance <m>\sigma^2</m> and standard deviation <m>\sigma</m>.
+    </p>
+  </slide>
+
+  <slide>
+    <title>Mega Millions Jackpot</title>
+    
+    <p>
+      On October 2, 2025, the Virginia MegaMillions lottery had a jackpot value worth $520 million. Each ticket costs $5.
+      The lottery website identified the possible prizes along with their probabilities for winning.
+    </p>
+    <p>
+      Find the expected value of the net winnings (value of prize won minus cost of ticket).
+    </p>
+    <tabular>
+      <row>
+        <cell>Prize</cell><cell>Value</cell><cell>Probability</cell>
+      </row>
+      <row>
+        <cell>5 of 5 + MegaBall</cell><cell>$520,000,000</cell><cell>1/290,472,336</cell>
+      </row>
+      <row>
+        <cell>5 of 5</cell><cell>$1,000,000</cell><cell>1/12,629,232</cell>
+      </row>
+      <row>
+        <cell>4 of 5 + MegaBall</cell><cell>$10,000</cell><cell>1/893,761</cell>
+      </row>
+      <row>
+        <cell>4 of 5</cell><cell>$500</cell><cell>1/38,859</cell>
+      </row>
+      <row>
+        <cell>3 of 5 + MegaBall</cell><cell>$200</cell><cell>1/13,965</cell>
+      </row>
+      <row>
+        <cell>3 of 5</cell><cell>$10</cell><cell>1/607</cell>
+      </row>
+      <row>
+        <cell>2 of 5 + MegaBall</cell><cell>$10</cell><cell>1/665</cell>
+      </row>
+      <row>
+        <cell>1 of 5 + MegaBall</cell><cell>$7</cell><cell>1/86</cell>
+      </row>
+      <row>
+        <cell>MegaBall</cell><cell>$5</cell><cell>1/35</cell>
+      </row>
+    </tabular>
+  </slide>
+
+  <slide>
+    <title>Continuous Random Variables</title>
+    
+    <p>
+      A random variable is called <term>continuous</term> when its possible values form an interval.
+      <ul>
+        <li>
+          <p>Examples: time, age, and size measures such as height and weight.</p>
+        </li>
+        <li>
+          <p>Continuous variables are usually measured in a discrete manner because of rounding.</p>
+        </li>
+      </ul>
+    </p>
+    <p>
+      The <term>distribution</term> of a continuous random variable can not assign probability to individual values. (Paradox: The only way that might make sense is that any specific value has probability 0.) Instead, we define probabilities for <term>intervals</term> in which the value can belong instead of individual values.
+    </p>
+  </slide>
+</section>
