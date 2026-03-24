@@ -194,4 +194,199 @@
       The <term>distribution</term> of a continuous random variable can not assign probability to individual values. (Paradox: The only way that might make sense is that any specific value has probability 0.) Instead, we define probabilities for <term>intervals</term> in which the value can belong instead of individual values.
     </p>
   </slide>
+
+  <slide>
+    <title>Density Functions</title>
+    
+    <p>
+      To fully understand this idea, we would need calculus. But for continuous random variables, there is a function called the <term>density</term> that is always positive (or zero) such that the area under its graph is exactly equal to 1.
+    </p>
+    <p>
+      If <m>X</m> is our random variable, then <m>P(a \le X \le b)</m> will be equal to the area under the density's graph in the interval <m>a \le x \le b</m>.
+    </p>
+    <image width="40%">
+      <shortdescription>Graph of a density with the area between 0 and 2 shaded in to represent the probability that X is between 0 and 2.</shortdescription>
+      <latex-image>
+        \begin{tikzpicture}
+          \begin{axis}[
+            xmin=-4,
+            xmax=4,
+          ]
+          \addplot [name path=curve, domain=-4:4, samples=200, thick]
+            { exp(-abs(x))/ 2 };
+          % The x-axis (as a path)
+          \addplot[name path=axis]
+            {0};
+          % Shade between curve and x-axis from x=0 to x=2
+          \addplot[
+            thick,
+            fill=blue,
+            fill opacity=0.25
+          ]
+          fill between[
+            of=curve and axis,
+            soft clip={domain=0:2},
+          ];
+          \end{axis}
+        \end{tikzpicture}
+      </latex-image>
+    </image>
+  </slide>
+
+  <slide>
+    <title>Normal Random Variables</title>
+    
+    <p>
+      The most important continuous random variable is said to follow the <term>normal distribution</term> and has the fundamental bell-shaped distribution. A normal distribution can be defined with any mean <m>\mu</m> and standard deviation <m>\sigma</m>.
+    </p>
+    <p>
+      The graph is symmetric around <m>x=\mu</m> and the width of the bell is proportional to <m>\sigma</m>.
+    </p>
+    <image width="40%">
+      <shortdescription>Graph of the normal distribution with mean mu and standard deviation sigma.</shortdescription>
+      <latex-image>
+        \begin{tikzpicture}
+          \begin{axis}[
+            xtick=\empty,
+            ytick=\empty,
+            extra x ticks={1}, extra x tick labels={$\mu$},
+            xmin=-3,
+            xmax=4,
+          ]
+          \addplot [name path=curve, domain=-3:4, samples=200, thick]
+            { exp(-(x-1)^2/2)/ sqrt(2*pi) };
+          % The x-axis (as a path)
+          \addplot[name path=axis]
+            {0};
+          \addplot[black, dashed, thick] coordinates {(1,0) (1,0.45)};
+          \addplot[black, dashed, thick] coordinates {(0,0) (0,0.3)};
+          \addplot[black, dashed, thick] coordinates {(2,0) (2,0.3)};
+          \addplot[black, &lt;-&gt;, thick] coordinates {(1,0.2) (2,0.2)} node [pos=0.5, above] {$\sigma$};
+          \end{axis}
+        \end{tikzpicture}
+      </latex-image>
+    </image>
+  </slide>
+
+  <slide>
+    <title>The Standard Normal</title>
+    
+    <p>
+      For <em>any</em> normal random variable with mean <m>\mu</m> and standard deviation <m>\sigma</m>, which is indicated by writing <m>X \sim \mathcal{N}(\mu,\sigma)</m>, we <em>normalize</em> by finding
+      <md>
+        Z = \frac{X-\mu}{\sigma}.
+      </md>
+      When this is calculated, it will be true that <m>Z \sim \mathcal{N}(0,1)</m>
+    </p>
+    <p>
+      In order to calculate probabilities for <m>X</m> to be in <m>a \lt X \lt b</m>, we calculate the z-value for <m>a</m> and <m>b</m> and use the standard normal distribution.
+      <md>
+        P(a \lt X \lt b) = P\left( \frac{a-\mu}{\sigma} \lt Z \lt \frac{b-\mu}{\sigma}\right)
+      </md>
+    </p>
+  </slide>
+
+  <slide>
+    <title>Cumulative Tail Probabilities</title>
+    
+    <sidebyside widths="40% 25% 25%">
+      <p>
+        The left-tail probability is defined by a probability <m>P(X \lt a)</m>.
+        The right-tail probability is defined by a probability <m>P(X \gt a)</m>.
+        Single numbers have no probability, <m>P(X = a) = 0</m>.
+      </p>
+      <image>
+        <shortdescription></shortdescription>
+        <latex-image>
+        \begin{tikzpicture}
+          \begin{axis}[
+            xtick=\empty,
+            ytick=\empty,
+            extra x ticks={0}, extra x tick labels={$a$},
+            xmin=-3,
+            xmax=4,
+          ]
+          \addplot [name path=curve, domain=-3:4, samples=200, thick]
+            { exp(-(x-1)^2/2)/ sqrt(2*pi) };
+          % The x-axis (as a path)
+          \addplot[name path=axis]
+            {0};
+          % Shade between curve and x-axis from x=0 to x=2
+          \addplot[
+            thick,
+            fill=blue,
+            fill opacity=0.25
+          ]
+          fill between[
+            of=curve and axis,
+            soft clip={domain=-3:0},
+          ];
+          \addplot[black, dashed, thick] coordinates {(0,0) (0,0.3)};
+          \end{axis}
+        \end{tikzpicture}
+        </latex-image>
+      </image>
+      <image>
+        <shortdescription></shortdescription>
+        <latex-image>
+        \begin{tikzpicture}
+          \begin{axis}[
+            xtick=\empty,
+            ytick=\empty,
+            extra x ticks={0 }, extra x tick labels={$a$},
+            xmin=-3,
+            xmax=4,
+          ]
+          \addplot [name path=curve, domain=-3:4, samples=200, thick]
+            { exp(-(x-1)^2/2)/ sqrt(2*pi) };
+          % The x-axis (as a path)
+          \addplot[name path=axis]
+            {0};
+          % Shade between curve and x-axis from x=0 to x=2
+          \addplot[
+            thick,
+            fill=blue,
+            fill opacity=0.25
+          ]
+          fill between[
+            of=curve and axis,
+            soft clip={domain=0:4},
+          ];
+          \addplot[black, dashed, thick] coordinates {(0,0) (0,0.3)};
+          \end{axis}
+        \end{tikzpicture}
+        </latex-image>
+      </image>
+    </sidebyside>
+
+    <p>
+      Using the probability rule for complements and for disjoint events:
+      <md>
+        <mrow> P(X \gt b) = 1 - P(X \lt b)</mrow>
+        <mrow> P(X \lt b) = P(X \lt a) + P(a \lt X \lt b) </mrow>
+        <mrow>  P(a \lt X \lt b) = P(X \lt b) - P(X \lt a) </mrow>
+      </md>
+    </p>
+  </slide>
+
+  <slide>
+    <title>Calculate Probabilities</title>
+    
+    <p>
+      The left-tail probabilities for the standard normal distribtuion are calculated and recorded in tables. We can use standardization and these tables to calculate other probabilities.
+    </p>
+    <p>
+      <ol>
+        <li>
+          <p>For <m>X \sim \mathcal{N}(0,1)</m>, find <m>P(0 \lt X \lt 1)</m>.</p>
+        </li>
+        <li>
+          <p>For <m>X \sim \mathcal{N}(0,2)</m>, find <m>P(1 \lt X \lt 3)</m>.</p>
+        </li>
+        <li>
+          <p>For <m>X \sim \mathcal{N}(2,3)</m>, find <m>P(-2 \lt X \lt 2)</m>.</p>
+        </li>
+      </ol>
+    </p>
+  </slide>
 </section>
