@@ -373,7 +373,8 @@
     <title>Calculate Probabilities</title>
     
     <p>
-      The left-tail probabilities for the standard normal distribtuion are calculated and recorded in tables. We can use standardization and these tables to calculate other probabilities.
+      The left-tail probabilities for the standard normal distribution are calculated and recorded in tables (called <term>cumulative probability</term>).
+      We can use standardization and these tables to calculate other probabilities.
     </p>
     <p>
       <ol>
@@ -385,6 +386,56 @@
         </li>
         <li>
           <p>For <m>X \sim \mathcal{N}(2,3)</m>, find <m>P(-2 \lt X \lt 2)</m>.</p>
+        </li>
+      </ol>
+    </p>
+  </slide>
+
+
+  <slide>
+    <title>Quantiles and Percentiles</title>
+    
+    <p>
+      When we have a distribution (discrete or continuous), we can find <term>quantiles</term> or <term>percentiles</term>.
+    </p>
+    <p>
+      Given a random variable <m>X</m> and a proportion <m>p</m> with <m>0 \lt p \lt 1</m>, the <m>p</m> <term>quantile</term> is the value <m>x</m> so that <m>P(X \le x) = p</m>. Multiplying <m>p</m> by 100, <m>100p</m> is a <term>percentage</term> and so we also call <m>x</m> the <m>100p</m>th <term>percentile</term>.
+    </p>
+
+    <p>
+      We can read the probability table to also find quantiles of a standard normal distribution.
+      <ol>
+        <li>
+          <p>Find the <m>0.8</m> quantile of <m>Z \sim \mathcal{N}(0,1)</m>.</p>
+        </li>
+        <li>
+          <p>Find the <m>0.95</m> quantile of <m>Z \sim \mathcal{N}(0,1)</m>.</p>
+        </li>
+        <li>
+          <p>Find the 12th percentile of <m>Z \sim \mathcal{N}(0,1)</m>.</p>
+        </li>
+      </ol>
+    </p>
+  </slide>
+
+  <slide>
+    <title>Quantiles of Normal Distributions</title>
+    
+    <p>
+      The calculation of <m>Z = \frac{X-\mu}{\sigma}</m> converts from <m>X \sim \mathcal{N}(\mu,\sigma)</m> to <m>Z \sim \mathcal{N}(0,1)</m>.
+      We can reverse the transformation. Given <m>Z</m>, we find <m>X = \mu + Z \cdot \sigma</m>.
+    </p>
+    <p>
+      If we find a <m>p</m>-quantile <m>q</m> for <m>\mathcal{N}(0,1)</m>, then <m>\mu + q \cdot \sigma</m> is the <m>p</m>-quantile for <m>\mathcal{N}(\mu,\sigma)</m>.
+      <ol>
+        <li>
+          <p>Find the <m>0.9</m> quantile of <m>X \sim \mathcal{N}(2,1)</m>.</p>
+        </li>
+        <li>
+          <p>Find the <m>0.99</m> quantile of <m>X \sim \mathcal{N}(1,2)</m>.</p>
+        </li>
+        <li>
+          <p>Find the 25th percentile of <m>X \sim \mathcal{N}(-2,5)</m>.</p>
         </li>
       </ol>
     </p>

@@ -1,0 +1,166 @@
+<?xml version='1.0' encoding='utf-8'?>
+<section xml:id="ch7-sampling-distributions" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <title>Chapter 7: Sampling Distributions</title>
+
+  <slide>
+    <title>Key Ideas</title>
+
+    <p>
+      If we take a quantitative variable in a <term>sample</term>, we can consider the observed values to be instances of a <term>random variable</term>. Every sample statistics (like mean, median, and standard deviation) are themselves random variables. We call their distributions <term>sampling distributions</term>.
+    </p>
+    <p>
+      We will learn about following key ideas:
+    </p>
+    <ul>
+      <li>
+        <p>
+          Find the mean and standard deviation of a sample mean.
+        </p>
+      </li>
+      <li>
+        <p>
+          The sample mean of a sample of independent and identical normal random variables is itself a normal random variable.
+        </p>
+      </li>
+      <li>
+        <p>
+          The <term>central limit theorem</term> shows that for <em>any</em> distribution, the larger the sample size, the closer the sample distribution will be to the normal distribution.
+        </p>
+      </li>
+    </ul>
+  </slide>
+
+  <slide>
+    <title>Random Samples and Sampling Distribution</title>
+    
+    <p>
+      If we have a set of <term>independent</term> and <term>identically distributed</term> random variables <m>X_1, X_2, \ldots, X_n</m> that share the distribution of <m>X</m>,
+      the collection <m>\{X_1, X_2, \ldots, X_n\}</m> is called a <term>random sample</term>. Every time we create a random sample, the specific values will be different. This is called <term>sampling variability</term>. 
+    </p>
+    <p>
+      For any statistic summarizing the sample, the value of the statistic is also random.
+      That is, a statistic of a random sample is itself a <term>random variable</term>.
+      The distribution of that statistic is called the <term>sampling distribution</term>.
+    </p>
+  </slide>
+
+  <slide>
+    <title>Random Samples in R</title>
+    
+    <p>
+      R has the ability to simulate many different types of random variables.
+      Creating random samples use a command that starts with <c>r</c> (for random) followed by an abbreviation of the distribution name: <c>rnorm</c>, <c>runif</c>, <c>rbinom</c>, etc. We also specify the sample size and any model parameters.
+    </p>
+    <program language="R">
+      <input>
+        x &lt;- rnorm(100, mean=2, sd=5)
+        x &lt;- runif(100, min=0, max=1)
+        x &lt;- rbinom(100, size=5, prob=0.5)
+      </input>
+    </program>
+  </slide>
+
+<slide>
+    <title>Replicates</title>
+    
+    <p>
+      For a given random sample, a statistic produces a single value.
+      To understand the sampling distribution, we should <term>replicate</term> the sample many times to create a <em>sample of samples</em>.
+    </p>
+    <p>
+      We will use a <term>loop</term> to generate our replicate and store the individual sample statistics in a vector.
+    </p>
+    <program language="R">
+      <input>
+        n &lt;- 100
+        numSamples &lt;- 500
+        sample.means &lt;- numeric(numSamples)
+        for (i in 1:numSamples) {
+          x &lt;- rnorm(n, mean=5, sd=2)
+          sample.means[i] &lt;- mean(x)
+        }
+      </input>
+    </program>
+  </slide>
+
+  <slide>
+    <title>Law of Large Numbers</title>
+    
+    <p>
+      The <term>Law of Large Numbers</term> allows us to consider an event <m>E</m> involving a random variable <m>X</m> as follows. If we take a random sample <m>X_1,X_2,\ldots,X_n</m> with the same distribution as <m>X</m>. The <em>proportion</em> of values from the random sample that make <m>E</m> true will approach the actual probability <m>P(X \in E)</m>. Further, the sample mean will converge to the expected value (population mean).
+    </p>
+    <p>
+      Consequently, a histogram will approximately take the same shape as the distribution's density function. The larger the sample size, the closer it will look.
+    </p>
+  </slide>
+
+  <slide>
+    <title>The Sample Mean (1)</title>
+    
+    <p>
+      The <term>sample mean</term> <m>\overline{X}</m> is a statistic based on a sample <m>X_1, X_2, \ldots, X_n</m> calculated by
+      <md>
+        \overline{X} = \frac{1}{n} \sum_i X_i
+      </md>
+      The <term>mean</term> of <m>\overline{X}</m> is calculated with expected value:
+      <md>
+        \mu_{\overline{X}} = E[\overline{X}] = \frac{1}{n} \sum_i E[X_i] = \frac{1}{n} \cdot n \mu_X = \mu_X
+      </md>
+      That is, the expected value of the sample mean is the same as the expected value of <m>X</m>.
+    </p>
+  </slide>
+
+  <slide>
+    <title>The Sample Mean (2)</title>
+    
+    <p>
+      The <term>variance</term> of <m>\overline{X}</m> is also related to the variance of <m>X</m>.
+      <md>
+        \sigma^2_{\overline{X}} = \frac{1}{n^2} \sum_i \sigma^2 = \frac{1}{n^2} \cdot n \sigma^2 = \frac{\sigma^2}{n}
+      </md>
+    </p>
+    <p>
+      Consequently, the standard deviation of <m>\overline{X}</m> is
+      <md>
+        \sigma_{\overline{X}} = \frac{\sigma}{\sqrt{n}}
+      </md>
+    </p>
+  </slide>
+
+  <slide>
+    <title>Sample Mean of Normal RVs</title>
+    
+    <p>
+      If the random sample is for a <term>normal distribution</term>, then <m>\overline{X}</m> is itself also a normally distributed random variable.
+    </p>
+    <p>
+      That is, if <m>X_1, X_2, \ldots, X_n \sim \mathcal{N}(\mu,\sigma)</m>, then
+      <md>
+        \overline{X} \sim \mathcal{N}(\mu, \frac{\sigma}{\sqrt{n}})
+      </md>
+    </p>
+  </slide>
+
+  <slide>
+    <title>Central Limit Theorem</title>
+    
+    <p>
+      For any other distribution, <m>\overline{X}</m> is <em>not</em> the original distribution nor is it the normal distribution. But the distribution is <em>close</em> to a normal distribution for a large sample size.
+    </p>
+    <p>
+      The <term>Central Limit Theorem</term> guarantees for us that the larger the sample size, the closer the distribution will be to a normal distribution. Consequently, for large enough sample size, we can use a normal distribution to calculate approximate probabilities. In practice as a rule of thumb, this is usually valid for <m>n &gt; 30</m>.
+    </p>
+  </slide>
+
+  <slide>
+    <title>Using the Central Limit Theorem</title>
+    
+    <p>
+      If the distribution of <m>X</m> is <em>approximately</em> normal <m>\mathcal{N}(\mu,\sigma)</m> to begin with, then we know <m>\overline{X}</m> is also approximately normal <m>\mathcal{N}(\mu, \frac{\sigma}{\sqrt{n}})</m>.
+    </p>
+    <p>
+      Even if the distribution of <m>X</m> is significantly different from a normal distribution, then for large <m>n \ge 30</m>, we can still use <m>\mathcal{N}(\mu, \frac{\sigma}{\sqrt{n}})</m> to calculate approximate probabilities regarding <m>\overline{X}</m>.
+    </p>
+  </slide>
+</section>

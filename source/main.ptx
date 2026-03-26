@@ -54,5 +54,6 @@ along with PreTeXt.  If not, see <http://www.gnu.org/licenses/>.
 
         <xi:include href="./ch5-probability.ptx" />
         <xi:include href="./ch6-random-variables.ptx" />
+        <xi:include href="./ch7-sampling-distributions.ptx" />
     </slideshow>
 </pretext>
