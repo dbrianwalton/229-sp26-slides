@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2026-03-24T04:53:46Z       *-->
+<!--*       on 2026-03-26T05:18:01Z       *-->
 <!--*   A recent stable commit (2022-07-01):   *-->
 <!--* 6c761d3dba23af92cba35001c852aac04ae99a5f *-->
 <!--*                                          *-->
@@ -39,7 +39,7 @@
 <tr><td align="center" style="border-bottom: 0px;">James Madison University</td></tr>
 <tr><td align="center"></td></tr>
 </table>
-<h4><div class="date">as of March 24, 2026</div></h4></section></section><section><section><h1>Introduction to R, RStudio, Quarto</h1></section><section><h3>Working with R</h3>
+<h4><div class="date">as of March 26, 2026</div></h4></section></section><section><section><h1>Introduction to R, RStudio, Quarto</h1></section><section><h3>Working with R</h3>
 <div align="left"><ul class="disc" id="Rstudio_introduction-2-2">
 <li><p>Scripting/Programming Language: R</p></li>
 <li><p>Data Analysis Application: RStudio</p></li>
@@ -2010,12 +2010,102 @@ P(a \lt X \lt b) = P(X \lt b) - P(X \lt a)
 </div></p>
 </div></section><section><h3>Calculate Probabilities</h3>
 <div align="left">
-<p>The left-tail probabilities for the standard normal distribtuion are calculated and recorded in tables. We can use standardization and these tables to calculate other probabilities.</p>
+<p>The left-tail probabilities for the standard normal distribution are calculated and recorded in tables (called <dfn class="terminology">cumulative probability</dfn>). We can use standardization and these tables to calculate other probabilities.</p>
 <p><ol class="decimal" id="ch6-random-variables-14-3-1">
 <li><p>For <span class="process-math">\(X \sim \mathcal{N}(0,1)\text{,}\)</span> find <span class="process-math">\(P(0 \lt X \lt 1)\text{.}\)</span></p></li>
 <li><p>For <span class="process-math">\(X \sim \mathcal{N}(0,2)\text{,}\)</span> find <span class="process-math">\(P(1 \lt X \lt 3)\text{.}\)</span></p></li>
 <li><p>For <span class="process-math">\(X \sim \mathcal{N}(2,3)\text{,}\)</span> find <span class="process-math">\(P(-2 \lt X \lt 2)\text{.}\)</span></p></li>
 </ol></p>
+</div></section><section><h3>Quantiles and Percentiles</h3>
+<div align="left">
+<p>When we have a distribution (discrete or continuous), we can find <dfn class="terminology">quantiles</dfn> or <dfn class="terminology">percentiles</dfn>.</p>
+<p>Given a random variable <span class="process-math">\(X\)</span> and a proportion <span class="process-math">\(p\)</span> with <span class="process-math">\(0 \lt p \lt 1\text{,}\)</span> the <span class="process-math">\(p\)</span> <dfn class="terminology">quantile</dfn> is the value <span class="process-math">\(x\)</span> so that <span class="process-math">\(P(X \le x) = p\text{.}\)</span> Multiplying <span class="process-math">\(p\)</span> by 100, <span class="process-math">\(100p\)</span> is a <dfn class="terminology">percentage</dfn> and so we also call <span class="process-math">\(x\)</span> the <span class="process-math">\(100p\)</span>th <dfn class="terminology">percentile</dfn>.</p>
+<p>We can read the probability table to also find quantiles of a standard normal distribution.<ol class="decimal" id="ch6-random-variables-15-4-1">
+<li><p>Find the <span class="process-math">\(0.8\)</span> quantile of <span class="process-math">\(Z \sim \mathcal{N}(0,1)\text{.}\)</span></p></li>
+<li><p>Find the <span class="process-math">\(0.95\)</span> quantile of <span class="process-math">\(Z \sim \mathcal{N}(0,1)\text{.}\)</span></p></li>
+<li><p>Find the 12th percentile of <span class="process-math">\(Z \sim \mathcal{N}(0,1)\text{.}\)</span></p></li>
+</ol></p>
+</div></section><section><h3>Quantiles of Normal Distributions</h3>
+<div align="left">
+<p>The calculation of <span class="process-math">\(Z = \frac{X-\mu}{\sigma}\)</span> converts from <span class="process-math">\(X \sim \mathcal{N}(\mu,\sigma)\)</span> to <span class="process-math">\(Z \sim \mathcal{N}(0,1)\text{.}\)</span> We can reverse the transformation. Given <span class="process-math">\(Z\text{,}\)</span> we find <span class="process-math">\(X = \mu + Z \cdot \sigma\text{.}\)</span></p>
+<p>If we find a <span class="process-math">\(p\)</span>-quantile <span class="process-math">\(q\)</span> for <span class="process-math">\(\mathcal{N}(0,1)\text{,}\)</span> then <span class="process-math">\(\mu + q \cdot \sigma\)</span> is the <span class="process-math">\(p\)</span>-quantile for <span class="process-math">\(\mathcal{N}(\mu,\sigma)\text{.}\)</span><ol class="decimal" id="ch6-random-variables-16-3-7">
+<li><p>Find the <span class="process-math">\(0.9\)</span> quantile of <span class="process-math">\(X \sim \mathcal{N}(2,1)\text{.}\)</span></p></li>
+<li><p>Find the <span class="process-math">\(0.99\)</span> quantile of <span class="process-math">\(X \sim \mathcal{N}(1,2)\text{.}\)</span></p></li>
+<li><p>Find the 25th percentile of <span class="process-math">\(X \sim \mathcal{N}(-2,5)\text{.}\)</span></p></li>
+</ol></p>
+</div></section></section><section><section><h1>Chapter 7: Sampling Distributions</h1></section><section><h3>Key Ideas</h3>
+<div align="left">
+<p>If we take a quantitative variable in a <dfn class="terminology">sample</dfn>, we can consider the observed values to be instances of a <dfn class="terminology">random variable</dfn>. Every sample statistics (like mean, median, and standard deviation) are themselves random variables. We call their distributions <dfn class="terminology">sampling distributions</dfn>.</p>
+<p>We will learn about following key ideas:</p>
+<ul class="disc" id="ch7-sampling-distributions-2-4">
+<li><p>Find the mean and standard deviation of a sample mean.</p></li>
+<li><p>The sample mean of a sample of independent and identical normal random variables is itself a normal random variable.</p></li>
+<li><p>The <dfn class="terminology">central limit theorem</dfn> shows that for <em class="emphasis">any</em> distribution, the larger the sample size, the closer the sample distribution will be to the normal distribution.</p></li>
+</ul>
+</div></section><section><h3>Random Samples and Sampling Distribution</h3>
+<div align="left">
+<p>If we have a set of <dfn class="terminology">independent</dfn> and <dfn class="terminology">identically distributed</dfn> random variables <span class="process-math">\(X_1, X_2, \ldots, X_n\)</span> that share the distribution of <span class="process-math">\(X\text{,}\)</span> the collection <span class="process-math">\(\{X_1, X_2, \ldots, X_n\}\)</span> is called a <dfn class="terminology">random sample</dfn>. Every time we create a random sample, the specific values will be different. This is called <dfn class="terminology">sampling variability</dfn>.</p>
+<p>For any statistic summarizing the sample, the value of the statistic is also random. That is, a statistic of a random sample is itself a <dfn class="terminology">random variable</dfn>. The distribution of that statistic is called the <dfn class="terminology">sampling distribution</dfn>.</p>
+</div></section><section><h3>Random Samples in R</h3>
+<div align="left">
+<p>R has the ability to simulate many different types of random variables. Creating random samples use a command that starts with <code class="code-inline tex2jax_ignore">r</code> (for random) followed by an abbreviation of the distribution name: <code class="code-inline tex2jax_ignore">rnorm</code>, <code class="code-inline tex2jax_ignore">runif</code>, <code class="code-inline tex2jax_ignore">rbinom</code>, etc. We also specify the sample size and any model parameters.</p>
+<div class="code-box"><pre class="program"><code class="language-none">x &lt;- rnorm(100, mean=2, sd=5)
+x &lt;- runif(100, min=0, max=1)
+x &lt;- rbinom(100, size=5, prob=0.5)
+</code></pre></div>
+</div></section><section><h3>Replicates</h3>
+<div align="left">
+<p>For a given random sample, a statistic produces a single value. To understand the sampling distribution, we should <dfn class="terminology">replicate</dfn> the sample many times to create a <em class="emphasis">sample of samples</em>.</p>
+<p>We will use a <dfn class="terminology">loop</dfn> to generate our replicate and store the individual sample statistics in a vector.</p>
+<div class="code-box"><pre class="program"><code class="language-none">n &lt;- 100
+numSamples &lt;- 500
+sample.means &lt;- numeric(numSamples)
+for (i in 1:numSamples) {
+  x &lt;- rnorm(n, mean=5, sd=2)
+  sample.means[i] &lt;- mean(x)
+}
+</code></pre></div>
+</div></section><section><h3>Law of Large Numbers</h3>
+<div align="left">
+<p>The <dfn class="terminology">Law of Large Numbers</dfn> allows us to consider an event <span class="process-math">\(E\)</span> involving a random variable <span class="process-math">\(X\)</span> as follows. If we take a random sample <span class="process-math">\(X_1,X_2,\ldots,X_n\)</span> with the same distribution as <span class="process-math">\(X\text{.}\)</span> The <em class="emphasis">proportion</em> of values from the random sample that make <span class="process-math">\(E\)</span> true will approach the actual probability <span class="process-math">\(P(X \in E)\text{.}\)</span> Further, the sample mean will converge to the expected value (population mean).</p>
+<p>Consequently, a histogram will approximately take the same shape as the distribution’s density function. The larger the sample size, the closer it will look.</p>
+</div></section><section><h3>The Sample Mean (1)</h3>
+<div align="left"><p>The <dfn class="terminology">sample mean</dfn> <span class="process-math">\(\overline{X}\)</span> is a statistic based on a sample <span class="process-math">\(X_1, X_2, \ldots, X_n\)</span> calculated by<div class="displaymath process-math" id="ch7-sampling-distributions-7-2-4">
+\begin{equation*}
+\overline{X} = \frac{1}{n} \sum_i X_i
+\end{equation*}
+</div>The <dfn class="terminology">mean</dfn> of <span class="process-math">\(\overline{X}\)</span> is calculated with expected value:<div class="displaymath process-math" id="ch7-sampling-distributions-7-2-7">
+\begin{equation*}
+\mu_{\overline{X}} = E[\overline{X}] = \frac{1}{n} \sum_i E[X_i] = \frac{1}{n} \cdot n \mu_X = \mu_X
+\end{equation*}
+</div>That is, the expected value of the sample mean is the same as the expected value of <span class="process-math">\(X\text{.}\)</span></p></div></section><section><h3>The Sample Mean (2)</h3>
+<div align="left">
+<p>The <dfn class="terminology">variance</dfn> of <span class="process-math">\(\overline{X}\)</span> is also related to the variance of <span class="process-math">\(X\text{.}\)</span><div class="displaymath process-math" id="ch7-sampling-distributions-8-2-4">
+\begin{equation*}
+\sigma^2_{\overline{X}} = \frac{1}{n^2} \sum_i \sigma^2 = \frac{1}{n^2} \cdot n \sigma^2 = \frac{\sigma^2}{n}
+\end{equation*}
+</div></p>
+<p>Consequently, the standard deviation of <span class="process-math">\(\overline{X}\)</span> is<div class="displaymath process-math" id="ch7-sampling-distributions-8-3-2">
+\begin{equation*}
+\sigma_{\overline{X}} = \frac{\sigma}{\sqrt{n}}
+\end{equation*}
+</div></p>
+</div></section><section><h3>Sample Mean of Normal RVs</h3>
+<div align="left">
+<p>If the random sample is for a <dfn class="terminology">normal distribution</dfn>, then <span class="process-math">\(\overline{X}\)</span> is itself also a normally distributed random variable.</p>
+<p>That is, if <span class="process-math">\(X_1, X_2, \ldots, X_n \sim \mathcal{N}(\mu,\sigma)\text{,}\)</span> then<div class="displaymath process-math" id="ch7-sampling-distributions-9-3-2">
+\begin{equation*}
+\overline{X} \sim \mathcal{N}(\mu, \frac{\sigma}{\sqrt{n}})
+\end{equation*}
+</div></p>
+</div></section><section><h3>Central Limit Theorem</h3>
+<div align="left">
+<p>For any other distribution, <span class="process-math">\(\overline{X}\)</span> is <em class="emphasis">not</em> the original distribution nor is it the normal distribution. But the distribution is <em class="emphasis">close</em> to a normal distribution for a large sample size.</p>
+<p>The <dfn class="terminology">Central Limit Theorem</dfn> guarantees for us that the larger the sample size, the closer the distribution will be to a normal distribution. Consequently, for large enough sample size, we can use a normal distribution to calculate approximate probabilities. In practice as a rule of thumb, this is usually valid for <span class="process-math">\(n &gt; 30\text{.}\)</span></p>
+</div></section><section><h3>Using the Central Limit Theorem</h3>
+<div align="left">
+<p>If the distribution of <span class="process-math">\(X\)</span> is <em class="emphasis">approximately</em> normal <span class="process-math">\(\mathcal{N}(\mu,\sigma)\)</span> to begin with, then we know <span class="process-math">\(\overline{X}\)</span> is also approximately normal <span class="process-math">\(\mathcal{N}(\mu, \frac{\sigma}{\sqrt{n}})\text{.}\)</span></p>
+<p>Even if the distribution of <span class="process-math">\(X\)</span> is significantly different from a normal distribution, then for large <span class="process-math">\(n \ge 30\text{,}\)</span> we can still use <span class="process-math">\(\mathcal{N}(\mu, \frac{\sigma}{\sqrt{n}})\)</span> to calculate approximate probabilities regarding <span class="process-math">\(\overline{X}\text{.}\)</span></p>
 </div></section></section>
 </div>
 </div></body>
