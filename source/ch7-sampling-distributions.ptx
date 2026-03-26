@@ -135,9 +135,9 @@
       If the random sample is for a <term>normal distribution</term>, then <m>\overline{X}</m> is itself also a normally distributed random variable.
     </p>
     <p>
-      That is, if <m>X_1, X_2, \ldots, X_n \sim \mathcal{N}(\mu,\sigma)</m>, then
+      That is, if <m>X_1, X_2, \ldots, X_n \sim N(\mu,\sigma)</m>, then
       <md>
-        \overline{X} \sim \mathcal{N}(\mu, \frac{\sigma}{\sqrt{n}})
+        \overline{X} \sim N(\mu, \frac{\sigma}{\sqrt{n}})
       </md>
     </p>
   </slide>
@@ -157,10 +157,10 @@
     <title>Using the Central Limit Theorem</title>
     
     <p>
-      If the distribution of <m>X</m> is <em>approximately</em> normal <m>\mathcal{N}(\mu,\sigma)</m> to begin with, then we know <m>\overline{X}</m> is also approximately normal <m>\mathcal{N}(\mu, \frac{\sigma}{\sqrt{n}})</m>.
+      If the distribution of <m>X</m> is <em>approximately</em> normal <m>N(\mu,\sigma)</m> to begin with, then we know <m>\overline{X}</m> is also approximately normal <m>N(\mu, \frac{\sigma}{\sqrt{n}})</m>.
     </p>
     <p>
-      Even if the distribution of <m>X</m> is significantly different from a normal distribution, then for large <m>n \ge 30</m>, we can still use <m>\mathcal{N}(\mu, \frac{\sigma}{\sqrt{n}})</m> to calculate approximate probabilities regarding <m>\overline{X}</m>.
+      Even if the distribution of <m>X</m> is significantly different from a normal distribution, then for large <m>n \ge 30</m>, we can still use <m>N(\mu, \frac{\sigma}{\sqrt{n}})</m> to calculate approximate probabilities regarding <m>\overline{X}</m>.
     </p>
   </slide>
 </section>

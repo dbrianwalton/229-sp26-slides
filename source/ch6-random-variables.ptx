@@ -272,11 +272,11 @@
     <title>The Standard Normal</title>
     
     <p>
-      For <em>any</em> normal random variable with mean <m>\mu</m> and standard deviation <m>\sigma</m>, which is indicated by writing <m>X \sim \mathcal{N}(\mu,\sigma)</m>, we <em>normalize</em> by finding
+      For <em>any</em> normal random variable with mean <m>\mu</m> and standard deviation <m>\sigma</m>, which is indicated by writing <m>X \sim N(\mu,\sigma)</m>, we <em>normalize</em> by finding
       <md>
         Z = \frac{X-\mu}{\sigma}.
       </md>
-      When this is calculated, it will be true that <m>Z \sim \mathcal{N}(0,1)</m>
+      When this is calculated, it will be true that <m>Z \sim N(0,1)</m>
     </p>
     <p>
       In order to calculate probabilities for <m>X</m> to be in <m>a \lt X \lt b</m>, we calculate the z-value for <m>a</m> and <m>b</m> and use the standard normal distribution.
@@ -379,13 +379,13 @@
     <p>
       <ol>
         <li>
-          <p>For <m>X \sim \mathcal{N}(0,1)</m>, find <m>P(0 \lt X \lt 1)</m>.</p>
+          <p>For <m>X \sim N(0,1)</m>, find <m>P(0 \lt X \lt 1)</m>.</p>
         </li>
         <li>
-          <p>For <m>X \sim \mathcal{N}(0,2)</m>, find <m>P(1 \lt X \lt 3)</m>.</p>
+          <p>For <m>X \sim N(0,2)</m>, find <m>P(1 \lt X \lt 3)</m>.</p>
         </li>
         <li>
-          <p>For <m>X \sim \mathcal{N}(2,3)</m>, find <m>P(-2 \lt X \lt 2)</m>.</p>
+          <p>For <m>X \sim N(2,3)</m>, find <m>P(-2 \lt X \lt 2)</m>.</p>
         </li>
       </ol>
     </p>
@@ -406,13 +406,13 @@
       We can read the probability table to also find quantiles of a standard normal distribution.
       <ol>
         <li>
-          <p>Find the <m>0.8</m> quantile of <m>Z \sim \mathcal{N}(0,1)</m>.</p>
+          <p>Find the <m>0.8</m> quantile of <m>Z \sim N(0,1)</m>.</p>
         </li>
         <li>
-          <p>Find the <m>0.95</m> quantile of <m>Z \sim \mathcal{N}(0,1)</m>.</p>
+          <p>Find the <m>0.95</m> quantile of <m>Z \sim N(0,1)</m>.</p>
         </li>
         <li>
-          <p>Find the 12th percentile of <m>Z \sim \mathcal{N}(0,1)</m>.</p>
+          <p>Find the 12th percentile of <m>Z \sim N(0,1)</m>.</p>
         </li>
       </ol>
     </p>
@@ -422,20 +422,20 @@
     <title>Quantiles of Normal Distributions</title>
     
     <p>
-      The calculation of <m>Z = \frac{X-\mu}{\sigma}</m> converts from <m>X \sim \mathcal{N}(\mu,\sigma)</m> to <m>Z \sim \mathcal{N}(0,1)</m>.
+      The calculation of <m>Z = \frac{X-\mu}{\sigma}</m> converts from <m>X \sim N(\mu,\sigma)</m> to <m>Z \sim N(0,1)</m>.
       We can reverse the transformation. Given <m>Z</m>, we find <m>X = \mu + Z \cdot \sigma</m>.
     </p>
     <p>
-      If we find a <m>p</m>-quantile <m>q</m> for <m>\mathcal{N}(0,1)</m>, then <m>\mu + q \cdot \sigma</m> is the <m>p</m>-quantile for <m>\mathcal{N}(\mu,\sigma)</m>.
+      If we find a <m>p</m>-quantile <m>q</m> for <m>N(0,1)</m>, then <m>\mu + q \cdot \sigma</m> is the <m>p</m>-quantile for <m>N(\mu,\sigma)</m>.
       <ol>
         <li>
-          <p>Find the <m>0.9</m> quantile of <m>X \sim \mathcal{N}(2,1)</m>.</p>
+          <p>Find the <m>0.9</m> quantile of <m>X \sim N(2,1)</m>.</p>
         </li>
         <li>
-          <p>Find the <m>0.99</m> quantile of <m>X \sim \mathcal{N}(1,2)</m>.</p>
+          <p>Find the <m>0.99</m> quantile of <m>X \sim N(1,2)</m>.</p>
         </li>
         <li>
-          <p>Find the 25th percentile of <m>X \sim \mathcal{N}(-2,5)</m>.</p>
+          <p>Find the 25th percentile of <m>X \sim N(-2,5)</m>.</p>
         </li>
       </ol>
     </p>
