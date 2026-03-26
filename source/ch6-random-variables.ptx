@@ -291,7 +291,7 @@
     
     <sidebyside widths="40% 25% 25%">
       <p>
-        The left-tail probability is defined by a probability <m>P(X \lt a)</m>.
+        (Start Day 17) The left-tail probability is defined by a probability <m>P(X \lt a)</m>.
         The right-tail probability is defined by a probability <m>P(X \gt a)</m>.
         Single numbers have no probability, <m>P(X = a) = 0</m>.
       </p>
@@ -438,6 +438,72 @@
           <p>Find the 25th percentile of <m>X \sim N(-2,5)</m>.</p>
         </li>
       </ol>
+    </p>
+  </slide>
+
+  <slide>
+    <title>Binomial Random Variables</title>
+    
+    <p>
+      A second major important random variable family is the <term>binomial random variable</term>.
+      This is a <term>discrete</term> random variable that <em>counts</em> how many times one of two possible outcomes (binary choice) occurs out of <m>n</m> <em>independent</em> and <em>identical</em> attempts.
+      The outcome that is counted is generically called <q>success</q> while the other outcome is considered <q>failure</q>.
+      <ul>
+        <li>
+          <p>
+            Flipping a coin 10 times and counting the number of heads is a <term>binomial random variable</term>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Randomly guessing on a multiple choice test where each question has the same number of answers, then the number of correct answers is a <term>binomial random variable</term>.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </slide>
+  <slide>
+    <title>Model Parameters</title>
+    
+    <p>
+      The probability distribution for a binomial random variable depends on two things:
+      <ul>
+        <li>
+          <p>
+            the probability <m>p</m> for success in each binary attempt,
+          </p>
+        </li>
+        <li>
+          <p>
+            the number of attempts <m>n</m> that are made.
+          </p>
+        </li>
+      </ul>
+      We call the values <m>p</m> and <m>n</m> the <term>model parameters</term>, and we would write <m>X \sim \mathrm{Binom}(n,p)</m>.
+      The set of possible outcomes are the integers <m>\{0, 1, 2, \ldots, n\}</m>, so this is a discrete random variable.
+    </p>
+    <p>
+      The probability distribution (mass function) can be calculated in terms of these parameters:
+      <md>P(X=x) = \frac{n!}{x!(n-x)!} p^x (1-p)^{n-x}</md>
+    </p>
+  </slide>
+
+  <slide>
+    <title>Mean and Variance for Binomial RVs</title>
+    
+    <p>
+      If <m>X \sim \mathrm{Binom}(n,p)</m>, then the expected value (mean) of <m>X</m> is
+      <md>
+        \mu_X = E[X] = n \cdot p,
+      </md>
+      the variance of <m>X</m> is
+      <md>
+        \sigma^2_X = n \cdot p \cdot (1-p),
+      </md>
+      and consequently the standard deviation is
+      <md>
+        \sigma_X = \sqrt{n \cdot p \cdot (1-p)}.
+      </md>
     </p>
   </slide>
 </section>

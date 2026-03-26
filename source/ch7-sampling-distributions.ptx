@@ -94,6 +94,41 @@
       Consequently, a histogram will approximately take the same shape as the distribution's density function. The larger the sample size, the closer it will look.
     </p>
   </slide>
+  
+  <slide>
+    <title>The Sample Proportion</title>
+    
+    <p>
+      A single binomial random variable actually represents a random sample of the individual binary attempts.
+      If <m>X \sim \mathrm{Binom}(n,p)</m>, then we can calculate the <term>sample proportion</term> as a statistic
+      <md>
+        \hat{p} = \frac{X}{n}
+      </md>
+      The sample proportion represents the proportion (or fraction) of the <m>n</m> attempts that resulted in success.
+    </p>
+    <p>
+      The expected value (mean) of <m>\hat{p}</m> is
+      <md>
+        \mu_{\hat{p}} = E[\hat{p}] = \frac{1}{n} E[X] = \frac{np}{n} = p.
+      </md>
+      Although an individual observation of the sample proportion is not the same as <m>p</m>, the law of large numbers says that if we repeated the process many times,
+      then the average of our observed sample proportions would converge to the parameter <m>p</m>.
+    </p>
+  </slide>
+  <slide>
+    <title>Variance of Sample Proportion</title>
+    
+    <p>
+      The variance of <m>\hat{p}</m> is
+      <md>
+        \sigma^2_{\hat{p}} = \frac{1}{n^2} \sigma^2_X = \frac{1}{n^2} \cdot n p (1-p) = \frac{p(1-p)}{n}
+      </md>
+      and consequently the standard deviation is given by
+      <md>
+        \sigma_{\hat{p}} = \frac{\sqrt{p(1-p)}}{\sqrt{n}}
+      </md>
+    </p>
+  </slide>
 
   <slide>
     <title>The Sample Mean (1)</title>
@@ -125,6 +160,14 @@
       <md>
         \sigma_{\overline{X}} = \frac{\sigma}{\sqrt{n}}
       </md>
+    </p>
+    <p>
+      Compare this to the standard deviation found earlier for the sample proportion,
+      <md>
+        \sigma_{\hat{p}} = \frac{\sqrt{p(1-p)}}{\sqrt{n}}
+      </md>
+      The numerator <m>\sqrt{p(1-p)}</m> can be interpreted as the standard deviation for a single binary outcome (1=success, 0=failure),
+      and the sample proportion is a sample mean of these single outcomes.
     </p>
   </slide>
 
