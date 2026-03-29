@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2026-03-26T16:16:08Z       *-->
+<!--*       on 2026-03-29T03:11:31Z       *-->
 <!--*   A recent stable commit (2022-07-01):   *-->
 <!--* 6c761d3dba23af92cba35001c852aac04ae99a5f *-->
 <!--*                                          *-->
@@ -39,7 +39,7 @@
 <tr><td align="center" style="border-bottom: 0px;">James Madison University</td></tr>
 <tr><td align="center"></td></tr>
 </table>
-<h4><div class="date">as of March 26, 2026</div></h4></section></section><section><section><h1>Introduction to R, RStudio, Quarto</h1></section><section><h3>Working with R</h3>
+<h4><div class="date">as of March 29, 2026</div></h4></section></section><section><section><h1>Introduction to R, RStudio, Quarto</h1></section><section><h3>Working with R</h3>
 <div align="left"><ul class="disc" id="Rstudio_introduction-2-2">
 <li><p>Scripting/Programming Language: R</p></li>
 <li><p>Data Analysis Application: RStudio</p></li>
@@ -2034,7 +2034,7 @@ P(a \lt X \lt b) = P(X \lt b) - P(X \lt a)
 <li><p>Find the 25th percentile of <span class="process-math">\(X \sim N(-2,5)\text{.}\)</span></p></li>
 </ol></p>
 </div></section><section><h3>Binomial Random Variables</h3>
-<div align="left"><p>A second major important random variable family is the <dfn class="terminology">binomial random variable</dfn>. This is a <dfn class="terminology">discrete</dfn> random variable that <em class="emphasis">counts</em> how many times one of two possible outcomes (binary choice) occurs out of <span class="process-math">\(n\)</span> <em class="emphasis">independent</em> and <em class="emphasis">identical</em> attempts. The outcome that is counted is generically called “success” while the other outcome is considered “failure”.<ul class="disc" id="ch6-random-variables-17-2-9">
+<div align="left"><p>(Start of Day 18) A second major important random variable family is the <dfn class="terminology">binomial random variable</dfn>. This is a <dfn class="terminology">discrete</dfn> random variable that <em class="emphasis">counts</em> how many times one of two possible outcomes (binary choice) occurs out of <span class="process-math">\(n\)</span> <em class="emphasis">independent</em> and <em class="emphasis">identical</em> attempts. The outcome that is counted is generically called “success” while the other outcome is considered “failure”.<ul class="disc" id="ch6-random-variables-17-2-9">
 <li><p>Flipping a coin 10 times and counting the number of heads is a <dfn class="terminology">binomial random variable</dfn>.</p></li>
 <li><p>Randomly guessing on a multiple choice test where each question has the same number of answers, then the number of correct answers is a <dfn class="terminology">binomial random variable</dfn>.</p></li>
 </ul></p></div></section><section><h3>Model Parameters</h3>
@@ -2160,6 +2160,24 @@ for (i in 1:numSamples) {
 <div align="left">
 <p>If the distribution of <span class="process-math">\(X\)</span> is <em class="emphasis">approximately</em> normal <span class="process-math">\(N(\mu,\sigma)\)</span> to begin with, then we know <span class="process-math">\(\overline{X}\)</span> is also approximately normal <span class="process-math">\(N(\mu, \frac{\sigma}{\sqrt{n}})\text{.}\)</span></p>
 <p>Even if the distribution of <span class="process-math">\(X\)</span> is significantly different from a normal distribution, then for large <span class="process-math">\(n \ge 30\text{,}\)</span> we can still use <span class="process-math">\(N(\mu, \frac{\sigma}{\sqrt{n}})\)</span> to calculate approximate probabilities regarding <span class="process-math">\(\overline{X}\text{.}\)</span></p>
+</div></section><section><h3>Application 1</h3>
+<div align="left">
+<p>Based on Problem 7.15: The distribution of the score on a recent midterm is bell shaped with population mean <span class="process-math">\(\mu=70\)</span> and population standard deviation <span class="process-math">\(\sigma=10\text{.}\)</span></p>
+<p>For each of the following questions, do we have enough information to reasonably answer? If so, how?<ul class="disc" id="ch7-sampling-distributions-14-3-1">
+<li><p>What is the probability that a randomly selected student’s test score is less than 60?</p></li>
+<li><p>What is the probability that if you randomly selected 12 student exam scores, that the average of that group is greater than 75?</p></li>
+</ul></p>
+</div></section><section><h3>Application 2</h3>
+<div align="left">
+<p>Based on Problem 7.21: A recent personalized information sheet from your wireless phone carrier claims that the mean duration of all your phone calls was  <span class="process-math">\(\mu=2.8\)</span> minutes with a standard deviation of <span class="process-math">\(\sigma=2.1\)</span> minutes.</p>
+<p>For each of the following questions, do we have enough information to reasonably answer? If so, how?<ul class="disc" id="ch7-sampling-distributions-15-3-1">
+<li><p>What is the probability that a randomly chosen phone call is longer than 4.9 minutes?</p></li>
+<li><p>What is the probability that if you randomly selected 36 of your phone calls, that the average duration is longer than 3.5 minutes?</p></li>
+</ul></p>
+</div></section><section><h3>Normal Approximation of Binomial</h3>
+<div align="left">
+<p>A binomial random variable is discrete, but the sample proportion can actually be reasonably approximated as a normal distribution as long as the expected number of successes (<span class="process-math">\(np\)</span>) and the expected number of failures (<span class="process-math">\(n(1-p)\)</span>) are <em class="emphasis">both</em> larger than 15.</p>
+<p>Suppose there is an election where 52% vote for candidate Brown. If you asked a random sample of 500 voters, what is the probability that your poll predicts that Brown will lose?</p>
 </div></section></section>
 </div>
 </div></body>
