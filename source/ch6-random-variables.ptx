@@ -445,7 +445,7 @@
     <title>Binomial Random Variables</title>
     
     <p>
-      A second major important random variable family is the <term>binomial random variable</term>.
+      (Start of Day 18) A second major important random variable family is the <term>binomial random variable</term>.
       This is a <term>discrete</term> random variable that <em>counts</em> how many times one of two possible outcomes (binary choice) occurs out of <m>n</m> <em>independent</em> and <em>identical</em> attempts.
       The outcome that is counted is generically called <q>success</q> while the other outcome is considered <q>failure</q>.
       <ul>
@@ -462,6 +462,7 @@
       </ul>
     </p>
   </slide>
+
   <slide>
     <title>Model Parameters</title>
     

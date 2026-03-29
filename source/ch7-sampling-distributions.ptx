@@ -206,4 +206,53 @@
       Even if the distribution of <m>X</m> is significantly different from a normal distribution, then for large <m>n \ge 30</m>, we can still use <m>N(\mu, \frac{\sigma}{\sqrt{n}})</m> to calculate approximate probabilities regarding <m>\overline{X}</m>.
     </p>
   </slide>
+
+  <slide>
+    <title>Application 1</title>
+    
+    <p>
+      Based on Problem 7.15: The distribution of the score on a recent midterm is bell shaped with population mean <m>\mu=70</m> and population standard deviation <m>\sigma=10</m>.
+    </p>
+    <p>
+      For each of the following questions, do we have enough information to reasonably answer? If so, how?
+      <ul>
+        <li>
+          <p>What is the probability that a randomly selected student's test score is less than 60?</p>
+        </li>
+        <li>
+          <p>What is the probability that if you randomly selected 12 student exam scores, that the average of that group is greater than 75?</p>
+        </li>
+      </ul>
+    </p>
+  </slide>
+
+    <slide>
+    <title>Application 2</title>
+    
+    <p>
+      Based on Problem 7.21: A recent personalized information sheet from your wireless phone carrier claims that the mean duration of all your phone calls was  <m>\mu=2.8</m> minutes with a standard deviation of <m>\sigma=2.1</m> minutes.
+    </p>
+    <p>
+      For each of the following questions, do we have enough information to reasonably answer? If so, how?
+      <ul>
+        <li>
+          <p>What is the probability that a randomly chosen phone call is longer than 4.9 minutes?</p>
+        </li>
+        <li>
+          <p>What is the probability that if you randomly selected 36 of your phone calls, that the average duration is longer than 3.5 minutes?</p>
+        </li>
+      </ul>
+    </p>
+  </slide>
+
+  <slide>
+    <title>Normal Approximation of Binomial</title>
+    
+    <p>
+      A binomial random variable is discrete, but the sample proportion can actually be reasonably approximated as a normal distribution as long as the expected number of successes (<m>np</m>) and the expected number of failures (<m>n(1-p)</m>) are <em>both</em> larger than 15.
+    </p>
+    <p>
+      Suppose there is an election where 52% vote for candidate Brown. If you asked a random sample of 500 voters, what is the probability that your poll predicts that Brown will lose?
+    </p>
+  </slide>
 </section>
