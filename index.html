@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2026-03-29T03:11:31Z       *-->
+<!--*       on 2026-04-01T23:55:32-04:00       *-->
 <!--*   A recent stable commit (2022-07-01):   *-->
 <!--* 6c761d3dba23af92cba35001c852aac04ae99a5f *-->
 <!--*                                          *-->
@@ -39,7 +39,7 @@
 <tr><td align="center" style="border-bottom: 0px;">James Madison University</td></tr>
 <tr><td align="center"></td></tr>
 </table>
-<h4><div class="date">as of March 29, 2026</div></h4></section></section><section><section><h1>Introduction to R, RStudio, Quarto</h1></section><section><h3>Working with R</h3>
+<h4><div class="date">as of April 1, 2026</div></h4></section></section><section><section><h1>Introduction to R, RStudio, Quarto</h1></section><section><h3>Working with R</h3>
 <div align="left"><ul class="disc" id="Rstudio_introduction-2-2">
 <li><p>Scripting/Programming Language: R</p></li>
 <li><p>Data Analysis Application: RStudio</p></li>
@@ -1067,7 +1067,7 @@ r = \frac{1}{n-1} \sum \left(\frac{x-\overline x}{s_x}\right) \cdot \left(\frac{
 \text{residual} = y - \hat{y}
 \end{equation*}
 </div>The residual measures the <em class="emphasis">vertical</em> distance from the point and the regression line. <div style="display:table;margin-left:2.5%;margin-right:2.5%;" class="sidebyside">
-<div style="display:table-cell;width:42.1052631578947%;vertical-align:top;"><figure class="figure figure-like" id=""><div class="image-box"><img src="external/images/ch-3-WC_Residuals_for_Linear_Regression_Fit.png" class="contained" alt="Illustration of a regression line with residuals"></div>
+<div style="display:table-cell;width:42.1052631578947%;vertical-align:top;"><figure class="figure figure-like" id="ch3-regression-7-2-7-1"><div class="image-box"><img src="external/images/ch-3-WC_Residuals_for_Linear_Regression_Fit.png" class="contained" alt="Illustration of a regression line with residuals"></div>
 <figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Wikimedia Commons: Residuals for Linear Regression Fit</figcaption></figure></div>
 <div style="display:table-cell;width:52.6315789473684%;vertical-align:top;"><p><ul class="disc" id="ch3-regression-7-2-7-2-1">
 <li><p>A <em class="emphasis">large</em> residual means the data point is far away from the trend line.</p></li>
@@ -2174,10 +2174,135 @@ for (i in 1:numSamples) {
 <li><p>What is the probability that a randomly chosen phone call is longer than 4.9 minutes?</p></li>
 <li><p>What is the probability that if you randomly selected 36 of your phone calls, that the average duration is longer than 3.5 minutes?</p></li>
 </ul></p>
-</div></section><section><h3>Normal Approximation of Binomial</h3>
+</div></section><section><h3>Key Facts about Sample Mean</h3>
 <div align="left">
-<p>A binomial random variable is discrete, but the sample proportion can actually be reasonably approximated as a normal distribution as long as the expected number of successes (<span class="process-math">\(np\)</span>) and the expected number of failures (<span class="process-math">\(n(1-p)\)</span>) are <em class="emphasis">both</em> larger than 15.</p>
-<p>Suppose there is an election where 52% vote for candidate Brown. If you asked a random sample of 500 voters, what is the probability that your poll predicts that Brown will lose?</p>
+<p>(Begin Day 18) For any random variable <span class="process-math">\(X\)</span> that has a mean <span class="process-math">\(\mu\)</span> and standard deviation <span class="process-math">\(\sigma\text{,}\)</span> if we have a random sample of size <span class="process-math">\(n\)</span> and compute the sample mean<div class="displaymath process-math" id="ch7-sampling-distributions-16-2-5">
+\begin{equation*}
+\overline{X} = \frac{1}{n} \sum X_i = \frac{X_1 + X_2 + \cdots + X_n}{n}.
+\end{equation*}
+</div>Because <span class="process-math">\(\overline{X}\)</span> is a numerical summary based on the sample, it is considered a <dfn class="terminology">statistic</dfn> and has its own distribution with its own mean and variance.<div class="displaymath process-math" id="ch7-sampling-distributions-16-2-8">
+\begin{align*}
+\mu_{\overline{X}} \amp = E[\overline{X}] = \mu \\
+\sigma_{\overline{X}} \amp = \frac{\sigma}{\sqrt{n}} 
+\end{align*}
+</div></p>
+<p>If <span class="process-math">\(X\)</span> has a normal distribution (or close to the normal distribution), then <span class="process-math">\(\overline{X}\)</span> itself also has a normal distribution, for <em class="emphasis">any</em> value of <span class="process-math">\(n\text{.}\)</span></p>
+<p>If <span class="process-math">\(X\)</span> has any other distribution, then <span class="process-math">\(\overline{X}\)</span> will be close to a normal distribution for large values of <span class="process-math">\(n\text{.}\)</span> So long as it isn’t very skewed, we need <span class="process-math">\(n \ge 30\text{.}\)</span></p>
+</div></section><section><h3>Key Facts about Sample Proportion</h3>
+<div align="left">
+<p>For a <dfn class="terminology">binomial random variable</dfn> <span class="process-math">\(X\)</span> that counts the number of successes out of <span class="process-math">\(n\)</span> binary outcomes with a success probability <span class="process-math">\(p\text{,}\)</span> then we can compute the <dfn class="terminology">sample proportion</dfn><div class="displaymath process-math" id="ch7-sampling-distributions-17-2-6">
+\begin{equation*}
+\hat{p} = \frac{X}{n}.
+\end{equation*}
+</div>The sample proportion is another example of a <dfn class="terminology">statistic</dfn> and it also has its own sample distribution. We will have use to know the mean and standard deviation:<div class="displaymath process-math" id="ch7-sampling-distributions-17-2-8">
+\begin{align*}
+\mu_{\hat{p}} \amp = E[\hat{p}] = p\\
+\sigma_{\hat{p}} \amp = \frac{\sqrt{p(1-p)}}{\sqrt{n}} 
+\end{align*}
+</div></p>
+<p>The expected number of successes is <span class="process-math">\(np\)</span> and the expected number of failures is <span class="process-math">\(n(1-p)\text{.}\)</span> The distribution of <span class="process-math">\(\hat{p}\)</span> will be closely approximated by a normal distribution as long as the expected number of successes and failures are both at least 15.</p>
+</div></section><section><h3>Application 3</h3>
+<div align="left"><p>Suppose there is an election where 52% vote for candidate Brown. If you asked a random sample of 500 voters, what is the probability that your poll predicts that Brown will lose?</p></div></section><section><h3>Application 4</h3>
+<div align="left">
+<p>JMU reports that 90.9% of its students are full-time.</p>
+<p>Suppose we want to do a survey of students and include a question about whether they are full-time. How big of a sample is required so that the proportion can be approximated by a normal distribution?</p>
+<p>Suppose we do a survey of 400 students. What is the probability that we will have less than 350 students say that they are full-time?</p>
+</div></section></section><section><section><h1>Chapter 8: Statistical Inference with Confidence Intervals</h1></section><section><h3>Key Ideas</h3>
+<div align="left">
+<p>We will learn about following key ideas:</p>
+<ul class="disc" id="ch8-confidence-intervals-2-3">
+<li><p>Confidence intervals represent <dfn class="terminology">inference</dfn> about population parameters using statistics.</p></li>
+<li><p>A confidence interval is found by using a <dfn class="terminology">point estimate</dfn> and adding/subtracting a <dfn class="terminology">margin of error</dfn>.</p></li>
+<li>
+<p>When the population parameter is the mean <span class="process-math">\(\mu\text{,}\)</span> the point estimate is the sample mean <span class="process-math">\(\overline{X}\)</span></p>
+<p>When the population parameter is the proportion <span class="process-math">\(p\)</span> for a binary choice, the point estimate is the sample proportion <span class="process-math">\(\hat{p}\text{.}\)</span></p>
+</li>
+<li><p>The margin of error is calculated by using the value of or an estimate of the standard deviation times a <dfn class="terminology">score value</dfn> (t-score or z-score).</p></li>
+</ul>
+</div></section><section><h3>Conceptual Overview</h3>
+<div align="left">
+<p>We have learned that <span class="process-math">\(\overline{X}\)</span> (sample mean) and <span class="process-math">\(\hat{p}\)</span> have sampling distributions that are closely approximated by the normal distribution (at least for large enough <span class="process-math">\(n\)</span>). The population mean <span class="process-math">\(\mu\)</span> or population proportion <span class="process-math">\(p\)</span> give the center for these distributions and there is a standard deviation <span class="process-math">\(\sigma/\sqrt{n}\)</span> that gives the variability.</p>
+<p>Given a proportion <span class="process-math">\(\alpha\text{,}\)</span> we can find the <span class="process-math">\(\alpha/2\)</span> and <span class="process-math">\(1-\alpha/2\)</span> quantiles. Then <span class="process-math">\(100(1-\alpha)\)</span>% of the time, the sample statistic will be between these two quantiles.</p>
+<p>A confidence interval goes through this same calculation, but uses the sample statistic as the center instead of a known population parameter as the center.</p>
+</div></section><section><h3>Section 8.2: Confidence Intervals for a Population Proportion</h3>
+<div align="left">
+<p>We want to make an inference about the <dfn class="terminology">proportion</dfn> <span class="process-math">\(p\)</span> (parameter) of a population that satisfies some criterion. We <dfn class="terminology">randomly sample</dfn> some portion of the population (or for an experiment, repeat the experiment some number of times) and for each subject (or experiment), we determine whether the criterion was true or not.</p>
+<p>As long as the sample size is not too high a fraction of the total population (about 10%), we can treat the number of individuals satisfying the criterion as if it were a <dfn class="terminology">binomial random variable</dfn>. Then the sample proportion <span class="process-math">\(\hat{p}\)</span> (statistic) will be our <dfn class="terminology">point estimate</dfn>. (There is a correction necessary if the sample size is larger than that.)</p>
+<p>Our confidence interval will take the form:<div class="displaymath process-math" id="ch8-confidence-intervals-4-4-1">
+\begin{equation*}
+\hat{p} \pm z \cdot se
+\end{equation*}
+</div>where <span class="process-math">\(z\)</span> is called the <dfn class="terminology">z-score</dfn> and <span class="process-math">\(se\)</span> is called the <dfn class="terminology">standard error</dfn>.</p>
+</div></section><section><h3>Confidence Interval Construction Process</h3>
+<div align="left"><p>If there are at least 15 successes and 15 failures, then <span class="process-math">\(\hat{p}\)</span> has an approximately normal distribution. This justifies our use of the Z-table and z-scores.<ul class="disc" id="ch8-confidence-intervals-5-2-2">
+<li><p>Find the <dfn class="terminology">z-score</dfn>, <span class="process-math">\(z_{\alpha/2}\)</span> as the <span class="process-math">\(1-\alpha/2\)</span> quantile so <span class="process-math">\(P(Z &gt; z_{\alpha/2}) = \alpha/2\text{.}\)</span></p></li>
+<li><p>Calculate the <dfn class="terminology">standard error</dfn> for the sample proportion:<div class="displaymath process-math" id="ch8-confidence-intervals-5-2-2-2-1-2">
+\begin{equation*}
+se = \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}
+\end{equation*}
+</div></p></li>
+<li><p>Construct the confidence interval<div class="displaymath process-math" id="ch8-confidence-intervals-5-2-2-3-1-1">
+\begin{equation*}
+\hat{p} \pm z_{\alpha/2} \cdot se
+\end{equation*}
+</div></p></li>
+</ul>The resulting interval is called a 2-sided <span class="process-math">\(100(1-\alpha)\)</span>% confidence interval for <span class="process-math">\(p\text{.}\)</span></p></div></section><section><h3>Interpretation of Confidence Interval</h3>
+<div align="left">
+<p><em class="emphasis">Not Correct</em>: Do not think of the percentage as a likelihood that the parameter is inside of the interval. The parameter itself is not random and has no probability to be somewhere.</p>
+<p>The percentage is about the <em class="emphasis">process</em> of construction. If we were to repeat the entire experiment of sampling individuals, calculate the statistics and construct a confidence interval <em class="emphasis">many times</em>, the percentage states what fraction of times the resulting confidence intervals successfully include the actual population parameter.</p>
+<p>Good Interpretation: "We have 95% confidence that the interval contains the parameter." (This emphasizes that confidence is in the procedure, not the specific value)</p>
+<p>Bad Interpretation: "There is a 95% chance that the interval contains the parameter."</p>
+</div></section><section><h3>Most Common Z-score Values</h3>
+<div align="left"><p>So that we don’t have to look up quantiles in the Z-table over and over again, there are some percentages that occur so frequently that it is convenient to just have the corresponding z-scores on hand.<ul class="disc" id="ch8-confidence-intervals-7-2-1">
+<li><p>A 90% confidence interval goes from the 5th percentile to the 95th percentile.<div class="displaymath process-math" id="ch8-confidence-intervals-7-2-1-1-1-1">
+\begin{equation*}
+z_{0.05} = 1.645
+\end{equation*}
+</div></p></li>
+<li><p>A 95% confidence interval goes from the 2.5th percentile to the 97.5th percentile.<div class="displaymath process-math" id="ch8-confidence-intervals-7-2-1-2-1-1">
+\begin{equation*}
+z_{0.025} = 1.96
+\end{equation*}
+</div></p></li>
+<li><p>A 99% confidence interval goes from the 0.5th percentile to the 99.5th percentile.<div class="displaymath process-math" id="ch8-confidence-intervals-7-2-1-3-1-1">
+\begin{equation*}
+z_{0.005} = 2.576
+\end{equation*}
+</div></p></li>
+</ul></p></div></section><section><h3>Application 1</h3>
+<div align="left">
+<p>In 2010, the General Social Survey (GSS) asked subjects if they would be willing to pay much higher prices to protect the environment. Of <span class="process-math">\(n=1361\)</span> respondents, 637 were willing to do so.</p>
+<p>Find and interpret a 95% confidence interval for the proportion of adult Americans willing to do so at the time of the survey.</p>
+<p>Find and interpret a 99% confidence interval for the proportion. Why is this interval bigger?</p>
+</div></section><section><h3>Application 2</h3>
+<div align="left">
+<p>To test the effectiveness of a new method of vaccine, which allows growing viruses in cell cultures, in a recent clinical trial n = 3900 randomly selected healthy subjects aged 18-49 received a cell-derived influenza vaccine by injection. During a follow-up period of approximately 28 weeks, each subject was assessed whether he or she developed influenza, which happened for 26 of the 3900 subjects.</p>
+<p>Find and interpret a 99% confidence interval for the population proportion developing the flu over the follow-up period.</p>
+</div></section><section><h3>Choosing the Sample Size</h3>
+<div align="left"><p>The margin of error is the product of the z-score and the standard error:<div class="displaymath process-math" id="ch8-confidence-intervals-10-2-1">
+\begin{equation*}
+m.e. = z_{\alpha/2} \cdot \frac{\sqrt{\hat p (1- \hat p)}}{\sqrt n}
+\end{equation*}
+</div>If we have a specific margin of error that we wish to obtain and we have an estimate of <span class="process-math">\(\hat p\)</span> already, then we can solve for <span class="process-math">\(n\)</span> using algebra:<div class="displaymath process-math" id="ch8-confidence-intervals-10-2-4">
+\begin{equation*}
+n = \left(\frac{z_{\alpha/2}}{m.e.}\right)^2 \cdot \hat{p} (1- \hat{p})
+\end{equation*}
+</div>If we do not have an estimate of <span class="process-math">\(\hat p\text{,}\)</span> then the largest margin of error occurs for <span class="process-math">\(p=0.5\)</span> and we can use that in place of <span class="process-math">\(\hat p\text{.}\)</span></p></div></section><section><h3>Application 3</h3>
+<div align="left">
+<p>A television network plans to predict the outcome of an election. Pollsters planning an exit poll decide to use a sample size for which the margin of error is 4 percentage points. A week before election day, they had estimated candidate A to be well ahead, 58% to 42%.</p>
+<p>How many individuals should the network survey so that the margin of error for a 95% confidence interval is <span class="process-math">\(\pm 0.04\text{?}\)</span></p>
+</div></section><section><h3>Small Sample Correction</h3>
+<div align="left">
+<p>The normal approximation was only valid if we had at least 15 successes and 15 failures. What do we do if our sample is not large enough for this to occur?</p>
+<p>There is a surprising trick that makes the procedure still work. In the event that we don’t have enough successes and failures to meet the threshold of 15, artificially add 2 to the number of successes and add 2 to the number of failures, resulting in adding 4 to the sample size. Calculate the confidence interval based on these adjusted values.</p>
+</div></section><section><h3>Application 4</h3>
+<div align="left">
+<p>You do a small survey of 20 random JMU students and ask them if they use Instagram daily, and 19 individuals say yes.</p>
+<p>Find and interpret a 95% confidence interval.</p>
+</div></section><section><h3>Confidence Intervals Using R</h3>
+<div align="left">
+<p>If we use computational tools, we can get confidence intervals that use techniques more advanced than the normal distribution approximation.</p>
+<p>In R, there is a command <code class="code-inline tex2jax_ignore">prop.test()</code> that performs a hypothesis test (next major topic) <em class="emphasis">and</em> calculates a confidence interval for the proportion. The basic call is <code class="code-inline tex2jax_ignore">prop.test(x, n, conf.level=0.95)</code>.</p>
 </div></section></section>
 </div>
 </div></body>
