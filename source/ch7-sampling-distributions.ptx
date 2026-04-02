@@ -250,7 +250,7 @@
     <title>Key Facts about Sample Mean</title>
 
     <p>
-      For any random variable <m>X</m> that has a mean <m>\mu</m> and standard deviation <m>\sigma</m>, if we have a random sample of size <m>n</m> and compute the sample mean
+      (Begin Day 18) For any random variable <m>X</m> that has a mean <m>\mu</m> and standard deviation <m>\sigma</m>, if we have a random sample of size <m>n</m> and compute the sample mean
       <md>
         \overline{X} = \frac{1}{n} \sum X_i = \frac{X_1 + X_2 + \cdots + X_n}{n}.
       </md>
