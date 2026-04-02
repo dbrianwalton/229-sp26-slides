@@ -148,7 +148,7 @@
       </md>
       The residual measures the <em>vertical</em> distance from the point and the regression line.
       <sidebyside widths="40% 50%">
-        <figure xml:id="">
+        <figure>
           <caption>Wikimedia Commons: Residuals for Linear Regression Fit</caption>
           <image source="images/ch-3-WC_Residuals_for_Linear_Regression_Fit.png">
             <shortdescription>Illustration of a regression line with residuals</shortdescription>

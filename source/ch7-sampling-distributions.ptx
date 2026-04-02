@@ -245,14 +245,67 @@
     </p>
   </slide>
 
+
   <slide>
-    <title>Normal Approximation of Binomial</title>
-    
+    <title>Key Facts about Sample Mean</title>
+
     <p>
-      A binomial random variable is discrete, but the sample proportion can actually be reasonably approximated as a normal distribution as long as the expected number of successes (<m>np</m>) and the expected number of failures (<m>n(1-p)</m>) are <em>both</em> larger than 15.
+      For any random variable <m>X</m> that has a mean <m>\mu</m> and standard deviation <m>\sigma</m>, if we have a random sample of size <m>n</m> and compute the sample mean
+      <md>
+        \overline{X} = \frac{1}{n} \sum X_i = \frac{X_1 + X_2 + \cdots + X_n}{n}.
+      </md>
+      Because <m>\overline{X}</m> is a numerical summary based on the sample, it is considered a <term>statistic</term> and has its own distribution with its own mean and variance.
+      <md>
+        <mrow> \mu_{\overline{X}} \amp = E[\overline{X}] = \mu </mrow>
+        <mrow> \sigma_{\overline{X}} \amp = \frac{\sigma}{\sqrt{n}} </mrow>
+      </md>
     </p>
     <p>
+      If <m>X</m> has a normal distribution (or close to the normal distribution), then <m>\overline{X}</m> itself also has a normal distribution, for <em>any</em> value of <m>n</m>.
+    </p>
+    <p>
+      If <m>X</m> has any other distribution, then <m>\overline{X}</m> will be close to a normal distribution for large values of <m>n</m>. So long as it isn't very skewed, we need <m>n \ge 30</m>. 
+    </p>
+  </slide>
+
+  <slide>
+    <title>Key Facts about Sample Proportion</title>
+
+    <p>
+      For a <term>binomial random variable</term> <m>X</m> that counts the number of successes out of <m>n</m> binary outcomes with a success probability <m>p</m>, then we can compute the <term>sample proportion</term>
+      <md>
+        \hat{p} = \frac{X}{n}.
+      </md>
+      The sample proportion is another example of a <term> statistic</term> and it also has its own sample distribution. We will have use to know the mean and standard deviation:
+      <md>
+        <mrow> \mu_{\hat{p}} \amp = E[\hat{p}] = p</mrow>
+        <mrow> \sigma_{\hat{p}} \amp = \frac{\sqrt{p(1-p)}}{\sqrt{n}} </mrow>
+      </md>
+    </p>
+    <p>
+      The expected number of successes is <m>np</m> and the expected number of failures is <m>n(1-p)</m>. The distribution of <m>\hat{p}</m> will be closely approximated by a normal distribution as long as the expected number of successes and failures are both at least 15.
+    </p>
+  </slide>
+
+  <slide>
+    <title>Application 3</title>
+    
+    <p>
       Suppose there is an election where 52% vote for candidate Brown. If you asked a random sample of 500 voters, what is the probability that your poll predicts that Brown will lose?
+    </p>
+  </slide>
+
+  <slide>
+    <title>Application 4</title>
+    
+    <p>
+      JMU reports that 90.9% of its students are full-time.
+    </p>
+    <p>
+      Suppose we want to do a survey of students and include a question about whether they are full-time. How big of a sample is required so that the proportion can be approximated by a normal distribution?
+    </p>
+    <p>
+      Suppose we do a survey of 400 students. What is the probability that we will have less than 350 students say that they are full-time?
     </p>
   </slide>
 </section>
