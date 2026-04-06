@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2026-04-01T23:55:32-04:00       *-->
+<!--*       on 2026-04-06T21:01:18Z       *-->
 <!--*   A recent stable commit (2022-07-01):   *-->
 <!--* 6c761d3dba23af92cba35001c852aac04ae99a5f *-->
 <!--*                                          *-->
@@ -39,7 +39,7 @@
 <tr><td align="center" style="border-bottom: 0px;">James Madison University</td></tr>
 <tr><td align="center"></td></tr>
 </table>
-<h4><div class="date">as of April 1, 2026</div></h4></section></section><section><section><h1>Introduction to R, RStudio, Quarto</h1></section><section><h3>Working with R</h3>
+<h4><div class="date">as of April 6, 2026</div></h4></section></section><section><section><h1>Introduction to R, RStudio, Quarto</h1></section><section><h3>Working with R</h3>
 <div align="left"><ul class="disc" id="Rstudio_introduction-2-2">
 <li><p>Scripting/Programming Language: R</p></li>
 <li><p>Data Analysis Application: RStudio</p></li>
@@ -2176,7 +2176,7 @@ for (i in 1:numSamples) {
 </ul></p>
 </div></section><section><h3>Key Facts about Sample Mean</h3>
 <div align="left">
-<p>(Begin Day 18) For any random variable <span class="process-math">\(X\)</span> that has a mean <span class="process-math">\(\mu\)</span> and standard deviation <span class="process-math">\(\sigma\text{,}\)</span> if we have a random sample of size <span class="process-math">\(n\)</span> and compute the sample mean<div class="displaymath process-math" id="ch7-sampling-distributions-16-2-5">
+<p>(Begin Day 19) For any random variable <span class="process-math">\(X\)</span> that has a mean <span class="process-math">\(\mu\)</span> and standard deviation <span class="process-math">\(\sigma\text{,}\)</span> if we have a random sample of size <span class="process-math">\(n\)</span> and compute the sample mean<div class="displaymath process-math" id="ch7-sampling-distributions-16-2-5">
 \begin{equation*}
 \overline{X} = \frac{1}{n} \sum X_i = \frac{X_1 + X_2 + \cdots + X_n}{n}.
 \end{equation*}
@@ -2209,7 +2209,7 @@ for (i in 1:numSamples) {
 <p>Suppose we do a survey of 400 students. What is the probability that we will have less than 350 students say that they are full-time?</p>
 </div></section></section><section><section><h1>Chapter 8: Statistical Inference with Confidence Intervals</h1></section><section><h3>Key Ideas</h3>
 <div align="left">
-<p>We will learn about following key ideas:</p>
+<p>(Start Day 20) We will learn about following key ideas:</p>
 <ul class="disc" id="ch8-confidence-intervals-2-3">
 <li><p>Confidence intervals represent <dfn class="terminology">inference</dfn> about population parameters using statistics.</p></li>
 <li><p>A confidence interval is found by using a <dfn class="terminology">point estimate</dfn> and adding/subtracting a <dfn class="terminology">margin of error</dfn>.</p></li>
@@ -2303,7 +2303,80 @@ n = \left(\frac{z_{\alpha/2}}{m.e.}\right)^2 \cdot \hat{p} (1- \hat{p})
 <div align="left">
 <p>If we use computational tools, we can get confidence intervals that use techniques more advanced than the normal distribution approximation.</p>
 <p>In R, there is a command <code class="code-inline tex2jax_ignore">prop.test()</code> that performs a hypothesis test (next major topic) <em class="emphasis">and</em> calculates a confidence interval for the proportion. The basic call is <code class="code-inline tex2jax_ignore">prop.test(x, n, conf.level=0.95)</code>.</p>
-</div></section></section>
+</div></section><section><h3>Section 8.3: Confidence Intervals for a Population Mean</h3>
+<div align="left">
+<p>We will focus on the cases where the sampling distribution for the sample mean is a normal distribution. Recall that this occurs if (1) the original distribution for the random variables is itself a normal distribution or (2) the sample size is <span class="process-math">\(n \ge 30\)</span> (and the distribution is not extremely skewed).</p>
+<p>Recall that <span class="process-math">\(\mu_{\overline X} = \mu_{X}\text{,}\)</span> or that the individual random variables and the sample mean have the same expected value. If <span class="process-math">\(X\)</span> has a standard deviation <span class="process-math">\(\sigma\text{,}\)</span> then <span class="process-math">\(\overline{X}\)</span> has a standard deviation <span class="process-math">\(\sigma_{\overline{X}} = \sigma/\sqrt{n}\text{.}\)</span></p>
+<p>We will have different approaches if we know the value of <span class="process-math">\(\sigma\)</span> versus not knowing the value.</p>
+</div></section><section><h3>Confidence Intervals Using Known Standard Deviation</h3>
+<div align="left">
+<p>When the population standard deviation <span class="process-math">\(\sigma\)</span> is <em class="emphasis">known</em> (such as historical knowledge), then <span class="process-math">\(Z = \frac{\overline{X}-\mu}{\sigma/\sqrt{n}}\)</span> will follow the standard normal distribution (as found in the Z-table).</p>
+<p>Choose <span class="process-math">\(\alpha\)</span> so that <span class="process-math">\(100(1-\alpha)\)</span>% is the desired confidence level.<ul class="disc" id="ch8-confidence-intervals-16-3-3">
+<li><p>Find the <dfn class="terminology">z-score</dfn>, <span class="process-math">\(z_{\alpha/2}\)</span> as the <span class="process-math">\(1-\alpha/2\)</span> quantile so <span class="process-math">\(P(Z &gt; z_{\alpha/2}) = \alpha/2\text{.}\)</span></p></li>
+<li><p>Calculate the <dfn class="terminology">standard error</dfn> for the sample mean:<div class="displaymath process-math" id="ch8-confidence-intervals-16-3-3-2-1-2">
+\begin{equation*}
+se = \sigma /\sqrt{n}
+\end{equation*}
+</div></p></li>
+<li><p>Construct the confidence interval<div class="displaymath process-math" id="ch8-confidence-intervals-16-3-3-3-1-1">
+\begin{equation*}
+\overline{X} \pm z_{\alpha/2} \cdot se = \overline{X} \pm z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{n}}
+\end{equation*}
+</div></p></li>
+</ul></p>
+</div></section><section><h3>Standardized Score for Unknown Standard Deviation</h3>
+<div align="left">
+<p>When the standard deviation <span class="process-math">\(\sigma\)</span> is not known in advance, we will use the <dfn class="terminology">sample standard deviation</dfn> <span class="process-math">\(s\)</span> to find the standard error of the mean. When we do this, the distribution no longer follows a normal distribution but instead follow Student’s t-distribution. So we call our standardized scores <dfn class="terminology">t scores</dfn>:<div class="displaymath process-math" id="ch8-confidence-intervals-17-2-5">
+\begin{equation*}
+t = \frac{\overline{X} - \mu}{s/\sqrt{n}}
+\end{equation*}
+</div></p>
+<div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="external/images/ch-8-t-distribution-density-illustrate.png" class="contained" alt="Graph of density of the standardized scores of sample mean for sample size of 10 showing that the normal distribution density is too high in the center and not high enough at the tails but that the t-distribution with 9 degrees freedom matches well"></div>
+<p>Different sample sizes show different density curves, which requires a new distribution parameter called <dfn class="terminology">degrees of freedom</dfn>. When using <span class="process-math">\(s\)</span> based on a sample mean, there are <span class="process-math">\(n-1\)</span> degrees of freedom.</p>
+</div></section><section><h3>Confidence Intervals for Unknown Standard Deviation</h3>
+<div align="left">
+<p>When the population standard deviation <span class="process-math">\(\sigma\)</span> is <em class="emphasis">unknown</em>, we must estimate <span class="process-math">\(\sigma\)</span> using the sample standard deviation <span class="process-math">\(s\text{.}\)</span> The standard score for the sample mean <span class="process-math">\(t = \frac{\overline{X}-\mu}{s/\sqrt{n}}\)</span> then follows the t-distribution with <span class="process-math">\(n-1\)</span> degrees of freedom.</p>
+<p>Choose <span class="process-math">\(\alpha\)</span> so that <span class="process-math">\(100(1-\alpha)\)</span>% is the desired confidence level.<ul class="disc" id="ch8-confidence-intervals-18-3-3">
+<li><p>Find the <dfn class="terminology">t-score</dfn>, <span class="process-math">\(t_{\alpha/2, n-1}\)</span> as the <span class="process-math">\(1-\alpha/2\)</span> quantile so <span class="process-math">\(P(t &gt; t_{\alpha/2,n-1}) = \alpha/2\text{.}\)</span></p></li>
+<li><p>Calculate the <dfn class="terminology">standard error</dfn> for the sample mean:<div class="displaymath process-math" id="ch8-confidence-intervals-18-3-3-2-1-2">
+\begin{equation*}
+se = s /\sqrt{n}
+\end{equation*}
+</div></p></li>
+<li><p>Construct the confidence interval<div class="displaymath process-math" id="ch8-confidence-intervals-18-3-3-3-1-1">
+\begin{equation*}
+\overline{X} \pm t_{\alpha/2, n-1} \cdot se = \overline{X} \pm t_{\alpha/2, n-1} \cdot \frac{s}{\sqrt{n}}
+\end{equation*}
+</div></p></li>
+</ul></p>
+<p>For very large sample sizes, the law of large numbers will imply <span class="process-math">\(s \approx \sigma\)</span> closely and so the corresponding <span class="process-math">\(t\)</span> distribution will be almost identical to the normal distribution. That is, using a Z-score will give almost the same results.</p>
+</div></section><section><h3>Confidence Intervals Using R</h3>
+<div align="left"><p>In R, the command that provides a confidence interval for the sample mean is <code class="code-inline tex2jax_ignore">t.test()</code>. Again, the full use of this command is for a hypothesis test, but it does provide a confidence interval. The simplest call is <code class="code-inline tex2jax_ignore">t.test(x, conf.level=0.95)</code>.</p></div></section><section><h3>Application 1</h3>
+<div align="left">
+<p>(Example 9 Section 8.3) A random sample of 11 completed auctions on E-bay for an unlocked Apple iPhone 5s in new condition with 16GB of storage from July 2014 gave the following prices (in dollars): 540, 565, 570, 570, 580, 590, 590, 590, 595, 610, 620.</p>
+<p>If we calculate a 95% confidence interval based on this data, what would it mean? Find that interval.</p>
+</div></section><section><h3>Application 2</h3>
+<div align="left">
+<p>(Example 8 Section 8.3) The textbook website contains a dataset of how many hours respondents to the GSS in 2018 said they watched daily. Load the data, calculate the mean and standard deviation, and find the 95% confidence interval.</p>
+<p>What does the confidence interval represent?</p>
+</div></section><section><h3>Choosing the Sample Size</h3>
+<div align="left">
+<p>The margin of error for the sample mean if the standard deviation is known:<div class="displaymath process-math" id="ch8-confidence-intervals-22-2-1">
+\begin{equation*}
+me = z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{n}}
+\end{equation*}
+</div>If we know our desired margin of error, we can solve for <span class="process-math">\(n\text{:}\)</span><div class="displaymath process-math" id="ch8-confidence-intervals-22-2-3">
+\begin{equation*}
+n = (z_{\alpha/2})^2 \frac{\sigma^2}{me^2}.
+\end{equation*}
+</div></p>
+<p>If the standard deviation is not known but <span class="process-math">\(n\)</span> is large (<span class="process-math">\(n \gt 100\)</span> very good, <span class="process-math">\(n \gt 30\)</span> acceptable), we can use the same formula since t-distribution will be close to Z anyway. Use <span class="process-math">\(s\)</span> in place of <span class="process-math">\(\sigma\)</span> for the estimation. Choosing <em class="emphasis">high</em> estimates of <span class="process-math">\(\sigma\)</span> is a more cautious approach and results in higher value of <span class="process-math">\(n\text{.}\)</span></p>
+</div></section><section><h3>Application 3</h3>
+<div align="left">
+<p>(Based on Problem 8.54): How large a sample size do we need to estimate the annual income of Harrisonburg residents at a 99% confidence level to within $1000?</p>
+<p>Because we know nothing about this distribution, we can start by assuming a bell-shaped distribution and making a reasonable guess on the range of income levels. We know that almost all observations from such a distribution would be within 3 standard deviations of the mean.</p>
+</div></section><section><h3>Special Considerations</h3>
+<div align="left"><p><dfn class="terminology">Robustness</dfn>:</p></div></section></section>
 </div>
 </div></body>
 <script>
