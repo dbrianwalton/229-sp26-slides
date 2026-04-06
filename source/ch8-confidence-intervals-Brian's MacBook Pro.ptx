@@ -7,7 +7,7 @@
     <title>Key Ideas</title>
 
     <p>
-      (Start Day 20) We will learn about following key ideas:
+      We will learn about following key ideas:
     </p>
     <ul>
       <li>
@@ -237,7 +237,6 @@
       We will have different approaches if we know the value of <m>\sigma</m> versus not knowing the value.
     </p>
   </slide>
-
   <slide>
     <title>Confidence Intervals Using Known Standard Deviation</title>
     
@@ -272,7 +271,6 @@
       </ul>
     </p>
   </slide>
-
   <slide>
     <title>Standardized Score for Unknown Standard Deviation</title>
     
@@ -292,124 +290,8 @@
       </shortdescription>
     </image>
     <p>
-      Different sample sizes show different density curves, which requires a new distribution parameter called <term>degrees of freedom</term>.
-      When using <m>s</m> based on a sample mean, there are <m>n-1</m> degrees of freedom.
-    </p>
-  </slide>
+            Different sample sizes show different density curves, which requires a new distribution parameter called <term>degrees of freedom</term>.
 
-  <slide>
-    <title>Confidence Intervals for Unknown Standard Deviation</title>
-    
-    <p>
-      When the population standard deviation <m>\sigma</m> is <em>unknown</em>,
-      we must estimate <m>\sigma</m> using the sample standard deviation <m>s</m>.
-      The standard score for the sample mean <m>t = \frac{\overline{X}-\mu}{s/\sqrt{n}}</m> then follows the t-distribution with <m>n-1</m> degrees of freedom.
-    </p>
-    <p>
-      Choose <m>\alpha</m> so that <m>100(1-\alpha)</m>% is the desired confidence level.
-      <ul>
-        <li>
-          <p>
-            Find the <term>t-score</term>, <m>t_{\alpha/2, n-1}</m> as the <m>1-\alpha/2</m> quantile so <m>P(t &gt; t_{\alpha/2,n-1}) = \alpha/2</m>.
-          </p>
-        </li>
-        <li>
-          <p>
-            Calculate the <term>standard error</term> for the sample mean:
-            <md>
-              se = s /\sqrt{n}
-            </md>
-          </p>
-        </li>
-        <li>
-          <p>
-            Construct the confidence interval
-            <md>
-              \overline{X} \pm t_{\alpha/2, n-1} \cdot se = \overline{X} \pm t_{\alpha/2, n-1} \cdot \frac{s}{\sqrt{n}}
-            </md>
-          </p>
-        </li>
-      </ul>
-    </p>
-    <p>
-      For very large sample sizes, the law of large numbers will imply <m>s \approx \sigma</m> closely
-      and so the corresponding <m>t</m> distribution will be almost identical to the normal distribution.
-      That is, using a Z-score will give almost the same results.
-    </p>
-  </slide>
-
-  <slide>
-    <title>Confidence Intervals Using R</title>
-    
-    <p>
-      In R, the command that provides a confidence interval for the sample mean is <c>t.test()</c>.
-      Again, the full use of this command is for a hypothesis test, but it does provide a confidence interval.
-      The simplest call is <c>t.test(x, conf.level=0.95)</c>.
-    </p>
-  </slide>
-
-  <slide>
-    <title>Application 1</title>
-    
-    <p>
-      (Example 9 Section 8.3) A random sample of 11 completed auctions on E-bay for an unlocked Apple iPhone 5s in new condition with 16GB of storage from July 2014 gave the following prices (in dollars):
-      540, 565, 570, 570, 580, 590, 590, 590, 595, 610, 620.
-    </p>
-    <p>
-      If we calculate a 95% confidence interval based on this data, what would it mean? Find that interval.
-    </p>
-  </slide>
-
-  <slide>
-    <title>Application 2</title>
-    
-    <p>
-      (Example 8 Section 8.3) The textbook website contains a dataset of how many hours respondents to the GSS in 2018 said they watched daily.
-      Load the data, calculate the mean and standard deviation, and find the 95% confidence interval.
-    </p>
-    <p>
-      What does the confidence interval represent?
-    </p>
-  </slide>
-
-  <slide>
-    <title>Choosing the Sample Size</title>
-    
-    <p>
-      The margin of error for the sample mean if the standard deviation is known:
-      <md>
-        me = z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{n}}
-      </md>
-      If we know our desired margin of error, we can solve for <m>n</m>:
-      <md>
-        n = (z_{\alpha/2})^2 \frac{\sigma^2}{me^2}.
-      </md>
-    </p>
-    <p>
-      If the standard deviation is not known but <m>n</m> is large (<m>n \gt 100</m> very good, <m>n \gt 30</m> acceptable),
-      we can use the same formula since t-distribution will be close to Z anyway.
-      Use <m>s</m> in place of <m>\sigma</m> for the estimation.
-      Choosing <em>high</em> estimates of <m>\sigma</m> is a more cautious approach and results in higher value of <m>n</m>.
-    </p>
-  </slide>
-
-  <slide>
-    <title>Application 3</title>
-    
-    <p>
-      (Based on Problem 8.54): How large a sample size do we need to estimate the annual income of Harrisonburg residents at a 99% confidence level to within $1000?
-    </p>
-    <p>
-      Because we know nothing about this distribution, we can start by assuming a bell-shaped distribution and making a reasonable guess on the range of income levels.
-      We know that almost all observations from such a distribution would be within 3 standard deviations of the mean.
-    </p>
-  </slide>
-
-  <slide>
-    <title>Special Considerations</title>
-    
-    <p>
-      <term>Robustness</term>: 
     </p>
   </slide>
 </section>
