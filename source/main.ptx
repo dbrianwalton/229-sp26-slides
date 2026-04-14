@@ -57,5 +57,6 @@ along with PreTeXt.  If not, see <http://www.gnu.org/licenses/>.
         <xi:include href="./ch7-sampling-distributions.ptx" />
 
         <xi:include href="./ch8-confidence-intervals.ptx" />
+        <xi:include href="./ch9-hypothesis-tests.ptx" />
     </slideshow>
 </pretext>

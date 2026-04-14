@@ -214,7 +214,7 @@
     <title>Confidence Intervals Using R</title>
     
     <p>
-      If we use computational tools, we can get confidence intervals that use techniques more advanced than the normal distribution approximation.
+      (Start Day 22) If we use computational tools, we can get confidence intervals that use techniques more advanced than the normal distribution approximation.
     </p>
     <p>
       In R, there is a command <c>prop.test()</c> that performs a hypothesis test (next major topic) <em>and</em> calculates a confidence interval for the proportion. The basic call is <c>prop.test(x, n, conf.level=0.95)</c>.
@@ -409,7 +409,10 @@
     <title>Special Considerations</title>
     
     <p>
-      <term>Robustness</term>: 
+      <term>Robustness</term>: A method is <term>robust</term> if it continues to work well even if the assumptions are not all satisfied.
+    </p>
+    <p>
+      The confidence interval based on the t-distribution is built from the assumption that the population has a normal distribution. In <em>practice</em> it works reasonably well for distributions as long as there are not significant outliers. [Test if the interval changes a lot if an outlier is excluded]
     </p>
   </slide>
 </section>

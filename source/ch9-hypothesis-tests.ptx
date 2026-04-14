@@ -1,0 +1,226 @@
+<?xml version='1.0' encoding='utf-8'?>
+<section xml:id="ch9-hypothesis-tests" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <title>Chapter 9: Hypothesis Tests</title>
+
+  <slide>
+    <title>Key Ideas</title>
+
+    <p>
+      We will learn about following key ideas:
+    </p>
+    <ul>
+      <li>
+        <p>What is a null hypothesis and an alternative hypothesis?</p>
+      </li>
+      <li>
+        <p>Statistical confidence measures how much evidence we have that the null hypothesis is inadequate to explain the data. (Falsify the null hypothesis, not prove the alternative.)</p>
+      </li>
+      <li>
+        <p>
+          Define and use a P-value.
+        </p>
+        <p>
+          Interpret the two types of error: Type I (Reject null when it was true) vs Type II (Fail to reject the null when it is false)
+        </p>
+      </li>
+      <li>
+        <p>
+          Connect confidence intervals with hypothesis tests.
+        </p>
+      </li>
+    </ul>
+  </slide>
+
+  <slide>
+    <title>Evidence and Inductive Reasoning</title>
+    
+    <p>
+      Statistics provides a mathematically-sound foundation by which we can characterize a method of assessing evidence for and against hypotheses.
+    </p>
+    <p>
+      Because we observe <em>samples</em> (experiments) rather than the <em>population</em> (perfect knowledge), random variability means that our incomplete knowledge will result in mistakes.
+      We wish to create a <em>repeatable</em> (verifiable) method to make decisions that will become more likely to be correct as additional information is obtained.
+    </p>
+    <p>
+      Science is built on the philosophy that perfect evidence can show that a scientific hypothesis is false (because observations contradict the hypothesis) but not that a hypothesis is true (because there may be future observations that <em>might</em> contradict the hypothesis).
+    </p>
+    <p>
+      Statistics formalizes this idea by proposing that evidence is measured relative to two hypotheses: a null hypothesis and an alternative hypothesis.
+    </p>
+  </slide>
+
+  <slide>
+    <title>Null Hypothesis vs Alternative Hypothesis</title>
+    
+    <p>
+      In a hypothesis test, we weigh how strongly the sample observations provide evidence that the null hypothesis is <em>inadequate</em> to explain the data.
+    </p>
+    <p>
+      Mathematically, a null hypothesis <m>H_0</m> is a statement that a <term>parameter</term> for a distribution has a particular value. It should be stated as an <term>equation</term>.
+    </p>
+    <p>
+      The alternative hypothesis <m>H_A</m> will be an <term>inequality</term> for how the parameter is <em>different</em> from that particular value. If the inequality uses <em>greater than</em> or <em>less than</em>, then we say the hypothesis is <term>one-sided</term>. If the inequality uses <em>not equals</em>, then we say the hypothesis is <term>two-sided</term>.
+    </p>
+  </slide>
+
+  <slide>
+    <title>Example 1 of Hypotheses</title>
+    
+    <p>
+      My friend carries a coin to flip for making decisions. I suspect that the coin is rigged to favor heads. What are appropriate hypotheses? Is the alternative one-sided or two-sided?
+    </p>
+  </slide>
+
+  <slide>
+    <title>Example 2 of Hypotheses</title>
+    
+    <p>
+      The stated mean body temperature of humans is 98.6 degrees Fahrenheit.
+      A university wishes to test if this is correct for inhabitants of Iceland.
+      What are appropriate hypotheses? Is the alternative one-sided or two-sided?
+    </p>
+  </slide>
+
+  <slide>
+    <title>Nature of Evidence</title>
+    
+    <p>
+      Our goal is to show whether the data provide strong evidence that the null hypothesis is <em>inadequate</em> to explain the observed data.
+    </p>
+    <p>
+      The hypothesis test is based on the <term>sampling distribution</term> of a summary statistic (like sample proportion or sample mean) based on assuming the null hypothesis is <em>true</em>. Unlikely observations would be in the <term>tails</term> of the sampling distribution.
+    </p>
+    <p>
+      A scientist states a desired level of significance, which is a probability, <em>before</em> looking at the data. If the observed statistic is in a region that is sufficiently <em>unlikely</em> compared to the significance level, then the scientist reports that the evidence leads us to conclude that we should <em>reject</em> the null hypothesis <em>in favor of</em> the alternative hypothesis. Otherwise, we can only say that we <em>fail to reject</em> the null hypothesis.
+    </p>
+    <p>
+      We <em>never</em> say that we accept a hypothesis.
+    </p>
+  </slide>
+
+  <slide>
+    <title>Hypothesis Test Steps</title>
+    
+    <p>
+      <ol>
+        <li>
+          <p>
+            Evaluate the relevant assumptions: Observed data must be <em>randomized</em>, identify the parameter in question, and we need to know or have reason to believe in a specific sampling distribution for a corresponding statistic.
+          </p>
+        </li>
+        <li>
+          <p>
+            State a null <m>H_0</m> and alternative hypothesis <m>H_A</m> and specify an acceptable significance level <m>\alpha</m> (acceptable rejection probability).
+          </p>
+        </li>
+        <li>
+          <p>
+            Use the data to calculate a statistic for which we know the sampling distribution when <m>H_0</m> is true. 
+            Calculate an appropriate standardized <term>test statistic</term> (e.g., <m>Z</m> or <m>t</m>).
+          </p>
+        </li>
+        <li>
+          <p>
+            Calculate (or estimate) the P-value, the probability in the tails of the sampling distribution more extreme than the observed data. (Smaller P-value is stronger evidence.) A one- or two-sided alternative hypothesis tells us if we should include both tails (using symmetry) or not.
+          </p>
+        </li>
+        <li>
+          <p>
+            Decision: If the P-value is smaller than the pre-determined significance level, then we <term>reject</term> the null hypothesis in favor of the alternative hypothesis. Otherwise we fail to reject <m>H_0</m>.
+          </p>
+        </li>
+      </ol>
+    </p>
+  </slide>
+
+  <slide>
+    <title>Application 1</title>
+    
+    <p>
+      An astrologer prepares horoscopes for 116 adult volunteers.
+      Each subject also filled out a California Personality Index (CPI) survey.
+      For a given adult, his or her horoscope and CPI survey are shown to the astrologer as well as the CPI surveys for two other randomly selected adults.
+      The astrologer is asked which survey is the correct one for that adult. A total of 28 astrologers participated in the experiment.
+    </p>
+    <p>
+      Is there evidence that the astrologers do better than chance? (Is the third eye real?)
+      <ol>
+        <li>
+          <p>Assumptions</p>
+        </li>
+        <li>
+          <p>Hypotheses and Significance</p>
+        </li>
+        <li>
+          <p>Test Statistic</p>
+        </li>
+        <li>
+          <p>P-value or Rejection Region</p>
+        </li>
+        <li>
+          <p>Conclusion</p>
+        </li>
+      </ol>
+    </p>
+  </slide>
+
+  <slide>
+    <title>Application 2</title>
+    
+    <p>
+      We want to find out whether there is evidence that the proportion of people opposing fracking is different from 50%.
+    </p>
+    <p>
+      We will use data from a Pew Research survey conducted in the United States in November 2014, which used a random sample of n = 1,353 people. Of these, 637 were opposed to fracking; the rest either favored it or had no definite opinion.
+      <ol>
+        <li>
+          <p>Assumptions</p>
+        </li>
+        <li>
+          <p>Hypotheses and Significance</p>
+        </li>
+        <li>
+          <p>Test Statistic</p>
+        </li>
+        <li>
+          <p>P-value or Rejection Region</p>
+        </li>
+        <li>
+          <p>Conclusion</p>
+        </li>
+      </ol>
+    </p>
+  </slide>
+
+  <slide>
+    <title>Application 3</title>
+    
+    <p>
+      A study compared different psychological therapies for teenage girls suffering from anorexia.
+      The variable of interest was each girl's weight change:  weight at the end of the study minus weight at the beginning of the study. The weight change was positive if the girl gained weight and negative if she lost weight.
+    </p>
+    <p>
+      We seek to know if there is evidence to suggest a therapy provides effective treatment (positive weight gain).
+      <ol>
+        <li>
+          <p>Assumptions</p>
+        </li>
+        <li>
+          <p>Hypotheses and Significance</p>
+        </li>
+        <li>
+          <p>
+            Test Statistic: The study involved 29 girls, and observed weight gain had sample mean <m>\overline{x}=3.00</m> pounds and sample standard deviation <m>s=7.32</m> pounds
+          </p>
+        </li>
+        <li>
+          <p>P-value or Rejection Region</p>
+        </li>
+        <li>
+          <p>Conclusion</p>
+        </li>
+      </ol>
+    </p>
+  </slide>
+</section>
