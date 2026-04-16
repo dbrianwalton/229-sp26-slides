@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2026-04-14T03:38:06Z       *-->
+<!--*       on 2026-04-16T03:49:45Z       *-->
 <!--*   A recent stable commit (2022-07-01):   *-->
 <!--* 6c761d3dba23af92cba35001c852aac04ae99a5f *-->
 <!--*                                          *-->
@@ -39,7 +39,7 @@
 <tr><td align="center" style="border-bottom: 0px;">James Madison University</td></tr>
 <tr><td align="center"></td></tr>
 </table>
-<h4><div class="date">as of April 14, 2026</div></h4></section></section><section><section><h1>Introduction to R, RStudio, Quarto</h1></section><section><h3>Working with R</h3>
+<h4><div class="date">as of April 16, 2026</div></h4></section></section><section><section><h1>Introduction to R, RStudio, Quarto</h1></section><section><h3>Working with R</h3>
 <div align="left"><ul class="disc" id="Rstudio_introduction-2-2">
 <li><p>Scripting/Programming Language: R</p></li>
 <li><p>Data Analysis Application: RStudio</p></li>
@@ -2381,14 +2381,12 @@ n = (z_{\alpha/2})^2 \frac{\sigma^2}{me^2}.
 <p>The confidence interval based on the t-distribution is built from the assumption that the population has a normal distribution. In <em class="emphasis">practice</em> it works reasonably well for distributions as long as there are not significant outliers. [Test if the interval changes a lot if an outlier is excluded]</p>
 </div></section></section><section><section><h1>Chapter 9: Hypothesis Tests</h1></section><section><h3>Key Ideas</h3>
 <div align="left">
-<p>We will learn about following key ideas:</p>
+<p>(Start of Day 23) We will learn about following key ideas:</p>
 <ul class="disc" id="ch9-hypothesis-tests-2-3">
 <li><p>What is a null hypothesis and an alternative hypothesis?</p></li>
 <li><p>Statistical confidence measures how much evidence we have that the null hypothesis is inadequate to explain the data. (Falsify the null hypothesis, not prove the alternative.)</p></li>
-<li>
-<p>Define and use a P-value.</p>
-<p>Interpret the two types of error: Type I (Reject null when it was true) vs Type II (Fail to reject the null when it is false)</p>
-</li>
+<li><p>Define and use a P-value.</p></li>
+<li><p>Interpret the two types of error: Type I (Reject null when it was true) vs Type II (Fail to reject the null when it is false)</p></li>
 <li><p>Connect confidence intervals with hypothesis tests.</p></li>
 </ul>
 </div></section><section><h3>Evidence and Inductive Reasoning</h3>
@@ -2447,6 +2445,26 @@ n = (z_{\alpha/2})^2 \frac{\sigma^2}{me^2}.
 <li><p>P-value or Rejection Region</p></li>
 <li><p>Conclusion</p></li>
 </ol></p>
+</div></section><section><h3>Robustness and Testing Assumptions</h3>
+<div align="left">
+<p>The process of performing a hypothesis test requires knowing the sampling distribution of the test statistic. For proportions of categorical variables, we usually use a normal distribution assumption which will be valid when the sample size is large (15 expected successes and failures). For means of quantitative variables, if the variable’s population is a normal distribution, then the sampling distribution of <span class="process-math">\(\overline{X}\)</span> (the sample mean) is normal if we know the standard deviation and a t-distribution if we standardize using the sample standard deviation.</p>
+<p>What happens if these assumptions are not satisfied? Plot the data</p>
+<p>In general, the methods are relatively robust and can be used anyway with the following cautions.<ol class="decimal" id="ch9-hypothesis-tests-12-4-1">
+<li><p>Binomial test is problematic if <span class="process-math">\(n\)</span> is small and <span class="process-math">\(p_0\)</span> is not close to 0.5 (distribution is skewed), particularly for one-sided tests.</p></li>
+<li><p>Z-test and t-test are problematic if <span class="process-math">\(n\)</span> is small and the population distribution has significant skew, particularly for one-sided tests.</p></li>
+</ol></p>
+</div></section><section><h3>Types of Errors</h3>
+<div align="left">
+<p>Our <em class="emphasis">action</em> in a hypothesis test is to either <dfn class="terminology">reject <span class="process-math">\(H_0\)</span></dfn> or <dfn class="terminology">fail to reject <span class="process-math">\(H_0\)</span></dfn>. An error occurs if our chosen action does not match reality. Because data are random, we never really know if we make an error based on the data—they are hypothetical unless there is some secondary evidence that can be determined separately from the data. The null hypothesis represents our default belief, that which does not require evidence.</p>
+<p>A <dfn class="terminology">Type I Error</dfn> occurs when we reject <span class="process-math">\(H_0\)</span> when <span class="process-math">\(H_0\)</span> is actually true. This is also called a <dfn class="terminology">false positive</dfn>. The significance <span class="process-math">\(\alpha\)</span> of our test refers to the probability of a Type I Error given the null hypothesis.</p>
+<p>A <dfn class="terminology">Type II Error</dfn> occurs when we do not reject <span class="process-math">\(H_0\)</span> when <span class="process-math">\(H_A\)</span> is true and <span class="process-math">\(H_0\)</span> is false. This is also called a <dfn class="terminology">false negative</dfn>.</p>
+<p>When I ask you to explain the meaning of a Type I or II error for an example, you must refer to the actual meaning of the hypotheses.</p>
+</div></section><section><h3>Comparison of Error to Jury Trials</h3>
+<div align="left">
+<p>Consider a criminal trial. The defendant is presumed innocent until proven guilty. We can think of the trial like an experiment gathering evidence. The decision of the jury is the hypothesis test.</p>
+<p>What are the hypotheses in this context?</p>
+<p>How could a jury make a mistake?</p>
+<p>What mistakes correspond to a Type I error and a Type II error?</p>
 </div></section></section>
 </div>
 </div></body>
