@@ -7,7 +7,7 @@
     <title>Key Ideas</title>
 
     <p>
-      We will learn about following key ideas:
+      (Start of Day 23) We will learn about following key ideas:
     </p>
     <ul>
       <li>
@@ -20,6 +20,8 @@
         <p>
           Define and use a P-value.
         </p>
+      </li>
+      <li>
         <p>
           Interpret the two types of error: Type I (Reject null when it was true) vs Type II (Fail to reject the null when it is false)
         </p>
@@ -221,6 +223,73 @@
           <p>Conclusion</p>
         </li>
       </ol>
+    </p>
+  </slide>
+
+  <slide>
+    <title>Robustness and Testing Assumptions</title>
+    
+    <p>
+      The process of performing a hypothesis test requires knowing the sampling distribution of the test statistic.
+      For proportions of categorical variables, we usually use a normal distribution assumption which will be valid when the sample size is large (15 expected successes and failures).
+      For means of quantitative variables, if the variable's population is a normal distribution, then the sampling distribution of <m>\overline{X}</m> (the sample mean) is normal if we know the standard deviation and a t-distribution if we standardize using the sample standard deviation.
+    </p>
+    <p>
+      What happens if these assumptions are not satisfied? Plot the data
+    </p>
+    <p>
+      In general, the methods are relatively robust and can be used anyway with the following cautions.
+      <ol>
+        <li>
+          <p>
+            Binomial test is problematic if <m>n</m> is small and <m>p_0</m> is not close to 0.5 (distribution is skewed), particularly for one-sided tests.
+          </p>
+        </li>
+        <li>
+          <p>
+            Z-test and t-test are problematic if <m>n</m> is small and the population distribution has significant skew, particularly for one-sided tests.
+          </p>
+        </li>
+      </ol>
+    </p>
+  </slide>
+
+  <slide>
+    <title>Types of Errors</title>
+    
+    <p>
+      Our <em>action</em> in a hypothesis test is to either <term>reject <m>H_0</m></term> or <term>fail to reject <m>H_0</m></term>.
+      An error occurs if our chosen action does not match reality.
+      Because data are random, we never really know if we make an error based on the data<mdash/>they are hypothetical unless there is some secondary evidence that can be determined separately from the data.
+      The null hypothesis represents our default belief, that which does not require evidence.
+    </p>
+    <p>
+      A <term>Type I Error</term> occurs when we reject <m>H_0</m> when <m>H_0</m> is actually true. This is also called a <term>false positive</term>. The significance <m>\alpha</m> of our test refers to the probability of a Type I Error given the null hypothesis.
+    </p>
+  </slide>
+    <p>
+      A <term>Type II Error</term> occurs when we do not reject <m>H_0</m> when <m>H_A</m> is true and <m>H_0</m> is false.
+      This is also called a <term>false negative</term>.
+    </p>
+    <p>
+      When I ask you to explain the meaning of a Type I or II error for an example, you must refer to the actual meaning of the hypotheses.
+    </p>
+  </slide>
+
+  <slide>
+    <title>Comparison of Error to Jury Trials</title>
+    
+    <p>
+      Consider a criminal trial. The defendant is presumed innocent until proven guilty. We can think of the trial like an experiment gathering evidence. The decision of the jury is the hypothesis test.
+    </p>
+    <p>
+      What are the hypotheses in this context?
+    </p>
+    <p>
+      How could a jury make a mistake?
+    </p>
+    <p>
+      What mistakes correspond to a Type I error and a Type II error?
     </p>
   </slide>
 </section>
