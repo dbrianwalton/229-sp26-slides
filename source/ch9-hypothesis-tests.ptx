@@ -266,7 +266,6 @@
     <p>
       A <term>Type I Error</term> occurs when we reject <m>H_0</m> when <m>H_0</m> is actually true. This is also called a <term>false positive</term>. The significance <m>\alpha</m> of our test refers to the probability of a Type I Error given the null hypothesis.
     </p>
-  </slide>
     <p>
       A <term>Type II Error</term> occurs when we do not reject <m>H_0</m> when <m>H_A</m> is true and <m>H_0</m> is false.
       This is also called a <term>false negative</term>.
