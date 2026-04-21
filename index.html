@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2026-04-16T03:49:45Z       *-->
+<!--*       on 2026-04-21T03:05:53Z       *-->
 <!--*   A recent stable commit (2022-07-01):   *-->
 <!--* 6c761d3dba23af92cba35001c852aac04ae99a5f *-->
 <!--*                                          *-->
@@ -39,7 +39,7 @@
 <tr><td align="center" style="border-bottom: 0px;">James Madison University</td></tr>
 <tr><td align="center"></td></tr>
 </table>
-<h4><div class="date">as of April 16, 2026</div></h4></section></section><section><section><h1>Introduction to R, RStudio, Quarto</h1></section><section><h3>Working with R</h3>
+<h4><div class="date">as of April 21, 2026</div></h4></section></section><section><section><h1>Introduction to R, RStudio, Quarto</h1></section><section><h3>Working with R</h3>
 <div align="left"><ul class="disc" id="Rstudio_introduction-2-2">
 <li><p>Scripting/Programming Language: R</p></li>
 <li><p>Data Analysis Application: RStudio</p></li>
@@ -2417,7 +2417,7 @@ n = (z_{\alpha/2})^2 \frac{\sigma^2}{me^2}.
 <li><p>Decision: If the P-value is smaller than the pre-determined significance level, then we <dfn class="terminology">reject</dfn> the null hypothesis in favor of the alternative hypothesis. Otherwise we fail to reject <span class="process-math">\(H_0\text{.}\)</span></p></li>
 </ol></p></div></section><section><h3>Application 1</h3>
 <div align="left">
-<p>An astrologer prepares horoscopes for 116 adult volunteers. Each subject also filled out a California Personality Index (CPI) survey. For a given adult, his or her horoscope and CPI survey are shown to the astrologer as well as the CPI surveys for two other randomly selected adults. The astrologer is asked which survey is the correct one for that adult. A total of 28 astrologers participated in the experiment.</p>
+<p>(Begin Day 24) An astrologer prepares horoscopes for 116 adult volunteers. Each subject also filled out a California Personality Index (CPI) survey. For a given adult, his or her horoscope and CPI survey are shown to the astrologer as well as the CPI surveys for two other randomly selected adults. The astrologer is asked which survey is the correct one for that adult. A total of 28 astrologers participated in the experiment.</p>
 <p>Is there evidence that the astrologers do better than chance? (Is the third eye real?)<ol class="decimal" id="ch9-hypothesis-tests-9-3-1">
 <li><p>Assumptions</p></li>
 <li><p>Hypotheses and Significance</p></li>
@@ -2465,7 +2465,47 @@ n = (z_{\alpha/2})^2 \frac{\sigma^2}{me^2}.
 <p>What are the hypotheses in this context?</p>
 <p>How could a jury make a mistake?</p>
 <p>What mistakes correspond to a Type I error and a Type II error?</p>
-</div></section></section>
+</div></section><section><h3>Hypothesis Tests and Confidence Intervals</h3>
+<div align="left">
+<p>One perspective of confidence intervals is that the interval would include all parameter values <span class="process-math">\(\alpha = \alpha_0\)</span> such that a hypothesis test would fail to reject the null hypothesis <span class="process-math">\(H_0: \alpha = \alpha_0\)</span> at the specified confidence level.</p>
+<p><em class="emphasis">Example</em>: The General Social Survey includes a variable <code class="code-inline tex2jax_ignore">HRS1</code> giving the number of hours worked during a week. Let’s consider the average number of hours worked by men during 2018.</p>
+</div></section><section><h3>Proportions and Binomial Distributions</h3>
+<div align="left"><p>In a 2013 survey, 740 out of 1506 respondents indicated that they opposed fracking. Use the following proportions to determine if we would reject the null hypothesis <span class="process-math">\(H_0: p=p_0\)</span> in a two-sided test. Compare using the exact binomial probabilities with the normal approximation.</p></div></section></section><section><section><h1>Chapter 10: Comparing Two Groups</h1></section><section><h3>Key Ideas</h3>
+<div align="left">
+<p>We will learn about following key ideas:</p>
+<ul class="disc" id="ch10-two-population-inference-2-3">
+<li>
+<p>Comparing proportions for two subgroups, <span class="process-math">\(p_1\)</span> and <span class="process-math">\(p_2\text{,}\)</span> associations for two categorical variables</p>
+<ul class="circle" id="ch10-two-population-inference-2-3-1-2">
+<li><p>Confidence intervals for <span class="process-math">\(p_1 - p_2\)</span></p></li>
+<li><p>Hypothesis Test:  <span class="process-math">\(H_0: p_1 = p_2\)</span> vs <span class="process-math">\(H_A: p_1 \ne p_2\)</span></p></li>
+</ul>
+</li>
+<li><p>General formula for variance when adding/subtracting independent variables</p></li>
+<li>
+<p>Comparing population means for two independent subgroups, <span class="process-math">\(\mu_1\)</span> and <span class="process-math">\(\mu_2\text{,}\)</span> associations between categorical and quantitative variables</p>
+<ul class="circle" id="ch10-two-population-inference-2-3-3-2">
+<li><p>Confidence intervals for <span class="process-math">\(\mu_1 - \mu_2\)</span></p></li>
+<li><p>Hypothesis Test:  <span class="process-math">\(H_0: \mu_1 = \mu_2\)</span> vs <span class="process-math">\(H_A: \mu_1 \ne \mu_2\)</span> (or one-sided alternatives)</p></li>
+</ul>
+</li>
+<li><p>Modifications for dependent data: matched pairs, paired survey responses</p></li>
+</ul>
+</div></section><section><h3>Experiments with Binary Outcomes</h3>
+<div align="left">
+<p>The simplest experiment naturally has a control group and a treatment group, so that we can considered the randomly assigned group to be a binary categorical variable. If the experiment has a binary outcome (success vs failure), then are considering a case where the population will have two different population parameters, the probability of success given the treatment choice (technically conditional probabilities).<ul class="disc" id="ch10-two-population-inference-3-2-1">
+<li><p><span class="process-math">\(p_1\text{:}\)</span> probability of success when given the placebo treatment</p></li>
+<li><p><span class="process-math">\(p_2\text{:}\)</span> probability of success when given the experimental treatment</p></li>
+</ul></p>
+<p>After our experiment, we will be able to compute the conditional proportions <span class="process-math">\(\hat p_1\)</span> and <span class="process-math">\(\hat p_2\text{.}\)</span> We are interested in the <dfn class="terminology">difference</dfn> in proportions:<ul class="disc" id="ch10-two-population-inference-3-3-4">
+<li><p>Confidence interval for <span class="process-math">\(p_1-p_2\)</span> (can be interpreted as percentage points of difference)</p></li>
+<li><p>Hypothesis test</p></li>
+</ul></p>
+</div></section><section><h3>Sampling Distribution for Proportion Difference</h3>
+<div align="left"><p>Suppose there are <span class="process-math">\(n_1\)</span> individuals in <dfn class="terminology">control</dfn> group and <span class="process-math">\(n_2\)</span> individuals in <dfn class="terminology">treatment</dfn> group.<ul class="disc" id="ch10-two-population-inference-4-2-5">
+<li><p><span class="process-math">\(\hat p_1\text{:}\)</span> proportion of <span class="process-math">\(n_1\)</span> control individuals who saw success. Mean: <span class="process-math">\(p_1\)</span> and Std Dev: <span class="process-math">\(\sigma_1 = \sqrt{\frac{p_1(1-p_1)}{n_1}}\)</span></p></li>
+<li><p><span class="process-math">\(\hat p_2\text{:}\)</span> proportion of <span class="process-math">\(n_2\)</span> treatment individuals who saw success. Mean: <span class="process-math">\(p_2\)</span> and Std Dev: <span class="process-math">\(\sigma_2 = \sqrt{\frac{p_2(1-p_2)}{n_2}}\)</span></p></li>
+</ul></p></div></section></section>
 </div>
 </div></body>
 <script>
