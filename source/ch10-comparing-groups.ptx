@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='utf-8'?>
+<section xml:id="ch10-two-population-inference" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <title>Chapter 10: Comparing Two Groups</title>
+
+  <slide>
+    <title>Key Ideas</title>
+
+    <p>
+      We will learn about following key ideas:
+    </p>
+    <ul>
+      <li>
+        <p>Comparing proportions for two subgroups, <m>p_1</m> and <m>p_2</m>, associations for two categorical variables</p>
+        <ul>
+          <li>
+            <p>Confidence intervals for <m>p_1 - p_2</m></p>
+          </li>
+          <li>
+            <p>Hypothesis Test:  <m>H_0: p_1 = p_2</m> vs <m>H_A: p_1 \ne p_2</m></p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>General formula for variance when adding/subtracting independent variables</p>
+      </li>
+      <li>
+        <p>
+          Comparing population means for two independent subgroups, <m>\mu_1</m> and <m>\mu_2</m>, associations between categorical and quantitative variables
+        </p>
+        <ul>
+          <li>
+            <p>Confidence intervals for <m>\mu_1 - \mu_2</m></p>
+          </li>
+          <li>
+            <p>Hypothesis Test:  <m>H_0: \mu_1 = \mu_2</m> vs <m>H_A: \mu_1 \ne \mu_2</m> (or one-sided alternatives)</p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>
+          Modifications for dependent data: matched pairs, paired survey responses
+        </p>
+      </li>
+    </ul>
+  </slide>
+
+  <slide>
+    <title>Experiments with Binary Outcomes</title>
+    
+    <p>
+      The simplest experiment naturally has a control group and a treatment group, so that we can considered the randomly assigned group to be a binary categorical variable. If the experiment has a binary outcome (success vs failure), then are considering a case where the population will have two different population parameters, the probability of success given the treatment choice (technically conditional probabilities).
+      <ul>
+        <li>
+          <p><m>p_1</m>: probability of success when given the placebo treatment</p>
+        </li>
+        <li>
+          <p><m>p_2</m>: probability of success when given the experimental treatment</p>
+        </li>
+      </ul>
+    </p>
+    <p>
+      After our experiment, we will be able to compute the conditional proportions <m>\hat p_1</m> and <m>\hat p_2</m>.
+      We are interested in the <term>difference</term> in proportions:
+      <ul>
+        <li>
+          <p>Confidence interval for <m>p_1-p_2</m> (can be interpreted as percentage points of difference)</p>
+        </li>
+        <li>
+          <p>Hypothesis test</p>
+        </li>
+      </ul>
+    </p>
+  </slide>
+
+  <slide>
+    <title>Sampling Distribution for Proportion Difference</title>
+    
+    <p>
+      Suppose there are <m>n_1</m> individuals in <term>control</term> group and <m>n_2</m> individuals in <term>treatment</term> group. 
+      <ul>
+        <li>
+          <p>
+            <m>\hat p_1</m>: proportion of <m>n_1</m> control individuals who saw success. Mean: <m>p_1</m> and Std Dev: <m>\sigma_1 = \sqrt{\frac{p_1(1-p_1)}{n_1}}</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\hat p_2</m>: proportion of <m>n_2</m> treatment individuals who saw success. Mean: <m>p_2</m> and Std Dev: <m>\sigma_2 = \sqrt{\frac{p_2(1-p_2)}{n_2}}</m>
+          </p>
+        </li>
+      </ul>
+      
+    </p>
+  </slide>
+</section>

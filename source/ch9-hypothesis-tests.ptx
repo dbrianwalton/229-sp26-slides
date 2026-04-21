@@ -140,7 +140,7 @@
     <title>Application 1</title>
     
     <p>
-      An astrologer prepares horoscopes for 116 adult volunteers.
+      (Begin Day 24) An astrologer prepares horoscopes for 116 adult volunteers.
       Each subject also filled out a California Personality Index (CPI) survey.
       For a given adult, his or her horoscope and CPI survey are shown to the astrologer as well as the CPI surveys for two other randomly selected adults.
       The astrologer is asked which survey is the correct one for that adult. A total of 28 astrologers participated in the experiment.
@@ -289,6 +289,26 @@
     </p>
     <p>
       What mistakes correspond to a Type I error and a Type II error?
+    </p>
+  </slide>
+
+  <slide>
+    <title>Hypothesis Tests and Confidence Intervals</title>
+    
+    <p>
+      One perspective of confidence intervals is that the interval would include all parameter values <m>\alpha = \alpha_0</m>
+      such that a hypothesis test would fail to reject the null hypothesis <m>H_0: \alpha = \alpha_0</m> at the specified confidence level.
+    </p>
+    <p>
+      <em>Example</em>: The General Social Survey includes a variable <c>HRS1</c> giving the number of hours worked during a week. Let's consider the average number of hours worked by men during 2018.
+    </p>
+  </slide>
+
+  <slide>
+    <title>Proportions and Binomial Distributions</title>
+    
+    <p>
+      In a 2013 survey, 740 out of 1506 respondents indicated that they opposed fracking. Use the following proportions to determine if we would reject the null hypothesis <m>H_0: p=p_0</m> in a two-sided test. Compare using the exact binomial probabilities with the normal approximation.
     </p>
   </slide>
 </section>
