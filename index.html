@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2026-04-21T03:05:53Z       *-->
+<!--*       on 2026-04-23T03:20:15Z       *-->
 <!--*   A recent stable commit (2022-07-01):   *-->
 <!--* 6c761d3dba23af92cba35001c852aac04ae99a5f *-->
 <!--*                                          *-->
@@ -39,7 +39,7 @@
 <tr><td align="center" style="border-bottom: 0px;">James Madison University</td></tr>
 <tr><td align="center"></td></tr>
 </table>
-<h4><div class="date">as of April 21, 2026</div></h4></section></section><section><section><h1>Introduction to R, RStudio, Quarto</h1></section><section><h3>Working with R</h3>
+<h4><div class="date">as of April 23, 2026</div></h4></section></section><section><section><h1>Introduction to R, RStudio, Quarto</h1></section><section><h3>Working with R</h3>
 <div align="left"><ul class="disc" id="Rstudio_introduction-2-2">
 <li><p>Scripting/Programming Language: R</p></li>
 <li><p>Data Analysis Application: RStudio</p></li>
@@ -2499,13 +2499,62 @@ n = (z_{\alpha/2})^2 \frac{\sigma^2}{me^2}.
 </ul></p>
 <p>After our experiment, we will be able to compute the conditional proportions <span class="process-math">\(\hat p_1\)</span> and <span class="process-math">\(\hat p_2\text{.}\)</span> We are interested in the <dfn class="terminology">difference</dfn> in proportions:<ul class="disc" id="ch10-two-population-inference-3-3-4">
 <li><p>Confidence interval for <span class="process-math">\(p_1-p_2\)</span> (can be interpreted as percentage points of difference)</p></li>
-<li><p>Hypothesis test</p></li>
+<li><p>Hypothesis test: <span class="process-math">\(H_0: p_1 = p_2\)</span> vs <span class="process-math">\(H_A: p_1 \ne p_2\)</span></p></li>
 </ul></p>
 </div></section><section><h3>Sampling Distribution for Proportion Difference</h3>
-<div align="left"><p>Suppose there are <span class="process-math">\(n_1\)</span> individuals in <dfn class="terminology">control</dfn> group and <span class="process-math">\(n_2\)</span> individuals in <dfn class="terminology">treatment</dfn> group.<ul class="disc" id="ch10-two-population-inference-4-2-5">
+<div align="left">
+<p>Suppose there are <span class="process-math">\(n_1\)</span> individuals in <dfn class="terminology">control</dfn> group and <span class="process-math">\(n_2\)</span> individuals in <dfn class="terminology">treatment</dfn> group.<ul class="disc" id="ch10-two-population-inference-4-2-5">
 <li><p><span class="process-math">\(\hat p_1\text{:}\)</span> proportion of <span class="process-math">\(n_1\)</span> control individuals who saw success. Mean: <span class="process-math">\(p_1\)</span> and Std Dev: <span class="process-math">\(\sigma_1 = \sqrt{\frac{p_1(1-p_1)}{n_1}}\)</span></p></li>
 <li><p><span class="process-math">\(\hat p_2\text{:}\)</span> proportion of <span class="process-math">\(n_2\)</span> treatment individuals who saw success. Mean: <span class="process-math">\(p_2\)</span> and Std Dev: <span class="process-math">\(\sigma_2 = \sqrt{\frac{p_2(1-p_2)}{n_2}}\)</span></p></li>
-</ul></p></div></section></section>
+</ul></p>
+<p>Then the <em class="emphasis">difference</em> statistic <span class="process-math">\(\hat p_1 - \hat p_2\)</span> has<div class="displaymath process-math" id="ch10-two-population-inference-4-3-3">
+\begin{align*}
+\mu_{\hat p_1 - \hat p_2} \amp = p_1 - p_2\\
+\sigma^2_{\hat p_1 - \hat p_2} \amp = \sigma^2_{\hat p_1} + \sigma^2_{\hat p_2}\\
+\sigma_{\hat p_1 - \hat p_2} \amp = \sqrt{ {\textstyle \frac{p_1(1-p_1)}{n_1} + \frac{p_2(1-p_2)}{n_2} }}
+\end{align*}
+</div></p>
+</div></section><section><h3>Normal Approximation</h3>
+<div align="left">
+<p>If <em class="emphasis">each group</em> has at least 10 successes and failures, then <span class="process-math">\(\hat p_1 - \hat p_2\)</span> will have an approximate normal distribution. In this case, we can use our usual approach for confidence intervals and hypothesis tests.</p>
+<p><em class="emphasis">Question</em>: Does taking aspirin reduce the risk of dying from cancer? Results from eight double-blinded, randomized trials compared taking aspirin to a placebo over at least 4 years, and then assessed cancer-deaths within 20 years, were combined into the following contingency table. <div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b0 r0 l0 t0 lines">Group</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Cancer Death = Yes</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Cancer Death = No</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Total</th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Placebo</td>
+<td class="l m b0 r0 l0 t0 lines">347</td>
+<td class="l m b0 r0 l0 t0 lines">11,188</td>
+<td class="l m b0 r0 l0 t0 lines">11,535</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Aspirin</td>
+<td class="l m b0 r0 l0 t0 lines">327</td>
+<td class="l m b0 r0 l0 t0 lines">13,708</td>
+<td class="l m b0 r0 l0 t0 lines">14,035</td>
+</tr>
+</table></div></p>
+</div></section><section><h3>Two-Group Proportion Test</h3>
+<div align="left"><p>We can do a two-group proportion test in R using <code class="code-inline tex2jax_ignore">prop.test</code> using the following format: <div class="code-box"><pre class="program"><code class="language-r">prop.test(x=c(x1,x2), n=(n1,n2), conf.level=0.95)
+</code></pre></div> Add optional argument <code class="code-inline tex2jax_ignore">alternative = "greater"</code> or <code class="code-inline tex2jax_ignore">alternative = "less"</code> if doing a one-sided test.</p></div></section><section><h3>Comparing the Means for Two Groups</h3>
+<div align="left"><p>There is a similar strategy for comparing the means between two groups, assuming independence. If the observations for the groups come from the <dfn class="terminology">normal distribution</dfn>, then <span class="process-math">\(\overline X_1\)</span> and <span class="process-math">\(\overline X_2\)</span> will have normal distributions:<div class="displaymath process-math" id="ch10-two-population-inference-7-2-4">
+\begin{equation*}
+\overline X_1 \sim N(\mu_1, \sigma_1/\sqrt{n_1}), \qquad \overline X_2 \sim N(\mu_2, \sigma_2/\sqrt{n_2})
+\end{equation*}
+</div>Consequently, we can know the <dfn class="terminology">sampling distribution</dfn> of the difference:<div class="displaymath process-math" id="ch10-two-population-inference-7-2-6">
+\begin{equation*}
+\overline X_1 - \overline X_2 \sim N(\mu_1 - \mu_2, \sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}})
+\end{equation*}
+</div>This can be used to create confidence intervals and hypothesis tests <em class="emphasis">if we know the standard deviations</em> using the Z standard normal values.</p></div></section><section><h3>Two Population t Test</h3>
+<div align="left">
+<p>If we don’t know the standard deviations and need to use the sample standard deviations, then instead of using Z values, we would need to use t values. The formula for degrees of freedom is complicated, so we will just use software.</p>
+<p>First, we need to have a vector containing the sample observations for <span class="process-math">\(X_1\)</span> and another vector containing the observations for <span class="process-math">\(X_2\text{.}\)</span> The following will calculate a confidence interval for <span class="process-math">\(\mu_1 - \mu_2\)</span> and perform a hypothesis test with a null <span class="process-math">\(H_0: \mu_1 = \mu_2\text{.}\)</span> <div class="code-box"><pre class="program"><code class="language-r">t.test(x=x1, y=x2, conf.level=0.95)
+</code></pre></div> If we want a one-sided alternative, we need <code class="code-inline tex2jax_ignore">alternative="greater"</code> or <code class="code-inline tex2jax_ignore">alternative="less"</code>.</p>
+<p>The results will show the confidence interval, the sample means, the test statistic, the degrees of freedom, and the p-value.</p>
+</div></section></section>
 </div>
 </div></body>
 <script>
