@@ -67,7 +67,7 @@
           <p>Confidence interval for <m>p_1-p_2</m> (can be interpreted as percentage points of difference)</p>
         </li>
         <li>
-          <p>Hypothesis test</p>
+          <p>Hypothesis test: <m>H_0: p_1 = p_2</m> vs <m>H_A: p_1 \ne p_2</m></p>
         </li>
       </ul>
     </p>
@@ -90,7 +90,88 @@
           </p>
         </li>
       </ul>
-      
+    </p>
+    <p>
+      Then the <em>difference</em> statistic <m>\hat p_1 - \hat p_2</m> has
+      <md>
+        <mrow> \mu_{\hat p_1 - \hat p_2} \amp = p_1 - p_2</mrow>
+        <mrow> \sigma^2_{\hat p_1 - \hat p_2} \amp = \sigma^2_{\hat p_1} + \sigma^2_{\hat p_2}</mrow>
+        <mrow> \sigma_{\hat p_1 - \hat p_2} \amp = \sqrt{ {\textstyle \frac{p_1(1-p_1)}{n_1} + \frac{p_2(1-p_2)}{n_2} }}</mrow>
+      </md>
+    </p>
+  </slide>
+
+  <slide>
+    <title>Normal Approximation</title>
+    
+    <p>
+      If <em>each group</em> has at least 10 successes and failures, then <m>\hat p_1 - \hat p_2</m> will have an approximate normal distribution.
+      In this case, we can use our usual approach for confidence intervals and hypothesis tests.
+    </p>
+    <p>
+      <em>Question</em>: Does taking aspirin reduce the risk of dying from cancer? Results from eight double-blinded, randomized trials compared taking aspirin to a placebo over at least 4 years, and then assessed cancer-deaths within 20 years, were combined into the following contingency table.
+      <tabular>
+        <row header="yes">
+          <cell>Group</cell><cell>Cancer Death = Yes</cell><cell>Cancer Death = No</cell><cell>Total</cell>
+        </row>
+        <row>
+          <cell>Placebo</cell><cell>347</cell><cell>11,188</cell><cell>11,535</cell>
+        </row>
+        <row>
+          <cell>Aspirin</cell><cell>327</cell><cell>13,708</cell><cell>14,035</cell>
+        </row>
+      </tabular>
+    </p>
+  </slide>
+
+  <slide>
+    <title>Two-Group Proportion Test</title>
+    
+    <p>
+      We can do a two-group proportion test in R using <c>prop.test</c> using the following format:
+      <program language="r">
+        <input>
+          prop.test(x=c(x1,x2), n=(n1,n2), conf.level=0.95)
+        </input>
+      </program>
+      Add optional argument <c>alternative = "greater"</c> or <c>alternative = "less"</c> if doing a one-sided test.
+    </p>
+  </slide>
+
+  <slide>
+    <title>Comparing the Means for Two Groups</title>
+    
+    <p>
+      There is a similar strategy for comparing the means between two groups, assuming independence.
+      If the observations for the groups come from the <term>normal distribution</term>, then <m>\overline X_1</m> and <m>\overline X_2</m> will have normal distributions:
+      <md>
+        \overline X_1 \sim N(\mu_1, \sigma_1/\sqrt{n_1}), \qquad \overline X_2 \sim N(\mu_2, \sigma_2/\sqrt{n_2})
+      </md>
+      Consequently, we can know the <term>sampling distribution</term> of the difference:
+      <md>
+        \overline X_1 - \overline X_2 \sim N(\mu_1 - \mu_2, \sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}})
+      </md>
+      This can be used to create confidence intervals and hypothesis tests <em>if we know the standard deviations</em> using the Z standard normal values.
+    </p>
+  </slide>
+
+  <slide>
+    <title>Two Population t Test</title>
+    
+    <p>
+      If we don't know the standard deviations and need to use the sample standard deviations, then instead of using Z values, we would need to use t values. The formula for degrees of freedom is complicated, so we will just use software.
+    </p>
+    <p>
+      First, we need to have a vector containing the sample observations for <m>X_1</m> and another vector containing the observations for <m>X_2</m>. The following will calculate a confidence interval for <m>\mu_1 - \mu_2</m> and perform a hypothesis test with a null <m>H_0: \mu_1 = \mu_2</m>.
+      <program language="r">
+        <input>
+          t.test(x=x1, y=x2, conf.level=0.95)
+        </input>
+      </program>
+      If we want a one-sided alternative, we need <c>alternative="greater"</c> or <c>alternative="less"</c>.
+    </p>
+    <p>
+      The results will show the confidence interval, the sample means, the test statistic, the degrees of freedom, and the p-value.
     </p>
   </slide>
 </section>
