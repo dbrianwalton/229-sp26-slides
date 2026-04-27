@@ -59,5 +59,6 @@ along with PreTeXt.  If not, see <http://www.gnu.org/licenses/>.
         <xi:include href="./ch8-confidence-intervals.ptx" />
         <xi:include href="./ch9-hypothesis-tests.ptx" />
         <xi:include href="./ch10-comparing-groups.ptx" />
+        <xi:include href="./ch11-categorical-analysis.ptx" />
     </slideshow>
 </pretext>

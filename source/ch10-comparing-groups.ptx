@@ -174,4 +174,155 @@
       The results will show the confidence interval, the sample means, the test statistic, the degrees of freedom, and the p-value.
     </p>
   </slide>
+
+  <slide>
+    <title>Pooled Proportions</title>
+    
+    <p>
+      (Start Day 26) When performing a <term>hypothesis test</term>, the P-value and/or the critical values for the test statistic are based on the sampling distribution <em>assuming</em> the null hypothesis is true.
+      If we are comparing proportions from two independent groups with <m>H_0: p_1 = p_2</m>,
+      then we should generate the standard error <em>assuming</em> that there is a single proportion <m>p</m> for both groups.
+      <ul>
+        <li>
+          <p>
+            Confidence interval considers separate proportions: <m>\hat p_1 = \frac{x_1}{n_1}</m> and <m>\hat p_2 = \frac{x_2}{n_2}</m>
+            <md>
+              se = \sqrt{\frac{\hat p_1(1- \hat p_1)}{n_1} + \frac{\hat p_2(1- \hat p_2)}{n_2}}
+            </md>
+            
+          </p>
+        </li>
+        <li>
+          <p>
+            Hypothesis test considers pooled proportion when estimating the standard error: <m>\hat p = \frac{x_1 + x_2}{n_1 + n_2}</m>
+            <md>
+              se_0 = \sqrt{\frac{\hat p(1-\hat p)}{n_1} + \frac{\hat p(1-\hat p)}{n_2}} = \sqrt{\hat p(1- \hat p)\Big(\frac{1}{n_1} + \frac{1}{n_2}\Big)}
+            </md>
+          </p>
+        </li>
+      </ul>
+    </p>
+  </slide>
+
+  <slide>
+    <title>Analyzing Dependent Samples (10.4)</title>
+    
+    <p>
+      Our previous work looked at <term>independent</term> observations from two groups.
+      The observations could be <term>dependent</term> if observations are <term>paired</term>,
+      meaning that the observation for the first group is linked to a corresponding observation for the second group.
+      <ul>
+        <li>
+          <p>
+            same individual, measurements for each of two different treatments or before/after treatment
+          </p>
+        </li>
+        <li>
+          <p>
+            paired individuals (e.g., partners), measurement for each individual
+          </p>
+        </li>
+      </ul>
+    </p>
+    <p>
+      Having dependent samples changes the sampling distribution so we need slightly different methods.
+      R has an optional argument to indicate that the two groups are paired when doing tests.
+    </p>
+  </slide>
+
+  <slide>
+    <title>Paired Differences: Comparing Means with Dependent Samples</title>
+    
+    <p>
+      For <em>each pair</em>, there will be two observations <m>x_1</m> and <m>x_2</m>.
+      We will <em>generate</em> a computed third quantity <m>d = x_1 - x_2</m>.
+      <md>
+        <mrow> \mu_d \amp = \mu_{x_1} - \mu_{x_2} </mrow>
+      </md>
+    </p>
+    <p>
+      Because of the dependence, we do not have a simple formula for the standard deviation of <m>d</m>
+      even if we know the standard deviations for <m>x_1</m> and <m>x_2</m>.      
+      Instead, we treat this new variable <m>d</m> as a one-sample population for which we can create confidence intervals or perform hypothesis tests.
+    </p>
+  </slide>
+  <slide>
+    <title>Comparison of Approaches</title>
+    
+    <p>
+      The textbook gives an example of the same experiment studying cell phones and driving performed once with two treatments assigned to individuals randomly, forming independent observations,
+      and a second time with both treatments performed by each individual (Example 9 and Example 13).
+      One treatment was to listen to the radio or audio books while driving and then test reaction times.
+      The second treatment was to have a phone conversation while driving and test the same reaction times.
+      The question: <q>Does using the cell phone slow down reaction rate?</q>
+      <ul>
+        <li>
+          <p>Data for Independent Observations: <url href="https://img1.wsimg.com/blobby/go/bbca5dba-4947-4587-b40a-db346c01b1b3/downloads/CellPhoneReactionTime_wideformat.csv?ver=1772777984156">Cell Phone Reaction Times</url></p>
+        </li>
+        <li>
+          <p>Data for Paired Observations: <url href="https://img1.wsimg.com/blobby/go/bbca5dba-4947-4587-b40a-db346c01b1b3/downloads/PairedReactionTime_wide.csv?ver=1772777984156">Paired Reaction Times</url></p>
+        </li>
+      </ul>
+    </p>
+  </slide>
+
+  <slide>
+    <title>Proportions with Dependent Samples</title>
+    
+    <p>
+      On a survey, the same individuals might be asked to respond to two different binary outcome questions.
+      Because the two questions are being answered by the same individuals, the results are inherently dependent.
+      (The independent analogue would be to randomly decide which individuals are asked only one of the questions each.)
+      This is very common because we actually want to know the associations between different questions for individuals.
+      Measuring dependent data is necessary to do this.
+    </p>
+
+    <p>
+      Suppose a survey asked individuals, <q>Do you believe in heaven?</q> and separately <q>Do you believe in hell?</q>
+      We would expect an association between these beliefs. (Why?)
+      We might be interested in using survey results to say something about a question, <q>Is the proportion of the population that believes in heaven larger than the proportion that believes in hell?</q>
+    </p>
+
+    <tabular>
+      <row header="yes">
+        <cell>Believe in Heaven</cell><cell>Believe in Hell = Yes</cell><cell>Believe in Hell = No</cell><cell>Total</cell>
+      </row>
+      <row>
+        <cell>Yes</cell><cell>955</cell><cell>162</cell><cell>1117</cell>
+      </row>
+      <row>
+        <cell>No</cell><cell>9</cell><cell>188</cell><cell>197</cell>
+      </row>
+      <row>
+        <cell>Total</cell><cell>964</cell><cell>350</cell><cell>1314</cell>
+      </row>
+    </tabular>
+  </slide>
+
+  <slide>
+    <title>McNemar's Test Comparing Proportions</title>
+    
+    <p>
+      Consider a contingency table (frequencies or counts) showing the paired relationships of two binary choices
+      <md>
+        \begin{matrix} 
+        &amp; X_2=\mathrm{yes} &amp; X_2=\mathrm{no} \\
+        X_1=\mathrm{yes} &amp; a &amp; b \\
+        X_1=\mathrm{no} &amp; c &amp; d 
+        \end{matrix}
+      </md>
+      A method proposed by Quinn McNemar in 1947 allows us to find a confidence interval for <m>p_1-p_2</m>
+      and complete a hypothesis test for <m>H_0: p_1 = p_2</m>. The formulas are too complicated to present.
+    </p>
+    <p>
+      R implements this using a command <c>mcnemarExactDP</c> (exact difference in proportion) from a library <c>exact2x2</c>.
+      There are the usual optional arguments <c>alternative</c> and <c>conf.level</c>.
+      <program language="$">
+        <input>
+          library(exact2x2)
+          mcnemarExactDP(x=b, m=b+c, n=a+b+c+d)
+        </input>
+      </program>
+    </p>
+  </slide>
 </section>

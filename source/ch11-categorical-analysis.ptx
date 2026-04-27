@@ -1,0 +1,208 @@
+<?xml version='1.0' encoding='utf-8'?>
+<section xml:id="ch11-categorical-analysis" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <title>Chapter 11: Categorical Data Analysis</title>
+
+  <slide>
+    <title>Key Ideas</title>
+
+    <p>
+      We will learn about following key ideas:
+    </p>
+    <ul>
+      <li>
+        <p>Independence and Dependence and Associations</p>
+      </li>
+      <li>
+        <p>Generalizing Binomial to More than 2 Categories</p>
+      </li>
+      <li>
+        <p>
+          Chi-Square distribution and test
+        </p>
+      </li>
+    </ul>
+  </slide>
+
+  <slide>
+    <title>Categorical Association</title>
+    
+    <p>
+      Suppose that <m>X_1</m> and <m>X_2</m> are categorical variables (not necessarily binary).
+      In principles, <m>X_1</m> might have <m>k_1</m> choices and <m>X_2</m> might have <m>k_2</m> choices.
+    </p>
+    <p>
+      Recall that two variables have an <term>association</term> if knowing the value of one variable changes the distribution of the other variable.
+      In other words, <m>X_1</m> and <m>X_2</m> have an association is <em>equivalent to saying</em> <m>X_1</m> and <m>X_2</m> are <term>dependent</term>.
+    </p>
+    <p>
+      We are often interested in showing there is an association, so the hypothesis test becomes
+      <md>
+        <mrow> H_0: &amp; \quad \hbox{$X_1$ and $X_2$ are independent} </mrow>
+        <mrow> H_A: &amp; \quad \hbox{$X_1$ and $X_2$ have an association} </mrow>
+      </md>
+    </p>
+    <p>
+      Sample frequencies will be presented as contingency tables.
+      We have visualized these ideas previously by looking at side-by-side bar graphs or stacked bar graphs.
+    </p>
+  </slide>
+
+  <slide>
+    <title>Expected Contingency Table</title>
+    
+    <p>
+      Recall that events <m>A</m> and <m>B</m> are <term>independent</term> means that <m>P(A \cap B) = P(A) \cdot P(B)</m>.
+      Under the null hypothesis of independence between the categorical variables, the probability of any given cell in row <m>r</m> and column <m>c</m> can be found:
+      <md>P(X_1 = r, X_2 = c) = P(X_1 = r) \cdot P(X_2 = c),</md>
+      which would be multiplying together the <term>marginal probabilities</term>.
+    </p>
+    <p>
+      For every cell in the contingency table, we will compute an <term>expected count</term>.
+      Let <m>N</m> be the <term>total sample size</term>.
+      <md>
+        <mrow> \hbox{Expected Cell Count} &amp; = \Big(\frac{(\hbox{Row Total})}{N}\Big) \cdot \Big(\frac{(\hbox{Column Total})}{N}\Big) \cdot N </mrow>
+        <mrow> &amp; = \frac{(\hbox{Row Total})(\hbox{Column Total})}{N} </mrow>
+      </md>
+      The resulting table will have the same row sums and column sums as the original data,
+      but the frequencies will be such that proportions exactly satisfy the independence assumption.
+    </p>
+    <p>
+      We will want to see if the actual contingency table is extremely different than the expected table if we are going to reject the null hypothesis.
+    </p>
+  </slide>
+
+  <slide>
+    <title>GSS Income and Happiness (1)</title>
+    
+    <p>
+      The textbook discusses an example from the General Social Survey, looking at whether Happiness and Income Level are associated.
+      <tabular>
+        <row header="yes">
+          <cell>Income</cell> <cell>Not Too Happy</cell> <cell>Pretty Happy</cell> <cell>Very Happy</cell> <cell>Total</cell>
+        </row>
+        <row>
+          <cell>Above Average</cell> <cell>29</cell> <cell>178</cell> <cell>135</cell> <cell>342 (19.7%)</cell>
+        </row>
+        <row>
+          <cell>Average</cell> <cell>83</cell> <cell>494</cell> <cell>277</cell> <cell>854 (49.3%)</cell>
+        </row>
+        <row>
+          <cell>Below Average</cell> <cell>104</cell> <cell>314</cell> <cell>119</cell> <cell>537 (31.0%)</cell>
+        </row>
+        <row>
+          <cell>Total</cell> <cell>216 (12.5%)</cell> <cell>987 (56.9%)</cell> <cell>531 (30.6%)</cell> <cell>1733</cell>
+        </row>
+      </tabular>
+    </p>
+  </slide>
+
+  <slide>
+    <title>GSS Income and Happiness (2)</title>
+    
+    <tabular>
+      <row header="yes">
+        <cell>Income</cell> <cell>Not Too Happy</cell> <cell>Pretty Happy</cell> <cell>Very Happy</cell> <cell>Total</cell>
+      </row>
+      <row>
+        <cell>Above Average</cell> <cell>29 (42.6)</cell> <cell>178 (194.6)</cell> <cell>135 (104.8)</cell> <cell>342</cell>
+      </row>
+      <row>
+        <cell>Average</cell> <cell>83 (106.4)</cell> <cell>494 (485.9)</cell> <cell>277 (261.7)</cell> <cell>854</cell>
+      </row>
+      <row>
+        <cell>Below Average</cell> <cell>104 (66.9)</cell> <cell>314 (305.5)</cell> <cell>119 (164.5)</cell> <cell>537</cell>
+      </row>
+      <row>
+        <cell>Total</cell> <cell>216 (12.5%)</cell> <cell>987 (56.9%)</cell> <cell>531 (30.6%)</cell> <cell>1733</cell>
+      </row>
+    </tabular>
+    <p>
+      In 1900, Karl Pearson introduced the <m>\chi^2</m> (chi-squared) statistic, the oldest statistic in use today.
+      <md>
+        \chi^2 = \sum \frac{(\hbox{observed count} - \hbox{expected count})^2}{\hbox{expected count}}
+      </md>
+      The distribution for <m>\chi^2</m> also has <term>degrees of freedom</term> calculated by 
+      <md>d.f. = (k_1-1)(k_2-1)</md>
+      representing how many cells are free to choose to get the same row and column sums.
+    </p>
+  </slide>
+
+  <slide>
+    <title>Sampling Distribution of Chi-Squared</title>
+    
+    <p>
+      The <m>\chi^2</m> statistic follows a chi-squared distribution.
+      The value is always non-negative and the distribution is unimodal and skewed to the right.
+      The degrees of freedom acts as a shape parameter.
+      The expected value of <m>\chi^2</m> is exactly the value of the degrees of freedom:
+      <md>
+        \mu_{\chi^2} = df
+      </md>
+      For our tests, evidence corresponds to large values <m>\chi^2</m>, so we will always use the upper-tail for calculating P-values.
+    </p>
+    <image width="50%">
+      <shortdescription>graph of the chi-squared density, showing a shaded region for the right tail representing a P-value.</shortdescription>
+      <latex-image>
+        \begin{tikzpicture}
+          \begin{axis}[
+          domain=0:25,
+          samples=200,
+          xmin=0,
+          xmax=25,
+          ymin=0,
+          ymax=0.5,
+          y axis line style={draw=none},
+          axis x line*=bottom,
+          ytick=\empty,
+          xtick={0,10,18},
+          xticklabels={0,df,$\chi^2$},
+          tick style={major tick length=4pt},
+          clip=false,
+          ] 
+          % Chi-square density (df = 10)
+          \addplot[ thick, blue, ] {1/(768)*x^(5-1)*exp(-x/2)};
+          % Shaded right-tail region (x &gt;= 18)
+          \addplot[ domain=18:25, samples=200, draw=none, fill=blue!30 ] {1/(768)*x^(5-1)*exp(-x/2)} \closedcycle;
+          % Arrow for P-value
+          \draw[-&gt;, thick] (axis cs:22,0.1) -- (axis cs:22,0.01) node[pos=0, above] {P-value};
+          \end{axis}
+        \end{tikzpicture}
+      </latex-image>
+    </image>
+  </slide>
+
+  <slide>
+    <title>In Practice: Use Computation</title>
+    
+    <p>
+      R will calculate the chi-squared test using the command <c>chisq.test()</c>.
+      Pass in as the argument the contingency table.
+      The test will report the test statistic, the number of degrees of freedom, and the P-value.
+      There is no relevant confidence interval as this hypothesis test is not about a parameter.
+    </p>
+  </slide>
+
+  <slide>
+    <title>Chi-Squared Assumptions</title>
+    
+    <p>
+      Every hypothesis test is associated with key assumptions about the data that the practitioner must verify.
+      For the chi-squared test of independence, we have the following:
+      <ul>
+        <li>
+          <p>Two categorical variables.</p>
+        </li>
+        <li>
+          <p>Observations were randomized, so that the observations are representative of the population</p>
+        </li>
+        <li>
+          <p>Expected count in every cell is at least 5.</p>
+        </li>
+      </ul>
+      If the expected count in a cell is smaller than 5, then the distribution is not appropriate.
+      In that case, there is an exact test that does better called Fisher's exact test (<c>fisher.test</c>).
+      It is computationally more expensive and harder to describe, and so it is not the default choice.
+    </p>
+  </slide>
+</section>
