@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2026-04-23T03:20:15Z       *-->
+<!--*       on 2026-04-27T21:20:25Z       *-->
 <!--*   A recent stable commit (2022-07-01):   *-->
 <!--* 6c761d3dba23af92cba35001c852aac04ae99a5f *-->
 <!--*                                          *-->
@@ -39,7 +39,7 @@
 <tr><td align="center" style="border-bottom: 0px;">James Madison University</td></tr>
 <tr><td align="center"></td></tr>
 </table>
-<h4><div class="date">as of April 23, 2026</div></h4></section></section><section><section><h1>Introduction to R, RStudio, Quarto</h1></section><section><h3>Working with R</h3>
+<h4><div class="date">as of April 27, 2026</div></h4></section></section><section><section><h1>Introduction to R, RStudio, Quarto</h1></section><section><h3>Working with R</h3>
 <div align="left"><ul class="disc" id="Rstudio_introduction-2-2">
 <li><p>Scripting/Programming Language: R</p></li>
 <li><p>Data Analysis Application: RStudio</p></li>
@@ -2554,6 +2554,207 @@ n = (z_{\alpha/2})^2 \frac{\sigma^2}{me^2}.
 <p>First, we need to have a vector containing the sample observations for <span class="process-math">\(X_1\)</span> and another vector containing the observations for <span class="process-math">\(X_2\text{.}\)</span> The following will calculate a confidence interval for <span class="process-math">\(\mu_1 - \mu_2\)</span> and perform a hypothesis test with a null <span class="process-math">\(H_0: \mu_1 = \mu_2\text{.}\)</span> <div class="code-box"><pre class="program"><code class="language-r">t.test(x=x1, y=x2, conf.level=0.95)
 </code></pre></div> If we want a one-sided alternative, we need <code class="code-inline tex2jax_ignore">alternative="greater"</code> or <code class="code-inline tex2jax_ignore">alternative="less"</code>.</p>
 <p>The results will show the confidence interval, the sample means, the test statistic, the degrees of freedom, and the p-value.</p>
+</div></section><section><h3>Pooled Proportions</h3>
+<div align="left"><p>(Start Day 26) When performing a <dfn class="terminology">hypothesis test</dfn>, the P-value and/or the critical values for the test statistic are based on the sampling distribution <em class="emphasis">assuming</em> the null hypothesis is true. If we are comparing proportions from two independent groups with <span class="process-math">\(H_0: p_1 = p_2\text{,}\)</span> then we should generate the standard error <em class="emphasis">assuming</em> that there is a single proportion <span class="process-math">\(p\)</span> for both groups.<ul class="disc" id="ch10-two-population-inference-9-2-6">
+<li><p>Confidence interval considers separate proportions: <span class="process-math">\(\hat p_1 = \frac{x_1}{n_1}\)</span> and <span class="process-math">\(\hat p_2 = \frac{x_2}{n_2}\)</span><div class="displaymath process-math" id="ch10-two-population-inference-9-2-6-1-1-3">
+\begin{equation*}
+se = \sqrt{\frac{\hat p_1(1- \hat p_1)}{n_1} + \frac{\hat p_2(1- \hat p_2)}{n_2}}
+\end{equation*}
+</div></p></li>
+<li><p>Hypothesis test considers pooled proportion when estimating the standard error: <span class="process-math">\(\hat p = \frac{x_1 + x_2}{n_1 + n_2}\)</span><div class="displaymath process-math" id="ch10-two-population-inference-9-2-6-2-1-2">
+\begin{equation*}
+se_0 = \sqrt{\frac{\hat p(1-\hat p)}{n_1} + \frac{\hat p(1-\hat p)}{n_2}} = \sqrt{\hat p(1- \hat p)\Big(\frac{1}{n_1} + \frac{1}{n_2}\Big)}
+\end{equation*}
+</div></p></li>
+</ul></p></div></section><section><h3>Analyzing Dependent Samples (10.4)</h3>
+<div align="left">
+<p>Our previous work looked at <dfn class="terminology">independent</dfn> observations from two groups. The observations could be <dfn class="terminology">dependent</dfn> if observations are <dfn class="terminology">paired</dfn>, meaning that the observation for the first group is linked to a corresponding observation for the second group.<ul class="disc" id="ch10-two-population-inference-10-2-4">
+<li><p>same individual, measurements for each of two different treatments or before/after treatment</p></li>
+<li><p>paired individuals (e.g., partners), measurement for each individual</p></li>
+</ul></p>
+<p>Having dependent samples changes the sampling distribution so we need slightly different methods. R has an optional argument to indicate that the two groups are paired when doing tests.</p>
+</div></section><section><h3>Paired Differences: Comparing Means with Dependent Samples</h3>
+<div align="left">
+<p>For <em class="emphasis">each pair</em>, there will be two observations <span class="process-math">\(x_1\)</span> and <span class="process-math">\(x_2\text{.}\)</span> We will <em class="emphasis">generate</em> a computed third quantity <span class="process-math">\(d = x_1 - x_2\text{.}\)</span><div class="displaymath process-math" id="ch10-two-population-inference-11-2-6">
+\begin{align*}
+\mu_d \amp = \mu_{x_1} - \mu_{x_2} 
+\end{align*}
+</div></p>
+<p>Because of the dependence, we do not have a simple formula for the standard deviation of <span class="process-math">\(d\)</span> even if we know the standard deviations for <span class="process-math">\(x_1\)</span> and <span class="process-math">\(x_2\text{.}\)</span> Instead, we treat this new variable <span class="process-math">\(d\)</span> as a one-sample population for which we can create confidence intervals or perform hypothesis tests.</p>
+</div></section><section><h3>Comparison of Approaches</h3>
+<div align="left"><p>The textbook gives an example of the same experiment studying cell phones and driving performed once with two treatments assigned to individuals randomly, forming independent observations, and a second time with both treatments performed by each individual (Example 9 and Example 13). One treatment was to listen to the radio or audio books while driving and then test reaction times. The second treatment was to have a phone conversation while driving and test the same reaction times. The question: “Does using the cell phone slow down reaction rate?”<ul class="disc" id="ch10-two-population-inference-12-2-2">
+<li><p>Data for Independent Observations: <a class="external" href="https://img1.wsimg.com/blobby/go/bbca5dba-4947-4587-b40a-db346c01b1b3/downloads/CellPhoneReactionTime_wideformat.csv?ver=1772777984156" target="_blank">Cell Phone Reaction Times</a></p></li>
+<li><p>Data for Paired Observations: <a class="external" href="https://img1.wsimg.com/blobby/go/bbca5dba-4947-4587-b40a-db346c01b1b3/downloads/PairedReactionTime_wide.csv?ver=1772777984156" target="_blank">Paired Reaction Times</a></p></li>
+</ul></p></div></section><section><h3>Proportions with Dependent Samples</h3>
+<div align="left">
+<p>On a survey, the same individuals might be asked to respond to two different binary outcome questions. Because the two questions are being answered by the same individuals, the results are inherently dependent. (The independent analogue would be to randomly decide which individuals are asked only one of the questions each.) This is very common because we actually want to know the associations between different questions for individuals. Measuring dependent data is necessary to do this.</p>
+<p>Suppose a survey asked individuals, “Do you believe in heaven?” and separately “Do you believe in hell?” We would expect an association between these beliefs. (Why?) We might be interested in using survey results to say something about a question, “Is the proportion of the population that believes in heaven larger than the proportion that believes in hell?”</p>
+<div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b0 r0 l0 t0 lines">Believe in Heaven</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Believe in Hell = Yes</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Believe in Hell = No</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Total</th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Yes</td>
+<td class="l m b0 r0 l0 t0 lines">955</td>
+<td class="l m b0 r0 l0 t0 lines">162</td>
+<td class="l m b0 r0 l0 t0 lines">1117</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">No</td>
+<td class="l m b0 r0 l0 t0 lines">9</td>
+<td class="l m b0 r0 l0 t0 lines">188</td>
+<td class="l m b0 r0 l0 t0 lines">197</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Total</td>
+<td class="l m b0 r0 l0 t0 lines">964</td>
+<td class="l m b0 r0 l0 t0 lines">350</td>
+<td class="l m b0 r0 l0 t0 lines">1314</td>
+</tr>
+</table></div>
+</div></section><section><h3>McNemar’s Test Comparing Proportions</h3>
+<div align="left">
+<p>Consider a contingency table (frequencies or counts) showing the paired relationships of two binary choices<div class="displaymath process-math" id="ch10-two-population-inference-14-2-1">
+\begin{equation*}
+\begin{matrix} 
+&amp; X_2=\mathrm{yes} &amp; X_2=\mathrm{no} \\
+X_1=\mathrm{yes} &amp; a &amp; b \\
+X_1=\mathrm{no} &amp; c &amp; d 
+\end{matrix}
+\end{equation*}
+</div>A method proposed by Quinn McNemar in 1947 allows us to find a confidence interval for <span class="process-math">\(p_1-p_2\)</span> and complete a hypothesis test for <span class="process-math">\(H_0: p_1 = p_2\text{.}\)</span> The formulas are too complicated to present.</p>
+<p>R implements this using a command <code class="code-inline tex2jax_ignore">mcnemarExactDP</code> (exact difference in proportion) from a library <code class="code-inline tex2jax_ignore">exact2x2</code>. There are the usual optional arguments <code class="code-inline tex2jax_ignore">alternative</code> and <code class="code-inline tex2jax_ignore">conf.level</code>. <div class="code-box"><pre class="program"><code class="language-none">library(exact2x2)
+mcnemarExactDP(x=b, m=b+c, n=a+b+c+d)
+</code></pre></div></p>
+</div></section></section><section><section><h1>Chapter 11: Categorical Data Analysis</h1></section><section><h3>Key Ideas</h3>
+<div align="left">
+<p>We will learn about following key ideas:</p>
+<ul class="disc" id="ch11-categorical-analysis-2-3">
+<li><p>Independence and Dependence and Associations</p></li>
+<li><p>Generalizing Binomial to More than 2 Categories</p></li>
+<li><p>Chi-Square distribution and test</p></li>
+</ul>
+</div></section><section><h3>Categorical Association</h3>
+<div align="left">
+<p>Suppose that <span class="process-math">\(X_1\)</span> and <span class="process-math">\(X_2\)</span> are categorical variables (not necessarily binary). In principles, <span class="process-math">\(X_1\)</span> might have <span class="process-math">\(k_1\)</span> choices and <span class="process-math">\(X_2\)</span> might have <span class="process-math">\(k_2\)</span> choices.</p>
+<p>Recall that two variables have an <dfn class="terminology">association</dfn> if knowing the value of one variable changes the distribution of the other variable. In other words, <span class="process-math">\(X_1\)</span> and <span class="process-math">\(X_2\)</span> have an association is <em class="emphasis">equivalent to saying</em> <span class="process-math">\(X_1\)</span> and <span class="process-math">\(X_2\)</span> are <dfn class="terminology">dependent</dfn>.</p>
+<p>We are often interested in showing there is an association, so the hypothesis test becomes<div class="displaymath process-math" id="ch11-categorical-analysis-3-4-1">
+\begin{align*}
+H_0: &amp; \quad \hbox{$X_1$ and $X_2$ are independent} \\
+H_A: &amp; \quad \hbox{$X_1$ and $X_2$ have an association} 
+\end{align*}
+</div></p>
+<p>Sample frequencies will be presented as contingency tables. We have visualized these ideas previously by looking at side-by-side bar graphs or stacked bar graphs.</p>
+</div></section><section><h3>Expected Contingency Table</h3>
+<div align="left">
+<p>Recall that events <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> are <dfn class="terminology">independent</dfn> means that <span class="process-math">\(P(A \cap B) = P(A) \cdot P(B)\text{.}\)</span> Under the null hypothesis of independence between the categorical variables, the probability of any given cell in row <span class="process-math">\(r\)</span> and column <span class="process-math">\(c\)</span> can be found:<div class="displaymath process-math" id="ch11-categorical-analysis-4-2-7">
+\begin{equation*}
+P(X_1 = r, X_2 = c) = P(X_1 = r) \cdot P(X_2 = c),
+\end{equation*}
+</div>which would be multiplying together the <dfn class="terminology">marginal probabilities</dfn>.</p>
+<p>For every cell in the contingency table, we will compute an <dfn class="terminology">expected count</dfn>. Let <span class="process-math">\(N\)</span> be the <dfn class="terminology">total sample size</dfn>.<div class="displaymath process-math" id="ch11-categorical-analysis-4-3-4">
+\begin{align*}
+\hbox{Expected Cell Count} &amp; = \Big(\frac{(\hbox{Row Total})}{N}\Big) \cdot \Big(\frac{(\hbox{Column Total})}{N}\Big) \cdot N \\
+&amp; = \frac{(\hbox{Row Total})(\hbox{Column Total})}{N} 
+\end{align*}
+</div>The resulting table will have the same row sums and column sums as the original data, but the frequencies will be such that proportions exactly satisfy the independence assumption.</p>
+<p>We will want to see if the actual contingency table is extremely different than the expected table if we are going to reject the null hypothesis.</p>
+</div></section><section><h3>GSS Income and Happiness (1)</h3>
+<div align="left"><p>The textbook discusses an example from the General Social Survey, looking at whether Happiness and Income Level are associated. <div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b0 r0 l0 t0 lines">Income</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Not Too Happy</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Pretty Happy</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Very Happy</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Total</th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Above Average</td>
+<td class="l m b0 r0 l0 t0 lines">29</td>
+<td class="l m b0 r0 l0 t0 lines">178</td>
+<td class="l m b0 r0 l0 t0 lines">135</td>
+<td class="l m b0 r0 l0 t0 lines">342 (19.7%)</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Average</td>
+<td class="l m b0 r0 l0 t0 lines">83</td>
+<td class="l m b0 r0 l0 t0 lines">494</td>
+<td class="l m b0 r0 l0 t0 lines">277</td>
+<td class="l m b0 r0 l0 t0 lines">854 (49.3%)</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Below Average</td>
+<td class="l m b0 r0 l0 t0 lines">104</td>
+<td class="l m b0 r0 l0 t0 lines">314</td>
+<td class="l m b0 r0 l0 t0 lines">119</td>
+<td class="l m b0 r0 l0 t0 lines">537 (31.0%)</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Total</td>
+<td class="l m b0 r0 l0 t0 lines">216 (12.5%)</td>
+<td class="l m b0 r0 l0 t0 lines">987 (56.9%)</td>
+<td class="l m b0 r0 l0 t0 lines">531 (30.6%)</td>
+<td class="l m b0 r0 l0 t0 lines">1733</td>
+</tr>
+</table></div></p></div></section><section><h3>GSS Income and Happiness (2)</h3>
+<div align="left">
+<div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b0 r0 l0 t0 lines">Income</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Not Too Happy</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Pretty Happy</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Very Happy</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">Total</th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Above Average</td>
+<td class="l m b0 r0 l0 t0 lines">29 (42.6)</td>
+<td class="l m b0 r0 l0 t0 lines">178 (194.6)</td>
+<td class="l m b0 r0 l0 t0 lines">135 (104.8)</td>
+<td class="l m b0 r0 l0 t0 lines">342</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Average</td>
+<td class="l m b0 r0 l0 t0 lines">83 (106.4)</td>
+<td class="l m b0 r0 l0 t0 lines">494 (485.9)</td>
+<td class="l m b0 r0 l0 t0 lines">277 (261.7)</td>
+<td class="l m b0 r0 l0 t0 lines">854</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Below Average</td>
+<td class="l m b0 r0 l0 t0 lines">104 (66.9)</td>
+<td class="l m b0 r0 l0 t0 lines">314 (305.5)</td>
+<td class="l m b0 r0 l0 t0 lines">119 (164.5)</td>
+<td class="l m b0 r0 l0 t0 lines">537</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Total</td>
+<td class="l m b0 r0 l0 t0 lines">216 (12.5%)</td>
+<td class="l m b0 r0 l0 t0 lines">987 (56.9%)</td>
+<td class="l m b0 r0 l0 t0 lines">531 (30.6%)</td>
+<td class="l m b0 r0 l0 t0 lines">1733</td>
+</tr>
+</table></div>
+<p>In 1900, Karl Pearson introduced the <span class="process-math">\(\chi^2\)</span> (chi-squared) statistic, the oldest statistic in use today.<div class="displaymath process-math" id="ch11-categorical-analysis-6-3-2">
+\begin{equation*}
+\chi^2 = \sum \frac{(\hbox{observed count} - \hbox{expected count})^2}{\hbox{expected count}}
+\end{equation*}
+</div>The distribution for <span class="process-math">\(\chi^2\)</span> also has <dfn class="terminology">degrees of freedom</dfn> calculated by<div class="displaymath process-math" id="ch11-categorical-analysis-6-3-5">
+\begin{equation*}
+d.f. = (k_1-1)(k_2-1)
+\end{equation*}
+</div>representing how many cells are free to choose to get the same row and column sums.</p>
+</div></section><section><h3>Sampling Distribution of Chi-Squared</h3>
+<div align="left">
+<p>The <span class="process-math">\(\chi^2\)</span> statistic follows a chi-squared distribution. The value is always non-negative and the distribution is unimodal and skewed to the right. The degrees of freedom acts as a shape parameter. The expected value of <span class="process-math">\(\chi^2\)</span> is exactly the value of the degrees of freedom:<div class="displaymath process-math" id="ch11-categorical-analysis-7-2-3">
+\begin{equation*}
+\mu_{\chi^2} = df
+\end{equation*}
+</div>For our tests, evidence corresponds to large values <span class="process-math">\(\chi^2\text{,}\)</span> so we will always use the upper-tail for calculating P-values.</p>
+<div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/ch11-categorical-analysis-7-3.svg" role="img" class="contained" alt="graph of the chi-squared density, showing a shaded region for the right tail representing a P-value."></div>
 </div></section></section>
 </div>
 </div></body>
