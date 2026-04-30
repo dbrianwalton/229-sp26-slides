@@ -205,4 +205,74 @@
       It is computationally more expensive and harder to describe, and so it is not the default choice.
     </p>
   </slide>
+
+  <slide>
+    <title>Multinomial Distribution</title>
+    
+    <p>
+      In addition to be able to test two categorical variables for independence,
+      the chi-squared test can also be used for a single categorical variable (or discrete quantitative)
+      to test for a specific set of probabilities for each category (or value).
+      This generalizes the binary choice that was present used for the binomial distribution and is referred to as the <term>multinomial</term> distribution.
+    </p>
+    <p>
+      Suppose that for each subject, there is a categorical (or finite discrete) random variable with <m>k</m> possible values.
+      Each of the categories has an associated population proportion <m>p_1, p_2, \ldots, p_k</m>.
+      Because they are probabilities, they must add to 1: 
+      <md>
+        \sum p_i = p_1 + p_2 + \cdots + p_k = 1
+      </md>
+      In a random sample of <m>n</m> subjects, the <term>frequency</term> of category <m>i</m> is a random variable <m>X_i</m>.
+      The expected value of <m>X_i</m>, or <term>expected count</term>, is simply
+      <md>
+        \mu_i = n \cdot p_i.
+      </md>
+      The multinomial distribution describes the <term>joint distribution</term> of <m>(X_1, X_2, \ldots, X_k)</m> as a collection.
+    </p>
+  </slide>
+
+  <slide>
+    <title>Chi-Squared as Goodness of Fit</title>
+    
+    <p>
+      With actual counts <m>X_i</m> and expected counts <m>\mu_i = n p_i</m>, we can compute the chi-squared test statistic in the same way that we did for contingency tables:
+      <md>
+        \chi^2 = \sum \frac{(\hbox{Observed}-\hbox{Expected})^2}{\hbox{Expected}} = \sum \frac{(X_i - \mu_i)^2}{\mu_i}
+      </md>
+      The degrees of freedom is equal to the number of cells predicted <m>k</m> minus the number of constraints <m>1</m> (<m>\sum X_i = n</m>).
+      In this case, we have <m>df = k-1</m>.
+    </p>
+    <p>
+      The <term>assumptions</term> for our test are that the expected count in each category is at least 5.
+      Otherwise, the <m>\chi^2</m> distribution is not a good approximation.
+      The <term>hypothesis test</term> is for a <term>null hypothesis</term> that <em>all</em> of the population proportions are equal to some specific values.
+      The <term>alternative hypothesis</term> is that <em>at least one</em> of the population proportions does not match the proposed values.
+      The P-value is calculated using the <em>right-tail</em> cumulative probability beyond the test statistic value.
+    </p>
+  </slide>
+
+  <slide>
+    <title>Pass the Pigs Experiment</title>
+    
+    <image source="images/ch-11-pass-the-pigs.jpg" width="50%">
+      <shortdescription>photo showing different configurations and scoring rules for Pass the Pigs based on how rubber pigs land when tossed like dice</shortdescription>
+    </image>
+    <url href="https://forms.gle/UxA8ksN1Dn3Fz6a77"/>
+  </slide>
+
+  <slide>
+    <title>Mendelian Genetics</title>
+    
+    <p>
+      Example 6: Gregor Mendel crossed different pure strains of pea plants (yellow and green), where yellow is the dominant trait.
+      If color is determined by a single gene, then Mendelian genetics predicts that 75% of offspring will be yellow and 25% will be green.
+    </p>
+    <p>
+      An experiment had 8,023 hybrid seeds. When the seeds grew, there were 6,022 yellow plants and 2,001 green plants.
+      Is this consistent with Mendel's theory?
+    </p>
+    <p>
+      Note: Since there are two outcomes, this can be analyzed using both a proportion test and a chi-square test.
+    </p>
+  </slide>
 </section>
