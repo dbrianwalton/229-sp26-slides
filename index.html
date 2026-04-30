@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2026-04-27T21:20:25Z       *-->
+<!--*       on 2026-04-30T16:23:23Z       *-->
 <!--*   A recent stable commit (2022-07-01):   *-->
 <!--* 6c761d3dba23af92cba35001c852aac04ae99a5f *-->
 <!--*                                          *-->
@@ -39,7 +39,7 @@
 <tr><td align="center" style="border-bottom: 0px;">James Madison University</td></tr>
 <tr><td align="center"></td></tr>
 </table>
-<h4><div class="date">as of April 27, 2026</div></h4></section></section><section><section><h1>Introduction to R, RStudio, Quarto</h1></section><section><h3>Working with R</h3>
+<h4><div class="date">as of April 30, 2026</div></h4></section></section><section><section><h1>Introduction to R, RStudio, Quarto</h1></section><section><h3>Working with R</h3>
 <div align="left"><ul class="disc" id="Rstudio_introduction-2-2">
 <li><p>Scripting/Programming Language: R</p></li>
 <li><p>Data Analysis Application: RStudio</p></li>
@@ -2755,6 +2755,41 @@ d.f. = (k_1-1)(k_2-1)
 \end{equation*}
 </div>For our tests, evidence corresponds to large values <span class="process-math">\(\chi^2\text{,}\)</span> so we will always use the upper-tail for calculating P-values.</p>
 <div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/ch11-categorical-analysis-7-3.svg" role="img" class="contained" alt="graph of the chi-squared density, showing a shaded region for the right tail representing a P-value."></div>
+</div></section><section><h3>In Practice: Use Computation</h3>
+<div align="left"><p>R will calculate the chi-squared test using the command <code class="code-inline tex2jax_ignore">chisq.test()</code>. Pass in as the argument the contingency table. The test will report the test statistic, the number of degrees of freedom, and the P-value. There is no relevant confidence interval as this hypothesis test is not about a parameter.</p></div></section><section><h3>Chi-Squared Assumptions</h3>
+<div align="left"><p>Every hypothesis test is associated with key assumptions about the data that the practitioner must verify. For the chi-squared test of independence, we have the following:<ul class="disc" id="ch11-categorical-analysis-9-2-1">
+<li><p>Two categorical variables.</p></li>
+<li><p>Observations were randomized, so that the observations are representative of the population</p></li>
+<li><p>Expected count in every cell is at least 5.</p></li>
+</ul>If the expected count in a cell is smaller than 5, then the distribution is not appropriate. In that case, there is an exact test that does better called Fisher’s exact test (<code class="code-inline tex2jax_ignore">fisher.test</code>). It is computationally more expensive and harder to describe, and so it is not the default choice.</p></div></section><section><h3>Multinomial Distribution</h3>
+<div align="left">
+<p>In addition to be able to test two categorical variables for independence, the chi-squared test can also be used for a single categorical variable (or discrete quantitative) to test for a specific set of probabilities for each category (or value). This generalizes the binary choice that was present used for the binomial distribution and is referred to as the <dfn class="terminology">multinomial</dfn> distribution.</p>
+<p>Suppose that for each subject, there is a categorical (or finite discrete) random variable with <span class="process-math">\(k\)</span> possible values. Each of the categories has an associated population proportion <span class="process-math">\(p_1, p_2, \ldots, p_k\text{.}\)</span> Because they are probabilities, they must add to 1:<div class="displaymath process-math" id="ch11-categorical-analysis-10-3-3">
+\begin{equation*}
+\sum p_i = p_1 + p_2 + \cdots + p_k = 1
+\end{equation*}
+</div>In a random sample of <span class="process-math">\(n\)</span> subjects, the <dfn class="terminology">frequency</dfn> of category <span class="process-math">\(i\)</span> is a random variable <span class="process-math">\(X_i\text{.}\)</span> The expected value of <span class="process-math">\(X_i\text{,}\)</span> or <dfn class="terminology">expected count</dfn>, is simply<div class="displaymath process-math" id="ch11-categorical-analysis-10-3-10">
+\begin{equation*}
+\mu_i = n \cdot p_i.
+\end{equation*}
+</div>The multinomial distribution describes the <dfn class="terminology">joint distribution</dfn> of <span class="process-math">\((X_1, X_2, \ldots, X_k)\)</span> as a collection.</p>
+</div></section><section><h3>Chi-Squared as Goodness of Fit</h3>
+<div align="left">
+<p>With actual counts <span class="process-math">\(X_i\)</span> and expected counts <span class="process-math">\(\mu_i = n p_i\text{,}\)</span> we can compute the chi-squared test statistic in the same way that we did for contingency tables:<div class="displaymath process-math" id="ch11-categorical-analysis-11-2-3">
+\begin{equation*}
+\chi^2 = \sum \frac{(\hbox{Observed}-\hbox{Expected})^2}{\hbox{Expected}} = \sum \frac{(X_i - \mu_i)^2}{\mu_i}
+\end{equation*}
+</div>The degrees of freedom is equal to the number of cells predicted <span class="process-math">\(k\)</span> minus the number of constraints <span class="process-math">\(1\)</span> (<span class="process-math">\(\sum X_i = n\)</span>). In this case, we have <span class="process-math">\(df = k-1\text{.}\)</span></p>
+<p>The <dfn class="terminology">assumptions</dfn> for our test are that the expected count in each category is at least 5. Otherwise, the <span class="process-math">\(\chi^2\)</span> distribution is not a good approximation. The <dfn class="terminology">hypothesis test</dfn> is for a <dfn class="terminology">null hypothesis</dfn> that <em class="emphasis">all</em> of the population proportions are equal to some specific values. The <dfn class="terminology">alternative hypothesis</dfn> is that <em class="emphasis">at least one</em> of the population proportions does not match the proposed values. The P-value is calculated using the <em class="emphasis">right-tail</em> cumulative probability beyond the test statistic value.</p>
+</div></section><section><h3>Pass the Pigs Experiment</h3>
+<div align="left">
+<div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/images/ch-11-pass-the-pigs.jpg" class="contained" alt="photo showing different configurations and scoring rules for Pass the Pigs based on how rubber pigs land when tossed like dice"></div>
+<a class="external" href="https://forms.gle/UxA8ksN1Dn3Fz6a77" target="_blank"><code class="code-inline tex2jax_ignore">https://forms.gle/UxA8ksN1Dn3Fz6a77</code></a>
+</div></section><section><h3>Mendelian Genetics</h3>
+<div align="left">
+<p>Example 6: Gregor Mendel crossed different pure strains of pea plants (yellow and green), where yellow is the dominant trait. If color is determined by a single gene, then Mendelian genetics predicts that 75% of offspring will be yellow and 25% will be green.</p>
+<p>An experiment had 8,023 hybrid seeds. When the seeds grew, there were 6,022 yellow plants and 2,001 green plants. Is this consistent with Mendel’s theory?</p>
+<p>Note: Since there are two outcomes, this can be analyzed using both a proportion test and a chi-square test.</p>
 </div></section></section>
 </div>
 </div></body>
